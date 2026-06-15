@@ -1,0 +1,36 @@
+{
+  "name": "project-coding-profiles",
+  "version": "0.1.0",
+  "description": "Per-project coding profiles: declare a single project's encoding policy (GBK/UTF-8), overall coding mode, and interface scaffolding, enforced via skills + hooks scoped to that project. Complements team-standards (the team-wide standard). First profile: Yoooni (src=GBK / WebRoot=UTF-8 mixed encoding).",
+  "author": {
+    "name": "Zhang Kai",
+    "email": "ping.yang@kpay-group.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "coding-standards",
+    "project-profile",
+    "encoding",
+    "gbk",
+    "utf-8"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Project Coding Profiles",
+    "shortDescription": "Per-project encoding & coding conventions, enforced by skill + hook.",
+    "longDescription": "Carries a coding profile per project. The first capability is an encoding guard: it stops AI editors from corrupting legacy GBK files by re-saving them as UTF-8. Works across Claude Code, Codex (PreToolUse hook) and Cursor (rule guidance).",
+    "developerName": "Zhang Kai",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "这个项目用的是 GBK，帮我改这个文件但别把中文写坏。",
+      "探测一下这个文件的编码再改。",
+      "给一个新项目登记编码画像。"
+    ],
+    "brandColor": "#0EA5E9"
+  }
+}

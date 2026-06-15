@@ -1,0 +1,108 @@
+# project-coding-profiles
+
+**项目级编码画像**插件——为单个项目承载专属编码约定，按项目触发 skill + hook。适配 **Claude Code / Codex / Cursor**。
+
+> 与 `team-standards`（团队通用标准）、`yoooni-daily-plugin`（日常作业）分工：本插件只管**项目专属的编码约定**。
+
+当前能力：**编码守护**——防止 AI 编辑工具把存量 **GBK** 文件以 UTF-8 写坏（中文乱码）。首例项目 **Yoooni**（`src`=GBK / `WebRoot`=UTF-8 混合编码）。后续迭代追加「项目整体编码模式」与「接口脚手架」（profile schema 已预留 `codingMode` / `scaffold`）。
+
+## 为什么需要
+
+AI 编辑工具（Claude Code 的 Write/Edit、Codex、Cursor）默认以 **UTF-8（无 BOM）** 写盘。老项目大量源码是 GBK，一旦把含中文的内容写进 GBK 文件，磁盘字节变 UTF-8，被编译器/应用按 GBK 读时即乱码。这是 vibe coding 在这类项目里最常见的「改完中文全乱」根因。
+
+> 纯 ASCII 内容无风险（UTF-8/GBK 字节一致）；守护只盯写入中文等非 ASCII 的情况。
+
+## 三工具适配：一份规则，三种投递
+
+| 工具 | 机械兜底（hook） | 规则指引 |
+|---|---|---|
+| **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js`（PreToolUse 自动） | `skills/encoding-guard/SKILL.md` |
+| **Codex** | `.codex-plugin/plugin.json` 引用同一份 hooks.json | `AGENTS.md` 入口 |
+| **Cursor** | ❌ 无等价 PreToolUse hook | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` |
+
+hook 是「能用时的加固」；Cursor 没有 hook，靠 skill / 规则的流程自洽守护。
+
+## 安装
+
+### Claude Code
+
+```
+/plugin marketplace add <本仓库地址>
+/plugin install project-coding-profiles@project-coding-profiles
+/reload-plugins
+```
+
+### Codex
+
+按 Codex 插件机制装入本仓库（读取 `.codex-plugin/plugin.json` + `AGENTS.md`）。
+
+### Cursor
+
+Cursor 无插件市场。两种接法：
+- 把 `.cursor/rules/encoding-guard.mdc` 复制到**目标项目**的 `.cursor/rules/`；或
+- 把 `AGENTS.md` 放到目标项目根（Cursor 会读）。
+- 编码探测/转码脚本 `skills/encoding-guard/detect-encoding.ps1` 可直接在终端调用。
+
+## 用法
+
+改一个疑似 GBK 项目里的文件时：
+
+```powershell
+# 1) 探测编码
+powershell -ExecutionPolicy Bypass -File skills/encoding-guard/detect-encoding.ps1 -Action detect -Path "src\Foo.java"
+
+# 2) 若是 gbk 且要写中文：转 UTF-8 → 编辑 → 转回 GBK
+powershell ... detect-encoding.ps1 -Action convert -Path "src\Foo.java" -From gbk -To utf-8
+#    （用 AI 工具正常编辑）
+powershell ... detect-encoding.ps1 -Action convert -Path "src\Foo.java" -From utf-8 -To gbk
+
+# 3) 复核
+powershell ... detect-encoding.ps1 -Action detect -Path "src\Foo.java"   # 应为 gbk
+```
+
+未触碰的行 GBK→UTF-8→GBK 往返字节不变，`git diff` 只剩真实改动。**切勿为统一而批量转码**（丢数据 + 污染 git）。
+
+## hook 开关
+
+| 环境变量 | 效果 |
+|---|---|
+| `PCP_ENCODING_HOOK=warn` | 默认。提示但不阻断（exit 0 + stderr） |
+| `PCP_ENCODING_HOOK=block` | 硬阻断（exit 2），回灌提示给 AI |
+| `PCP_ENCODING_HOOK=off` | 完全关闭 |
+
+## 登记新项目
+
+在 `profiles/<name>/profile.json` 加一份画像：
+
+```jsonc
+{
+  "name": "<name>",
+  "displayName": "<可读名>",
+  "rootMarkers": ["该项目独有的相对路径文件，零侵入识别项目根"],
+  "encoding": {
+    "default": "gbk",
+    "rules": [
+      { "glob": "src/**", "encoding": "gbk" },
+      { "glob": "WebRoot/**", "encoding": "utf-8" }
+    ],
+    "exceptions": [{ "path": "src/特例/X.java", "encoding": "utf-8" }],
+    "notes": ["编码备注"]
+  }
+}
+```
+
+详见 [skills/encoding-guard/SKILL.md](skills/encoding-guard/SKILL.md)。
+
+## 目录结构
+
+```
+project-coding-profiles/
+├── .claude-plugin/{plugin.json, marketplace.json}
+├── .codex-plugin/plugin.json
+├── .cursor/rules/encoding-guard.mdc
+├── hooks/{hooks.json, check-file-encoding.js, package.json}
+├── profiles/yoooni/profile.json
+├── skills/encoding-guard/{SKILL.md, detect-encoding.ps1}
+├── docs/design/encoding-guard-plugin.md
+├── AGENTS.md / CLAUDE.md / README.md
+```

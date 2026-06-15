@@ -1,0 +1,39 @@
+---
+description: 项目级编码守护——在 GBK 编码的项目里别把中文文件以 UTF-8 写坏。Cursor 无 PreToolUse hook，靠本规则手动守护。
+globs: ["**/*.java", "**/*.jsp", "**/*.xml", "**/*.properties", "**/*.html", "**/*.js", "**/*.css"]
+alwaysApply: false
+---
+
+# 编码守护（Cursor 规则）
+
+> 本规则是 `skills/encoding-guard/SKILL.md` 在 Cursor 下的投影。Cursor 没有 Claude Code / Codex 的 PreToolUse hook，**完全靠你（AI）按本规则自觉守护编码**。
+> 仅适用于本插件登记了编码画像的项目（见 `profiles/<project>/profile.json`，首例 Yoooni）。
+
+## 核心风险
+
+AI 编辑工具默认以 **UTF-8（无 BOM）** 写盘。本类项目大量源码是 **GBK**（如 Yoooni 的 `src/`）。把含中文的内容写进存量 GBK 文件后，磁盘字节变 UTF-8，被编译器/应用按 GBK 读时**乱码**。
+**纯 ASCII 内容无风险**（UTF-8/GBK 字节一致）；只有写入中文等非 ASCII 才会坏。
+
+## 改文件前必做
+
+1. **先探测编码**（PowerShell）：
+   ```
+   powershell -ExecutionPolicy Bypass -File <plugin>/skills/encoding-guard/detect-encoding.ps1 -Action detect -Path "src\Foo.java"
+   ```
+2. 结果 `ascii` / `utf-8` / `utf-8-bom` → 正常改。
+3. 结果 `gbk` 且本次涉及中文 → 走「安全回环」：
+   ```
+   # 转 UTF-8（读写中文正确）
+   ... -Action convert -Path "src\Foo.java" -From gbk -To utf-8
+   # 用 Cursor 正常编辑
+   # 改完转回 GBK（未改的行字节原样还原，git diff 只剩真实改动）
+   ... -Action convert -Path "src\Foo.java" -From utf-8 -To gbk
+   # 复核
+   ... -Action detect -Path "src\Foo.java"   # 应为 gbk
+   ```
+4. 新建文件若按 profile 期望是 GBK（如 `src/**`）→ 创建后 `convert -From utf-8 -To gbk`。
+
+## 红线
+
+- **不要为统一而批量转码**：丢数据 + 污染 git diff。改哪个文件只保证哪个文件改完仍是原编码。
+- 整库统一编码是团队决策，不在日常编辑里顺手做。

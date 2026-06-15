@@ -1,0 +1,17 @@
+{
+  "_comment": "PreToolUse hook（跨平台 Node 脚本，无第三方依赖）：check-file-encoding 在 Write/Edit/MultiEdit 写文本文件前，按项目编码画像（profiles/<project>/profile.json，rootMarkers 命中即生效）检查本次写入是否会破坏文件编码——典型场景是把存量 GBK 文件以 UTF-8 重存导致中文乱码。仅在已登记 profile 的项目内触发；纯 ASCII 内容直接放行。默认 warn 模式（exit 0 + stderr 提示）；PCP_ENCODING_HOOK=block 升级硬阻断、=off 关闭。Claude Code 直接读本文件；Codex 通过 .codex-plugin/plugin.json 的 hooks 指针引用本文件。Cursor 无等价 PreToolUse hook，依赖 AGENTS.md / .cursor/rules 的规则指引（见 skills/encoding-guard）。",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/check-file-encoding.js\"",
+            "async": false
+          }
+        ]
+      }
+    ]
+  }
+}

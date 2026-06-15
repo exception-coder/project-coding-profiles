@@ -1,0 +1,34 @@
+{
+  "name": "yoooni",
+  "displayName": "Yoooni 纺织面料 ERP",
+  "description": "Spring + Struts2 + DWR + Druid 的 Java Web 老项目（JDK 1.8 / Resin4）。仓库混合编码：src 多为 GBK、WebRoot 多为 UTF-8，另有数百例外文件。vibe coding 最易踩的坑是模型/工具默认以 UTF-8 写文件，把存量 GBK 文件的中文改成乱码。",
+
+  "rootMarkers": [
+    "WebRoot/WEB-INF/web.xml",
+    "src/jdbc.properties"
+  ],
+
+  "encoding": {
+    "default": "gbk",
+    "rules": [
+      { "glob": "src/**", "encoding": "gbk" },
+      { "glob": "WebRoot/**", "encoding": "utf-8" },
+      { "glob": "**/*.properties", "encoding": "gbk" }
+    ],
+    "exceptions": [],
+    "notes": [
+      "仓库是混合编码：src 以 GBK 为主、WebRoot 以 UTF-8 为主，且有数百例外（同事曾用 UTF-8 存过一批文件）。",
+      "rules 只用于『新建文件』的期望编码；『存量文件』以磁盘实际编码为准（hook 会探测实际编码，不靠 rules 猜测，从而不会对混编例外误报）。",
+      "存量逐文件编码真值以 IDEA 的 .idea/encodings.xml 为权威（由 yoooni-daily-plugin 的 setup-idea-config.ps1 按多数派 + 探测生成）。",
+      "红线：不要为了统一而批量转换文件编码——会丢数据并污染 git diff。改哪个文件就只保证哪个文件改完仍是它原本的编码。"
+    ]
+  },
+
+  "codingMode": {
+    "_reserved": "项目整体编码模式（分层/命名/框架约定/目录结构等），后续迭代填充，由 team-standards 通用规范叠加项目专属项。"
+  },
+
+  "scaffold": {
+    "_reserved": "基于本项目既定规范生成接口代码框架的模板（Action/Service/DAO 等），后续迭代填充。"
+  }
+}

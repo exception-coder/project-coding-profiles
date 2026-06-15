@@ -1,0 +1,12 @@
+{
+  "name": "project-coding-profiles-hooks",
+  "private": true,
+  "version": "0.1.0",
+  "description": "project-coding-profiles plugin 的 PreToolUse hook 脚本（跨平台 Node，无第三方依赖）",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
