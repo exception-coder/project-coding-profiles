@@ -1,0 +1,2996 @@
+{
+  "_comment": "项目逐文件权威编码表（集中维护，单一可信源）。解析规则：取与目标文件相对路径最长前缀匹配的 entry 的 charset；都不匹配用 default。优先级 本表 > profile.json 的 encoding.rules > default。由 hooks/import-encoding-map.js 从项目 .idea/encodings.xml 导入/刷新，之后在本仓库维护与 PR 评审。",
+  "source": "yoooni .idea/encodings.xml",
+  "importedAt": "2026-06-16",
+  "default": "gbk",
+  "entries": [
+    {
+      "path": "src",
+      "charset": "gbk"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Billapply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cancelrec.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Channel.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/ColorCardBatch.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Common.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/CrmFlowApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/CrmFlownode.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cuscancel.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cuseditlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cusinfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cuslinker.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cusprivate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Customer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/CustomerExempt.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/CustomerUpApplyLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Custoplog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Custrans.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Cusvisit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Diffdept.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Files.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Filesupload.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Inviteregister.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Lockcusquota.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Makeover.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/MallCustomer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Notereceive.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Onlinecusvisit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Param.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Partner.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Product.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Reason.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Rebate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Record.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Recyclelog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Recyclerule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/RegionView.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Repeat.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Restriction.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/SaleData.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/SalesAmountRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Scontract.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/ScontractItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/SmodelLimit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Uploadfiles.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/customer/model/maps/Warn.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/external/model/maps/EnterpriseBase.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/external/model/maps/EnterpriseToker.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/lead/model/maps/Address.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/lead/model/maps/Exhibit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/lead/model/maps/ExhibitItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/lead/model/maps/Lead.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/lead/model/maps/LeadPrivate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/tracking/model/maps/Tracking.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/visit/model/maps/VisitPlan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/visit/model/maps/VisitRetinue.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/visit/model/maps/VisitSchedule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/wecom/model/maps/AuthPlatform.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/crm/wecom/model/maps/WeComMate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercostdata.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercostdatamrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercostitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercostproduce.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercostproduceitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/Ordercostsaleadj.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/PoorCostData.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/allcost/model/maps/SaleCostData.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/action/PubcheckboxAction.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/manage/IBankAccountShopManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/manage/IPubcheckboxManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Appversion.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Arrcarlogma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Attachment.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Bank.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/BankAccount.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/BankAccountShop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Box.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Boxplace.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Carlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Carlogclean.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Carlogcleanma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Carrylog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Carrylogimage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Clotheslable.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Currency.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Custnotice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Driver.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Dyemethod.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/DyemethodPrice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Excelfile.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Express.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/ExpressAddress.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/ExpressDetail.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/FiberLossper.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Logincheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Matprice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Moprice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Mopriceitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Mopriceitemlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/MoquoteItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/MoquoteProcess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/newcarlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Newcarlogitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Newcarlogma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Newcarrylog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Newcarrylogimage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Newcarrylogitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/NewTrafficTrade.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Placeboxlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Pobatch.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Printconfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Printlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Process.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/ProcWeavefee.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Pubcheckbox.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/ReceiptAccount.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Renewbillrule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Saleproblacklist.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Salerebateoutpro.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/ScheduledTasks.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Sprow.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Stocklevels.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Stockmabox.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Store.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Storeplace.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Supaddress.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Supbank.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Suplinker.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Suppayableperiod.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Supplier.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/SupplierAssignConfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/SupplierAssignRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Supvat.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Unit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/baseinfo/model/maps/Washnotes.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/NewMdevelop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/NewMdevelopApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/NewMdevelopItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/ProductDevelopCal.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/ProductDevelopCalMete.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/ProductDevelopCalProcess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/develop/model/maps/SampleDateRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/dao/impl/BaiwangAccountConfigDao.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/dao/impl/BankTranBizRelLogDao.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/manage/impl/BaiwangAccountConfigManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/manage/impl/BankTranBizRelLogManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/manage/impl/BankTranRuleManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/match/BankTranRuleMatcher.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/BankTranRule.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/BankTranRuleAction.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/BankTranRuleCondition.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/CmbCostItemEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/CostMatching.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/CostMatchingItem.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/CostMatchingType.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/DeptMatching.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Actproductcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Actproductcostadjust.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Actualcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Agereport.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Agereportitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Agereportqtypi.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Agereportrule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Bankdaily.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/BankdailyExchange.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Bankinit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/BankTranBizRel.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/BankTranRule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CompanyInfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Cost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Costitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CreditSaleCustomer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CreditsalecustomerApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CusAccountAgeSet.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CusInfoCost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CusRebateBatchItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/CusRebateVerify.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Cvcinandout.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Deduction.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Deductionitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/DyeingQualityPenaltyDeduction.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/ForeignLedgerAdjust.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Initproductcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/InvoiceApplication.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/InvoiceSalesBill.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/InvoiceTranRel.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/OfferStatisticsBean.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Otherincome.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Otherrecsbill.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Payables.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Payablesitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayAccountStatement.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayAccountStatementItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Payadjust.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayBankTransaction.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paybill.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycancellog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PaycheckApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PaycheckApplyItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycheckapplyitembank.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycheckbatch.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PaycheckInvoice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycheckitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycheckother.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paycheckstock.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paychecksupbank.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paychecksupbanknosplit.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Paydeposits.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayDocument.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayDocumentBankInfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayDocumentBusinessType.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayDocumentRule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/PayDocumentVoucher.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Planprocess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Planprocesscolor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Prepayables.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Prepayablesitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Prereceivable.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Prereceivableitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Producedata.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Productcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Productsup.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Proplancost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Proplancostbom.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Proplancostlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Proplancostlogitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Proplancostprocess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Realproducedata.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Realproductcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Recadjust.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Reccancellog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Rececheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Rececheckitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Receiptbill.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Receivables.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Receivablesitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/ReceivablesItemMa.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/SaleBankPaylog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Saletaxratecfg.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Subject.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Transaccount.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Ulossperdeduct.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/Ulossperdeductitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/maps/YarnPriceAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/OpenapiInfoEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/PayDocumentBankInfoEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/PayDocumentBusinessTypeEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/PayDocumentEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/PayDocumentRuleEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/model/PayDocumentVoucherEntity.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/finance/utils/InvoiceCusSummaryPushScheduleUtils.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/Dingtalkmsg.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/Dingtalknode.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/Flow.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/Flowapply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/FlowBase.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/Flowcheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/Flownode.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/flow/model/maps/FlownodeBase.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/gallery/model/maps/Checkprocess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/gallery/model/maps/Checkprocessimage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/gallery/model/maps/Checkprocesstermnum.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/gallery/model/maps/Rdimages.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/gallery/model/maps/Rdimgterm.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/DyeFactoryMonthlyReport.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/DyeingAbnormalTimeliness.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/DyeingSupEvaluation.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/Manageindex.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/Manageindexvalue.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/ManageMonitorValue.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/MorderBusinessMonitor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/Okr.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/Okr2022.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/OkrCommon.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/Okrtarget.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/OrderBusinessMonitor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/PerfResult.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/PerfRule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/PerfUserConfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/PlanBusinessMonitor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/QcBusinessMonitor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/SaleBusinessMonitor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/StoreBusinessMonitor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/okr/model/maps/TqcIndexVal.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Artorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Artorderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/DockingDetail.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/DockingDetailMa.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/DockingMajor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/FactoryProdToProd.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/FactoryToSupp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mdevelop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mdevelopcomponent.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mdevelopitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mdeveloppro.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Moback.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mobackitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mobackitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mobackmrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MorderImportProgress.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderinout.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderitemmastockma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderitemprocess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderitemstatus.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MorderMaterialUseRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MorderMrpconfirm.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderpro.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Morderprocess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MorderQtyUpdateApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mordersettle.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mordersettleitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mordersettlemrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MorderShipmentInfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mordersup.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mreceive.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mreceiveitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mreceiveitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mreceivemrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MreceivemrpPercent.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mtask.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mtaskitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Mtaskmrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MtaskRela.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MtaskStopItemRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/MtaskStopRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/ProduceNobacklog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/ScmCltransferitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/WarnmtaskLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/WeavingMillOubShip.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/WeavingMillOubShipDetail.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Worder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/WorderBatchno.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/WorderBatchnoItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Worderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Worderitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/YarnArr.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/produce/model/maps/Ytrial.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/action/StandardcostProcessAction.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/dao/impl/ProbasepricelogDao.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/dao/impl/ProquotePriceDao.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/manage/impl/AbnormalProductManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/CgrankigScore.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ColorCard.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Colorprocess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Hotproduct.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/MainPro.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Matename.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Material.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/MrpStandard.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/NewProductConfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Pricelog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Proattr.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Probasepricelog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Procheckstandard.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Proclass.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Procolor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProcolorTestLevel.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProcolorViewConfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Product.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProductCategoryRele.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Productcusprice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Productcuspriceitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Proenattr.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Progbparam.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Prohalf.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Promainmrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Promcer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Promerge.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceDer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceRelease.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceReleaseitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceTemp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceTempApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceTempitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/PropriceTempitemApply.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProQueryAttr.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProquoteAddcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProquotePrice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/ProquotePricelog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Protomrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/SkuCancelSet.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/SpotproProcessLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Standardcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/StandardcostMrp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/StandardcostProcess.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/StandardcostYarn.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Supcolorcode.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/maps/Supproduceday.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/product/model/StandardcostProcess.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/manage/IYarnTrialManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/NewPoplan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/NewPoplanitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/NewPorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/NewPorderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Pback.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Pbackitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Pbackitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Pbackitemmascm.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Pbackitemscm.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Pbackscm.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Poconfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Poconfigitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Podeliver.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Podeliverma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Poplan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Poplanitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Porder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Porderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Posend.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Posenditem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/Posenditemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/purchase/model/maps/YarnTrial.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/DetectionProject.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Detindex.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Factorysell.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Outersendsample.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Phyreport.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/PhyreportSorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcbacktype.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qccheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qccheckvalue.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcdeduct.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcdeductitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcdeductitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcfactoryout.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcmainfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcorderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcorderitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcorderitemtype.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcordermalog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcperson.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/QcQueryAchievements.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcreport.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcreportimage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcreportitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/QcreportQueryApp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qctasks.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qctasksitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qctasksitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qcturncard.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Qctype.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/QualityCoord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/QualitySynQueryApp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Wqcreporitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Wqcreporitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Wqcreport.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/qc/model/maps/Wqcreportgradeitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/manage/ISorderProPriceManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/AssistantRemind.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Crockcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/CusRealSalesData.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/CusScaleLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/DiscountRemind.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/LdProgressLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/MallFailLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Norderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/OrderApprove.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Ordercontract.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Ordercontractitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Orderquote.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Orderschedulingusestype.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/RateUpdownRule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Salebate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SalederCommission.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SaleReceipt.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SaleReceiptItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SalerTarget.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Salesplan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sback.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sbackitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sbackitemdeduct.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sbackitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sdeduct.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sdeductitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sdeductitemitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sideposits.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sipricelog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sipricelogitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sipricelogma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sissue.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sissueitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sissueitem2.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sissueitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SissueitemQuery.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sodaycountitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SorderAttr.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SorderCompleteConfig.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sordercost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sordercostitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sorderitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SorderitemDirect.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sorderitemdyetrack.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sorderitemimg.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sorderitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SorderLackCargo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sordermalog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SorderProPrice.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/SorderProPriceLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sorderqcval.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Sputurnover.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Tmp_TranSale.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/sale/model/maps/Vcadvance.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/CancelStoreOutCount.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/Comprehensive.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/CusDayRebate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/EmbryoClothPlan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/EmbryoClothPlan2.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/ProduceVatAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/QcAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SaleAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SaleCosting.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SaleDailySettle.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SalesForecast.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/Salesum.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SkuAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SkuAutoRePlan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/SorderAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/Stockinout.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/StockmaCount.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/WoStockinout.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/YarnAnalysis.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/search/model/maps/YarnCountPlan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/shein/model/maps/Sheincustomer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/shein/model/maps/Sheindeliver.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/shein/model/maps/Sheinsorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/shein/model/maps/Sheinsorderupdate.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/manage/impl/PlanMachineManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/manage/IStockcheckitemcostManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/manage/IStockmaAgeManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/manage/ISupstockchecktagManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Backdatareg.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Backdataregitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Bookstockage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Bookstockageitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Cardorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Cardstock.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/ColorCardCanSam.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Custsordercancel.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Custsordercancelitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Custsordercancelma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Drawpound.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Drawpoundma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Fewbatchnoaddlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Initstock.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Machine.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/MachineRecord.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Macutsew.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Macutsewnew.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Macutsewold.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mainfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mrpstockcheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mrpstockcheckbill.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mrpstockchecktask.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mrpstockchecktasklog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mrpuse.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Mrpuseitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/PlanMachine.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/PlanMachineitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Profitloss.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Profitlossitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Profitlossitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stock.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockadjustable.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockchange.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockchangeitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockchangeitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockcheck.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockcheckitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockcheckitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockcheckscan.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockcheckscanma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockdata.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/stockmaAge.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/StockmaAgeLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockmonth.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockmonthitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockplace.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockuse.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Stockuseitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storagelog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storebookage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storebookageitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/StoreCancelLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storein.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storeinitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storeinitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storeout.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storeoutitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Storeoutitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/StoreUseCar.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Superrortrueitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Supstockchecktag.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Transfer.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Transferitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Transferitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Updateqty.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Updateqtyitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Updateqtyitemma.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/Warehouseworklog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/maps/WeavingMillStore.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/Mrpstockchecktask.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/erp/warehouse/model/StockmaAge.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/coloring/model/maps/Coloring.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/cuslink/model/maps/Cuslinker.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/lead/model/maps/LeadInfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/newmdevelop/model/maps/Newmdevelop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/orderquote/model/maps/Orderquote.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/procolor/model/maps/Procolor.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/product/model/maps/Product.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sback/model/maps/Sback.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sbackitem/model/maps/Sbackitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sdeduct/model/maps/Sdeduct.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sdeductitem/model/maps/Sdeductitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/shop/model/maps/Shop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sissue/model/maps/Sissue.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sissueitem/model/maps/SissueItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sorder/model/maps/Sorder.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/action/sorderitem/model/maps/SorderItem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/ISysBizDataOpenApiManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/ISysBuBizDataManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/ISysGroupPermissionBizDataManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/ISysMenuBizDataManage.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/strategy/BizDataPullStrategy.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/strategy/impl/SysDataScopeItemBizDataPullStrategy.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/strategy/impl/SysEmployeeBizDataPullStrategy.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/strategy/impl/SysGroupPermissionBizDataPullStrategy.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/openapi/sys/manage/strategy/impl/SysUserDataScopeBizDataPullStrategy.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/dao/IUserRoleDAO.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/dao/sysimpl/DepartmentDAO.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/Category.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/Company.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/Department.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/Shop.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Announcement.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/ApiRegistryLog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Area.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Billcost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Billcostitem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Billeditlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Billnorule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Billtype.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Category.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Company.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Controlsystem.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Cost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Department.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Dlvway.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Emp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/EmpHistory.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/ExtendCost.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Group.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/GroupRole.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/IPWhiteList.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Nation.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Notify.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Param.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Position.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Right.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/RightRule.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Role.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/RolePerfp.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/RoleRight.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/ScheckDataHand.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Shop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Shopimage.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Shopmap.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Signinlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Transport.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Transportway.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/User.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/UserGroup.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/UserRole.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/UserShop.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/UserView.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/sys/model/sql_map/Uservisitlog.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/timetask/application/model/maps/CusRemindTask.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/application/warehouse/transfermiddle/model/maps/Transfermiddle.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/BusicenUtils.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/ColorConvertUtils.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/CompareJsons.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/dingding/DingCallbackCrypto.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/DownloadUtil.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/ListUtil.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/login/UserThreadLocal.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/MapUtil.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/OpenApiHttpUtils.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/RsaUtils.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/utils/StrUtil.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/xml/CommonXml.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/com/maxtile/common/xml/TablespaceBlock.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/ibatis/ibatis-sql-map-config.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/applicationContext-common.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/applicationContext-security.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/beanUtil/applicationContext-Spring.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/customer/applicationContext-action.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/customer/applicationContext-business.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/customer/applicationContext-dao.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/erp/baseinfo/applicationContext-business.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/erp/finance/applicationContext-action.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/erp/finance/applicationContext-business.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/erp/finance/applicationContext-dao.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/erp/sale/applicationContext-business.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/mall/applicationContext-action.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/openapi/applicationContext-business.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/scm/applicationContext-action.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/sys/applicationContext-action.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/sys/applicationContext-business.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/spring/sys/applicationContext-dao.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-baseinfo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-crm.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-cust.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-files.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-finance.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-patent.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-produce.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-project.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-purchase.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-sale.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-search.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-sys.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/config/struts/struts-warehouse.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/ftp.properties",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/jdbc.properties",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/struts.properties",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/test/wsltest/annotion/ExtCacheable.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/test/wsltest/model/maps/Demo.xml",
+      "charset": "utf-8"
+    },
+    {
+      "path": "src/test/wsltest/WeComClientSmoke.java",
+      "charset": "utf-8"
+    },
+    {
+      "path": "WebRoot",
+      "charset": "utf-8"
+    },
+    {
+      "path": "WebRoot/public/js/newmod/DateTimeCalendar.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/newmod/dtree.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/newmod/itemAcc.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/newmod/lang/calendar-zh.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/newmod/menu.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/newmod/sysCatLog.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/produce/morder/devWorderWorkbenchList.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/public/js/product/product/yarnCompSearchList.js",
+      "charset": "gbk"
+    },
+    {
+      "path": "WebRoot/sys/shop/div_shoplist.jsp",
+      "charset": "gbk"
+    }
+  ]
+}

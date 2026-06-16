@@ -10,6 +10,7 @@
 
   "encoding": {
     "default": "gbk",
+    "authorityMap": "encoding-map.json",
     "rules": [
       { "glob": "src/**", "encoding": "gbk" },
       { "glob": "WebRoot/**", "encoding": "utf-8" },
@@ -18,17 +19,27 @@
     "exceptions": [],
     "notes": [
       "仓库是混合编码：src 以 GBK 为主、WebRoot 以 UTF-8 为主，且有数百例外（同事曾用 UTF-8 存过一批文件）。",
-      "rules 只用于『新建文件』的期望编码；『存量文件』以磁盘实际编码为准（hook 会探测实际编码，不靠 rules 猜测，从而不会对混编例外误报）。",
-      "存量逐文件编码真值以 IDEA 的 .idea/encodings.xml 为权威（由 yoooni-daily-plugin 的 setup-idea-config.ps1 按多数派 + 探测生成）。",
+      "逐文件权威编码真值 = 同目录 encoding-map.json（authorityMap），由 hooks/import-encoding-map.js 从项目 .idea/encodings.xml 一次性导入、之后在本仓库集中维护/评审，运行时不再依赖各人机器的 .idea 状态。解析取最长前缀匹配；优先级 encoding-map.json > rules > default。",
+      "rules 仅作为 encoding-map.json 未覆盖路径的兜底；项目新增文件后可重跑 import-encoding-map.js 刷新权威表（PR 评审差异）。",
       "红线：不要为了统一而批量转换文件编码——会丢数据并污染 git diff。改哪个文件就只保证哪个文件改完仍是它原本的编码。"
     ]
   },
 
   "codingMode": {
-    "_reserved": "项目整体编码模式（分层/命名/框架约定/目录结构等），后续迭代填充，由 team-standards 通用规范叠加项目专属项。"
+    "doc": "coding-mode.md",
+    "stack": "Spring + Struts2 + DWR + iBatis(sqlmap), JDK1.8 / Resin4",
+    "layers": ["Action extends BaseAction", "I<E>Manage / <E>Manage extends ServiceImpl<<E>Dao,<E>>", "I<E>Dao / <E>Dao extends BaseDao<<E>,Integer>", "model: <E>(PO) / vo / param / maps/<E>.xml"],
+    "packageRoot": "com.maxtile.application.<领域>.<模块>",
+    "redlines": ["com/maxtile/common 只调用不改", "com/maxtile/framework 只继承不改", "WebRoot/public 只引用不改"],
+    "wiring": ["config/spring/<领域>/<模块>/applicationContext-{action,business,dao}.xml", "config/struts/struts-<模块>.xml", "...model/maps/<E>.xml"],
+    "frontend": "WebRoot/<领域>/<模块>/<e>/ listLeft.jsp + add/show.jsp；复用 /public 公共组件；禁原生 alert/confirm/prompt",
+    "menu": "CRM_RIGHT + CRM_ROLERIGHT（数据库脚本/01系统权限与客户管理脚本.sql）"
   },
 
   "scaffold": {
-    "_reserved": "基于本项目既定规范生成接口代码框架的模板（Action/Service/DAO 等），后续迭代填充。"
+    "doc": "scaffold/new-module.md",
+    "exemplar": "src/com/maxtile/application/erp/allcost",
+    "trigger": "用户说『新增模块/新增菜单/加个XX功能』时，按 new-module.md 的占位符骨架生成纵向切片并接线 + 登记菜单",
+    "placeholders": ["<领域>", "<模块>", "<E>", "<e>", "<表名>"]
   }
 }

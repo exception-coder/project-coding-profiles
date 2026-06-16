@@ -1,0 +1,21 @@
+---
+description: 新增模块脚手架——在已登记编码画像且定义了 scaffold 的项目里，用户要新增模块/菜单/功能时，按该项目最佳实践范本生成纵向切片代码框架。Cursor 无 skill 机制，靠本规则自觉走流程。
+alwaysApply: false
+---
+
+# 新增模块脚手架（Cursor 规则）
+
+> 本规则是 `skills/module-scaffold/SKILL.md` 在 Cursor 下的投影。仅适用于本插件登记了 profile 且含 `scaffold` 的项目（首例 Yoooni）。
+
+用户说「新增一个模块 / 新增菜单 / 加个 XX 功能 / 搭个 CRUD」时：
+
+1. **读规则源（别凭记忆）**：`profiles/<project>/coding-mode.md`（分层/命名/红线/接线/前端/菜单）+ `profiles/<project>/scaffold/new-module.md`（范本 + 占位符骨架 + 生成步骤）。Yoooni 范本模块 = `erp/allcost`。
+2. **先问全参数**：`<领域>`、`<模块>`、`<E>/<e>`、`<表名>` 及字段、菜单父节点、授权角色——缺就问，别编。
+3. **按 playbook 顺序生成**（Yoooni A→E）：后端四层类 → iBatis sqlmap → Spring×3 + Struts 接线（确认被主配置 include）→ 前端列表/编辑页（复用 `/public` 公共组件）→ 菜单/权限 DDL。占位符全局替换。
+4. **编码**：`src` 下含中文的新文件按 GBK 落地，走 `skills/encoding-guard/detect-encoding.ps1` 的「转 UTF-8→编辑→转回 GBK」回环并复核；`WebRoot` 用 UTF-8。
+5. **输出「需人工确认」清单**：表字段 / 菜单父节点 / 授权角色 / 主配置 include / GBK 复核。
+
+## 红线
+
+- `com/maxtile/common`、`com/maxtile/framework`、`WebRoot/public` 只调用/继承/引用，**绝不改**。
+- 分层/命名/接线一律照范本，范本之外的写法先与用户确认；不批量转码。

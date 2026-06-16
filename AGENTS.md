@@ -19,6 +19,7 @@
 | 即将 Write/Edit 一个**已登记编码画像项目**下的源码/文本文件 | `encoding-guard` |
 | 用户说「这个项目用 GBK 不是 UTF-8」「改完中文乱码了」「文件编码不对」「vibe coding 把编码写坏了」 | `encoding-guard` |
 | 要给新项目登记编码画像 | `encoding-guard`（§6 登记流程） |
+| 用户说「新增一个模块/新增菜单/加个 XX 功能/搭个 CRUD/按最佳实践生成模块」（项目 profile 含 scaffold） | `module-scaffold` |
 
 ## 三工具适配（重要前提）
 
@@ -26,9 +27,15 @@
 |---|---|---|
 | Claude Code | `hooks/hooks.json` PreToolUse 自动跑 `check-file-encoding.js` | `skills/encoding-guard/SKILL.md` |
 | **Codex** | `.codex-plugin/plugin.json` 引用同一份 hooks.json | 本文件 + SKILL.md |
-| **Cursor** | ❌ 无 PreToolUse hook | 本文件 + `.cursor/rules/encoding-guard.mdc` |
+| **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（见下） | 本文件 + `.cursor/rules/encoding-guard.mdc` |
 
-> **Cursor 没有 hook，完全靠你按规则自觉守护编码。** 即使没有 hook，也要按下面的流程手动做。
+> **Cursor 没有 PreToolUse hook，运行时完全靠你按规则自觉守护编码。** 即使没有 hook，也要按下面的流程手动做。
+>
+> 确定性兜底（强烈建议在重度用 Cursor 的项目装）：git pre-commit 钩子由 git 执行、与编辑器无关，在 `git commit` 前核对暂存区编码。在目标项目上跑一次安装器即可：
+> ```
+> powershell -ExecutionPolicy Bypass -File hooks\install-git-hooks.ps1 -ProjectRoot "D:\path\to\项目" -Mode block
+> ```
+> 之后乱码提交会被拦下；单次放行用 `git commit --no-verify`。
 
 ## 守护流程（核心）
 

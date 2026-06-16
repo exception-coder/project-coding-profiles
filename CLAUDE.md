@@ -14,7 +14,7 @@
 | `yoooni-daily-plugin` | Yoooni **日常作业**（入职/SMB/IDEA/启动），与编码无关 |
 | **本仓库 `project-coding-profiles`** | **项目级编码画像**：某项目用 GBK 还是 UTF-8、整体编码模式、接口脚手架，按项目触发 |
 
-当前能力：**编码守护**（首例 Yoooni，src=GBK / WebRoot=UTF-8 混合编码）。`codingMode` / `scaffold` 为后续迭代预留。
+能力（profile.json 字段）：**encoding** 编码守护（首例 Yoooni，src=GBK / WebRoot=UTF-8）、**codingMode** 分层编码规范（`profiles/yoooni/coding-mode.md`）、**scaffold** 新增模块脚手架（`profiles/yoooni/scaffold/new-module.md`，范本 `erp/allcost`）。
 
 ## 三工具适配（核心前提）
 
@@ -24,9 +24,11 @@
 |---|---|---|---|
 | **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js`（PreToolUse 自动） | `skills/*/SKILL.md` | `/plugin install` |
 | **Codex** | `.codex-plugin/plugin.json` 的 `hooks` 指针引用同一份 hooks.json | `AGENTS.md` 入口 | Codex 插件机制 |
-| **Cursor** | ❌ 无等价 PreToolUse hook | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` | 把规则放进目标项目的 `.cursor/rules/`，或项目根放 `AGENTS.md` |
+| **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（`install-git-hooks.ps1` 装入目标项目 `.git/hooks/`） | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` | 把规则放进目标项目的 `.cursor/rules/`，或项目根放 `AGENTS.md`；确定性兜底另跑安装器 |
 
-> 关键：hook 只是「能用时的加固」。Cursor 没有 hook，所以 **skill / 规则的指引必须自洽**，能在没有 hook 的前提下独立守护编码。改 skill 内容时务必保持这一点。
+> 关键：PreToolUse hook 只是「能用时的写盘前加固」。Cursor 没有它，所以 **skill / 规则的指引必须自洽**，能在没有 hook 的前提下独立守护编码——改 skill 内容时务必保持这一点。
+>
+> 两类 hook 别混淆：**PreToolUse hook** 在 Claude Code/Codex 内部、写盘前拦；**git pre-commit hook** 由 git 执行、与编辑器无关，在提交前拦，是给 Cursor 这类无 PreToolUse 工具补的确定性防线。git 钩子必须落在目标项目 `.git/hooks/`（不进版本库），故本仓库只提供脚本 + 安装器，由 `hooks/install-git-hooks.ps1` 种入目标项目。
 
 ## 目录结构
 
@@ -37,10 +39,16 @@ project-coding-profiles/
 ├── .cursor/rules/encoding-guard.mdc                  # Cursor 原生规则
 ├── hooks/
 │   ├── hooks.json                                    # PreToolUse 注册（Claude + Codex 共用）
-│   ├── check-file-encoding.js                        # 编码守护脚本（跨平台 Node，无依赖）
+│   ├── encoding-core.js                              # 可复用核心：profile 解析 + 编码探测（两钩子共用）
+│   ├── check-file-encoding.js                        # PreToolUse 钩子：写盘前判定（Claude/Codex）
+│   ├── pre-commit-encoding.js                        # git 提交前钩子：核对暂存区编码（给 Cursor 等补确定性兜底）
+│   ├── install-git-hooks.ps1                         # 把 pre-commit 钩子种入目标项目 .git/hooks/（ASCII-only）
 │   └── package.json
 ├── profiles/
-│   └── yoooni/profile.json                           # 首例：Yoooni 编码画像
+│   └── yoooni/
+│       ├── profile.json                              # 首例：Yoooni 编码画像（encoding/codingMode/scaffold）
+│       ├── coding-mode.md                            # 分层编码规范知识点（codingMode）
+│       └── scaffold/new-module.md                    # 新增模块脚手架 playbook（scaffold，范本 erp/allcost）
 ├── skills/
 │   └── encoding-guard/{SKILL.md, detect-encoding.ps1}
 ├── docs/design/encoding-guard-plugin.md              # 设计文档
@@ -57,6 +65,13 @@ project-coding-profiles/
 - 存量文件：以**磁盘实际编码**为准（探测字节）。实际 GBK + 新增含非 ASCII → 提示（写 UTF-8 必乱码）。这样混合编码项目里的 UTF-8 例外文件不会误报。
 - 新建文件：用 profile 规则推期望编码；期望 GBK/遗留编码 + 含非 ASCII → 提示创建后转码。
 - 默认 `warn`（exit 0 + stderr）。`PCP_ENCODING_HOOK=block` 升级硬阻断（exit 2）、`=off` 关闭。
+
+## git pre-commit 钩子（pre-commit-encoding.js）
+
+- 给 Cursor 这类**无 PreToolUse hook** 的工具补确定性兜底；由 git 执行，与编辑器无关。
+- 判定：对暂存区 ACM 文本文件，探测**暂存内容实际编码**并与 profile 期望编码比对，编码族不符即报（典型：`src/**` 期望 GBK 却被写成 UTF-8 提交）。纯 ASCII 放行；仅在已登记 profile 的项目内生效。
+- 安装：在目标项目上跑 `hooks/install-git-hooks.ps1 -ProjectRoot <项目> -Mode block`，它把调用本脚本的 sh shim（LF 行尾）写入目标项目 `.git/hooks/pre-commit`，已存在的非本插件钩子会备份为 `.pre-pcp.bak`。
+- 默认 `block`（exit 2 拦提交）。`PCP_ENCODING_HOOK=warn` 只提示 / `=off` 关闭 / `git commit --no-verify` 单次跳过。
 
 ## 登记新项目
 

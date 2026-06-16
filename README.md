@@ -4,7 +4,10 @@
 
 > 与 `team-standards`（团队通用标准）、`yoooni-daily-plugin`（日常作业）分工：本插件只管**项目专属的编码约定**。
 
-当前能力：**编码守护**——防止 AI 编辑工具把存量 **GBK** 文件以 UTF-8 写坏（中文乱码）。首例项目 **Yoooni**（`src`=GBK / `WebRoot`=UTF-8 混合编码）。后续迭代追加「项目整体编码模式」与「接口脚手架」（profile schema 已预留 `codingMode` / `scaffold`）。
+能力（按 `profile.json` 字段）：
+- **编码守护（encoding）**——防止 AI 把存量 **GBK** 文件以 UTF-8 写坏（中文乱码）。首例 **Yoooni**（`src`=GBK / `WebRoot`=UTF-8）。
+- **分层编码规范（codingMode）**——项目特有的分层/命名/框架约定 + `common`/`framework` 红线。Yoooni 见 [profiles/yoooni/coding-mode.md](profiles/yoooni/coding-mode.md)。
+- **新增模块脚手架（scaffold）**——照最佳实践范本模块生成「新增模块/菜单」的纵向切片骨架。Yoooni 见 [profiles/yoooni/scaffold/new-module.md](profiles/yoooni/scaffold/new-module.md)（范本 `erp/allcost`）。
 
 ## 为什么需要
 
@@ -18,9 +21,23 @@ AI 编辑工具（Claude Code 的 Write/Edit、Codex、Cursor）默认以 **UTF-
 |---|---|---|
 | **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js`（PreToolUse 自动） | `skills/encoding-guard/SKILL.md` |
 | **Codex** | `.codex-plugin/plugin.json` 引用同一份 hooks.json | `AGENTS.md` 入口 |
-| **Cursor** | ❌ 无等价 PreToolUse hook | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` |
+| **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（见下） | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` |
 
-hook 是「能用时的加固」；Cursor 没有 hook，靠 skill / 规则的流程自洽守护。
+PreToolUse hook 是「能用时的写盘前加固」；Cursor 没有它，靠 skill / 规则的流程自洽守护。若要给 Cursor 补一道**确定性**防线，可装 git pre-commit 钩子——它由 git 执行、与编辑器无关，在**提交前**拦下乱码。
+
+## Cursor 的确定性兜底：git pre-commit
+
+git 钩子只能放在**目标项目**的 `.git/hooks/`（git 唯一会执行的位置，且不进版本库）。本仓库提供检查脚本 [pre-commit-encoding.js](hooks/pre-commit-encoding.js) + 安装器 [install-git-hooks.ps1](hooks/install-git-hooks.ps1)，把一段调用本脚本的 shim 种进去：
+
+```powershell
+# 在目标项目（如 Yoooni）上安装
+powershell -ExecutionPolicy Bypass -File hooks\install-git-hooks.ps1 -ProjectRoot "D:\path\to\yoooni" -Mode block
+```
+
+之后该项目里**任何编辑器**（含 Cursor）`git commit` 都会按 profile 核对暂存内容编码，发现「期望 GBK 却写成 UTF-8」等不符即拦下。
+
+- 与 PreToolUse 的区别：PreToolUse 在**写盘前**拦（文件从不被写坏）；pre-commit 在**提交前**拦（文件可能已落盘乱码，最后一道闸防止进入 git 历史）。
+- 旁路：`PCP_ENCODING_HOOK=warn` 只提示不拦 / `=off` 关闭 / 单次 `git commit --no-verify`。
 
 ## 安装
 
@@ -100,8 +117,8 @@ project-coding-profiles/
 ├── .claude-plugin/{plugin.json, marketplace.json}
 ├── .codex-plugin/plugin.json
 ├── .cursor/rules/encoding-guard.mdc
-├── hooks/{hooks.json, check-file-encoding.js, package.json}
-├── profiles/yoooni/profile.json
+├── hooks/{hooks.json, encoding-core.js, check-file-encoding.js, pre-commit-encoding.js, install-git-hooks.ps1, package.json}
+├── profiles/yoooni/{profile.json, coding-mode.md, scaffold/new-module.md}
 ├── skills/encoding-guard/{SKILL.md, detect-encoding.ps1}
 ├── docs/design/encoding-guard-plugin.md
 ├── AGENTS.md / CLAUDE.md / README.md
