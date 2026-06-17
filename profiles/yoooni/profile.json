@@ -27,6 +27,8 @@
 
   "codingMode": {
     "doc": "coding-mode.md",
+    "commonCapabilities": "common-capabilities.md",
+    "rule": "编码前先读 common-capabilities.md，优先复用公共能力（前后端），禁止重复造轮子/用原生实现",
     "stack": "Spring + Struts2 + DWR + iBatis(sqlmap), JDK1.8 / Resin4",
     "layers": ["Action extends BaseAction", "I<E>Manage / <E>Manage extends ServiceImpl<<E>Dao,<E>>", "I<E>Dao / <E>Dao extends BaseDao<<E>,Integer>", "model: <E>(PO) / vo / param / maps/<E>.xml"],
     "packageRoot": "com.maxtile.application.<领域>.<模块>",
@@ -34,6 +36,16 @@
     "wiring": ["config/spring/<领域>/<模块>/applicationContext-{action,business,dao}.xml", "config/struts/struts-<模块>.xml", "...model/maps/<E>.xml"],
     "frontend": "WebRoot/<领域>/<模块>/<e>/ listLeft.jsp + add/show.jsp；复用 /public 公共组件；禁原生 alert/confirm/prompt",
     "menu": "CRM_RIGHT + CRM_ROLERIGHT（数据库脚本/01系统权限与客户管理脚本.sql）"
+  },
+
+  "frontendControls": {
+    "doc": "coding-mode.md",
+    "banNativeDialogs": true,
+    "replacements": {
+      "confirm": "layer.confirm（或 pub.js mainConfirm/itemConfirm）",
+      "alert": "layer.msg / layer.alert / common.js winAlert",
+      "prompt": "layer.prompt"
+    }
   },
 
   "scaffold": {

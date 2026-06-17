@@ -22,7 +22,7 @@
 
 | 工具 | 机械兜底（hook） | 规则指引 | 安装/生效方式 |
 |---|---|---|---|
-| **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js`（PreToolUse 自动） | `skills/*/SKILL.md` | `/plugin install` |
+| **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js` + `check-frontend-controls.js`（PreToolUse 自动） | `skills/*/SKILL.md` | `/plugin install` |
 | **Codex** | `.codex-plugin/plugin.json` 的 `hooks` 指针引用同一份 hooks.json | `AGENTS.md` 入口 | Codex 插件机制 |
 | **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（`install-git-hooks.ps1` 装入目标项目 `.git/hooks/`） | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` | 把规则放进目标项目的 `.cursor/rules/`，或项目根放 `AGENTS.md`；确定性兜底另跑安装器 |
 
@@ -40,9 +40,11 @@ project-coding-profiles/
 ├── hooks/
 │   ├── hooks.json                                    # PreToolUse 注册（Claude + Codex 共用）
 │   ├── encoding-core.js                              # 可复用核心：profile 解析 + 编码探测（两钩子共用）
-│   ├── check-file-encoding.js                        # PreToolUse 钩子：写盘前判定（Claude/Codex）
+│   ├── check-file-encoding.js                        # PreToolUse 钩子：写盘前编码判定（Claude/Codex）
+│   ├── check-frontend-controls.js                    # PreToolUse 钩子：拦原生 alert/confirm/prompt（前端红线）
 │   ├── pre-commit-encoding.js                        # git 提交前钩子：核对暂存区编码（给 Cursor 等补确定性兜底）
 │   ├── install-git-hooks.ps1                         # 把 pre-commit 钩子种入目标项目 .git/hooks/（ASCII-only）
+│   ├── import-encoding-map.js                        # 从项目 .idea/encodings.xml 导入权威编码表
 │   └── package.json
 ├── profiles/
 │   └── yoooni/
@@ -65,6 +67,13 @@ project-coding-profiles/
 - 存量文件：以**磁盘实际编码**为准（探测字节）。实际 GBK + 新增含非 ASCII → 提示（写 UTF-8 必乱码）。这样混合编码项目里的 UTF-8 例外文件不会误报。
 - 新建文件：用 profile 规则推期望编码；期望 GBK/遗留编码 + 含非 ASCII → 提示创建后转码。
 - 默认 `warn`（exit 0 + stderr）。`PCP_ENCODING_HOOK=block` 升级硬阻断（exit 2）、`=off` 关闭。
+
+## hook 行为（check-frontend-controls.js）
+
+- 触发：PreToolUse `Write|Edit|MultiEdit`，目标是前端扩展名（`.jsp/.js/...`）且在 `WebRoot/` 下。
+- 仅在「已登记 profile 且 `profile.frontendControls.banNativeDialogs=true`」的项目内生效；只查**本次新增内容**，不动存量历史。
+- 命中原生 `alert()/confirm()/prompt()`（排除 `layer.confirm`、`winAlert`、`$.xxx` 等带前缀的）→ 提示改用公共控件（`profile.frontendControls.replacements`）。规则见 `coding-mode.md §4.1`。
+- 默认 `warn`。`PCP_FRONTEND_HOOK=block` 硬阻断（exit 2）、`=off` 关闭。
 
 ## git pre-commit 钩子（pre-commit-encoding.js）
 

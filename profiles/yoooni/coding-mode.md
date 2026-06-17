@@ -3,6 +3,7 @@
 > 本项目特有的「怎么写代码」约定，供 AI 在改/写 Yoooni 代码时遵循。通用编码铁律在 team-standards，本文件只放 Yoooni 专属分层/命名/框架约定。
 > 技术栈：Spring + Struts2 + DWR + iBatis(sqlmap)，JDK1.8 / Resin4。`src`=GBK / `WebRoot`=UTF-8（编码守护见 encoding-guard）。
 > 来源：扫描既有最佳实践模块归纳（范本 `erp/allcost`）。
+> **编码前必读**：[common-capabilities.md](common-capabilities.md)（公共能力包，前后端）——能复用就别自撸、别用原生。
 
 ## 1. 红线：公共层只调用不改
 
@@ -59,7 +60,32 @@
 | 日期 | `/public/js/jedate/jedate.js` | 日期选择 |
 | 图表 | `/public/ECharts/` | 报表 |
 
-- 表单提交走 `pub.js` 的 `btnCommit(this)`（`forms=...` `action=...`），**禁用原生 alert/confirm/prompt**，弹框用公共组件。
+- 表单提交走 `pub.js` 的 `btnCommit(this)`（`forms=...` `action=...`）。
+
+### 4.1 红线：公共能力必须用公共控件，禁用浏览器原生控件
+
+最基本的前端要求。**禁止 `alert()` / `confirm()` / `prompt()` 原生控件**（样式不统一、阻塞 UI、无法定制），一律用公共封装：
+
+| 能力 | 用公共控件 | 禁止 |
+|---|---|---|
+| 确认（删除/提交前确认） | `layer.confirm(title,{btn:['确认','取消']},fn)`；列表场景可用 pub.js `mainConfirm/itemConfirm` | `confirm(...)` |
+| 提示/告警 | `layer.msg(...)` / `layer.alert(...)` / common.js `winAlert(msg)` / select.js `tipWindow(msg)` | `alert(...)` |
+| 输入弹框 | `layer.prompt(...)` | `prompt(...)` |
+| 打开页面弹层 | `layer.open(...)` / select.js `openShowMsg(url,...)` | `window.open` 简易窗 |
+| 日期 / 下拉 / 表格 / 文件上传 | jedate / select.js / easyui DataGrid / 公共上传组件 | 自撸原生实现 |
+
+**删除确认范例**（正确写法，参考 `WebRoot/erp/baseinfo/newcarrylog/loadLogisticsAttachments.jsp`）：
+```js
+function deleteImage(id){
+  layer.confirm('确认删除该文件吗？', {btn:['确认','取消']}, function(index){
+    $.ajax({ type:'POST', dataType:'json', url:ctx+'/binfo/attachment_delete.action',
+      data:{'obj.id':id}, success:function(r){ layer.alert(r.msg,{icon:5}); /* ... */ } });
+  });
+}
+```
+反例（禁止）：`if (confirm('确认删除该文件吗？')) { ... }`。
+
+> 本红线由 PreToolUse hook `check-frontend-controls.js` 在写 `WebRoot/**.{jsp,js}` 时机械拦截（profile `frontendControls.banNativeDialogs`）。
 
 ## 5. 新增菜单/权限（DB 驱动）
 

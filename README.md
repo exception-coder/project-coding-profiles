@@ -7,6 +7,7 @@
 能力（按 `profile.json` 字段）：
 - **编码守护（encoding）**——防止 AI 把存量 **GBK** 文件以 UTF-8 写坏（中文乱码）。首例 **Yoooni**（`src`=GBK / `WebRoot`=UTF-8）。
 - **分层编码规范（codingMode）**——项目特有的分层/命名/框架约定 + `common`/`framework` 红线。Yoooni 见 [profiles/yoooni/coding-mode.md](profiles/yoooni/coding-mode.md)。
+- **前端公共控件红线（frontendControls）**——禁止原生 `alert/confirm/prompt`，强制用公共控件（Yoooni：`layer.confirm`/`layer.msg`/`winAlert`）。PreToolUse hook `check-frontend-controls.js` 写 `WebRoot/**.{jsp,js}` 时拦截。
 - **新增模块脚手架（scaffold）**——照最佳实践范本模块生成「新增模块/菜单」的纵向切片骨架。Yoooni 见 [profiles/yoooni/scaffold/new-module.md](profiles/yoooni/scaffold/new-module.md)（范本 `erp/allcost`）。
 
 ## 为什么需要
@@ -44,7 +45,7 @@ powershell -ExecutionPolicy Bypass -File hooks\install-git-hooks.ps1 -ProjectRoo
 ### Claude Code
 
 ```
-/plugin marketplace add <本仓库地址>
+/plugin marketplace add https://gitee.com/wyoooni/project-coding-profiles.git
 /plugin install project-coding-profiles@project-coding-profiles
 /reload-plugins
 ```
