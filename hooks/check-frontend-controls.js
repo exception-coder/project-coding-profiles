@@ -15,6 +15,7 @@
 
 const path = require('path');
 const { resolveProfile, toPosix } = require('./encoding-core');
+const { logHookEvent } = require('./event-log');
 
 const MODE = (process.env.PCP_FRONTEND_HOOK || 'warn').toLowerCase();
 if (MODE === 'off') process.exit(0);
@@ -66,6 +67,7 @@ process.stdin.on('end', () => {
   lines.push('  规则与范例见 profiles/<project>/coding-mode.md §4.1（公共能力必须用公共控件）。');
   lines.push('  旁路：PCP_FRONTEND_HOOK=off 关闭 / =block 升级硬阻断。');
 
+  logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-frontend-controls', rule: 'frontend-controls', mode: MODE, tool, file: filePath });
   process.stderr.write(lines.join('\n') + '\n');
   process.exit(MODE === 'block' ? 2 : 0);
 });

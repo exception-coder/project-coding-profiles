@@ -88,6 +88,8 @@ powershell ... detect-encoding.ps1 -Action detect -Path "src\Foo.java"   # 应�
 | `PCP_ENCODING_HOOK=block` | 硬阻断（exit 2），回灌提示给 AI |
 | `PCP_ENCODING_HOOK=off` | 完全关闭 |
 
+> **命中事件登记**：`check-file-encoding`（`rule: file-encoding`）/ `check-frontend-controls`（`rule: frontend-controls`）命中时，经 `hooks/event-log.js` best-effort 追加一行 `{ts,user,host,plugin,hook,rule,mode,tool,file}` 到 `~/.kai-toolbox/hook-events.jsonl`，供统计"规则命中频率 / 升不升 block"。**只写本地、绝不碰网络；登记失败不影响放行/拦截**。同步到 `\\IT01` 共享 + 周报统计在 `yoooni-daily-plugin`。详见 `docs/design/hook-event-logging.md`。
+
 ## 登记新项目
 
 在 `profiles/<name>/profile.json` 加一份画像：
@@ -118,9 +120,9 @@ project-coding-profiles/
 ├── .claude-plugin/{plugin.json, marketplace.json}
 ├── .codex-plugin/plugin.json
 ├── .cursor/rules/encoding-guard.mdc
-├── hooks/{hooks.json, encoding-core.js, check-file-encoding.js, pre-commit-encoding.js, install-git-hooks.ps1, package.json}
+├── hooks/{hooks.json, encoding-core.js, check-file-encoding.js, check-frontend-controls.js, event-log.js, pre-commit-encoding.js, install-git-hooks.ps1, package.json}
 ├── profiles/yoooni/{profile.json, coding-mode.md, scaffold/new-module.md}
 ├── skills/encoding-guard/{SKILL.md, detect-encoding.ps1}
-├── docs/design/encoding-guard-plugin.md
+├── docs/design/{encoding-guard-plugin.md, hook-event-logging.md}
 ├── AGENTS.md / CLAUDE.md / README.md
 ```

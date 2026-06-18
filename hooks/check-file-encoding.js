@@ -32,6 +32,7 @@ const {
   TEXT_EXT, detectEncoding, isLegacy, expectedEncoding,
   resolveProfile, hasNonAscii, toPosix, safeExists, safeRead,
 } = require('./encoding-core');
+const { logHookEvent } = require('./event-log');
 
 const MODE = (process.env.PCP_ENCODING_HOOK || 'warn').toLowerCase();
 if (MODE === 'off') process.exit(0);
@@ -74,6 +75,7 @@ process.stdin.on('end', () => {
   lines.push('    3) 切勿为统一而批量转码（丢数据 + 污染 git）。详见 encoding-guard SKILL。');
   lines.push('  旁路：PCP_ENCODING_HOOK=off 关闭 / =block 升级硬阻断。');
 
+  logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-file-encoding', rule: 'file-encoding', mode: MODE, tool, file: filePath });
   process.stderr.write(lines.join('\n') + '\n');
   process.exit(MODE === 'block' ? 2 : 0);
 });
