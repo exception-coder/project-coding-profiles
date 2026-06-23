@@ -9,6 +9,7 @@
 - **分层编码规范（codingMode）**——项目特有的分层/命名/框架约定 + `common`/`framework` 红线。Yoooni 见 [profiles/yoooni/coding-mode.md](profiles/yoooni/coding-mode.md)。
 - **前端公共控件红线（frontendControls）**——禁止原生 `alert/confirm/prompt`，强制用公共控件（Yoooni：`layer.confirm`/`layer.msg`/`winAlert`）。PreToolUse hook `check-frontend-controls.js` 写 `WebRoot/**.{jsp,js}` 时拦截。
 - **新增模块脚手架（scaffold）**——照最佳实践范本模块生成「新增模块/菜单」的纵向切片骨架。Yoooni 见 [profiles/yoooni/scaffold/new-module.md](profiles/yoooni/scaffold/new-module.md)（范本 `erp/allcost`）。
+- **URL→模块定位（url-locate）**——贴 URL / `*.action` 直达后端 Action 类 + 前端 jsp，靠预生成的 [profiles/yoooni/url-route-map.md](profiles/yoooni/url-route-map.md)（`hooks/generate-url-route-map.js` 解析 struts+spring，1000+ action）。skill `url-locate` 触发，规则见 coding-mode.md §7。
 
 ## 为什么需要
 
@@ -121,7 +122,7 @@ project-coding-profiles/
 ├── .codex-plugin/plugin.json
 ├── .cursor/rules/encoding-guard.mdc
 ├── hooks/{hooks.json, encoding-core.js, check-file-encoding.js, check-frontend-controls.js, event-log.js, pre-commit-encoding.js, install-git-hooks.ps1, package.json}
-├── profiles/yoooni/{profile.json, coding-mode.md, scaffold/new-module.md}
+├── profiles/yoooni/{profile.json, encoding-map.json, coding-mode.md, common-capabilities.md, url-route-map.md, scaffold/new-module.md}
 ├── skills/encoding-guard/{SKILL.md, detect-encoding.ps1}
 ├── docs/design/{encoding-guard-plugin.md, hook-event-logging.md}
 ├── AGENTS.md / CLAUDE.md / README.md

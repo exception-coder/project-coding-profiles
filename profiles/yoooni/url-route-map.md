@@ -1,0 +1,2951 @@
+# Yoooni URL → 模块路由映射（自动生成，勿手改）
+
+> 由 `project-coding-profiles/hooks/generate-url-route-map.js` 解析 `config/struts/*.xml` + `config/spring/**/applicationContext-action.xml` 生成。路由变更后重跑刷新。
+> **用法**：`grep <action名 / "/namespace" / jsp名>` 本文件即定位后端类 + 前端 jsp。
+> URL 形如 `/{ns}/{action}_{method}.action` → 打开「后端类」读 `{method}()` 看 `return` 的 result 名 → 对应下面的 jsp。
+> 统计：40 个 namespace / 1049 个 action（60 个未解析到 Spring bean 类）。
+
+## /allcost  ·  src/config/struts/struts-allcost.xml
+
+- `/allcost/ordercost_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostAction.java
+  - 前端 result→jsp：listLeft=/erp/allcost/ordercost/listLeft.jsp · handAddRedo=/erp/allcost/ordercost/handAddRedo.jsp · error=/public/head/error.jsp · weavingCostList=/erp/allcost/ordercost/weavingCostList.jsp · dyeingCostList=/erp/allcost/ordercost/dyeingCostList.jsp · orderCostList=/erp/allcost/ordercost/orderCostList.jsp · saleProfitList=/erp/allcost/ordercost/saleProfitList.jsp · countShopRank=/erp/allcost/ordercost/countShopRank.jsp · countCustRank=/erp/allcost/ordercost/countCustRank.jsp · countSalerRank=/erp/allcost/ordercost/countSalerRank.jsp · countProcolorRank=/erp/allcost/ordercost/countProcolorRank.jsp · countShopRankData=/erp/allcost/ordercost/countShopRankData.jsp · countCustRankData=/erp/allcost/ordercost/countCustRankData.jsp · countSalerRankData=/erp/allcost/ordercost/countSalerRankData.jsp · countProcolorRankData=/erp/allcost/ordercost/countProcolorRankData.jsp · productionOrderCost=/erp/allcost/ordercost/productionOrderCost.jsp · saleOrderExceptionAnalysis=/erp/allcost/ordercost/saleOrderExceptionAnalysis.jsp · financeCheckList=/erp/allcost/ordercost/financeCheckList.jsp · financeAllRedoByDate=/erp/allcost/ordercost/financeAllRedoByDate.jsp
+- `/allcost/ordercostdata_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostdataAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostdataAction.java
+  - 前端 result→jsp：list=/erp/allcost/ordercostdata/list.jsp · checkProducePriceDiffList=/erp/allcost/ordercostdata/checkProducePriceDiffList.jsp
+- `/allcost/ordercostdatamrp_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostdatamrpAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostdatamrpAction.java
+- `/allcost/ordercostitem_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostitemAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostitemAction.java
+  - 前端 result→jsp：listBaseRight=/erp/allcost/ordercostitem/listBaseRight.jsp
+- `/allcost/ordercostproduce_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostproduceAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostproduceAction.java
+  - 前端 result→jsp：listBaseRight=/erp/allcost/ordercostproduce/listBaseRight.jsp
+- `/allcost/ordercostproduceitem_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostproduceitemAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostproduceitemAction.java
+  - 前端 result→jsp：list=/erp/allcost/ordercostproduceitem/list.jsp
+- `/allcost/ordercostsaleadj_<method>.action`  →  com.maxtile.application.erp.allcost.action.OrdercostsaleadjAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/OrdercostsaleadjAction.java
+  - 前端 result→jsp：addList=/erp/allcost/ordercostsaleadj/addList.jsp
+- `/allcost/poorCostData_<method>.action`  →  com.maxtile.application.erp.allcost.action.PoorCostDataAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/PoorCostDataAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · supplyCountList=/erp/allcost/poorCostData/supplyCountList.jsp · saleCountList=/erp/allcost/poorCostData/saleCountList.jsp
+- `/allcost/saleCostData_<method>.action`  →  com.maxtile.application.erp.allcost.action.SaleCostDataAction
+  - 后端：src/com/maxtile/application/erp/allcost/action/SaleCostDataAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · saleCostBillItemList=/erp/allcost/saleCostData/saleCostBillItemList.jsp · saleCostBillCountList=/erp/allcost/saleCostData/saleCostBillCountList.jsp · saleCostBillCountPro=/erp/allcost/saleCostData/saleCostBillCountPro.jsp · saleCostBillCountColor=/erp/allcost/saleCostData/saleCostBillCountColor.jsp
+
+## /binfo  ·  src/config/struts/struts-baseinfo.xml
+
+- `/binfo/apisecretkey_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ApisecretkeyAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ApisecretkeyAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/apisecretkey/list.jsp · show=/erp/baseinfo/apisecretkey/show.jsp
+- `/binfo/appversion_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.AppversionAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/AppversionAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/appversion/list.jsp · open=/erp/baseinfo/appversion/show.jsp · show=/erp/baseinfo/appversion/show.jsp
+- `/binfo/arrcarlogma_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ArrcarlogmaAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ArrcarlogmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/binfo/attachment_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.AttachmentAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/AttachmentAction.java
+- `/binfo/bank_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BankAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BankAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/bank/list.jsp · query=/erp/baseinfo/bank/query.jsp · show=/erp/baseinfo/bank/show.jsp · updatelist=/erp/baseinfo/bank/update.jsp · showBankAndDaily=/erp/baseinfo/bank/showBankAndDaily.jsp · add=/erp/baseinfo/bank/add.jsp · div_list=/erp/baseinfo/bank/div_list.jsp · error=/public/head/error.jsp · listBankInOut=/erp/search/bankinout/listBankInOut.jsp · listBankInOutExchange=/erp/search/bankinout/listBankInOutExchange.jsp
+- `/binfo/bankAccount_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BankAccountAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BankAccountAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/bankAccount/list.jsp · show=/erp/baseinfo/bankAccount/show.jsp · open=/erp/baseinfo/bankAccount/open.jsp · linkShop=/erp/baseinfo/bankAccount/linkShop.jsp
+- `/binfo/bankAccountShop_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BankAccountShopAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BankAccountShopAction.java
+  - 前端 result→jsp：show=/sys/shop/linkBankAccount.jsp
+- `/binfo/bankinfo_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BankinfoAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BankinfoAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/bankinfo/list.jsp · show=/erp/baseinfo/bankinfo/show.jsp · div_list=/erp/baseinfo/bankinfo/div_list.jsp
+- `/binfo/baseLevelConfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BaseLevelConfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BaseLevelConfigAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/baselevelconfig/list.jsp · show=/erp/baseinfo/baselevelconfig/show.jsp · addItem=/erp/baseinfo/baselevelconfig/addItem.jsp
+- `/binfo/box_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BoxAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BoxAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/box/list.jsp · show=/erp/baseinfo/box/show.jsp · batchPrint=/erp/baseinfo/box/batchPrint.jsp · batchPrintNumber=/erp/baseinfo/box/batchPrintNumber.jsp
+- `/binfo/boxplace_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.BoxplaceAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/BoxplaceAction.java
+  - 前端 result→jsp：listPlaceBox=/erp/baseinfo/boxplace/listPlaceBox.jsp · listPlaceBoxProduct=/erp/baseinfo/boxplace/listPlaceBoxProduct.jsp · error=/public/head/error.jsp
+- `/binfo/carlog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CarlogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CarlogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addShow=/erp/baseinfo/carlog/addShow.jsp · addShow2=/erp/baseinfo/carlog/addShow2.jsp · list=/erp/baseinfo/carlog/list.jsp · print=/erp/baseinfo/carlog/print.jsp · groupShow=/erp/baseinfo/carlog/groupShow.jsp · showDetail=/erp/baseinfo/carlog/showDetail.jsp
+- `/binfo/carlogclean_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CarlogcleanAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CarlogcleanAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/binfo/carlogcleanma_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CarlogcleanmaAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CarlogcleanmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/binfo/carrylog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CarrylogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CarrylogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/carrylog/list.jsp · show=/erp/baseinfo/carrylog/show.jsp · print=/erp/baseinfo/carrylog/print.jsp · printHead=/erp/baseinfo/carrylog/printHead.jsp · showImage=/erp/baseinfo/carrylog/showImage.jsp · testUpload=/erp/baseinfo/carrylog/testUpload.jsp
+- `/binfo/carrylogimage_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CarrylogimageAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CarrylogimageAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/binfo/clotheslable_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ClotheslableAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ClotheslableAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/clotheslable/list.jsp · show=/erp/baseinfo/clotheslable/show.jsp · print=/erp/baseinfo/clotheslable/print.jsp · printList=/erp/baseinfo/clotheslable/printList.jsp · add=/erp/baseinfo/clotheslable/add.jsp · error=/public/head/error.jsp
+- `/binfo/contractData_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ContractDataAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ContractDataAction.java
+- `/binfo/currency_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CurrencyAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CurrencyAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/currency/list.jsp · open=/erp/baseinfo/currency/show.jsp · openList=/erp/baseinfo/currency/addList.jsp · show=/erp/baseinfo/currency/show.jsp · div_list=/erp/baseinfo/currency/div_list.jsp · error=/public/head/error.jsp · currencyinfologList=/erp/baseinfo/currency/currencyinfologList.jsp
+- `/binfo/cusDefinedPro_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CusDefinedProAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CusDefinedProAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listAndSo=/erp/baseinfo/cusdefinedpro/listAndSo.jsp · updateOrderInfo=/erp/baseinfo/cusdefinedpro/updateOrderInfo.jsp
+- `/binfo/custnotice_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.CustnoticeAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/CustnoticeAction.java
+  - 前端 result→jsp：open=/erp/baseinfo/custnotice/add.jsp · error=/public/head/error.jsp
+- `/binfo/devprojdemo_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.DevprojdemoAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/DevprojdemoAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/devprojdemo/list.jsp · show=/erp/baseinfo/devprojdemo/show.jsp
+- `/binfo/devprojdemoFollow_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.DevprojdemoFollowAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/DevprojdemoFollowAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/devprojdemoFollow/list.jsp
+- `/binfo/driver_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.DriverAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/DriverAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/driver/list.jsp · show=/erp/baseinfo/driver/show.jsp
+- `/binfo/dyeElemGroup_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.dyeElemGroupAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/dyeElemGroupAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/dyeElemGroup/list.jsp · show=/erp/baseinfo/dyeElemGroup/show.jsp
+- `/binfo/dyemCgroupPrice_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.DyemCgroupPriceAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/DyemCgroupPriceAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/dyemCgroupPrice/list.jsp
+- `/binfo/dyemethod_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.DyemethodAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/DyemethodAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/dyemethod/list.jsp · show=/erp/baseinfo/dyemethod/show.jsp
+- `/binfo/dyemethodPrice_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.DyemethodPriceAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/DyemethodPriceAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/dyemethodPrice/list.jsp · show=/erp/baseinfo/dyemethodPrice/show.jsp
+- `/binfo/excelfile_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ExcelfileAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ExcelfileAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/unit/list.jsp · error=/public/head/error.jsp
+- `/binfo/express_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ExpressAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ExpressAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/express/list.jsp · show=/erp/baseinfo/express/show.jsp · openDraft=/erp/baseinfo/express/draft.jsp
+- `/binfo/expressAddress_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ExpressAddressAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ExpressAddressAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/expressaddress/list.jsp
+- `/binfo/externalAccount_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ExternalAccountAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ExternalAccountAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/externalaccount/list.jsp
+- `/binfo/extSupProcess_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ExtSupProcessAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ExtSupProcessAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/extsupprocess/list.jsp · show=/erp/baseinfo/extsupprocess/show.jsp
+- `/binfo/fabricModelConfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.FabricModelConfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/FabricModelConfigAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/fabricModelConfig/list.jsp · open=/erp/baseinfo/fabricModelConfig/add.jsp
+- `/binfo/fiberLossper_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.FiberLossperAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/FiberLossperAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/fiberLossper/list.jsp · show=/erp/baseinfo/fiberLossper/show.jsp
+- `/binfo/logincheck_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.LogincheckAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/LogincheckAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/logincheck/list.jsp · open=/erp/baseinfo/logincheck/show.jsp · show=/erp/baseinfo/logincheck/show.jsp · error=/public/head/error.jsp
+- `/binfo/matprice_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MatpriceAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MatpriceAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/matprice/list.jsp · open=/erp/baseinfo/matprice/show.jsp · openList=/erp/baseinfo/matprice/addList.jsp · show=/erp/baseinfo/matprice/show.jsp · relevancePro=/erp/baseinfo/matprice/relevancePro.jsp
+- `/binfo/matpricepro_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MatpriceproAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MatpriceproAction.java
+- `/binfo/moprice_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MopriceAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MopriceAction.java
+  - 前端 result→jsp：add=/erp/baseinfo/moprice/add.jsp · list=/erp/baseinfo/moprice/list.jsp · show=/erp/baseinfo/moprice/show.jsp · showList=/erp/baseinfo/moprice/showList.jsp · showItem=/erp/baseinfo/moprice/showItem.jsp · addBySup=/erp/baseinfo/moprice/addBySup.jsp · addByPro=/erp/baseinfo/moprice/addByPro.jsp · addByProcolor=/erp/baseinfo/moprice/addByProcolor.jsp · batchAddWo=/erp/baseinfo/moprice/batchAddWo.jsp · error=/public/head/error.jsp · woShow=/erp/baseinfo/moprice/woShow.jsp · mergeShow=/erp/baseinfo/moprice/mergeShow.jsp · success=<param name="namespace">/binfo</param>
+				<param name="actionName">moprice_list</param>
+- `/binfo/mopriceitem_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MopriceitemAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MopriceitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/mopriceitem/list.jsp · show=/erp/baseinfo/mopriceitem/show.jsp · compareList=/erp/baseinfo/mopriceitem/compareList.jsp · update=/erp/baseinfo/mopriceitem/update.jsp · relaColor=/erp/baseinfo/mopriceitem/relaColor.jsp · relaProcolor=/erp/baseinfo/mopriceitem/relaProcolor.jsp · copyMopriceitem=/erp/baseinfo/mopriceitem/copyMopriceitem.jsp · updateList=/erp/baseinfo/mopriceitem/updateList.jsp · openUpdatePriceList=/erp/baseinfo/mopriceitem/updatePriceList.jsp · mopriceitemFindAll=/erp/baseinfo/mopriceitem/mopriceitemFindAll.jsp · addBySup=/erp/baseinfo/mopriceitem/addBySup.jsp · addByPro=/erp/baseinfo/mopriceitem/addByPro.jsp · addByProcolor=/erp/baseinfo/mopriceitem/addByProcolor.jsp · mergeList=/erp/baseinfo/mopriceitem/mergeList.jsp
+- `/binfo/mopriceitemlog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MopriceitemlogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MopriceitemlogAction.java
+  - 前端 result→jsp：div_list=/erp/baseinfo/mopriceitemlog/div_list.jsp · error=/public/head/error.jsp
+- `/binfo/moquote_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteAction.java
+  - 前端 result→jsp：show=/erp/baseinfo/moquote/show.jsp · add=/erp/baseinfo/moquote/add.jsp
+- `/binfo/moquoteItem_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteItemAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteItemAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/moquoteitem/list.jsp · show=/erp/baseinfo/moquoteitem/show.jsp
+- `/binfo/moquoteItemLog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteItemLogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteItemLogAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/moquoteItemLog/list.jsp
+- `/binfo/moquoteProcess_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteProcessAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteProcessAction.java
+- `/binfo/moquoteProcessLog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteProcessLogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteProcessLogAction.java
+- `/binfo/moquoteProcessMopi_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteProcessMopiAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteProcessMopiAction.java
+- `/binfo/moquoteProduct_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteProductAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteProductAction.java
+  - 前端 result→jsp：relaColor=/erp/baseinfo/moquoteProduct/relaColor.jsp
+- `/binfo/moquoteProductLog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MoquoteProductLogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MoquoteProductLogAction.java
+- `/binfo/morderTestExtCfg_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.MorderTestExtCfgAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/MorderTestExtCfgAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/mordertestextcfg/list.jsp · show=/erp/baseinfo/mordertestextcfg/show.jsp · open=/erp/baseinfo/mordertestextcfg/add.jsp
+- `/binfo/newcarlog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarlogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarlogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/newcarlog/list.jsp · listAnditem=/erp/baseinfo/newcarlog/listAnditem.jsp · listNewCarlogMa=/erp/baseinfo/newcarlog/listNewCarlogMa.jsp · print=/erp/baseinfo/newcarlog/print.jsp · unIssendTimeList=/erp/baseinfo/newcarlogitem/unIssendTimeList.jsp
+- `/binfo/newcarlogitem_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarlogitemAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarlogitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/binfo/newcarlogma_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarlogmaAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarlogmaAction.java
+  - 前端 result→jsp：listItemma=/erp/baseinfo/newcarlog/listItemma.jsp · error=/public/head/error.jsp
+- `/binfo/newcarrylog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarrylogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarrylogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/newcarrylog/list.jsp · show=/erp/baseinfo/newcarrylog/show.jsp · print=/erp/baseinfo/newcarrylog/print.jsp · printHead=/erp/baseinfo/newcarrylog/printHead.jsp · imageList=/erp/baseinfo/newcarrylog/imageList.jsp · NewcarrylogReimburseNormal=/erp/baseinfo/newcarrylog/NewcarrylogReimburseNormal.jsp · NewcarrylogReimburseNormalItem=/erp/baseinfo/newcarrylog/NewcarrylogReimburseNormalItem.jsp · loadLogisticsAttachments=/erp/baseinfo/newcarrylog/loadLogisticsAttachments.jsp · workbenches=/erp/baseinfo/newcarrylog/workbenches.jsp · analysisNewcarryExpense=/erp/baseinfo/newcarrylog/analysisNewcarryExpense.jsp
+- `/binfo/newcarrylogExpense_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarrylogExpenseAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarrylogExpenseAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/newcarrylogExpense/list.jsp · show=/erp/baseinfo/newcarrylogExpense/show.jsp · open=/erp/baseinfo/newcarrylogExpense/add.jsp
+- `/binfo/newcarrylogimage_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarrylogimageAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarrylogimageAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/binfo/newcarrylogitem_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewcarrylogitemAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewcarrylogitemAction.java
+- `/binfo/newTrafficTrade_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NewTrafficTradeAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NewTrafficTradeAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/traffictrade/list.jsp · attachment=/erp/baseinfo/traffictrade/attachment.jsp · list_finance=/erp/baseinfo/traffictrade/list_finance.jsp · importExcel=/erp/baseinfo/traffictrade/importExcel.jsp
+- `/binfo/notice_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.NoticeAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/NoticeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/notice/list.jsp · show=/erp/baseinfo/notice/show.jsp
+- `/binfo/orderReqInfo_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.OrderReqInfoAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/OrderReqInfoAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/orderReqInfo/list.jsp · show=/erp/baseinfo/orderReqInfo/show.jsp
+- `/binfo/orderReqInfoitem_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.OrderReqInfoitemAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/OrderReqInfoitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · relevancePro=/erp/baseinfo/orderReqInfo/relevancePro.jsp
+- `/binfo/placeboxlog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PlaceboxlogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PlaceboxlogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/baseinfo/placeboxlog/list.jsp
+- `/binfo/pobatch_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PobatchAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PobatchAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/pobatch/list.jsp · show=/erp/baseinfo/pobatch/show.jsp · add=/erp/baseinfo/pobatch/add.jsp · div_list=/erp/baseinfo/pobatch/div_list.jsp · yarnNoPobatchList=/erp/baseinfo/pobatch/yarnNoPobatchList.jsp · addList=/erp/baseinfo/pobatch/addList.jsp · marketAdd=/erp/baseinfo/pobatch/marketAdd.jsp · marketShow=/erp/baseinfo/pobatch/marketShow.jsp · showPobatchLogList=/erp/baseinfo/pobatch/showPobatchLogList.jsp · error=/public/head/error.jsp
+- `/binfo/pobatchapply_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PobatchapplyAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PobatchapplyAction.java
+- `/binfo/pobatchlog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PobatchlogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PobatchlogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_list=/erp/baseinfo/pobatchlog/div_list.jsp
+- `/binfo/pobconfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PobconfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PobconfigAction.java
+- `/binfo/printconfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PrintconfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PrintconfigAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/printconfig/list.jsp · show=/erp/baseinfo/printconfig/show.jsp · add=/erp/baseinfo/printconfig/add.jsp · div_list=/erp/baseinfo/printconfig/div_list.jsp · error=/public/head/error.jsp
+- `/binfo/printlog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PrintlogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PrintlogAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/printlog/list.jsp · show=/erp/baseinfo/printlog/show.jsp · print=/erp/baseinfo/printlog/print.jsp · printList=/erp/baseinfo/printlog/printList.jsp · add=/erp/baseinfo/printlog/add.jsp · error=/public/head/error.jsp
+- `/binfo/process_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ProcessAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ProcessAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/process/list.jsp · open=/erp/baseinfo/process/add.jsp · openList=/erp/baseinfo/process/addList.jsp · show=/erp/baseinfo/process/show.jsp · div_list=/erp/baseinfo/process/div_list.jsp · div_lists=/erp/baseinfo/process/div_lists.jsp · div_processreqlogList=/erp/baseinfo/process/div_processreqlogList.jsp · error=/public/head/error.jsp
+- `/binfo/procWeavefee_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ProcWeavefeeAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ProcWeavefeeAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/procWeavefee/list.jsp · show=/erp/baseinfo/procWeavefee/show.jsp
+- `/binfo/procWeavefeeItem_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ProcWeavefeeItemAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ProcWeavefeeItemAction.java
+- `/binfo/pubcheckbox_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PubcheckboxAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PubcheckboxAction.java
+- `/binfo/purchasedColor_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.PurchasedColorAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/PurchasedColorAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/purchasedcolor/list.jsp · open=/erp/baseinfo/purchasedcolor/open.jsp · show=/erp/baseinfo/purchasedcolor/show.jsp
+- `/binfo/qtySetting_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.QtySettingAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/QtySettingAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/qtysetting/list.jsp · show=/erp/baseinfo/qtysetting/add.jsp
+- `/binfo/receiptAccount_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ReceiptAccountAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ReceiptAccountAction.java
+- `/binfo/samplepack_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SamplepackAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SamplepackAction.java
+- `/binfo/sbatecfg_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SbatecfgAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SbatecfgAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/sbatecfg/list.jsp · show=/erp/baseinfo/sbatecfg/add.jsp · error=/public/head/error.jsp
+- `/binfo/scheduledTasks_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ScheduledTasksAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ScheduledTasksAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/scheduledtasks/list.jsp · show=/erp/baseinfo/scheduledtasks/show.jsp · open=/erp/baseinfo/scheduledtasks/add.jsp
+- `/binfo/shareRowConfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ShareRowConfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ShareRowConfigAction.java
+- `/binfo/shopbank_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.ShopbankAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/ShopbankAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/shopbank/list.jsp · addList=/erp/baseinfo/shopbank/addList.jsp
+- `/binfo/soDeptConfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SoDeptConfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SoDeptConfigAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/baseinfo/orderReqInfo/deptconfigShow.jsp
+- `/binfo/sprow_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SprowAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SprowAction.java
+  - 前端 result→jsp：listSprowProduct=/erp/baseinfo/sprow/listSprowProduct.jsp · error=/public/head/error.jsp
+- `/binfo/stockmabox_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.StockmaboxAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/StockmaboxAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/stockmabox/list.jsp · upboxList=/erp/baseinfo/stockmabox/upboxList.jsp · error=/public/head/error.jsp
+- `/binfo/store_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.StoreAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/StoreAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/store/list.jsp · show=/erp/baseinfo/store/show.jsp · openUpdate=/erp/baseinfo/store/openUpdate.jsp · add=/erp/baseinfo/store/add.jsp · div_list=/erp/baseinfo/store/div_list.jsp · div_storeForPorder=/erp/baseinfo/store/div_storeForPorder.jsp · div_listForDrawpound=/erp/baseinfo/store/div_listForDrawpound.jsp · error=/public/head/error.jsp · authCheckList=/erp/baseinfo/store/authCheckList.jsp · notAuthCheckList=/erp/baseinfo/store/selectNotAuthCheckList.jsp
+- `/binfo/storeapply_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.StoreapplyAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/StoreapplyAction.java
+  - 前端 result→jsp：div_list=/erp/baseinfo/storeapply/div_list.jsp
+- `/binfo/storeplace_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.StoreplaceAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/StoreplaceAction.java
+  - 前端 result→jsp：successtree=/erp/baseinfo/storeplace/json_storeplace.jsp · success=/erp/baseinfo/storeplace/success.jsp · select=/erp/baseinfo/storeplace/storeplacelist.jsp · select2=/erp/baseinfo/storeplace/storeplacelist2.jsp · add=/erp/baseinfo/storeplace/storeplaceadd.jsp · openAddList=/erp/baseinfo/storeplace/batchAdd.jsp · show=/erp/baseinfo/storeplace/storeplaceshow.jsp · batchPrint=/erp/baseinfo/storeplace/batchPrint.jsp · input=/index.jsp · error=/public/head/error.jsp · printList=/erp/baseinfo/storeplace/list.jsp
+- `/binfo/supaddress_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupaddressAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupaddressAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supaddress/list.jsp · show=/erp/baseinfo/supaddress/show.jsp · add=/erp/baseinfo/supaddress/add.jsp · div_list=/erp/baseinfo/supaddress/div_list.jsp · error=/public/head/error.jsp
+- `/binfo/supbank_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupbankAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupbankAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supbank/list.jsp · show=/erp/baseinfo/supbank/show.jsp · add=/erp/baseinfo/supbank/add.jsp · error=/public/head/error.jsp
+- `/binfo/supbanklog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupbanklogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupbanklogAction.java
+  - 前端 result→jsp：div_list=/erp/baseinfo/supbanklog/div_list.jsp
+- `/binfo/suplinker_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SuplinkerAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SuplinkerAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/suplinker/list.jsp · show=/erp/baseinfo/suplinker/show.jsp · add=/erp/baseinfo/suplinker/add.jsp · div_list=/erp/baseinfo/suplinker/div_list.jsp · error=/public/head/error.jsp
+- `/binfo/suppayableperiod_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SuppayableperiodAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SuppayableperiodAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/baseinfo/suppayableperiod/show.jsp
+- `/binfo/supplier_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupplierAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupplierAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supplier/list.jsp · open=/erp/baseinfo/supplier/show.jsp · openList=/erp/baseinfo/supplier/addList.jsp · show=/erp/baseinfo/supplier/show.jsp · div_list=/erp/baseinfo/supplier/div_list.jsp · produceShow=/erp/baseinfo/supplier/produceShow.jsp · updatePaydatenumList=/erp/baseinfo/supplier/updatePaydatenumList.jsp · error=/public/head/error.jsp
+- `/binfo/supplierAssignConfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupplierAssignConfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupplierAssignConfigAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supplierAssignConfig/list.jsp · show=/erp/baseinfo/supplierAssignConfig/show.jsp · open=/erp/baseinfo/supplierAssignConfig/add.jsp
+- `/binfo/supplierAssignRecord_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupplierAssignRecordAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupplierAssignRecordAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supplierAssignRecord/list.jsp · show=/erp/baseinfo/supplierAssignRecord/show.jsp · getSupplierUpdateNodes=/erp/baseinfo/supplierAssignRecord/getSupplierUpdateNodes.jsp
+- `/binfo/supplierfactory_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupplierfactoryAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupplierfactoryAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supplierfactory/list.jsp · show=/erp/baseinfo/supplierfactory/show.jsp · error=/public/head/error.jsp
+- `/binfo/supplierStandard_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupplierStandardAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupplierStandardAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supplierstandard/list.jsp · show=/erp/baseinfo/supplierstandard/show.jsp · open=/erp/baseinfo/supplierstandard/add.jsp
+- `/binfo/supvat_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SupvatAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SupvatAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/supvat/list.jsp · show=/erp/baseinfo/supvat/show.jsp · error=/public/head/error.jsp
+- `/binfo/titleconfig_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.TitleconfigAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/TitleconfigAction.java
+- `/binfo/unit_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.UnitAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/UnitAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/unit/list.jsp · open=/erp/baseinfo/unit/show.jsp · openList=/erp/baseinfo/unit/addList.jsp · show=/erp/baseinfo/unit/show.jsp · div_list=/erp/baseinfo/unit/div_list.jsp · error=/public/head/error.jsp
+- `/binfo/updatelog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.UpdatelogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/UpdatelogAction.java
+  - 前端 result→jsp：list=/erp/baseinfo/updatelog/list.jsp
+- `/binfo/wecahtEventLog_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.WecahtEventLogAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/WecahtEventLogAction.java
+
+## /commmon  ·  src/config/struts/struts-common.xml
+
+- `/commmon/commonData_<method>.action`  →  com.maxtile.application.erp.common.action.CommonDataAction
+  - 后端：src/com/maxtile/application/erp/common/action/CommonDataAction.java
+
+## /company  ·  src/config/struts/struts-cominfo.xml
+
+- `/company/combrand_<method>.action`  →  (bean: combrandAction 未解析)
+  - 前端 result→jsp：showlist=/company/combrand/list.jsp · query=/company/combrand/search.jsp · show=/company/combrand/show.jsp · open=/company/combrand/add.jsp
+- `/company/comcustoms_<method>.action`  →  (bean: comcustomsAction 未解析)
+  - 前端 result→jsp：showlist=/company/comcustoms/list.jsp · query=/company/comcustoms/search.jsp · show=/company/comcustoms/show.jsp · open=/company/comcustoms/add.jsp
+- `/company/cominfo_<method>.action`  →  (bean: cominfoAction 未解析)
+  - 前端 result→jsp：showlist=/company/cominfo/listcominfo.jsp · query=/company/cominfo/searchcominfo.jsp · show=/company/cominfo/showcominfo.jsp · open=/company/cominfo/cominfoAdd.jsp
+- `/company/cominout_<method>.action`  →  (bean: cusinoutAction 未解析)
+  - 前端 result→jsp：showlist=/company/cominout/list.jsp · query=/company/cominout/search.jsp · show=/company/cominout/show.jsp · open=/company/cominout/add.jsp
+- `/company/commark_<method>.action`  →  (bean: commarkAction 未解析)
+  - 前端 result→jsp：showlist=/company/commark/list.jsp · query=/company/commark/search.jsp · show=/company/commark/show.jsp · open=/company/commark/add.jsp
+- `/company/compatent_<method>.action`  →  (bean: compatentAction 未解析)
+  - 前端 result→jsp：showlist=/company/compatent/list.jsp · query=/company/compatent/search.jsp · show=/company/compatent/show.jsp · open=/company/compatent/add.jsp
+- `/company/comproduct_<method>.action`  →  (bean: comproductAction 未解析)
+  - 前端 result→jsp：showlist=/company/comproduct/list.jsp · query=/company/comproduct/search.jsp · show=/company/comproduct/show.jsp · open=/company/comproduct/add.jsp
+
+## /crm  ·  src/config/struts/struts-crm.xml
+
+- `/crm/address_<method>.action`  →  com.maxtile.application.crm.lead.action.AddressAction
+  - 后端：src/com/maxtile/application/crm/lead/action/AddressAction.java
+- `/crm/enterpriseBase_<method>.action`  →  com.maxtile.application.crm.external.action.EnterpriseBaseAction
+  - 后端：src/com/maxtile/application/crm/external/action/EnterpriseBaseAction.java
+  - 前端 result→jsp：baiduPlat=/crm/plat/baiduPlat.jsp · enterpriseBase=/crm/external/enterpriseBase.jsp · enterpriseBaseShow=/crm/external/enterpriseBaseShow.jsp
+- `/crm/enterpriseToker_<method>.action`  →  com.maxtile.application.crm.external.action.EnterpriseTokerAction
+  - 后端：src/com/maxtile/application/crm/external/action/EnterpriseTokerAction.java
+- `/crm/exhibit_<method>.action`  →  com.maxtile.application.crm.lead.action.ExhibitAction
+  - 后端：src/com/maxtile/application/crm/lead/action/ExhibitAction.java
+  - 前端 result→jsp：list=/crm/exhibit/list.jsp · showPicture=/crm/exhibit/showPicture.jsp · listEdition2=/crm/exhibit/listEdition2.jsp · showEdition2=/crm/exhibit/showEdition2.jsp
+- `/crm/exhibitStaff_<method>.action`  →  com.maxtile.application.crm.lead.action.ExhibitStaffAction
+  - 后端：src/com/maxtile/application/crm/lead/action/ExhibitStaffAction.java
+  - 前端 result→jsp：list=/crm/exhibitstaff/list.jsp
+- `/crm/lead_<method>.action`  →  com.maxtile.application.crm.lead.action.LeadAction
+  - 后端：src/com/maxtile/application/crm/lead/action/LeadAction.java
+  - 前端 result→jsp：custleadinspect=/crm/lead/custleadinspect.jsp · list=/crm/lead/list.jsp · open=/crm/lead/add.jsp · show=/crm/lead/show.jsp · convert=/crm/lead/convert.jsp · visit=/crm/lead/visit.jsp · giveback=/crm/lead/giveback.jsp · visitList=/cust/cust/leadvisitlist.jsp · targetData1=/crm/lead/showData/targetData1.jsp · targetData2=/crm/lead/showData/targetData2.jsp · targetData4=/crm/lead/showData/targetData4.jsp
+- `/crm/leadprivate_<method>.action`  →  com.maxtile.application.crm.lead.action.LeadPrivateAction
+  - 后端：src/com/maxtile/application/crm/lead/action/LeadPrivateAction.java
+  - 前端 result→jsp：list=/crm/leadprivate/list.jsp · show=/crm/leadprivate/show.jsp
+- `/crm/tracking_<method>.action`  →  com.maxtile.application.crm.tracking.action.TrackingActicon
+  - 后端：src/com/maxtile/application/crm/tracking/action/TrackingActicon.java
+- `/crm/visitPlan_<method>.action`  →  com.maxtile.application.crm.visit.action.VisitPlanAction
+  - 后端：src/com/maxtile/application/crm/visit/action/VisitPlanAction.java
+- `/crm/visitRetinue_<method>.action`  →  com.maxtile.application.crm.visit.action.VisitRetinueAction
+  - 后端：src/com/maxtile/application/crm/visit/action/VisitRetinueAction.java
+- `/crm/visitSchedule_<method>.action`  →  com.maxtile.application.crm.visit.action.VisitScheduleAction
+  - 后端：src/com/maxtile/application/crm/visit/action/VisitScheduleAction.java
+- `/crm/weComMate_<method>.action`  →  com.maxtile.application.crm.wecom.action.WeComMateAction
+  - 后端：src/com/maxtile/application/crm/wecom/action/WeComMateAction.java
+  - 前端 result→jsp：list=/crm/wecommate/list.jsp · open=/crm/wecommate/add.jsp · show=/crm/wecommate/show.jsp
+- `/crm/weComOAuth2_<method>.action`  →  com.maxtile.application.crm.wecom.action.WeComOAuth2Action
+  - 后端：src/com/maxtile/application/crm/wecom/action/WeComOAuth2Action.java
+
+## /cust  ·  src/config/struts/struts-cust.xml
+
+- `/cust/aiFindCus_<method>.action`  →  com.maxtile.application.crm.customer.action.AIFindCusAction
+  - 后端：src/com/maxtile/application/crm/customer/action/AIFindCusAction.java
+- `/cust/autoConfigure_<method>.action`  →  com.maxtile.application.crm.customer.action.AutoConfigureAction
+  - 后端：src/com/maxtile/application/crm/customer/action/AutoConfigureAction.java
+  - 前端 result→jsp：list=/cust/autoConfig/list.jsp · show=/cust/autoConfig/show.jsp · error=/public/head/error.jsp
+- `/cust/billapply_<method>.action`  →  com.maxtile.application.crm.customer.action.BillapplyAction
+  - 后端：src/com/maxtile/application/crm/customer/action/BillapplyAction.java
+  - 前端 result→jsp：showList=/cust/billapply/list.jsp · searchBillapply=/cust/billapply/searchlist.jsp · open=/cust/billapply/add.jsp · show=/cust/billapply/show.jsp · rightError=/error.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp
+- `/cust/cancel_<method>.action`  →  com.maxtile.application.crm.customer.action.CuscancelAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CuscancelAction.java
+  - 前端 result→jsp：list=/cust/cust/custcancelList.jsp
+- `/cust/cancelrec_<method>.action`  →  com.maxtile.application.crm.customer.action.CancelrecAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CancelrecAction.java
+  - 前端 result→jsp：showList=/cust/cancelrec/list.jsp · searchCancelrec=/cust/cancelrec/searchlist.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp
+- `/cust/channel_<method>.action`  →  com.maxtile.application.crm.customer.action.ChannelAction
+  - 后端：src/com/maxtile/application/crm/customer/action/ChannelAction.java
+  - 前端 result→jsp：showList=/cust/channel/channelList.jsp · searchChannel=/cust/channel/searchChannel.jsp · div_showList=/cust/channel/div_channelList.jsp · open=/cust/channel/addChannel.jsp · toUpdate=/cust/channel/updateChannel.jsp · success=/cust/channel/channelList.jsp · error=/public/head/error.jsp
+- `/cust/colorCardBatch_<method>.action`  →  com.maxtile.application.crm.customer.action.ColorCardBatchAction
+  - 后端：src/com/maxtile/application/crm/customer/action/ColorCardBatchAction.java
+- `/cust/common_<method>.action`  →  com.maxtile.application.crm.customer.action.CommonAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CommonAction.java
+  - 前端 result→jsp：worderOpenSpecList=/erp/produce/baseconfig/worderopenspecconfig/list.jsp · worderOpenSpecShow=/erp/produce/baseconfig/worderopenspecconfig/show.jsp · list=/cust/common/list.jsp · show=/cust/common/show.jsp · showList=/cust/common/showList.jsp · edit=/cust/common/edit.jsp · div_list=/cust/common/div_list.jsp · batchPrint=/cust/common/batchPrint.jsp · error=/public/head/error.jsp
+- `/cust/cp_<method>.action`  →  com.maxtile.application.crm.customer.action.CustprivateAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustprivateAction.java
+  - 前端 result→jsp：custExamine=/cust/cust/custExamine.jsp · batchUpdateCpDate=/cust/cust/batchUpdateCpDate.jsp · applyParentChildCustomerList=/cust/cust/customerParentChild.jsp
+- `/cust/crg_<method>.action`  →  com.maxtile.application.crm.customer.action.RegionviewAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RegionviewAction.java
+  - 前端 result→jsp：list=/cust/regionview/list.jsp · show=/cust/regionview/show.jsp · error=/public/head/error.jsp
+- `/cust/crmfa_<method>.action`  →  com.maxtile.application.crm.customer.action.CrmFlowApplyAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CrmFlowApplyAction.java
+  - 前端 result→jsp：list=/cust/salesamountrecord/list.jsp · show=/cust/salesamountrecord/show.jsp · add=/cust/salesamountrecord/add.jsp
+- `/cust/crmfn_<method>.action`  →  com.maxtile.application.crm.customer.action.CrmFlowNodeAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CrmFlowNodeAction.java
+  - 前端 result→jsp：list=/cust/flownode/list.jsp · show=/cust/flownode/show.jsp · error=/public/head/error.jsp
+- `/cust/cusa_<method>.action`  →  (bean: cusaddressAction 未解析)
+  - 前端 result→jsp：cusaList=/cust/div_cusaddress/cusalist.jsp · cusaSearchList=/cust/div_cusaddress/cusaSearchList.jsp · add=/cust/div_cusaddress/cusaadd.jsp · success=<param name="actionName">cusa_*</param>
+				<param name="method">list</param> · show=/cust/div_cusaddress/cusaShow.jsp · error=/public/head/error.jsp
+- `/cust/cusb_<method>.action`  →  (bean: cusbankAction 未解析)
+  - 前端 result→jsp：cusbList=/cust/div_cusbank/cusblist.jsp · open=/cust/div_cusbank/cusbadd.jsp · success=<param name="actionName">cusb_*</param>
+				<param name="method">list</param> · show=/cust/div_cusbank/cusbShow.jsp · error=/public/head/error.jsp
+- `/cust/cusComplaint_<method>.action`  →  com.maxtile.application.crm.customer.action.CusComplaintAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CusComplaintAction.java
+  - 前端 result→jsp：list=/cust/cuscomplaint/list.jsp · show=/cust/cuscomplaint/show.jsp
+- `/cust/CusComplaintBacktype_<method>.action`  →  com.maxtile.application.crm.customer.action.CusComplaintBacktypeAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CusComplaintBacktypeAction.java
+- `/cust/cusComplaintImage_<method>.action`  →  com.maxtile.application.crm.customer.action.CusComplaintImageAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CusComplaintImageAction.java
+- `/cust/cuscredit_<method>.action`  →  (bean: cuscreditAction 未解析)
+  - 前端 result→jsp：showList=/cust/cuscredit/cuscreditlist.jsp · searchcreditList=/cust/cuscredit/searchcuscreditlist.jsp · showfinditem=/cust/cuscredititem/cuscredititemlist.jsp · showdata=/cust/cuscredit/cuscreditdata.jsp · error=/public/head/error.jsp
+- `/cust/cuscreditchg_<method>.action`  →  (bean: cuscreditchgAction 未解析)
+  - 前端 result→jsp：success=/cust/cuscredititem/success.jsp · showList=/cust/cuscreditchg/cuscreditchglist.jsp · searchList=/cust/cuscreditchg/searchcuscreditchglist.jsp · open=/cust/cuscreditchg/cuscreditchgadd.jsp · showCuscredit=/cust/cuscreditchg/showcuscredit.jsp · show=/cust/cuscreditchg/cuscreditchgedit.jsp · error=/public/head/error.jsp
+- `/cust/cuscredititem_<method>.action`  →  (bean: cuscredititemAction 未解析)
+  - 前端 result→jsp：success=/cust/cuscredititem/success.jsp · showList=/cust/cuscredititem/cuscredititemlist.jsp · show=/cust/cuscredititem/cuscredititemshow.jsp · showadd=/cust/cuscredititem/cuscredititemadd.jsp · showCuscredit=/cust/cuscredititem/showcuscredit.jsp · showSorder=/cust/cuscredititem/showsorder.jsp · error=/public/head/error.jsp
+- `/cust/cuscyclerebateApply_<method>.action`  →  com.maxtile.application.crm.customer.action.CuscyclerebateApplyAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CuscyclerebateApplyAction.java
+- `/cust/cusCycleRebateConfig_<method>.action`  →  com.maxtile.application.crm.customer.action.CusCycleRebateConfigAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CusCycleRebateConfigAction.java
+  - 前端 result→jsp：list=/cust/rebate/cusprocycle/list.jsp · show=/cust/rebate/cusprocycle/show.jsp
+- `/cust/cusFatherSonLinkApply_<method>.action`  →  com.maxtile.application.crm.customer.action.CusFatherSonLinkApplyAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CusFatherSonLinkApplyAction.java
+  - 前端 result→jsp：list=/cust/cust/updateRecord.jsp
+- `/cust/cusgrade_<method>.action`  →  (bean: cusgradeAction 未解析)
+  - 前端 result→jsp：success=/cust/cusgrade/success.jsp · showcusgradeList=/cust/cusgrade/cusgradelist.jsp · searchusgradeList=/cust/cusgrade/searchcusgradelist.jsp · showCustList=/cust/cusregist/showcustomer.jsp · showAdd=/cust/cusgrade/cusgradeadd.jsp · showcusgradename=/cust/cusgrade/showcusgradename.jsp · cusgradeitem=/cust/cusgrade/cusgradeitemadd.jsp · showedit=/cust/cusgrade/cusgradedit.jsp · showitemedit=/cust/cusgrade/cusgradeitemedit.jsp · check=<param name="actionName">cusgrade_*</param>
+				<param name="method">edit</param> · error=/public/head/error.jsp
+- `/cust/cusgradeLevel_<method>.action`  →  (bean: cusgradeLevelAction 未解析)
+  - 前端 result→jsp：showList=/cust/cusgradelevel/cusgradelevelList.jsp · div_showList=/cust/cusgradelevel/div_cusgradeLevelList.jsp · open=/cust/cusgradelevel/addCusgradeLevel.jsp · showUpdate=/cust/cusgradelevel/showCusgradeLevel.jsp · searchCusgradeLevel=/cust/cusgradelevel/searchCusgradeLevel.jsp · success=/cust/cusgradelevel/cusgradelevelList.jsp
+- `/cust/cusinfolog_<method>.action`  →  (bean: cusinfologAction 未解析)
+  - 前端 result→jsp：cusinfologlist=/cust/div_cusinfolog/cusinfologlist.jsp · open=/cust/div_cusinfolog/cusinfologadd.jsp · success=<param name="actionName">cusinfolog_*</param>
+				<param name="method">list</param> · show=/cust/div_cusinfolog/cusinfologShow.jsp · error=/public/head/error.jsp
+- `/cust/cusl_<method>.action`  →  com.maxtile.application.crm.customer.action.CuslinkerAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CuslinkerAction.java
+  - 前端 result→jsp：cuslList=/cust/div_cuslink/cusllist.jsp · open=/cust/div_cuslink/cusladd.jsp · success=<param name="actionName">cusl_*</param>
+				<param name="method">list</param> · show=/cust/div_cuslink/cuslShow.jsp · error=/public/head/error.jsp
+- `/cust/cuslevel_<method>.action`  →  (bean: cuslevelAction 未解析)
+  - 前端 result→jsp：showList=/cust/cuslevel/cuslevelList.jsp · div_list=/cust/cuslevel/div_cuslevelList.jsp · open=/cust/cuslevel/addCuslevel.jsp · showUpdate=/cust/cuslevel/showCuslevel.jsp · searchCuslevel=/cust/cuslevel/searchCuslevel.jsp · success=/cust/cuslevel/cuslevelList.jsp
+- `/cust/cusregist_<method>.action`  →  (bean: cusregistAction 未解析)
+  - 前端 result→jsp：showcustadd=/cust/cusregist/makeregister.jsp · success=/cust/cusregist/success.jsp · showList=/cust/cusregist/cusregistlist.jsp · openregister=/cust/cusregist/registershow.jsp · div_cusregisList=/cust/cusregist/divcusregistlist.jsp · div_searchcusregisList=/cust/cusregist/searchdivcusregistlist.jsp · showdelregister=/cust/cusregist/delregister.jsp · searchCusregistList=/cust/cusregist/searchCusregistList.jsp · showCheck=/cust/cusregist/showCheck.jsp · error=/public/head/error.jsp
+- `/cust/cust_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerAction.java
+  - 前端 result→jsp：custlist=/cust/cust/custList.jsp · searchCustList=/cust/cust/searchCustList.jsp · warnlist=/cust/cust/listWarnCust.jsp · searchwarn=/cust/cust/searchWarnCust.jsp · myCustList=/cust/cust/mycustList.jsp · searchMyCustList=/cust/cust/searchMyCustList.jsp · subDeptCustList=/cust/cust/subDeptCustList.jsp · searchSubDeptCustList=/cust/cust/searchSubDeptCustList.jsp · repeatCustList=/cust/cust/repeatCustList.jsp · searchRepeatCustList=/cust/cust/searchRepeatCustList.jsp · cancelCustList=/cust/cust/cancelCustList.jsp · searchCancelCustList=/cust/cust/searchCancelCustList.jsp · div_custList=/cust/cust/div_custList.jsp · div_searchCustList=/cust/cust/div_cusSearchList.jsp · pub_custList=/cust/cust/pub_custList.jsp · pub_searchCustList=/cust/cust/pub_cusSearchList.jsp · open=/cust/cust/custAdd.jsp · show=/cust/cust/custShow.jsp · showCredit=/cust/cust/showCredit.jsp · showSalesParent=/cust/cust/showSalesParent.jsp · showInfo=/cust/cust/custShowInfo.jsp · openForUpdate=/cust/cust/custupdate.jsp · searchCusInfor=/cust/cust/div_cusSearchList.jsp · searchCustUpdateList=/cust/cust/searchCustUpdateList.jsp · customerCuscredit=/cust/cust/customerCuscredit.jsp · cusupdatelist=/cust/cust/cusupdateList.jsp · serverList=/cust/cust/serverList.jsp · rightError=/error.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp · errorshow=/public/head/errorshow.jsp · checkExist=/cust/cust/checkExistList.jsp · baidu=/baidu.jsp · querydulplist=/cust/cust/repeatSearch.jsp · openCancel=/cust/cust/cancelCust.jsp · openRepeat=/cust/cust/repeatCust.jsp · openUpdate=/cust/cust/custupdate.jsp · openScontract=/cust/scontract/scontractAdd.jsp · openBillApp=/cust/billapply/add.jsp · openCustran=/cust/custrans/custransferadd.jsp · addRecord=/cust/record/add.jsp · addPartner=/cust/partner/add.jsp · listCusLayout=/cust/cuslayout/listCusLayout.jsp · searchCusLayout=/cust/cuslayout/searchCusLayout.jsp · listCusByLayout=/cust/cuslayout/listCust.jsp · searchCusByLayout=/cust/cuslayout/searchCust.jsp · wapcustlist=/wap/customer/custList.jsp · wapsearchCustList=/wap/customer/searchCustList.jsp · wapquerydulplist=/wap/customer/repeatSearch.jsp · wapshow=/wap/customer/custShow.jsp · listAxsalesCustomer=/cust/cust/axcusList.jsp · mallERPCusList=/cust/mall/mallAndERPcus.jsp · mallERPCusUpdate=/cust/mall/update.jsp · customerRequiredShow=/cust/cust/customerRequiredShow.jsp · showStates=/cust/cust/showStates.jsp · showMarket=/cust/cust/showMarket.jsp
+- `/cust/custbank_<method>.action`  →  com.maxtile.application.crm.customer.action.CustbankAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustbankAction.java
+  - 前端 result→jsp：list=/cust/custbank/list.jsp · show=/cust/custbank/show.jsp
+- `/cust/custchangeLog_<method>.action`  →  com.maxtile.application.crm.customer.action.CustchangeLogAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustchangeLogAction.java
+  - 前端 result→jsp：list=/cust/custchangeLog/list.jsp
+- `/cust/customerexempt_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerExemptAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerExemptAction.java
+  - 前端 result→jsp：list=/cust/exempt/list.jsp · show=/cust/exempt/show.jsp · open=/cust/exempt/add.jsp
+- `/cust/customerIdentityApply_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerIdentityApplyAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerIdentityApplyAction.java
+- `/cust/customerLinkerLog_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerLinkerLogAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerLinkerLogAction.java
+- `/cust/customerSpecialConfig_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerSpecialConfigAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerSpecialConfigAction.java
+  - 前端 result→jsp：list=/cust/customerSpecialConfig/list.jsp · show=/cust/customerSpecialConfig/show.jsp · open=/cust/customerSpecialConfig/add.jsp
+- `/cust/customerSuspiciousLog_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerSuspiciousLogAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerSuspiciousLogAction.java
+- `/cust/customerUpApplyLog_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerUpApplyLogAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustomerUpApplyLogAction.java
+  - 前端 result→jsp：list=/cust/upapplylog/list.jsp · show=/cust/upapplylog/show.jsp · custAddShow=/cust/upapplylog/custAddShow.jsp
+- `/cust/custoplog_<method>.action`  →  com.maxtile.application.crm.customer.action.CustoplogAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustoplogAction.java
+  - 前端 result→jsp：showList=/cust/custoplog/list.jsp · open=/cust/div_cusinfolog/cusinfologadd.jsp
+- `/cust/custoVip_<method>.action`  →  (bean: custoVipAction 未解析)
+  - 前端 result→jsp：list=/cust/custoVip/custoVipList.jsp · searchlist=/cust/custoVip/searchcustoVipList.jsp · open=/cust/custoVip/addCustoVip.jsp · success=/cust/custoVip/success.jsp · show=/cust/custoVip/showCustoVip.jsp
+- `/cust/custoweb_<method>.action`  →  (bean: custowebAction 未解析)
+  - 前端 result→jsp：custoweblist=/cust/div_custoweb/custoweblist.jsp · open=/cust/div_custoweb/custowebadd.jsp · success=<param name="actionName">custoweb_*</param>
+				<param name="method">list</param> · show=/cust/div_custoweb/custowebShow.jsp · error=/public/head/error.jsp
+- `/cust/custrans_<method>.action`  →  com.maxtile.application.crm.customer.action.CustransAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustransAction.java
+  - 前端 result→jsp：success=/cust/custrans/success.jsp · showList=/cust/custrans/custranslist.jsp · searchcustrans=/cust/custrans/searchcustranslist.jsp · showEmp=/cust/custrans/showemp.jsp · open=/cust/custrans/custransferadd.jsp · showcustomer=/cust/custrans/showcustomer.jsp · error=/public/head/error.jsp · wapshowList=/wap/custrans/custranslist.jsp · wapsearchcustrans=/wap/custrans/searchcustranslist.jsp
+- `/cust/cusVip_<method>.action`  →  (bean: cusVipAction 未解析)
+  - 前端 result→jsp：list=/cust/cusVip/cusVipList.jsp · searchlist=/cust/cusVip/searchcusVipList.jsp · div_list=/cust/cusVip/div_CusVipList.jsp · open=/cust/cusVip/addCusVip.jsp · success=/cust/cusVip/success.jsp · show=/cust/cusVip/showCusVip.jsp · personalVipByCusid=/cust/cusVip/personalVipByCusid.jsp · listCustomer=/cust/cusVip/listCustomer.jsp · error=/public/head/error.jsp
+- `/cust/data_<method>.action`  →  com.maxtile.application.crm.customer.action.CustDataTypeAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustDataTypeAction.java
+  - 前端 result→jsp：list=/cust/common/showDataList.jsp · showDataType=/cust/common/showDataType.jsp
+- `/cust/diffdept_<method>.action`  →  com.maxtile.application.crm.customer.action.DiffdeptAction
+  - 后端：src/com/maxtile/application/crm/customer/action/DiffdeptAction.java
+  - 前端 result→jsp：list=/cust/diffdept/list.jsp · show=/cust/diffdept/show.jsp · error=/public/head/error.jsp
+- `/cust/feedback_<method>.action`  →  com.maxtile.application.crm.customer.action.FeedbackAction
+  - 后端：src/com/maxtile/application/crm/customer/action/FeedbackAction.java
+- `/cust/feedbackitem_<method>.action`  →  com.maxtile.application.crm.customer.action.FeedbackitemAction
+  - 后端：src/com/maxtile/application/crm/customer/action/FeedbackitemAction.java
+- `/cust/inviteregister_<method>.action`  →  com.maxtile.application.crm.customer.action.InviteregisterAction
+  - 后端：src/com/maxtile/application/crm/customer/action/InviteregisterAction.java
+- `/cust/lockcusquota_<method>.action`  →  com.maxtile.application.crm.customer.action.LockcusquotaAction
+  - 后端：src/com/maxtile/application/crm/customer/action/LockcusquotaAction.java
+- `/cust/noterec_<method>.action`  →  com.maxtile.application.crm.customer.action.NotereceiveAction
+  - 后端：src/com/maxtile/application/crm/customer/action/NotereceiveAction.java
+  - 前端 result→jsp：list=/cust/notereceive/list.jsp · search=/cust/notereceive/searchlist.jsp · open=/cust/notereceive/add.jsp · show=/cust/notereceive/show.jsp · rightError=/error.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp
+- `/cust/onlinecusvisit_<method>.action`  →  com.maxtile.application.crm.customer.action.OnlinecusvisitAction
+  - 后端：src/com/maxtile/application/crm/customer/action/OnlinecusvisitAction.java
+  - 前端 result→jsp：list=/cust/onlinecusvisit/list.jsp · show=/cust/onlinecusvisit/show.jsp · excludecusShow=/cust/onlinecusvisit/excludecusShow.jsp · error=/public/head/error.jsp
+- `/cust/partner_<method>.action`  →  com.maxtile.application.crm.customer.action.PartnerAction
+  - 后端：src/com/maxtile/application/crm/customer/action/PartnerAction.java
+  - 前端 result→jsp：showList=/cust/partner/list.jsp · searchPartner=/cust/partner/searchlist.jsp · open=/cust/partner/add.jsp · show=/cust/partner/show.jsp · rightError=/error.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp
+- `/cust/product_<method>.action`  →  com.maxtile.application.erp.product.action.ProductAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductAction.java
+  - 前端 result→jsp：showList=/cust/product/listProduct.jsp · searchProduct=/cust/product/searchProduct.jsp · open=/cust/product/productAdd.jsp · show=/cust/product/productShow.jsp · toAdd=/cust/product/productAdd.jsp · add=product_showList.action · update=/cust/product/productShow.jsp · divListPro=/cust/product/div_listProduct.jsp · divSearchPro=/cust/product/div_searchProduct.jsp · error=/public/head/error.jsp
+- `/cust/rebate_<method>.action`  →  com.maxtile.application.crm.customer.action.RebateAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RebateAction.java
+  - 前端 result→jsp：showShopRebate=/cust/rebate/showShopRebate.jsp
+- `/cust/record_<method>.action`  →  com.maxtile.application.crm.customer.action.RecordAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RecordAction.java
+  - 前端 result→jsp：showList=/cust/record/list.jsp · searchRecord=/cust/record/searchlist.jsp · showTelList=/cust/record/listTelRecord.jsp · searchTelRecord=/cust/record/searchTelRecord.jsp · newRecordShow=/cust/cust/newRecordShow.jsp · open=/cust/record/add.jsp · show=/cust/record/show.jsp · playRecord=/cust/record/jsplay.jsp · rightError=/error.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp · listCountRecord=/cust/record/listCountRecord.jsp · searchCountRecord=/cust/record/searchCountRecord.jsp · listRecordByDays=/cust/record/listRecordByDays.jsp · searchRecordByDays=/cust/record/searchRecordByDays.jsp · listWeekRecord=/cust/record/listWeekRecord.jsp · searchWeekRecord=/cust/record/searchWeekRecord.jsp · searchRecordTop=/cust/record/recordTop.jsp · listCustomerRecord=/cust/search/listCustomerRecord.jsp · searchCustomerRecord=/cust/search/searchCustomerRecord.jsp
+- `/cust/recyclelog_<method>.action`  →  com.maxtile.application.crm.customer.action.RecyclelogAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RecyclelogAction.java
+  - 前端 result→jsp：list=/cust/recyclelog/list.jsp · error=/public/head/error.jsp
+- `/cust/recyclerule_<method>.action`  →  com.maxtile.application.crm.customer.action.RecycleruleAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RecycleruleAction.java
+  - 前端 result→jsp：list=/cust/recyclerule/list.jsp · show=/cust/recyclerule/show.jsp · affiliationruleShow=/cust/recyclerule/affiliationruleShow.jsp · error=/public/head/error.jsp
+- `/cust/repeat_<method>.action`  →  com.maxtile.application.crm.customer.action.RepeatAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RepeatAction.java
+  - 前端 result→jsp：showList=/cust/repeat/list.jsp · searchRepeat=/cust/repeat/searchlist.jsp · open=/cust/repeat/add.jsp · show=/cust/repeat/show.jsp · rightError=/error.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp
+- `/cust/rest_<method>.action`  →  com.maxtile.application.crm.customer.action.RestrictionAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RestrictionAction.java
+  - 前端 result→jsp：list=/cust/restriction/list.jsp · show=/cust/restriction/show.jsp · rule=/cust/restriction/rule.jsp
+- `/cust/ruleWhiteList_<method>.action`  →  com.maxtile.application.crm.customer.action.RuleWhiteListAction
+  - 后端：src/com/maxtile/application/crm/customer/action/RuleWhiteListAction.java
+  - 前端 result→jsp：list=/cust/rulewhitelist/list.jsp · error=/public/head/error.jsp
+- `/cust/saleData_<method>.action`  →  com.maxtile.application.crm.customer.action.SaleDataAction
+  - 后端：src/com/maxtile/application/crm/customer/action/SaleDataAction.java
+- `/cust/salesAmo_<method>.action`  →  com.maxtile.application.crm.customer.action.SalesAmountRecordAction
+  - 后端：src/com/maxtile/application/crm/customer/action/SalesAmountRecordAction.java
+  - 前端 result→jsp：list=/cust/salesamountrecord/list.jsp · show=/cust/salesamountrecord/show.jsp · add=/cust/salesamountrecord/add.jsp
+- `/cust/scontract_<method>.action`  →  com.maxtile.application.crm.customer.action.ScontractAction
+  - 后端：src/com/maxtile/application/crm/customer/action/ScontractAction.java
+  - 前端 result→jsp：showList=/cust/scontract/scontractList.jsp · searchScontract=/cust/scontract/searchscontractList.jsp · open=/cust/scontract/scontractAdd.jsp · show=/cust/scontract/scontractShow.jsp · toAdd=/cust/scontract/scontractAdd.jsp · add=scontract_showList.action · update=/cust/scontract/scontractShow.jsp · div_scontractList=/cust/scontract/div_scontractList.jsp · div_scontractSearchList=/cust/scontract/div_scontractSearchList.jsp · div_sconRecBillList=/cust/scontract/div_sconRecBillList.jsp · div_searchsconRecBill=/cust/scontract/div_sconRecBillSearch.jsp · listSalesTotal=/cust/scontract/listSalesTotal.jsp · searchSalesTotal=/cust/scontract/searchSalesTotal.jsp · listCountScontract=/cust/search/listCountScontract.jsp · searchCountScontract=/cust/search/searchCountScontract.jsp · listNoteRecTop=/cust/search/listNoteRecTop.jsp · searchNoteRecTop=/cust/search/searchNoteRecTop.jsp · listSaleScoreTop=/cust/search/listSaleScoreTop.jsp · searchSaleScoreTop=/cust/search/searchSaleScoreTop.jsp · listNewCustomerDay=/cust/search/listNewCusDay.jsp · searchNewCustomerDay=/cust/search/searchNewCusDay.jsp · div_uploadFile=/sale/scontract/div_uploadFile.jsp · download=<param name="contentType">application/msword</param>
+	            <param name="inputName">inputStream</param>
+	            <!-- ä½¿ç¨ç»è¿è½¬ç çæä»¶åä½ä¸ºä¸è½½æä»¶åï¼downloadFileNameå±æ§
+					å¯¹åºactionç±»ä¸­çæ¹æ³ getDownloadFileName() -->
+	            <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+	            <param name="bufferSize">8172</param> · error=/public/head/error.jsp · openUpLoad=/cust/scontract/upLoadFile.jsp
+- `/cust/scontractItem_<method>.action`  →  com.maxtile.application.crm.customer.action.ScontractItemAction
+  - 后端：src/com/maxtile/application/crm/customer/action/ScontractItemAction.java
+  - 前端 result→jsp：open=/cust/scontract/scontractItemAdd.jsp · show=/cust/scontract/scontractItemShow.jsp · error=/public/head/error.jsp
+- `/cust/smodel_<method>.action`  →  com.maxtile.application.crm.customer.action.SmodelAction
+  - 后端：src/com/maxtile/application/crm/customer/action/SmodelAction.java
+  - 前端 result→jsp：list=/cust/common/smodellist.jsp · show=/cust/common/show_smodel.jsp · smodelList=/cust/cust/smodellist.jsp · showSmodel=/cust/cust/smodel_show.jsp
+- `/cust/uploadfiles_<method>.action`  →  com.maxtile.application.crm.customer.action.UploadfilesAction
+  - 后端：src/com/maxtile/application/crm/customer/action/UploadfilesAction.java
+  - 前端 result→jsp：showList=/cust/product/listProduct.jsp · open=/cust/product/productAdd.jsp · add=product_showList.action · error=/public/head/error.jsp
+- `/cust/vipconsume_<method>.action`  →  (bean: vipconsumeAction 未解析)
+  - 前端 result→jsp：success=/cust/cuscredititem/success.jsp · showList=/cust/vipconsume/vipconsumelist.jsp · searchList=/cust/vipconsume/searchvipconsumelist.jsp · shwoAdd=/cust/vipconsume/vipconsumeadd.jsp · vipprojectList=/cust/vipconsume/showvipprojectlist.jsp · cusvipList=/cust/vipconsume/showcusviplist.jsp · vipconsumeItemAdd=/cust/vipconsume/vipconsumeitemadd.jsp · vipconsumedit=/cust/vipconsume/vipconsumedit.jsp · showedititem=/cust/vipconsume/vipconsumeitemedit.jsp · showApply=/cust/vipconsume/vipconsumApply.jsp · vipconsumApplyEdit=/cust/vipconsume/vipconsumApplyEdit.jsp · error=/public/head/error.jsp
+- `/cust/vipproject_<method>.action`  →  (bean: vipprojectAction 未解析)
+  - 前端 result→jsp：list=/cust/vipproject/vipprojectlist.jsp · searchlist=/cust/vipproject/searchvipprojectlist.jsp · add=/cust/vipproject/addVipproject.jsp · success=/cust/vipproject/vipprojectlist.jsp · show=/cust/vipproject/showVipproject.jsp
+- `/cust/vipScore_<method>.action`  →  (bean: vipScoreAction 未解析)
+  - 前端 result→jsp：list=/cust/vipscore/vipscorelist.jsp · searchlist=/cust/vipscore/searchvipscorelist.jsp · add=/cust/vipscore/addVipscore.jsp · show=/cust/vipscore/showVipscore.jsp · success=/cust/vipscore/vipscorelist.jsp · itemDetail=/cust/vipscore/itemDetail.jsp
+- `/cust/vipScoreRule_<method>.action`  →  (bean: vipScoreRuleAction 未解析)
+  - 前端 result→jsp：list=/cust/vipscorerule/vipscorerulelist.jsp · searchlist=/cust/vipscorerule/searchvipscorerulelist.jsp · add=/cust/vipscorerule/addVipscorerule.jsp · show=/cust/vipscorerule/showVipscorerule.jsp · success=/cust/vipscorerule/vipscorerulelist.jsp
+- `/cust/visit_<method>.action`  →  com.maxtile.application.crm.customer.action.CustvisitAction
+  - 后端：src/com/maxtile/application/crm/customer/action/CustvisitAction.java
+  - 前端 result→jsp：list=/cust/cust/custVisitList.jsp · visitSeo=/cust/cusvisit/visitSeo.jsp · countlist=/cust/cust/visitCountList.jsp · leadvisitshow=/cust/cust/leadvisitshow.jsp
+- `/cust/warn_<method>.action`  →  com.maxtile.application.crm.customer.action.WarnAction
+  - 后端：src/com/maxtile/application/crm/customer/action/WarnAction.java
+  - 前端 result→jsp：showList=/cust/warn/listWarn.jsp · searchWarn=/cust/warn/searchWarn.jsp · listNoteBook=/cust/warn/listNoteBook.jsp · searchNoteBook=/cust/warn/searchNoteBook.jsp · open=/cust/warn/addWarn.jsp · show=/cust/warn/updateWarn.jsp · popShowWarn=/cust/warn/popWarn.jsp · div_showList=/cust/warn/div_warnList.jsp · success=/cust/warn/warnList.jsp · error=/public/head/error.jsp · showMsg=/cust/msgShow.jsp · timeCountSorderConfig=/cust/timeCountSorderConfig.jsp · showArrive=/cust/showArrive.jsp · searchWarnMsg=/cust/searchWarnMsg.jsp · searchRecordMsg=/cust/searchRecordMsg.jsp
+
+## /develop  ·  src/config/struts/struts-develop.xml
+
+- `/develop/auditItem_<method>.action`  →  com.maxtile.application.erp.develop.action.AuditItemAction
+  - 后端：src/com/maxtile/application/erp/develop/action/AuditItemAction.java
+- `/develop/auditLog_<method>.action`  →  com.maxtile.application.erp.develop.action.AuditLogAction
+  - 后端：src/com/maxtile/application/erp/develop/action/AuditLogAction.java
+- `/develop/mdevelopabnl_<method>.action`  →  com.maxtile.application.erp.develop.action.MdevelopabnlAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdevelopabnlAction.java
+  - 前端 result→jsp：show=/erp/develop/mdevelopabnl/show.jsp
+- `/develop/mdevelopBuymrp_<method>.action`  →  com.maxtile.application.erp.develop.action.MdevelopBuymrpAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdevelopBuymrpAction.java
+- `/develop/mdevelopBuypro_<method>.action`  →  com.maxtile.application.erp.develop.action.MdevelopBuyproAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdevelopBuyproAction.java
+- `/develop/mdevelopCareinfo_<method>.action`  →  com.maxtile.application.erp.develop.action.MdevelopCareinfoAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdevelopCareinfoAction.java
+- `/develop/mdevelopComposite_<method>.action`  →  com.maxtile.application.erp.develop.action.MdevelopCompositeAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdevelopCompositeAction.java
+- `/develop/mdevelopCompweight_<method>.action`  →  com.maxtile.application.erp.develop.action.MdevelopCompweightAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdevelopCompweightAction.java
+- `/develop/mdistage_<method>.action`  →  com.maxtile.application.erp.develop.action.MdistageAction
+  - 后端：src/com/maxtile/application/erp/develop/action/MdistageAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · mdistageShow=/erp/develop/newmdevelop/mdistageShow.jsp
+- `/develop/newMdevelop_<method>.action`  →  com.maxtile.application.erp.develop.action.NewMdevelopAction
+  - 后端：src/com/maxtile/application/erp/develop/action/NewMdevelopAction.java
+  - 前端 result→jsp：add=/erp/develop/newmdevelop/add.jsp · show=/erp/develop/newmdevelop/show.jsp · list=/erp/develop/newmdevelop/list.jsp · analysisList=/erp/search/develop/analysisList.jsp · analysisListNew=/erp/search/develop/analysisListNew.jsp · mdevelopProMergeList=/erp/develop/newmdevelop/mdevelopProMergeList.jsp · waitCheckmdevelopProList=/erp/develop/newmdevelop/waitCheckmdevelopProList.jsp · openSpecUpdate=/erp/develop/newmdevelop/specUpdate.jsp · print=/erp/develop/newmdevelop/print.jsp · eprint=/erp/develop/newmdevelop/eprint.jsp · privatePrint=/erp/develop/newmdevelop/privatePrint.jsp · openSinceritySum=/erp/develop/newmdevelop/openSinceritySum.jsp · sincerityMoneyPrint=/erp/develop/newmdevelop/sincerityMoneyPrint.jsp · newMdevelopSincerity=/erp/develop/newmdevelop/newMdevelopSincerity.jsp · openSchdnotes=/erp/develop/newmdevelop/openSchdnotes.jsp · newMdevelopLabelPrint=/erp/develop/newmdevelop/newMdevelopLabelPrint.jsp · applyAddOpen=/erp/develop/newmdevelop/applyAdd.jsp · applyShow=/erp/develop/newmdevelop/applyShow.jsp · devWidthCheckList=/erp/develop/newmdevelop/devWidthCheckList.jsp · srmPosendAdd=/erp/develop/newmdevelop/srmPosendAdd.jsp · srmPosendBySupInventoryAdd=/erp/develop/newmdevelop/srmPosendBySupInventoryAdd.jsp · srmPurchaseDeliveryAdd=/erp/develop/newmdevelop/srmPurchaseDelivery.jsp · main=/erp/search/develop/main.jsp · mainData=/erp/search/develop/mainData.jsp · analysisMreceive=/erp/search/develop/analysisMreceive.jsp · developWorkbenches=/erp/search/develop/workbenches.jsp · privatePrintAndBatchno=/erp/develop/newmdevelop/privatePrintAndBatchno.jsp
+- `/develop/newMdevelopApply_<method>.action`  →  com.maxtile.application.erp.develop.action.NewMdevelopApplyAction
+  - 后端：src/com/maxtile/application/erp/develop/action/NewMdevelopApplyAction.java
+  - 前端 result→jsp：list=/erp/develop/newmdevelopapply/list.jsp · chargeList=/erp/develop/newmdevelopapply/chargeList.jsp · openSinceritySum=/erp/develop/newmdevelopapply/openSinceritySum.jsp · print=/erp/develop/newmdevelopapply/print.jsp
+- `/develop/newMdevelopItem_<method>.action`  →  com.maxtile.application.erp.develop.action.NewMdevelopItemAction
+  - 后端：src/com/maxtile/application/erp/develop/action/NewMdevelopItemAction.java
+  - 前端 result→jsp：addOrUpdateItem=/erp/develop/newmdevelop/addOrUpdateItem.jsp
+- `/develop/newMdevelopPro_<method>.action`  →  com.maxtile.application.erp.develop.action.NewMdevelopProAction
+  - 后端：src/com/maxtile/application/erp/develop/action/NewMdevelopProAction.java
+  - 前端 result→jsp：addPro=/erp/develop/newmdevelop/addPro.jsp · proListByProid=/erp/develop/newmdeveloppro/proListByProid.jsp
+- `/develop/newmdevelopProgressConfig_<method>.action`  →  com.maxtile.application.erp.develop.action.NewmdevelopProgressConfigAction
+  - 后端：src/com/maxtile/application/erp/develop/action/NewmdevelopProgressConfigAction.java
+- `/develop/productDevelopCal_<method>.action`  →  com.maxtile.application.erp.develop.action.ProductDevelopCalAction
+  - 后端：src/com/maxtile/application/erp/develop/action/ProductDevelopCalAction.java
+  - 前端 result→jsp：add=<param name="namespace">/develop</param>
+				<param name="actionName">productDevelopCal_show?obj.id=${obj.id}</param> · show=/erp/develop/productdevelopcal/show.jsp · showComposite=/erp/develop/productdevelopcal/showComposite.jsp · list=/erp/develop/productdevelopcal/list.jsp · print=/erp/develop/productdevelopcal/print.jsp · logVersionList=/erp/develop/productdevelopcal/logVersionList.jsp · makerAddScheme=/erp/develop/productdevelopcal/makerAddScheme.jsp · updateStyleno=/erp/develop/productdevelopcal/updateStyleno.jsp · openSpecUpdate=/erp/develop/productdevelopcal/specUpdate.jsp · showWoven=/erp/develop/woven/show.jsp · notCosShow=/erp/develop/productdevelopcal/notCosShow.jsp · notCosShowComposite=/erp/develop/productdevelopcal/notCosShowComposite.jsp
+- `/develop/productDevelopCalColor_<method>.action`  →  com.maxtile.application.erp.develop.action.ProductDevelopCalColorAction
+  - 后端：src/com/maxtile/application/erp/develop/action/ProductDevelopCalColorAction.java
+  - 前端 result→jsp：listCalColorForDevelopCal=/erp/develop/productdevelopcal/listCalColorForDevelopCal.jsp
+- `/develop/productDevelopCalConsum_<method>.action`  →  com.maxtile.application.erp.develop.action.ProductDevelopCalConsumAction
+  - 后端：src/com/maxtile/application/erp/develop/action/ProductDevelopCalConsumAction.java
+- `/develop/productDevelopCalMete_<method>.action`  →  com.maxtile.application.erp.develop.action.ProductDevelopCalMeteAction
+  - 后端：src/com/maxtile/application/erp/develop/action/ProductDevelopCalMeteAction.java
+- `/develop/productDevelopCalProcess_<method>.action`  →  com.maxtile.application.erp.develop.action.ProductDevelopCalProcessAction
+  - 后端：src/com/maxtile/application/erp/develop/action/ProductDevelopCalProcessAction.java
+- `/develop/sampleDateRecord_<method>.action`  →  com.maxtile.application.erp.develop.action.SampleDateRecordAction
+  - 后端：src/com/maxtile/application/erp/develop/action/SampleDateRecordAction.java
+  - 前端 result→jsp：open=/erp/develop/sampleDateRecord/add.jsp · getDateRecordNodes=/erp/develop/sampleDateRecord/getDateRecordNodes.jsp
+
+## /dingding  ·  src/config/struts/struts-dingding.xml
+
+- `/dingding/auth_<method>.action`  →  com.maxtile.application.dingding.action.AuthAction
+  - 后端：src/com/maxtile/application/dingding/action/AuthAction.java
+  - 前端 result→jsp：DingLogin=/sys/ding/login.jsp
+- `/dingding/event_<method>.action`  →  com.maxtile.application.dingding.action.EventAction
+  - 后端：src/com/maxtile/application/dingding/action/EventAction.java
+
+## /e  ·  src/config/struts/struts-e.xml
+
+- `/e/ep_<method>.action`  →  com.maxtile.application.e.p.action.EproductAction
+  - 后端：src/com/maxtile/application/e/p/action/EproductAction.java
+  - 前端 result→jsp：show=/external/eproduct/show.jsp
+
+## /external  ·  src/config/struts/struts-external.xml
+
+- `/external/eproduct_<method>.action`  →  com.maxtile.application.external.product.action.EproductAction
+  - 后端：src/com/maxtile/application/external/product/action/EproductAction.java
+  - 前端 result→jsp：show=/external/eproduct/show.jsp
+- `/external/fanruan_<method>.action`  →  com.maxtile.application.external.fanruan.action.FanruanAction
+  - 后端：src/com/maxtile/application/external/fanruan/action/FanruanAction.java
+  - 前端 result→jsp：toURL=${targetUrl}
+- `/external/wxWorkBinding_<method>.action`  →  com.maxtile.application.crm.wecom.action.WxWorkBindingAction
+  - 后端：src/com/maxtile/application/crm/wecom/action/WxWorkBindingAction.java
+
+## /files  ·  src/config/struts/struts-files.xml
+
+- `/files/file_<method>.action`  →  com.maxtile.application.crm.customer.action.FilesAction
+  - 后端：src/com/maxtile/application/crm/customer/action/FilesAction.java
+  - 前端 result→jsp：open=/files/add.jsp · showList=/files/list.jsp · searchFiles=/files/searchList.jsp · show=/files/show.jsp · add=scontract_showList.action · update=/files/show.jsp · div_filesList=/files/div_filesList.jsp · div_filesSearchList=/files/div_filesSearchList.jsp · div_uploadFile=/sale/scontract/div_uploadFile.jsp · download=<param name="contentType">application/msword</param>
+	            <param name="inputName">inputStream</param>
+	            <!-- ä½¿ç¨ç»è¿è½¬ç çæä»¶åä½ä¸ºä¸è½½æä»¶åï¼downloadFileNameå±æ§
+					å¯¹åºactionç±»ä¸­çæ¹æ³ getDownloadFileName() -->
+	            <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+	            <param name="bufferSize">8172</param> · error=/public/head/error.jsp
+
+## /finance  ·  src/config/struts/struts-finance.xml
+
+- `/finance/actproductcost_<method>.action`  →  com.maxtile.application.erp.finance.action.ActproductcostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ActproductcostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/actproductcost/list.jsp · stockCostList=/erp/finance/actproductcost/stockCostList.jsp · costChangeCount=/erp/finance/actproductcost/costChangeCount.jsp · costAnalyze=/erp/finance/actproductcost/costAnalyze.jsp · productProfitAnalyze=/erp/finance/actproductcost/productProfitAnalyze.jsp · productColorfitAnalyze=/erp/finance/actproductcost/productColorfitAnalyze.jsp · actualCostComparePlanCost=/erp/finance/actproductcost/actualCostComparePlanCost.jsp · monthDataAccount=/erp/finance/actproductcost/monthDataAccount.jsp · shopProfitAnalyze=/erp/finance/actproductcost/shopProfitAnalyze.jsp · mdevelopActCostList=/erp/finance/actproductcost/mdevelopActCostList.jsp · halfProCostAdjustShow=/erp/finance/actproductcost/halfProCostAdjustShow.jsp
+- `/finance/actproductcostadjust_<method>.action`  →  com.maxtile.application.erp.finance.action.ActproductcostadjustAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ActproductcostadjustAction.java
+  - 前端 result→jsp：list=/erp/finance/actproductcostadjust/list.jsp · show=/erp/finance/actproductcostadjust/show.jsp · otherProShow=/erp/finance/actproductcostadjust/otherProShow.jsp · halfProCostAdjustShow=/erp/finance/actproductcostadjust/halfProCostAdjustShow.jsp · error=/public/head/error.jsp
+- `/finance/actualcost_<method>.action`  →  com.maxtile.application.erp.finance.action.ActualcostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ActualcostAction.java
+  - 前端 result→jsp：list=/erp/finance/actualcost/list.jsp · open=/erp/finance/actualcost/add.jsp · show=/erp/finance/actualcost/show.jsp · checkData=/erp/finance/actualcost/checkData.jsp · error=/public/head/error.jsp
+- `/finance/agereport_<method>.action`  →  com.maxtile.application.erp.finance.action.AgereportAction
+  - 后端：src/com/maxtile/application/erp/finance/action/AgereportAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/agereport/list.jsp · open=/erp/finance/agereport/add.jsp · show=/erp/finance/agereport/show.jsp · summaryReport=/erp/finance/agereport/summaryReport.jsp · upperSummaryReport=/erp/finance/agereport/upperSummaryReport.jsp · upperTbReport=/erp/finance/agereport/upperTbReport.jsp
+- `/finance/agereportitem_<method>.action`  →  com.maxtile.application.erp.finance.action.AgereportitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/AgereportitemAction.java
+  - 前端 result→jsp：list=/erp/finance/logistics/list.jsp · show=/erp/finance/logistics/show.jsp · open=/erp/finance/logistics/add.jsp · depreciationList=/erp/finance/agereport/depreciationList.jsp
+- `/finance/agereportqtypi_<method>.action`  →  com.maxtile.application.erp.finance.action.AgereportqtypiAction
+  - 后端：src/com/maxtile/application/erp/finance/action/AgereportqtypiAction.java
+- `/finance/agereportrule_<method>.action`  →  com.maxtile.application.erp.finance.action.AgereportruleAction
+  - 后端：src/com/maxtile/application/erp/finance/action/AgereportruleAction.java
+  - 前端 result→jsp：showList=/erp/finance/agereportrule/showList.jsp
+- `/finance/bankdaily_<method>.action`  →  com.maxtile.application.erp.finance.action.BankdailyAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BankdailyAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/bankdaily/list.jsp · open=/erp/finance/bankdaily/add.jsp · show=/erp/finance/bankdaily/show.jsp · listAndBalance=/erp/finance/bankdaily/listAndBalance.jsp · listInOutItem=/erp/finance/bankdaily/listInOutItem.jsp · listInOutItemExchange=/erp/finance/bankdaily/listInOutItemExchange.jsp
+- `/finance/bankdailyExchange_<method>.action`  →  com.maxtile.application.erp.finance.action.BankdailyExchangeAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BankdailyExchangeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/bankdailyExchange/list.jsp · open=/erp/finance/bankdailyExchange/add.jsp · show=/erp/finance/bankdailyExchange/show.jsp
+- `/finance/bankflow_<method>.action`  →  com.maxtile.application.erp.finance.action.BankflowAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BankflowAction.java
+  - 前端 result→jsp：listAndAdjust=/erp/finance/bankflow/listAndAdjust.jsp · listCount=/erp/finance/bankflow/listCount.jsp · sysAndBankBalanceItem=/erp/finance/bankflow/sysAndBankBalanceItem.jsp · sysAndBankBalanceListCount=/erp/finance/bankflow/sysAndBankBalanceListCount.jsp
+- `/finance/bankflowinit_<method>.action`  →  com.maxtile.application.erp.finance.action.BankflowinitAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BankflowinitAction.java
+- `/finance/bankinit_<method>.action`  →  com.maxtile.application.erp.finance.action.BankinitAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BankinitAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/bankinit/list.jsp · open=/erp/finance/bankinit/add.jsp · show=/erp/finance/bankinit/show.jsp
+- `/finance/bankTranRule_<method>.action`  →  com.maxtile.application.erp.finance.action.BankTranRuleAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BankTranRuleAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/paydocument/bankTranRuleList.jsp · input=/erp/finance/paydocument/bankTranRuleAdd.jsp
+- `/finance/basecost_<method>.action`  →  com.maxtile.application.erp.finance.action.BasecostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/BasecostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/basecost/list.jsp · updateList=/erp/finance/basecost/updateList.jsp
+- `/finance/businessType_<method>.action`  →  com.maxtile.application.erp.finance.action.PayDocumentBusinessTypeAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayDocumentBusinessTypeAction.java
+  - 前端 result→jsp：list=/erp/finance/paydocument/businessTypeList.jsp · open=/erp/finance/paydocument/businessTypeAdd.jsp
+- `/finance/cmbCost_<method>.action`  →  com.maxtile.application.erp.finance.action.CmbCostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CmbCostAction.java
+  - 前端 result→jsp：list=/erp/finance/cost/cmbCostListAndItem.jsp · show=/erp/finance/cost/cmbCostShow.jsp
+- `/finance/cmbCostItem_<method>.action`  →  com.maxtile.application.erp.finance.action.CmbCostItemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CmbCostItemAction.java
+- `/finance/cmbCostSub_<method>.action`  →  com.maxtile.application.erp.finance.action.CmbCostSubAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CmbCostSubAction.java
+  - 前端 result→jsp：list=/erp/finance/cost/cmbCostSub.jsp · add=/erp/finance/cost/cmbCostAdd.jsp
+- `/finance/cmbDeptSub_<method>.action`  →  com.maxtile.application.erp.finance.action.CmbDeptSubAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CmbDeptSubAction.java
+  - 前端 result→jsp：list=/erp/finance/cost/cmbDeptSub.jsp
+- `/finance/companyInfo_<method>.action`  →  com.maxtile.application.erp.finance.action.CompanyInfoAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CompanyInfoAction.java
+  - 前端 result→jsp：list=/erp/finance/company/list.jsp · add=/erp/finance/company/add.jsp · update=/erp/finance/company/update.jsp · show=/erp/finance/company/show.jsp
+- `/finance/cost_<method>.action`  →  com.maxtile.application.erp.finance.action.CostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/cost/list.jsp · open=/erp/finance/cost/add.jsp · open=/erp/finance/cost/addNew.jsp · show=/erp/finance/cost/show.jsp · listAndItem=/erp/finance/cost/listAndItem.jsp · edit=/erp/finance/cost/edit.jsp · addCopy=/erp/finance/cost/addCopy.jsp · addTest=/erp/finance/cost/addCopy.jsp
+- `/finance/costMatching_<method>.action`  →  com.maxtile.application.erp.finance.action.CostMatchingAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CostMatchingAction.java
+  - 前端 result→jsp：list=/erp/finance/cost/hesilist.jsp · add=/erp/finance/cost/hesiadd.jsp · hesiOtherrecsbillAdd=/erp/finance/cost/hesiOtherrecsbillAdd.jsp · hesiReceiptbillAdd=/erp/finance/cost/hesiReceiptbillAdd.jsp
+- `/finance/costMatchingType_<method>.action`  →  com.maxtile.application.erp.finance.action.CostMatchingTypeAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CostMatchingTypeAction.java
+  - 前端 result→jsp：showsub=/erp/finance/cost/hesishowsub.jsp · add=/erp/finance/cost/hesitypeadd.jsp
+- `/finance/costsrc_<method>.action`  →  com.maxtile.application.erp.finance.action.CostsrcAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CostsrcAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/creditSaleCustomer_<method>.action`  →  com.maxtile.application.erp.finance.action.CreditSaleCustomerAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CreditSaleCustomerAction.java
+  - 前端 result→jsp：list=/erp/finance/creditsalecustomer/list.jsp · show=/erp/finance/creditsalecustomer/show.jsp · add=/erp/finance/creditsalecustomer/add.jsp · salerItemList=/erp/finance/creditsalecustomer/salerItemList.jsp
+- `/finance/creditsalecustomerApply_<method>.action`  →  com.maxtile.application.erp.finance.action.CreditsalecustomerApplyAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CreditsalecustomerApplyAction.java
+- `/finance/cusAccountAgeSet_<method>.action`  →  com.maxtile.application.erp.finance.action.CusAccountAgeSetAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusAccountAgeSetAction.java
+  - 前端 result→jsp：show=/erp/finance/cusaccountageset/show.jsp · add=/erp/finance/cusaccountageset/add.jsp
+- `/finance/cusInfoCost_<method>.action`  →  com.maxtile.application.erp.finance.action.CusInfoCostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusInfoCostAction.java
+  - 前端 result→jsp：totalList=/erp/finance/CusInfoCost/totalList.jsp · totalListItem=/erp/finance/CusInfoCost/totalListItem.jsp · list=/erp/finance/CusInfoCost/list.jsp · add=/erp/finance/CusInfoCost/add.jsp · update=/erp/finance/CusInfoCost/update.jsp
+- `/finance/cusLogistics_<method>.action`  →  com.maxtile.application.erp.finance.action.CusLogisticsAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusLogisticsAction.java
+  - 前端 result→jsp：list=/erp/finance/logistics/list.jsp · show=/erp/finance/logistics/show.jsp · open=/erp/finance/logistics/add.jsp
+- `/finance/cusRebateBatch_<method>.action`  →  com.maxtile.application.erp.finance.action.CusRebateBatchAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusRebateBatchAction.java
+  - 前端 result→jsp：list=/erp/finance/cusrebateverify/batchList.jsp · add=/erp/finance/cusrebateverify/batchAdd.jsp · show=/erp/finance/cusrebateverify/batchShow.jsp
+- `/finance/cusRebateVerify_<method>.action`  →  com.maxtile.application.erp.finance.action.CusRebateVerifyAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusRebateVerifyAction.java
+  - 前端 result→jsp：list=/erp/finance/cusrebateverify/list.jsp · show=/erp/finance/cusrebateverify/show.jsp
+- `/finance/cusvcissue_<method>.action`  →  com.maxtile.application.erp.finance.action.CusvcissueAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusvcissueAction.java
+  - 前端 result→jsp：list=/erp/finance/voucher/cusvcissue/list.jsp · addRoutine=/erp/finance/voucher/cusvcissue/addRoutine.jsp · addSpecial=/erp/finance/voucher/cusvcissue/addSpecial.jsp
+- `/finance/cusvcissueItem_<method>.action`  →  com.maxtile.application.erp.finance.action.CusvcissueItemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusvcissueItemAction.java
+  - 前端 result→jsp：list=/erp/finance/voucher/cusvcissueitem/list.jsp
+- `/finance/cusvoucher_<method>.action`  →  com.maxtile.application.erp.finance.action.CusvoucherAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CusvoucherAction.java
+  - 前端 result→jsp：list=/erp/finance/voucher/cusvoucher/list.jsp · listAndBalance=/erp/finance/voucher/cusvoucher/listAndBalance.jsp
+- `/finance/cvcinandout_<method>.action`  →  com.maxtile.application.erp.finance.action.CvcinandoutAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CvcinandoutAction.java
+  - 前端 result→jsp：list=/erp/finance/voucher/cvouchinout/list.jsp
+- `/finance/deduction_<method>.action`  →  com.maxtile.application.erp.finance.action.DeductionAction
+  - 后端：src/com/maxtile/application/erp/finance/action/DeductionAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/deduction/list.jsp · open=/erp/finance/deduction/add.jsp · show=/erp/finance/deduction/show.jsp · showPorder=/erp/finance/deduction/showPorder.jsp
+- `/finance/deductionitem_<method>.action`  →  com.maxtile.application.erp.finance.action.DeductionitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/DeductionitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/dyeingQualityPenaltyDeduction_<method>.action`  →  com.maxtile.application.erp.finance.action.DyeingQualityPenaltyDeductionAction
+  - 后端：src/com/maxtile/application/erp/finance/action/DyeingQualityPenaltyDeductionAction.java
+  - 前端 result→jsp：list=/erp/finance/dyeingqualitypenaltydeduction/list.jsp · qualityAnomaliesDetails=/erp/finance/dyeingqualitypenaltydeduction/qualityAnomaliesDetails.jsp · gravimetricAnomalyDetails=/erp/finance/dyeingqualitypenaltydeduction/gravimetricAnomalyDetails.jsp · qualityAnomaliesBatchnoDetails=/erp/finance/dyeingqualitypenaltydeduction/qualityAnomaliesBatchnoDetails.jsp · deliveryOverdueDetails=/erp/finance/dyeingqualitypenaltydeduction/deliveryOverdueDetails.jsp · devDeliveryOverdueDetails=/erp/finance/dyeingqualitypenaltydeduction/devDeliveryOverdueDetails.jsp
+- `/finance/foreignLedgerAdjust_<method>.action`  →  com.maxtile.application.erp.finance.action.ForeignLedgerAdjustAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ForeignLedgerAdjustAction.java
+  - 前端 result→jsp：error=/erp/finance/paydocument/paydocumentError.jsp · add=/erp/finance/foreignLedgerAdjust/add.jsp
+- `/finance/fundsreport_<method>.action`  →  com.maxtile.application.erp.finance.action.FundsreportAction
+  - 后端：src/com/maxtile/application/erp/finance/action/FundsreportAction.java
+- `/finance/initproductcost_<method>.action`  →  com.maxtile.application.erp.finance.action.InitproductcostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/InitproductcostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/invoiceApplication_<method>.action`  →  com.maxtile.application.erp.finance.action.InvoiceApplicationAction
+  - 后端：src/com/maxtile/application/erp/finance/action/InvoiceApplicationAction.java
+  - 前端 result→jsp：list=/erp/finance/invoice/invoiceApplication_list.jsp · open=/erp/finance/invoice/invoiceApplication_add.jsp · show=/erp/finance/invoice/invoiceApplication_show.jsp · preview=/erp/finance/invoice/invoiceApplication_preview.jsp · invoiceItemSelect=/erp/finance/invoice/invoiceApplication_itemSelect.jsp · customerSummary=/erp/finance/invoice/invoiceCustomerSummary_list.jsp · cusNoNotifyConfig=/erp/finance/invoice/invoiceCusNoNotify_list.jsp · invoiceReceiptList=/erp/finance/invoice/invoiceReceiptList_list.jsp · actualReceiptList=/erp/finance/invoice/invoiceApplication_actualReceiptList.jsp
+- `/finance/invoiceSalesBill_<method>.action`  →  com.maxtile.application.erp.finance.action.InvoiceSalesBillAction
+  - 后端：src/com/maxtile/application/erp/finance/action/InvoiceSalesBillAction.java
+- `/finance/invoiceTranRel_<method>.action`  →  com.maxtile.application.erp.finance.action.InvoiceTranRelAction
+  - 后端：src/com/maxtile/application/erp/finance/action/InvoiceTranRelAction.java
+- `/finance/kisDbJobLong_<method>.action`  →  com.maxtile.application.erp.finance.action.KisDbJobLongAction
+  - 后端：src/com/maxtile/application/erp/finance/action/KisDbJobLongAction.java
+  - 前端 result→jsp：list=/erp/finance/kisDbJobLong/list.jsp · show=/erp/finance/kisDbJobLong/show.jsp
+- `/finance/offerstatistics_<method>.action`  →  com.maxtile.application.erp.finance.action.OfferStatisticsAction
+  - 后端：src/com/maxtile/application/erp/finance/action/OfferStatisticsAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/offerstatistics/list.jsp
+- `/finance/otherincome_<method>.action`  →  com.maxtile.application.erp.finance.action.OtherincomeAction
+  - 后端：src/com/maxtile/application/erp/finance/action/OtherincomeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/otherincome/list.jsp · show=/erp/finance/otherincome/show.jsp
+- `/finance/otherrecsbill_<method>.action`  →  com.maxtile.application.erp.finance.action.OtherrecsbillAction
+  - 后端：src/com/maxtile/application/erp/finance/action/OtherrecsbillAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/otherrecsbill/list.jsp · open=/erp/finance/otherrecsbill/add.jsp · show=/erp/finance/otherrecsbill/show.jsp · listSummary=/erp/finance/otherrecsbill/listSummary.jsp · listSummaryItem=/erp/finance/otherrecsbill/listSummaryItem.jsp
+- `/finance/payables_<method>.action`  →  com.maxtile.application.erp.finance.action.PayablesAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayablesAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/payables/list.jsp · show=/erp/finance/payables/show.jsp · detailList=/erp/finance/payables/detailList.jsp · listRightMre=/erp/finance/payables/listRightMre.jsp · listRightPorder=/erp/finance/payables/listRightPorder.jsp · listRightPback=/erp/finance/payables/listRightPback.jsp · listRightPayadjust=/erp/finance/payables/listRightPayadjust.jsp · purchaseCheckList=/erp/finance/payables/purchaseCheckList.jsp · supPayblaesCount=/erp/finance/payables/supPayblaesCount.jsp · showMre=/erp/finance/payables/showMre.jsp · showPorder=/erp/finance/payables/showPorder.jsp · showPback=/erp/finance/payables/showPback.jsp · showPayadjust=/erp/finance/payables/showPayadjust.jsp · payiUnitidList=/erp/finance/payables/payiUnitidList.jsp · getAllProducePrice=/erp/finance/payables/getAllProducePrice.jsp · getAllTempPrice=/erp/finance/payables/getAllTempPrice.jsp · showReturn=/erp/finance/payables/showReturn.jsp · addReturnPays=/erp/finance/payables/addReturnPays.jsp · returnPaysAddHedge=/erp/finance/payables/returnPaysAddHedge.jsp · updateTrueTdate=/erp/finance/payables/updateTrueTdate.jsp · srmRejectOpen=/erp/finance/payables/srmRejectOpen.jsp · showWeighticket=/erp/finance/payables/showWeighticket.jsp
+- `/finance/payablesitem_<method>.action`  →  com.maxtile.application.erp.finance.action.PayablesitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayablesitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/payablesitem/list.jsp · open=/erp/finance/payablesitem/add.jsp · show=/erp/finance/payablesitem/show.jsp · purchaseSelectList=/erp/finance/payablesitem/purchaseSelectList.jsp · produceSelectList=/erp/finance/payablesitem/produceSelectList.jsp · purchaseCheckList=/erp/finance/payablesitem/purchaseCheckList.jsp · produceCheckList=/erp/finance/payablesitem/produceCheckList.jsp · purchaseCount=/erp/finance/payablesitem/purchaseCount.jsp · purchaseCheckListPrint=/erp/finance/payablesitem/purchaseCheckListPrint.jsp · produceCheckListPrint=/erp/finance/payablesitem/produceCheckListPrint.jsp · worderCheckListPrint=/erp/finance/payablesitem/worderCheckListPrint.jsp · worderCheckList=/erp/finance/payablesitem/worderCheckList.jsp · worderMrpCheckList=/erp/finance/payablesitem/worderMrpCheckList.jsp · worderSelectList=/erp/finance/payablesitem/worderSelectList.jsp · produceMrpSelectList=/erp/finance/payablesitem/produceMrpSelectList.jsp · worderMrpSelectList=/erp/finance/payablesitem/worderMrpSelectList.jsp · listFmFinanceCost=/erp/finance/payablesitem/listFmFinanceCost.jsp · payiProcessList=/erp/finance/payablesitem/payiProcessList.jsp · purchaseExpectCountList=/erp/finance/payablesitem/purchaseExpectCountList.jsp · produceBakExpectCountList=/erp/finance/payablesitem/produceBakExpectCountList.jsp · produceExpectList=/erp/finance/payablesitem/produceExpectList.jsp · worderCheckSupNotList=/erp/finance/payablesitem/worderCheckSupNotList.jsp · supLossperSettleItem=/erp/finance/payablesitem/supLossperSettleItem.jsp · fsellRelevancePayiList=/erp/finance/payablesitem/fsellRelevancePayiList.jsp · adjustDyeingVatFee=/erp/finance/payablesitem/adjustDyeingVatFee.jsp
+- `/finance/payAccountStatement_<method>.action`  →  com.maxtile.application.erp.finance.action.PayAccountStatementAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayAccountStatementAction.java
+  - 前端 result→jsp：show=/erp/finance/payaccountstatement/show.jsp · list=/erp/finance/payaccountstatement/list.jsp · showById=<param name="namespace">/finance</param>
+				<param name="actionName">payAccountStatement_show?obj.id=${obj.id}</param> · prints=/erp/finance/payaccountstatement/prints.jsp
+- `/finance/payAccountStatementItem_<method>.action`  →  com.maxtile.application.erp.finance.action.PayAccountStatementItemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayAccountStatementItemAction.java
+- `/finance/payadjust_<method>.action`  →  com.maxtile.application.erp.finance.action.PayadjustAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayadjustAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/payadjust/list.jsp · show=/erp/finance/payadjust/show.jsp
+- `/finance/payBankTransaction_<method>.action`  →  com.maxtile.application.erp.finance.action.PayBankTransactionAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayBankTransactionAction.java
+  - 前端 result→jsp：list=/erp/finance/paydocument/payBankTransactionList.jsp · openTran=/erp/finance/paydocument/payBankTransactionOpenTran.jsp · ruleDialog=/erp/finance/paydocument/ruleDialog.jsp · bankTranStat=/erp/finance/paydocument/bankTranStat.jsp · bankTranDetail=/erp/finance/paydocument/bankTranDetail.jsp · sale=/erp/finance/paydocument/payBankTransactionSale.jsp · inTran=/erp/finance/paydocument/payBankTransactionIn.jsp · outTran=/erp/finance/paydocument/payBankTransactionOut.jsp · inTranShow=/erp/finance/paydocument/payBankTransactionInShow.jsp · outTranShow=/erp/finance/paydocument/payBankTransactionOutShow.jsp · receiptTran=/erp/finance/paydocument/payBankTransactionReceipt.jsp · tranBizRelView=/erp/finance/paydocument/payBankTransactionBizRel.jsp · receiptShow=/erp/finance/paydocument/payBankTransactionReceiptShow.jsp · bankTranDaySum=/erp/finance/paydocument/bankTranDaySum.jsp · invoiceInTran=/erp/finance/paydocument/invoiceInTran.jsp · manageTranList=/erp/finance/paydocument/manageTranList.jsp · payTranMatching=/erp/finance/paydocument/payTranMatching.jsp · payTranMatchingSuccess=/erp/finance/paydocument/payTranMatchingSuccess.jsp · bankTranAccountSum=/erp/finance/paydocument/bankTranAccountSum.jsp · input=/erp/finance/paydocument/payTranMatching.jsp · error=/erp/finance/paydocument/payTranMatching.jsp · financialManagementRecord=/erp/finance/paydocument/financialManagementRecord.jsp · tranClaimStatistics=/erp/finance/paydocument/tranClaimStatistics.jsp
+- `/finance/paybill_<method>.action`  →  com.maxtile.application.erp.finance.action.PaybillAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaybillAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/paybill/list.jsp · open=/erp/finance/paybill/add.jsp · show=/erp/finance/paybill/show.jsp · div_Paydeposits=/erp/finance/paybill/div_Paydeposits.jsp
+- `/finance/paycheck_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/paycheck/list.jsp · div_list=/erp/finance/paycheck/div_list.jsp · open=/erp/finance/paycheck/add.jsp · show=/erp/finance/paycheck/show.jsp · purchaseShow=/erp/finance/paycheck/purchaseShow.jsp · worderShow=/erp/finance/paycheck/worderShow.jsp · purchasePrint=/erp/finance/paycheck/purchasePrint.jsp · worderPrint=/erp/finance/paycheck/worderPrint.jsp · worderStockPrint=/erp/finance/paycheck/worderStockPrint.jsp · morderPrint=/erp/finance/paycheck/morderPrint.jsp · morderZeroPrint=/erp/finance/paycheck/morderZeroPrint.jsp · showPaycheck=<param name="namespace">/finance</param>
+				<param name="actionName">paycheck_show?obj.id=${obj.id}</param> · payCheckApplyList=/erp/finance/paycheck/applyPayList.jsp · applyPaycheckInfo=/erp/finance/paycheckApply/applyPaycheckInfo.jsp · payCheckApplyListForLay=/erp/finance/paycheckApply/applyPayListLay.jsp · invoiceList=/erp/finance/paycheck/paycheckInvoice.jsp · countCheckList=/erp/finance/paycheck/countCheckList.jsp
+- `/finance/paycheckApply_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckApplyAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckApplyAction.java
+  - 前端 result→jsp：show=/erp/finance/paycheckApply/show.jsp · open=/erp/finance/paycheckApply/show.jsp · list=/erp/finance/paycheckApply/list.jsp · payCheckBySubject=/erp/finance/paycheckApply/payCheckBySubject.jsp · addPaycheckItemList=/erp/finance/paycheckApply/addPaycheckItemList.jsp · cashierCountList=/erp/finance/paycheckApply/cashierCountList.jsp
+- `/finance/paycheckapplyitembank_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckapplyitembankAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckapplyitembankAction.java
+- `/finance/paycheckbatch_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckbatchAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckbatchAction.java
+  - 前端 result→jsp：paybillBatchAtta=/erp/finance/payBatchAudit/paybillBatchAtta.jsp · paybillBatchAdd=/erp/finance/payBatchAudit/paybillBatchAdd.jsp · payBatchAuditShow=/erp/finance/payBatchAudit/payBatchAuditShow.jsp · payBatchAuditList=/erp/finance/payBatchAudit/payBatchAuditList.jsp
+- `/finance/paycheckimage_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckimageAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckimageAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · showList=/erp/finance/paycheckimage/showList.jsp
+- `/finance/paycheckitem_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · choosePci=/erp/finance/paycheckitem/choosePci.jsp · div_list=/erp/finance/paycheckitem/div_list.jsp
+- `/finance/paycheckother_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckotherAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckotherAction.java
+  - 前端 result→jsp：add=/erp/finance/paycheckother/add.jsp · error=/public/head/error.jsp
+- `/finance/paycheckstock_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckstockAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckstockAction.java
+  - 前端 result→jsp：div_paycheckstockList=/erp/finance/paycheckstock/div_paycheckstockList.jsp
+- `/finance/paycheckstockadj_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckstockadjAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckstockadjAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/paycheckstockadj/list.jsp · open=/erp/finance/paycheckstockadj/add.jsp · show=/erp/finance/paycheckstockadj/show.jsp
+- `/finance/paycheckstockadjitem_<method>.action`  →  com.maxtile.application.erp.finance.action.PaycheckstockadjitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaycheckstockadjitemAction.java
+  - 前端 result→jsp：open=/erp/finance/paycheckstockadjitem/add.jsp
+- `/finance/paychecksupbank_<method>.action`  →  com.maxtile.application.erp.finance.action.PaychecksupbankAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaychecksupbankAction.java
+  - 前端 result→jsp：add=/erp/finance/paychecksupbank/add.jsp · error=/public/head/error.jsp
+- `/finance/paydeposits_<method>.action`  →  com.maxtile.application.erp.finance.action.PaydepositsAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PaydepositsAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/payDocument_<method>.action`  →  com.maxtile.application.erp.finance.action.PayDocumentAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayDocumentAction.java
+  - 前端 result→jsp：list=/erp/finance/paydocument/paydocumentlist.jsp · paymentOrder=/erp/finance/paydocument/paymentOrder.jsp · paying=/erp/finance/paydocument/paydocumentPaying.jsp · success=/erp/finance/paydocument/paydocumentSuccess.jsp · error=/erp/finance/paydocument/paydocumentError.jsp · all=/erp/finance/paydocument/paydocumentAll.jsp · tranPdf=/erp/finance/paydocument/payTranPdf.jsp
+- `/finance/payDocumentBankInfo_<method>.action`  →  com.maxtile.application.erp.finance.action.PayDocumentBankInfoAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayDocumentBankInfoAction.java
+  - 前端 result→jsp：acceptance=/erp/finance/paydocument/bankInfoAcceptance.jsp · acceptanceDetails=/erp/finance/paydocument/bankInfoAcceptanceDetails.jsp · writeOff=/erp/finance/paydocument/bankInfoWriteOff.jsp · paying=/erp/finance/paydocument/bankInfoPaying.jsp · all=/erp/finance/paydocument/bankInfoAll.jsp · payingAll=/erp/finance/paydocument/bankInfoPayingList.jsp
+- `/finance/payDocumentRule_<method>.action`  →  com.maxtile.application.erp.finance.action.PayDocumentRuleAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayDocumentRuleAction.java
+  - 前端 result→jsp：list=/erp/finance/paydocument/ruleList.jsp · open=/erp/finance/paydocument/ruleAdd.jsp
+- `/finance/payDocumentVoucher_<method>.action`  →  com.maxtile.application.erp.finance.action.PayDocumentVoucherAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayDocumentVoucherAction.java
+  - 前端 result→jsp：voucherList=/erp/finance/paydocument/paydocumentVoucher.jsp
+- `/finance/payOppBank_<method>.action`  →  com.maxtile.application.erp.finance.action.PayOppBankAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PayOppBankAction.java
+  - 前端 result→jsp：list=/erp/finance/payOppBank/list.jsp · add=/erp/finance/payOppBank/add.jsp · show=/erp/finance/payOppBank/show.jsp · custshow=/erp/finance/payOppBank/custshow.jsp
+- `/finance/planprocess_<method>.action`  →  com.maxtile.application.erp.finance.action.PlanprocessAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PlanprocessAction.java
+  - 前端 result→jsp：list=/erp/finance/planprocess/list.jsp · open=/erp/finance/planprocess/add.jsp · show=/erp/finance/planprocess/show.jsp · error=/public/head/error.jsp
+- `/finance/planprocesscolor_<method>.action`  →  com.maxtile.application.erp.finance.action.PlanprocesscolorAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PlanprocesscolorAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/prepayables_<method>.action`  →  com.maxtile.application.erp.finance.action.PrepayablesAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PrepayablesAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/prepayables/list.jsp · open=/erp/finance/prepayables/add.jsp · show=/erp/finance/prepayables/show.jsp
+- `/finance/prepayablesitem_<method>.action`  →  com.maxtile.application.erp.finance.action.PrepayablesitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PrepayablesitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/prepayablesitem/list.jsp · open=/erp/finance/prepayablesitem/add.jsp · show=/erp/finance/prepayablesitem/show.jsp
+- `/finance/prereceivable_<method>.action`  →  com.maxtile.application.erp.finance.action.PrereceivableAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PrereceivableAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/prereceivable/list.jsp · open=/erp/finance/prereceivable/add.jsp · show=/erp/finance/prereceivable/show.jsp
+- `/finance/prereceivableitem_<method>.action`  →  com.maxtile.application.erp.finance.action.PrereceivableitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PrereceivableitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/prereceivableitem/list.jsp · open=/erp/finance/prereceivableitem/add.jsp · show=/erp/finance/prereceivableitem/show.jsp
+- `/finance/producedata_<method>.action`  →  com.maxtile.application.erp.finance.action.ProducedataAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProducedataAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/producedata/list.jsp · open=/erp/finance/producedata/add.jsp · show=/erp/finance/producedata/show.jsp
+- `/finance/productcost_<method>.action`  →  com.maxtile.application.erp.finance.action.ProductcostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProductcostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/productcost/list.jsp
+- `/finance/productsup_<method>.action`  →  com.maxtile.application.erp.finance.action.ProductsupAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProductsupAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/finance/productsup/add.jsp · list=/erp/finance/productsup/list.jsp
+- `/finance/proplancost_<method>.action`  →  com.maxtile.application.erp.finance.action.ProplancostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProplancostAction.java
+  - 前端 result→jsp：list=/erp/finance/proplancost/list.jsp · finishProList=/erp/finance/proplancost/finishProList.jsp · grayAndYarnAnalyze=/erp/finance/proplancost/grayAndYarnAnalyze.jsp · open=/erp/finance/proplancost/add.jsp · unAddPriceSkuList=/erp/finance/proplancost/unAddPriceSkuList.jsp · proplancostSetPriceSup=/erp/finance/proplancost/proplancostSetPriceSup.jsp · planConsumables=/erp/finance/proplancost/planConsumables.jsp · planCostNoProcessPriceList=/erp/finance/proplancost/planCostNoProcessPriceList.jsp · grayNoProcessSelect=/erp/finance/proplancost/grayNoProcessSelect.jsp · planMorderporderconfig=/erp/finance/proplancost/planMorderporderconfig.jsp · checkList=/erp/finance/proplancost/checkList.jsp · checkListItem=/erp/finance/proplancost/checkListItem.jsp · fixPriceManageCostConfig=/erp/finance/proplancost/fixPriceManageCostConfig.jsp · error=/public/head/error.jsp
+- `/finance/proplancostbom_<method>.action`  →  com.maxtile.application.erp.finance.action.ProplancostbomAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProplancostbomAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/proplancostlog_<method>.action`  →  com.maxtile.application.erp.finance.action.ProplancostlogAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProplancostlogAction.java
+  - 前端 result→jsp：list=/erp/finance/proplancostlog/list.jsp · error=/public/head/error.jsp
+- `/finance/proplancostlogitem_<method>.action`  →  com.maxtile.application.erp.finance.action.ProplancostlogitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProplancostlogitemAction.java
+  - 前端 result→jsp：list=/erp/finance/proplancostlogitem/list.jsp · error=/public/head/error.jsp
+- `/finance/proplancostprocess_<method>.action`  →  com.maxtile.application.erp.finance.action.ProplancostprocessAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ProplancostprocessAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/finance/punishmentDeductionByWeaving_<method>.action`  →  com.maxtile.application.erp.finance.action.PunishmentDeductionByWeavingAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PunishmentDeductionByWeavingAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · devWeavingOverdueDetails=/erp/finance/punishmentdeductionbyweaving/devWeavingOverdueDetails.jsp
+- `/finance/purchasedProductsItem_<method>.action`  →  com.maxtile.application.erp.finance.action.PurchasedProductsItemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/PurchasedProductsItemAction.java
+  - 前端 result→jsp：deliveryInfo=/erp/finance/purchasedproductsitem/deliveryInfo.jsp · deliveryInfoShow=/erp/finance/purchasedproductsitem/deliveryInfoShow.jsp
+- `/finance/realproducedata_<method>.action`  →  com.maxtile.application.erp.finance.action.RealproducedataAction
+  - 后端：src/com/maxtile/application/erp/finance/action/RealproducedataAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/realproducedata/list.jsp · open=/erp/finance/realproducedata/add.jsp
+- `/finance/realproductcost_<method>.action`  →  com.maxtile.application.erp.finance.action.RealproductcostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/RealproductcostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/realproductcost/list.jsp · productProfit=/erp/finance/realproductcost/productProfit.jsp · procolorProfit=/erp/finance/realproductcost/procolorProfit.jsp · stockCostList=/erp/finance/realproductcost/stockCostList.jsp · costAnalyze=/erp/finance/realproductcost/costAnalyze.jsp · costChangeCount=/erp/finance/realproductcost/costChangeCount.jsp
+- `/finance/recadjust_<method>.action`  →  com.maxtile.application.erp.finance.action.RecadjustAction
+  - 后端：src/com/maxtile/application/erp/finance/action/RecadjustAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/recadjust/list.jsp · show=/erp/finance/recadjust/show.jsp · listSelect=/erp/finance/recadjust/list_select.jsp
+- `/finance/rececheck_<method>.action`  →  com.maxtile.application.erp.finance.action.RececheckAction
+  - 后端：src/com/maxtile/application/erp/finance/action/RececheckAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/rececheck/list.jsp · div_list=/erp/finance/rececheck/div_list.jsp · open=/erp/finance/rececheck/add.jsp · show=/erp/finance/rececheck/show.jsp
+- `/finance/rececheckitem_<method>.action`  →  com.maxtile.application.erp.finance.action.RececheckitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/RececheckitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · chooseRec=/erp/finance/rececheckitem/chooseRec.jsp
+- `/finance/receiptbill_<method>.action`  →  com.maxtile.application.erp.finance.action.ReceiptbillAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ReceiptbillAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/receiptbill/list.jsp · open=/erp/finance/receiptbill/add.jsp · show=/erp/finance/receiptbill/show.jsp · print=/erp/finance/receiptbill/print.jsp · draftAdd=/erp/finance/receiptbill/draftAdd.jsp · draftShow=/erp/finance/receiptbill/draftShow.jsp · cutPayment=/erp/finance/receiptbill/cutPayment.jsp · toReceiptbillByTran=/erp/finance/receiptbill/toReceiptbillByTranList.jsp
+- `/finance/receivables_<method>.action`  →  com.maxtile.application.erp.finance.action.ReceivablesAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ReceivablesAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/receivables/list.jsp · open=/erp/finance/receivables/add.jsp · show=/erp/finance/receivables/show.jsp · print=/erp/finance/receivables/print.jsp · cancelRec=/erp/finance/receivables/cancelRec.jsp · rbillChooseRec=/erp/finance/receivables/rbillChooseRec.jsp · sbackList=/erp/finance/receivables/sbackList.jsp · sbackShow=/erp/finance/receivables/sbackShow.jsp · countCustomerReceivables=/erp/finance/receivables/countCustomerReceivables.jsp · customerRecCount=/erp/finance/receivables/customerRecCount.jsp · customerRecCountList=/erp/finance/receivables/customerRecCountList.jsp · CusNoRecCheckAgeGroup=/erp/finance/receivables/CusNoRecCheckAgeGroup.jsp · salerCustRecCountAdjust=/erp/finance/receivables/salerCustRecCountAdjust.jsp · salerRecAdjust=/erp/finance/receivables/salerRecAdjust.jsp · salerRecCount=/erp/finance/receivables/salerRecCount.jsp · newCustomerRecCount=/erp/finance/receivables/newCustomerRecCount.jsp · newSalerRecCount=/erp/finance/receivables/newSalerRecCount.jsp · customerCheckBill=/erp/finance/receivables/customerCheckBill.jsp
+- `/finance/receivablesitem_<method>.action`  →  com.maxtile.application.erp.finance.action.ReceivablesitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ReceivablesitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listTest=/erp/finance/receivablesitem/listTest.jsp · customerCheckList=/erp/finance/receivablesitem/customerCheckList.jsp · customerCheckListFinance=/erp/finance/receivablesitem/customerCheckListFinance.jsp · addItem=/erp/finance/payaccountstatement/addItem.jsp · orderRecCheckList=/erp/finance/receivablesitem/orderRecCheckList.jsp
+- `/finance/receivablesItemMa_<method>.action`  →  com.maxtile.application.erp.finance.action.ReceivablesItemMaAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ReceivablesItemMaAction.java
+  - 前端 result→jsp：sbackMaShow=/erp/finance/receivables/sbackMaShow.jsp
+- `/finance/saleBankPaylog_<method>.action`  →  com.maxtile.application.erp.finance.action.SaleBankPaylogAction
+  - 后端：src/com/maxtile/application/erp/finance/action/SaleBankPaylogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · auditList=/erp/finance/saleBankPaylog/auditList.jsp
+- `/finance/saletaxratecfg_<method>.action`  →  com.maxtile.application.erp.finance.action.SaletaxratecfgAction
+  - 后端：src/com/maxtile/application/erp/finance/action/SaletaxratecfgAction.java
+  - 前端 result→jsp：list=/erp/finance/saletaxratecfg/list.jsp · show=/erp/finance/saletaxratecfg/show.jsp · error=/public/head/error.jsp
+- `/finance/subject_<method>.action`  →  com.maxtile.application.erp.finance.action.SubjectAction
+  - 后端：src/com/maxtile/application/erp/finance/action/SubjectAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · select=/erp/finance/subject/sjList.jsp · open=/erp/finance/subject/add.jsp · show=/erp/finance/subject/show.jsp · listchild=/erp/finance/subject/json_subject.jsp · success=/erp/finance/subject/success.jsp · add=/erp/finance/subject/add.jsp
+- `/finance/subrule_<method>.action`  →  com.maxtile.application.erp.finance.action.SubruleAction
+  - 后端：src/com/maxtile/application/erp/finance/action/SubruleAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/subrule/list.jsp · show=/erp/finance/subrule/show.jsp
+- `/finance/subruleitem_<method>.action`  →  com.maxtile.application.erp.finance.action.SubruleitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/SubruleitemAction.java
+- `/finance/supplierProductsItem_<method>.action`  →  com.maxtile.application.erp.finance.action.SupplierProductsItemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/SupplierProductsItemAction.java
+  - 前端 result→jsp：list=/erp/finance/supplierproductsitem/list.jsp · deliveryInfo=/erp/finance/supplierproductsitem/deliveryInfo.jsp · deliveryInfoShow=/erp/finance/supplierproductsitem/deliveryInfoShow.jsp
+- `/finance/transaccount_<method>.action`  →  com.maxtile.application.erp.finance.action.TransaccountAction
+  - 后端：src/com/maxtile/application/erp/finance/action/TransaccountAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/transaccount/list.jsp · open=/erp/finance/transaccount/add.jsp · show=/erp/finance/transaccount/show.jsp · copy=/erp/finance/transaccount/copy.jsp
+- `/finance/transactionRelevance_<method>.action`  →  com.maxtile.application.erp.finance.action.TransactionRelevanceAction
+  - 后端：src/com/maxtile/application/erp/finance/action/TransactionRelevanceAction.java
+- `/finance/ulossperdeduct_<method>.action`  →  com.maxtile.application.erp.finance.action.UlossperdeductAction
+  - 后端：src/com/maxtile/application/erp/finance/action/UlossperdeductAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/finance/ulossperdeduct/list.jsp · show=/erp/finance/ulossperdeduct/show.jsp · updateReturnDate=/erp/finance/ulossperdeduct/updateReturnDate.jsp · updateQtySumMsg=/erp/finance/ulossperdeduct/updateQtySumMsg.jsp · add=/erp/finance/ulossperdeduct/add.jsp
+- `/finance/ulossperdeductitem_<method>.action`  →  com.maxtile.application.erp.finance.action.UlossperdeductitemAction
+  - 后端：src/com/maxtile/application/erp/finance/action/UlossperdeductitemAction.java
+- `/finance/yarnAnalysis_<method>.action`  →  com.maxtile.application.erp.finance.action.YarnPriceAnalysisAction
+  - 后端：src/com/maxtile/application/erp/finance/action/YarnPriceAnalysisAction.java
+
+## /flow  ·  src/config/struts/struts-flow.xml
+
+- `/flow/dingtalkmsg_<method>.action`  →  com.maxtile.application.erp.flow.action.DingtalkmsgAction
+  - 后端：src/com/maxtile/application/erp/flow/action/DingtalkmsgAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/flow/dingtalkmsg/list.jsp · show=/erp/flow/dingtalkmsg/show.jsp
+- `/flow/dingtalknode_<method>.action`  →  com.maxtile.application.erp.flow.action.DingtalknodeAction
+  - 后端：src/com/maxtile/application/erp/flow/action/DingtalknodeAction.java
+  - 前端 result→jsp：open=/erp/flow/dingtalknode/add.jsp · error=/public/head/error.jsp
+- `/flow/flow_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlowAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/flow/flow/list.jsp · open=/erp/flow/flow/add.jsp · show=/erp/flow/flow/show.jsp
+- `/flow/flowapply_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowapplyAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlowapplyAction.java
+  - 前端 result→jsp：listAndItem=/erp/flow/flowapply/listAndItem.jsp · error=/public/head/error.jsp
+- `/flow/flowBase_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowBaseAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlowBaseAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/flow/flowBase/list.jsp · open=/erp/flow/flowBase/add.jsp · show=/erp/flow/flowBase/show.jsp · treeShow=/erp/flow/flowBase/item_tree.jsp
+- `/flow/flowcc_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowccAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlowccAction.java
+  - 前端 result→jsp：open=/erp/flow/flowcc/add.jsp · error=/public/head/error.jsp
+- `/flow/flowcheck_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowcheckAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlowcheckAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · auditList=/erp/flow/flowcheck/auditList.jsp · auditShow=/erp/flow/flowcheck/auditShow.jsp · auditShowNode=/erp/flow/flowcheck/auditShowNode.jsp
+- `/flow/flownode_<method>.action`  →  com.maxtile.application.erp.flow.action.FlownodeAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlownodeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/flow/flownode/add.jsp
+- `/flow/flownodeBase_<method>.action`  →  com.maxtile.application.erp.flow.action.FlownodeBaseAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlownodeBaseAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/flow/flownodeBase/add.jsp · show=/erp/flow/flownodeBase/show.jsp · treeList=/erp/flow/flownodeBase/treeList.jsp · judgetemplate=/erp/flow/flownodeBase/judgetemplate.jsp
+- `/flow/flownodeBaseInitiate_<method>.action`  →  com.maxtile.application.erp.flow.action.FlownodeBaseInitiateAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlownodeBaseInitiateAction.java
+  - 前端 result→jsp：open=/erp/flow/flownodeBaseInitiate/show.jsp · show=/erp/flow/flownodeBaseInitiate/show.jsp · list=/erp/flow/flownodeBaseInitiate/list.jsp
+
+## /gallery  ·  src/config/struts/struts-gallery.xml
+
+- `/gallery/checkprocess_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.CheckprocessAction 未解析)
+  - 前端 result→jsp：error=/public/head/error.jsp · success=/erp/gallery/rdimgterm/success.jsp · processlist=/erp/gallery/checkprocess/layer_checkprocess.jsp · rightadd=/erp/gallery/checkprocess/rightadd.jsp · add=/erp/gallery/rdimgterm/rightadd.jsp · selecttree=/erp/gallery/checkprocess/json_right.jsp · list=/erp/gallery/checkprocess/tablelist.jsp
+- `/gallery/checkprocessimage_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.CheckprocessimageAction 未解析)
+- `/gallery/checkprocesstermnum_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.CheckprocesstermnumAction 未解析)
+  - 前端 result→jsp：details=/erp/gallery/checkprocess/rightdetails.jsp
+- `/gallery/rdimages_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.RdimagesAction 未解析)
+  - 前端 result→jsp：error=/public/head/error.jsp · success=/erp/gallery/rdimgterm/success.jsp · open=/erp/gallery/rdimages/editor.jsp · list=/erp/gallery/rdimages/rightshow.jsp
+- `/gallery/rdimgterm_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.RdimgtermAction 未解析)
+  - 前端 result→jsp：error=/public/head/error.jsp · success=/erp/gallery/rdimgterm/success.jsp · selecttree=/erp/gallery/rdimgterm/json_right.jsp · add=/erp/gallery/rdimgterm/rightadd.jsp · tab=/erp/gallery/rdimgterm/imgterm.jsp
+
+## /mall  ·  src/config/struts/struts-mall.xml
+
+- `/mall/cus_<method>.action`  →  com.maxtile.application.mall.cus.action.MallCustomerAction
+  - 后端：src/com/maxtile/application/mall/cus/action/MallCustomerAction.java
+- `/mall/order_<method>.action`  →  com.maxtile.application.mall.order.action.MallOrderAction
+  - 后端：src/com/maxtile/application/mall/order/action/MallOrderAction.java
+- `/mall/prod_<method>.action`  →  com.maxtile.application.mall.product.action.MallProductAction
+  - 后端：src/com/maxtile/application/mall/product/action/MallProductAction.java
+- `/mall/sys_<method>.action`  →  com.maxtile.application.mall.sys.action.MallSysAction
+  - 后端：src/com/maxtile/application/mall/sys/action/MallSysAction.java
+
+## /okr  ·  src/config/struts/struts-okr.xml
+
+- `/okr/allBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.AllBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/AllBusinessMonitorAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/okr/AllBusinessMonitor/show.jsp
+- `/okr/assessSupIndicators_<method>.action`  →  com.maxtile.application.erp.okr.action.AssessSupIndicatorsAction
+  - 后端：src/com/maxtile/application/erp/okr/action/AssessSupIndicatorsAction.java
+  - 前端 result→jsp：list=/erp/okr/assesssupindicators/list.jsp · show=/erp/okr/assesssupindicators/show.jsp · error=/public/head/error.jsp
+- `/okr/dyeFactoryMonthlyReport_<method>.action`  →  com.maxtile.application.erp.okr.action.DyeFactoryMonthlyReportAction
+  - 后端：src/com/maxtile/application/erp/okr/action/DyeFactoryMonthlyReportAction.java
+  - 前端 result→jsp：main=/erp/okr/dyeFactoryMonthlyReport/main.jsp · main_unfold=/erp/okr/dyeFactoryMonthlyReport/main_unfold.jsp · details_1=/erp/okr/dyeFactoryMonthlyReport/details_1.jsp · details_2=/erp/okr/dyeFactoryMonthlyReport/details_2.jsp · details_3=/erp/okr/dyeFactoryMonthlyReport/details_3.jsp · details_4=/erp/okr/dyeFactoryMonthlyReport/details_4.jsp · details_5=/erp/okr/dyeFactoryMonthlyReport/details_5.jsp · details_6=/erp/okr/dyeFactoryMonthlyReport/details_6.jsp · details_7=/erp/okr/dyeFactoryMonthlyReport/details_7.jsp · dyeShowResale=/erp/okr/dyeFactoryMonthlyReport/dyeShowResale.jsp · dyeShowCustComp=/erp/okr/dyeFactoryMonthlyReport/dyeShowCustComp.jsp · dyeShowProductionReturn=/erp/okr/dyeFactoryMonthlyReport/dyeShowProductionReturn.jsp
+- `/okr/dyeingAbnormalQuality_<method>.action`  →  com.maxtile.application.erp.okr.action.DyeingAbnormalQualityAction
+  - 后端：src/com/maxtile/application/erp/okr/action/DyeingAbnormalQualityAction.java
+  - 前端 result→jsp：list=/erp/okr/dyeingabnormalquality/list.jsp · error=/public/head/error.jsp
+- `/okr/dyeingAbnormalTimeliness_<method>.action`  →  com.maxtile.application.erp.okr.action.DyeingAbnormalTimelinessAction
+  - 后端：src/com/maxtile/application/erp/okr/action/DyeingAbnormalTimelinessAction.java
+  - 前端 result→jsp：list=/erp/okr/dyeingabnormaltimeliness/list.jsp · error=/public/head/error.jsp
+- `/okr/dyeingSupEvaluation_<method>.action`  →  com.maxtile.application.erp.okr.action.DyeingSupEvaluationAction
+  - 后端：src/com/maxtile/application/erp/okr/action/DyeingSupEvaluationAction.java
+  - 前端 result→jsp：list=/erp/okr/dyeingsupevaluation/list.jsp · dyeList=/erp/okr/dyeingsupevaluation/dyeList.jsp · error=/public/head/error.jsp
+- `/okr/manageindex_<method>.action`  →  com.maxtile.application.erp.okr.action.ManageindexAction
+  - 后端：src/com/maxtile/application/erp/okr/action/ManageindexAction.java
+  - 前端 result→jsp：list=/erp/okr/manageindex/list.jsp
+- `/okr/manageindexvalue_<method>.action`  →  com.maxtile.application.erp.okr.action.ManageindexvalueAction
+  - 后端：src/com/maxtile/application/erp/okr/action/ManageindexvalueAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · updateList=/erp/okr/manageindexvalue/updateList.jsp
+- `/okr/manageMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.ManageMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/ManageMonitorAction.java
+- `/okr/manageMonitorBase_<method>.action`  →  com.maxtile.application.erp.okr.action.ManageMonitorBaseAction
+  - 后端：src/com/maxtile/application/erp/okr/action/ManageMonitorBaseAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/okr/manageMonitorBase/list.jsp · addSelectSubject=/erp/okr/manageMonitorBase/addSelectSubject.jsp · updateList=/erp/okr/manageMonitorBase/updateList.jsp
+- `/okr/manageMonitorValue_<method>.action`  →  com.maxtile.application.erp.okr.action.ManageMonitorValueAction
+  - 后端：src/com/maxtile/application/erp/okr/action/ManageMonitorValueAction.java
+- `/okr/morderBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.MorderBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/MorderBusinessMonitorAction.java
+  - 前端 result→jsp：show=/erp/okr/morderBusinessMonitor/main.jsp · morderView1=/erp/okr/morderBusinessMonitor/morderView1.jsp · morderView2=/erp/okr/morderBusinessMonitor/morderView2.jsp · morderView3=/erp/okr/morderBusinessMonitor/morderView3.jsp · morderView4=/erp/okr/morderBusinessMonitor/morderView4.jsp · morderInOutView=/erp/okr/morderBusinessMonitor/morderInOutView.jsp · panelContentList1=/erp/okr/morderBusinessMonitor/dataTable/panelContentList1.jsp · panelContentList2=/erp/okr/morderBusinessMonitor/dataTable/panelContentList2.jsp · panelContentList3=/erp/okr/morderBusinessMonitor/dataTable/panelContentList3.jsp · panelContentList4=/erp/okr/morderBusinessMonitor/dataTable/panelContentList4.jsp · panelContentList5=/erp/okr/morderBusinessMonitor/dataTable/panelContentList5.jsp · moPanelContentList=/erp/okr/morderBusinessMonitor/dataTable/moPanelContentList.jsp
+- `/okr/okr_<method>.action`  →  com.maxtile.application.erp.okr.action.OkrAction
+  - 后端：src/com/maxtile/application/erp/okr/action/OkrAction.java
+  - 前端 result→jsp：list=/erp/okr/okr/list.jsp · show=/erp/okr/okr/show.jsp · modelidGroupUpdate=/erp/okr/okr/modelidGroupUpdate.jsp · error=/public/head/error.jsp
+- `/okr/okritem_<method>.action`  →  com.maxtile.application.erp.okr.action.OkritemAction
+  - 后端：src/com/maxtile/application/erp/okr/action/OkritemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/okr/okrtarget_<method>.action`  →  com.maxtile.application.erp.okr.action.OkrtargetAction
+  - 后端：src/com/maxtile/application/erp/okr/action/OkrtargetAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/okr/orderBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.OrderBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/OrderBusinessMonitorAction.java
+  - 前端 result→jsp：show=/erp/okr/orderBusinessMonitor/orderIndexShow.jsp · orderImplementMonitorTable=/erp/okr/orderBusinessMonitor/dataTable/orderImplementMonitorTable.jsp · orderImplementAnalysisTable=/erp/okr/orderBusinessMonitor/dataTable/orderImplementAnalysisTable.jsp · orderImplementWorderTab=/erp/okr/orderBusinessMonitor/dataTable/orderImplementWorderTab.jsp · orderImplementMorderTab=/erp/okr/orderBusinessMonitor/dataTable/orderImplementMorderTab.jsp
+- `/okr/perfProject_<method>.action`  →  com.maxtile.application.erp.okr.action.PerfProjectAction
+  - 后端：src/com/maxtile/application/erp/okr/action/PerfProjectAction.java
+  - 前端 result→jsp：list=/erp/okr/PerfProject/list.jsp · show=/erp/okr/PerfProject/show.jsp · error=/public/head/error.jsp
+- `/okr/perfResult_<method>.action`  →  com.maxtile.application.erp.okr.action.PerfResultAction
+  - 后端：src/com/maxtile/application/erp/okr/action/PerfResultAction.java
+  - 前端 result→jsp：personList=/erp/okr/PerfResult/personList.jsp · perfresultCollectList=/erp/okr/PerfResult/perfresultCollectList.jsp · manualMaintenanceList=/erp/okr/PerfResult/manualmaintenancelist.jsp · error=/public/head/error.jsp
+- `/okr/perfRule_<method>.action`  →  com.maxtile.application.erp.okr.action.PerfRuleAction
+  - 后端：src/com/maxtile/application/erp/okr/action/PerfRuleAction.java
+  - 前端 result→jsp：list=/erp/okr/PerfRule/list.jsp · addList=/erp/okr/PerfRule/addList.jsp · error=/public/head/error.jsp
+- `/okr/perfUserConfig_<method>.action`  →  com.maxtile.application.erp.okr.action.PerfUserConfigAction
+  - 后端：src/com/maxtile/application/erp/okr/action/PerfUserConfigAction.java
+  - 前端 result→jsp：addOrUpdatePerfUserConfigShow=/erp/okr/perfUserConfig/addOrUpdatePerfUserConfigShow.jsp · list=/erp/okr/perfUserConfig/list.jsp · editConfigPerfProjectList=/erp/okr/perfUserConfig/editConfigPerfProjectList.jsp · error=/public/head/error.jsp
+- `/okr/planBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.PlanBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/PlanBusinessMonitorAction.java
+  - 前端 result→jsp：yarnPlanDataList=/erp/okr/planBusinessMonitor/yarnPlan/dataList.jsp · bomMachineCount=/erp/okr/planBusinessMonitor/yarnPlan/bomMachineCount.jsp · backStoreDataList=/erp/okr/planBusinessMonitor/backStore/dataList.jsp · backStoreList=/erp/okr/planBusinessMonitor/backStore/backStoreList.jsp
+- `/okr/qcBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.QcBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/QcBusinessMonitorAction.java
+  - 前端 result→jsp：dayData=/erp/okr/qcBusinessMonitor/dataTable/cusComplaintsDayDataTable.jsp · saleTrackBoards=/erp/okr/qcBusinessMonitor/dataTable/saleTrackBoards.jsp · supConfigShow=/erp/okr/qcBusinessMonitor/dataTable/supConfigShow.jsp · wproConfigShow=/erp/okr/qcBusinessMonitor/dataTable/wproConfigShow.jsp
+- `/okr/saleBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.SaleBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/SaleBusinessMonitorAction.java
+  - 前端 result→jsp：saleTotalIndexShow=/erp/okr/saleBusinessMonitor/saleTotalIndexShow.jsp · saleCustomerIndexShow=/erp/okr/saleBusinessMonitor/saleCustomerIndexShow.jsp · saleCustomerIndexShow2=/erp/okr/saleBusinessMonitor/saleCustomerIndexShow2.jsp · completeIndexShow=/erp/okr/saleBusinessMonitor/completeIndexShow.jsp · completeIndexShow2=/erp/okr/saleBusinessMonitor/completeIndexShow2.jsp · bussinessIndexShow=/erp/okr/saleBusinessMonitor/bussinessIndexShow.jsp · saleTotalBigDayTable=/erp/okr/saleBusinessMonitor/dataTable/saleTotalBigDayTable.jsp · saleTotalSampleDayTable=/erp/okr/saleBusinessMonitor/dataTable/saleTotalSampleDayTable.jsp · saleTotalBigMonthTable=/erp/okr/saleBusinessMonitor/dataTable/saleTotalBigMonthTable.jsp · saleTotalSampleMonthTable=/erp/okr/saleBusinessMonitor/dataTable/saleTotalSampleMonthTable.jsp · custIndexBigCustMonthTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexBigCustMonthTable.jsp · custIndexBigCustDayTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexBigCustDayTable.jsp · custIndexSampleCustMonthTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexSampleCustMonthTable.jsp · custIndexSampleCustDayTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexSampleCustDayTable.jsp · custIndexAddBigCustMonthTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexAddBigCustMonthTable.jsp · custIndexAddSampleCustDayTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexAddSampleCustDayTable.jsp · custIndexAddSampleCustMonthTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexAddSampleCustMonthTable.jsp · custIndexAddBigCustDayTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexAddBigCustDayTable.jsp · custIndexCustRetentionTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexCustRetentionTable.jsp · custIndexCustLossTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexCustLossTable.jsp · custIndexCustAddTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexCustAddTable.jsp · custIndexCustActivityTable=/erp/okr/saleBusinessMonitor/dataTable/custIndexCustActivityTable.jsp · completeIndexMonthSaleCompleteTable=/erp/okr/saleBusinessMonitor/dataTable/completeIndexMonthSaleCompleteTable.jsp · completeIndexDaySaleCompleteTable=/erp/okr/saleBusinessMonitor/dataTable/completeIndexDaySaleCompleteTable.jsp · completeIndexCustRankDataTable=/erp/okr/saleBusinessMonitor/dataTable/completeIndexCustRankDataTable.jsp · completeIndexSaleTotalRankDataTable=/erp/okr/saleBusinessMonitor/dataTable/completeIndexSaleTotalRankDataTable.jsp · completeIndexProRankDataTable=/erp/okr/saleBusinessMonitor/dataTable/completeIndexProRankDataTable.jsp · completeIndexSampleChangeDataTable=/erp/okr/saleBusinessMonitor/dataTable/completeIndexSampleChangeDataTable.jsp · bussinessIndexSalerVisitRankData=/erp/okr/saleBusinessMonitor/dataTable/bussinessIndexSalerVisitRankData.jsp
+- `/okr/saleBusinessReplay_<method>.action`  →  com.maxtile.application.erp.okr.action.SaleBusinessReplayAction
+  - 后端：src/com/maxtile/application/erp/okr/action/SaleBusinessReplayAction.java
+  - 前端 result→jsp：salesmanList=/erp/okr/saleBusinessReplay/salesmanList.jsp
+- `/okr/storeBusinessMonitor_<method>.action`  →  com.maxtile.application.erp.okr.action.StoreBusinessMonitorAction
+  - 后端：src/com/maxtile/application/erp/okr/action/StoreBusinessMonitorAction.java
+  - 前端 result→jsp：show=/erp/okr/storeBusinessMonitor/main.jsp · storeView1=/erp/okr/storeBusinessMonitor/storeView1.jsp · storeView2=/erp/okr/storeBusinessMonitor/storeView2.jsp · storeAgeRateData=/erp/okr/storeBusinessMonitor/dataTable/storeAgeRateData.jsp · movablePinRateData=/erp/okr/storeBusinessMonitor/dataTable/movablePinRateData.jsp · stockToSalesRatioData=/erp/okr/storeBusinessMonitor/dataTable/stockToSalesRatioData.jsp · availableInventoryDays=/erp/okr/storeBusinessMonitor/dataTable/availableInventoryDays.jsp · stockTurnAnalysis=/erp/okr/storeBusinessMonitor/stockTurnAnalysis.jsp · weekColorStockTurnRate=/erp/okr/storeBusinessMonitor/weekColorStockTurnRate.jsp
+- `/okr/testAbilityScore_<method>.action`  →  com.maxtile.application.erp.okr.action.TestAbilityScoreAction
+  - 后端：src/com/maxtile/application/erp/okr/action/TestAbilityScoreAction.java
+  - 前端 result→jsp：list=/erp/okr/testabilityscore/list.jsp · error=/public/head/error.jsp
+- `/okr/tqcIndexVal_<method>.action`  →  com.maxtile.application.erp.okr.action.TqcIndexValAction
+  - 后端：src/com/maxtile/application/erp/okr/action/TqcIndexValAction.java
+  - 前端 result→jsp：list=/erp/okr/tqcIndexVal/list.jsp · woSupList=/erp/okr/tqcIndexVal/woSupList.jsp
+
+## /openapi  ·  src/config/struts/struts-openapi.xml
+
+- `/openapi/bankInfoOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.BankInfoOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/BankInfoOpenApiAction.java
+- `/openapi/colorOpenApi_<method>.action`  →  com.maxtile.application.openapi.sale.action.ColoringOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sale/action/ColoringOpenApiAction.java
+- `/openapi/cus_<method>.action`  →  com.maxtile.application.openapi.action.cus.action.CustomerAction
+  - 后端：src/com/maxtile/application/openapi/action/cus/action/CustomerAction.java
+- `/openapi/cuslink_<method>.action`  →  com.maxtile.application.openapi.action.cuslink.action.CuslinkAction
+  - 后端：src/com/maxtile/application/openapi/action/cuslink/action/CuslinkAction.java
+- `/openapi/cusprivate_<method>.action`  →  com.maxtile.application.openapi.action.cus.action.CusprivateAction
+  - 后端：src/com/maxtile/application/openapi/action/cus/action/CusprivateAction.java
+- `/openapi/custnoticeOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.CustnoticeOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/CustnoticeOpenApiAction.java
+- `/openapi/customerOpenApi_<method>.action`  →  com.maxtile.application.openapi.crm.action.CustomerOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/crm/action/CustomerOpenApiAction.java
+- `/openapi/drawpoundOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.DrawpoundOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/DrawpoundOpenApiAction.java
+- `/openapi/inquirePriceOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.InquirePriceOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/InquirePriceOpenApiAction.java
+- `/openapi/leadinfo_<method>.action`  →  com.maxtile.application.openapi.action.lead.action.LeadInfoAction
+  - 后端：src/com/maxtile/application/openapi/action/lead/action/LeadInfoAction.java
+  - 前端 result→jsp：list=/crm/lead/checkExistListNewForCRM.jsp
+- `/openapi/matenameOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.MatenameOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/MatenameOpenApiAction.java
+- `/openapi/materialOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.MaterialOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/MaterialOpenApiAction.java
+- `/openapi/morder_<method>.action`  →  com.maxtile.application.openapi.action.MorderAction
+  - 后端：src/com/maxtile/application/openapi/action/MorderAction.java
+- `/openapi/morderOpenApi_<method>.action`  →  com.maxtile.application.openapi.morder.action.MorderOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/morder/action/MorderOpenApiAction.java
+- `/openapi/mreceiveOpenApi_<method>.action`  →  com.maxtile.application.openapi.morder.action.MreceiveOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/morder/action/MreceiveOpenApiAction.java
+- `/openapi/mrpuseOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.MrpuseOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/MrpuseOpenApiAction.java
+- `/openapi/mtaskmrpAllocationDetail_<method>.action`  →  com.maxtile.application.openapi.produce.action.MtaskmrpAllocationDetailOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/produce/action/MtaskmrpAllocationDetailOpenApiAction.java
+- `/openapi/mtaskmrpPoconfigItemOpenApi_<method>.action`  →  com.maxtile.application.openapi.produce.action.MtaskmrpPoconfigItemOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/produce/action/MtaskmrpPoconfigItemOpenApiAction.java
+- `/openapi/mtaskOpenApi_<method>.action`  →  com.maxtile.application.openapi.produce.action.MtaskOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/produce/action/MtaskOpenApiAction.java
+- `/openapi/newMdevelopOpenApi_<method>.action`  →  com.maxtile.application.openapi.develop.action.NewMdevelopOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/develop/action/NewMdevelopOpenApiAction.java
+- `/openapi/newmdevelopPorderitemOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.NewmdevelopPorderitemOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/NewmdevelopPorderitemOpenApiAction.java
+- `/openapi/newPoplanitemMorder_<method>.action`  →  com.maxtile.application.openapi.purchase.action.NewPoplanitemMorderOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/NewPoplanitemMorderOpenApiAction.java
+- `/openapi/newPorderOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.NewPorderOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/NewPorderOpenApiAction.java
+- `/openapi/oauth2_<method>.action`  →  com.maxtile.application.openapi.action.OAuth2Action
+  - 后端：src/com/maxtile/application/openapi/action/OAuth2Action.java
+  - 前端 result→jsp：success=${redirect_uri}
+- `/openapi/openApiCenter_<method>.action`  →  com.maxtile.application.openapi.action.OpenApiCenter
+  - 后端：src/com/maxtile/application/openapi/action/OpenApiCenter.java
+- `/openapi/payablesItemOpenApi_<method>.action`  →  com.maxtile.application.openapi.finance.action.PayablesItemOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/finance/action/PayablesItemOpenApiAction.java
+- `/openapi/payablesOpenApi_<method>.action`  →  com.maxtile.application.openapi.finance.action.PayablesOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/finance/action/PayablesOpenApiAction.java
+- `/openapi/pbackOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.PbackOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/PbackOpenApiAction.java
+- `/openapi/phyreportOpenApi_<method>.action`  →  com.maxtile.application.openapi.qc.action.PhyreportOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/qc/action/PhyreportOpenApiAction.java
+- `/openapi/pobatchOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.PobatchOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/PobatchOpenApiAction.java
+- `/openapi/poconfigOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.PoconfigOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/PoconfigOpenApiAction.java
+- `/openapi/poplanOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.PoplanOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/PoplanOpenApiAction.java
+- `/openapi/posendOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.PosendOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/PosendOpenApiAction.java
+- `/openapi/posupplanOpenApi_<method>.action`  →  com.maxtile.application.openapi.purchase.action.PosupplanOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/purchase/action/PosupplanOpenApiAction.java
+- `/openapi/procolorOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.ProcolorOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/ProcolorOpenApiAction.java
+- `/openapi/productDesPropOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.ProductDesPropOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/ProductDesPropOpenApiAction.java
+- `/openapi/productOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.ProductOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/ProductOpenApiAction.java
+- `/openapi/purchasedColorOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.PurchasedColorOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/PurchasedColorOpenApiAction.java
+- `/openapi/qcorderOpenApi_<method>.action`  →  com.maxtile.application.openapi.qc.action.QcorderOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/qc/action/QcorderOpenApiAction.java
+- `/openapi/qcreportOpenApi_<method>.action`  →  com.maxtile.application.openapi.qc.action.QcreportOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/qc/action/QcreportOpenApiAction.java
+- `/openapi/ruiFengOpenApi_<method>.action`  →  com.maxtile.application.openapi.morder.action.RuiFengOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/morder/action/RuiFengOpenApiAction.java
+- `/openapi/saleOpen_<method>.action`  →  com.maxtile.application.openapi.action.SaleOpenAction
+  - 后端：src/com/maxtile/application/openapi/action/SaleOpenAction.java
+- `/openapi/sbackOpenApi_<method>.action`  →  com.maxtile.application.openapi.sale.action.SbackOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sale/action/SbackOpenApiAction.java
+- `/openapi/shopOpenApi_<method>.action`  →  com.maxtile.application.openapi.sys.action.ShopOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sys/action/ShopOpenApiAction.java
+- `/openapi/sorderOpenApi_<method>.action`  →  com.maxtile.application.openapi.sale.action.SorderOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sale/action/SorderOpenApiAction.java
+- `/openapi/srmToErpWxMsgOpenApi_<method>.action`  →  com.maxtile.application.openapi.msg.action.SrmToErpWxMsgOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/msg/action/SrmToErpWxMsgOpenApiAction.java
+- `/openapi/ssoAccountOpenApi_<method>.action`  →  com.maxtile.application.openapi.sso.action.SsoAccountOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sso/action/SsoAccountOpenApiAction.java
+- `/openapi/ssoBiddingOpenApi_<method>.action`  →  com.maxtile.application.openapi.sso.action.SsoOAuth2OpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sso/action/SsoOAuth2OpenApiAction.java
+- `/openapi/ssoOAuth2OpenApi_<method>.action`  →  com.maxtile.application.openapi.sso.action.SsoOAuth2OpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sso/action/SsoOAuth2OpenApiAction.java
+- `/openapi/stockOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.StockOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/StockOpenApiAction.java
+- `/openapi/storeinOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.StoreinOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/StoreinOpenApiAction.java
+- `/openapi/storeOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.StoreOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/StoreOpenApiAction.java
+- `/openapi/storeoutOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.StoreoutOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/StoreoutOpenApiAction.java
+- `/openapi/supaddressOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.SupaddressOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/SupaddressOpenApiAction.java
+- `/openapi/supbankOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.SupbankOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/SupbankOpenApiAction.java
+- `/openapi/supplierAssignOpenApi_<method>.action`  →  com.maxtile.application.openapi.morder.action.SupplierAssignOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/morder/action/SupplierAssignOpenApiAction.java
+- `/openapi/supplierOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.SupplierOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/SupplierOpenApiAction.java
+- `/openapi/sysBizDataOpenApi_<method>.action`  →  com.maxtile.application.openapi.sys.action.bizdata.SysBizDataOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/sys/action/bizdata/SysBizDataOpenApiAction.java
+- `/openapi/tempFileApiAction_<method>.action`  →  com.maxtile.application.openapi.action.TempFileApiAction
+  - 后端：src/com/maxtile/application/openapi/action/TempFileApiAction.java
+- `/openapi/transferOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.TransferOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/TransferOpenApiAction.java
+- `/openapi/transYarnPriceApi_<method>.action`  →  com.maxtile.application.openapi.morder.action.TransYarnPriceApiAction
+  - 后端：src/com/maxtile/application/openapi/morder/action/TransYarnPriceApiAction.java
+- `/openapi/weComMateOpenApi_<method>.action`  →  com.maxtile.application.openapi.crm.action.WeComMateOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/crm/action/WeComMateOpenApiAction.java
+- `/openapi/weighTicketOpenApi_<method>.action`  →  com.maxtile.application.openapi.warehouse.action.WeighTicketOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/warehouse/action/WeighTicketOpenApiAction.java
+- `/openapi/yarnAnalysisOpenApi_<method>.action`  →  com.maxtile.application.openapi.search.action.YarnAnalysisOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/search/action/YarnAnalysisOpenApiAction.java
+- `/openapi/yarnBoardOpenApi_<method>.action`  →  com.maxtile.application.openapi.baseinfo.action.YarnBoardOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/baseinfo/action/YarnBoardOpenApiAction.java
+- `/openapi/yarnRatingStandardOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.YarnRatingStandardOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/YarnRatingStandardOpenApiAction.java
+- `/openapi/yarnRatingStdsCentreOpenApi_<method>.action`  →  com.maxtile.application.openapi.product.action.YarnRatingStdsCentreOpenApiAction
+  - 后端：src/com/maxtile/application/openapi/product/action/YarnRatingStdsCentreOpenApiAction.java
+
+## /patent  ·  src/config/struts/struts-patent.xml
+
+- `/patent/aidlog_<method>.action`  →  (bean: aidlogAction 未解析)
+  - 前端 result→jsp：list=/project/aidlog/list.jsp · search=/project/aidlog/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · error=/public/head/error.jsp
+- `/patent/engerlog_<method>.action`  →  (bean: engerlogAction 未解析)
+  - 前端 result→jsp：list=/project/aidlog/list.jsp · search=/project/aidlog/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · error=/public/head/error.jsp
+- `/patent/fee_<method>.action`  →  (bean: feeAction 未解析)
+  - 前端 result→jsp：list=/project/fee/list.jsp · search=/project/fee/search.jsp · open=/project/fee/add.jsp · show=/project/fee/show.jsp · openSetFeedate=/project/fee/setFeeDate.jsp · error=/public/head/error.jsp
+- `/patent/feeitem_<method>.action`  →  (bean: feeitemAction 未解析)
+  - 前端 result→jsp：list=/project/feeitem/list.jsp · search=/project/feeitem/search.jsp · open=/project/feeitem/add.jsp
+- `/patent/feename_<method>.action`  →  (bean: feenameAction 未解析)
+  - 前端 result→jsp：list=/project/feename/list.jsp · search=/project/feename/search.jsp · open=/project/feename/add.jsp · show=/project/feename/show.jsp · div_list=/project/feename/div_list.jsp · div_query=/project/feename/div_search.jsp · error=/public/head/error.jsp
+- `/patent/flowactive_<method>.action`  →  (bean: paflowactiveAction 未解析)
+  - 前端 result→jsp：list=/project/aidlog/list.jsp · search=/project/aidlog/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · showFlow=/project/paflowactive/progress.jsp
+- `/patent/org_<method>.action`  →  (bean: orgAction 未解析)
+  - 前端 result→jsp：list=/project/org/list.jsp · search=/project/org/search.jsp · open=/project/org/add.jsp · show=/project/org/show.jsp · error=/public/head/error.jsp
+- `/patent/pat_<method>.action`  →  (bean: patAction 未解析)
+  - 前端 result→jsp：list=/project/pat/list.jsp · search=/project/pat/search.jsp · open=/project/pat/add.jsp · show=/project/pat/show.jsp · openAddPatent=/project/pat/addPatent.jsp · error=/public/head/error.jsp
+- `/patent/patdoc_<method>.action`  →  (bean: patdocAction 未解析)
+  - 前端 result→jsp：list=/project/patent/list.jsp · search=/project/patent/search.jsp · open=/project/patent/add.jsp · show=/project/patent/show.jsp
+- `/patent/patent_<method>.action`  →  (bean: patentAction 未解析)
+  - 前端 result→jsp：list=/project/patent/list.jsp · search=/project/patent/search.jsp · open=/project/patent/add.jsp · show=/project/patent/show.jsp · configEnger=/project/patent/configEnger.jsp · openUpdateNextStep=/project/patent/openUpdateNextStep.jsp · openUpdateSelectStep=/project/patent/openUpdateSelectStep.jsp · openUpdatePatent=/project/patent/updatePatent.jsp · divPatentList=/project/patent/div_list.jsp · divPatentSearch=/project/patent/div_search.jsp · aidPatentList=/project/patent/aid_divlist.jsp · aidPatentSearch=/project/patent/aid_divsearch.jsp · openUpload=/project/patent/uploadfiles.jsp · openAddYearFee=/project/patent/addYearFee.jsp · openKeyDate=/project/patent/openKeyDate.jsp · openApplyDate=/project/patent/updateApplydate.jsp · listYearFeePatent=/project/patent/div_listYearFee.jsp · error=/public/head/error.jsp
+- `/patent/patime_<method>.action`  →  (bean: patimeAction 未解析)
+  - 前端 result→jsp：list=/project/patime/list.jsp · search=/project/patime/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · patimeProgress=/project/patent/patimeProgress.jsp · error=/public/head/error.jsp
+- `/patent/yearfee_<method>.action`  →  (bean: yearfeeAction 未解析)
+  - 前端 result→jsp：list=/project/yearfee/list.jsp · search=/project/yearfee/search.jsp · open=/project/yearfee/add.jsp · show=/project/yearfee/show.jsp · div_list=/project/yearfee/div_list.jsp · error=/public/head/error.jsp
+
+## /produce  ·  src/config/struts/struts-produce.xml
+
+- `/produce/advancedPlanAndScheduling_<method>.action`  →  com.maxtile.application.erp.produce.action.AdvancedPlanAndSchedulingAction
+  - 后端：src/com/maxtile/application/erp/produce/action/AdvancedPlanAndSchedulingAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/advancedPlanAndScheduling/list.jsp · show=/erp/produce/advancedPlanAndScheduling/show.jsp
+- `/produce/apsClothProItem_<method>.action`  →  com.maxtile.application.erp.produce.action.ApsClothProItemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ApsClothProItemAction.java
+- `/produce/apsFinishProItem_<method>.action`  →  com.maxtile.application.erp.produce.action.ApsFinishProItemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ApsFinishProItemAction.java
+- `/produce/apsYarnProItem_<method>.action`  →  com.maxtile.application.erp.produce.action.ApsYarnProItemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ApsYarnProItemAction.java
+- `/produce/artorder_<method>.action`  →  com.maxtile.application.erp.produce.action.ArtorderAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ArtorderAction.java
+  - 前端 result→jsp：list=/erp/produce/artorder/list.jsp · listAll=/erp/produce/artorder/listAll.jsp · open=/erp/produce/artorder/add.jsp · openList=/erp/produce/artorder/addList.jsp · show=/erp/produce/artorder/show.jsp · showinfo=/erp/produce/artorder/showinfo.jsp · div_list=/erp/produce/artorder/div_list.jsp · error=/public/head/error.jsp
+- `/produce/artorderitem_<method>.action`  →  com.maxtile.application.erp.produce.action.ArtorderitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ArtorderitemAction.java
+  - 前端 result→jsp：list=/erp/produce/artorderitem/list.jsp · listAll=/erp/produce/artorderitem/listAll.jsp · open=/erp/produce/artorderitem/add.jsp · openList=/erp/produce/artorderitem/addList.jsp · show=/erp/produce/artorderitem/show.jsp · showinfo=/erp/produce/artorderitem/showinfo.jsp · div_list=/erp/produce/artorderitem/div_list.jsp · error=/public/head/error.jsp
+- `/produce/cancelMreceive_<method>.action`  →  com.maxtile.application.erp.produce.action.CancelMreceiveAction
+  - 后端：src/com/maxtile/application/erp/produce/action/CancelMreceiveAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/cancelMreceive/list.jsp · open=/erp/produce/cancelMreceive/add.jsp · show=/erp/produce/cancelMreceive/show.jsp
+- `/produce/cancelMreceiveitem_<method>.action`  →  com.maxtile.application.erp.produce.action.CancelMreceiveitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/CancelMreceiveitemAction.java
+  - 前端 result→jsp：addListFmMreceiveitem=/erp/produce/cancelMreceiveitem/addListFmMreceiveitem.jsp
+- `/produce/cancelMreceiveitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.CancelMreceiveitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/CancelMreceiveitemmaAction.java
+  - 前端 result→jsp：addListFmStockma=/erp/produce/cancelMreceiveitemma/addListFmStockma.jsp · divListByItemShow=/erp/produce/cancelMreceiveitemma/divListByItemShow.jsp
+- `/produce/cancelMreceivemrp_<method>.action`  →  com.maxtile.application.erp.produce.action.CancelMreceivemrpAction
+  - 后端：src/com/maxtile/application/erp/produce/action/CancelMreceivemrpAction.java
+  - 前端 result→jsp：addListFmMreceivemrp=/erp/produce/cancelMreceivemrp/addListFmMreceivemrp.jsp · divListByItemShow=/erp/produce/cancelMreceivemrp/divListByItemShow.jsp
+- `/produce/cylinderPackingDetail_<method>.action`  →  com.maxtile.application.erp.produce.action.CylinderPackingDetailAction
+  - 后端：src/com/maxtile/application/erp/produce/action/CylinderPackingDetailAction.java
+- `/produce/cylinderPackingMain_<method>.action`  →  com.maxtile.application.erp.produce.action.CylinderPackingMainAction
+  - 后端：src/com/maxtile/application/erp/produce/action/CylinderPackingMainAction.java
+  - 前端 result→jsp：cylinderPackingList=/erp/produce/cylinderPacking/cylinderPackingList.jsp · cylinderPackingOperate=/erp/produce/cylinderPacking/cylinderPackingOperate.jsp
+- `/produce/devprotype_<method>.action`  →  com.maxtile.application.erp.produce.action.DevprotypeAction
+  - 后端：src/com/maxtile/application/erp/produce/action/DevprotypeAction.java
+  - 前端 result→jsp：list=/erp/produce/devprotype/list.jsp · show=/erp/produce/devprotype/show.jsp
+- `/produce/devprotypeSup_<method>.action`  →  com.maxtile.application.erp.produce.action.DevprotypeSupAction
+  - 后端：src/com/maxtile/application/erp/produce/action/DevprotypeSupAction.java
+  - 前端 result→jsp：addSupList=/erp/produce/devprotypeSup/addSupList.jsp
+- `/produce/docking_<method>.action`  →  com.maxtile.application.erp.produce.action.DockingCenterAction
+  - 后端：src/com/maxtile/application/erp/produce/action/DockingCenterAction.java
+- `/produce/factoryprodtoprod_<method>.action`  →  com.maxtile.application.erp.produce.action.FactoryProdToProdAction
+  - 后端：src/com/maxtile/application/erp/produce/action/FactoryProdToProdAction.java
+  - 前端 result→jsp：list=/erp/produce/weavingmilloutship/factoryProdToProd.jsp · getById=/erp/produce/weavingmilloutship/factoryProdToProdUpdate.jsp · error=/public/head/error.jsp
+- `/produce/factorytosupp_<method>.action`  →  com.maxtile.application.erp.produce.action.FactoryToSuppAction
+  - 后端：src/com/maxtile/application/erp/produce/action/FactoryToSuppAction.java
+  - 前端 result→jsp：list=/erp/produce/weavingmilloutship/factoryToSupp.jsp · getById=/erp/produce/weavingmilloutship/factoryToSuppUpdate.jsp · error=/public/head/error.jsp
+- `/produce/mdeveitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MdevelopitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MdevelopitemAction.java
+- `/produce/mdevelop_<method>.action`  →  com.maxtile.application.erp.produce.action.MdevelopAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MdevelopAction.java
+  - 前端 result→jsp：list=/erp/produce/mdevelop/list.jsp · show=/erp/produce/mdevelop/show.jsp · error=/public/head/error.jsp
+- `/produce/mdevelopcomponent_<method>.action`  →  com.maxtile.application.erp.produce.action.MdevelopcomponentAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MdevelopcomponentAction.java
+  - 前端 result→jsp：add=/erp/produce/mdevelopcomponent/add.jsp
+- `/produce/mdeveloppro_<method>.action`  →  com.maxtile.application.erp.produce.action.MdevelopproAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MdevelopproAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · add=/erp/produce/mdeveloppro/add.jsp
+- `/produce/mdevelopprocess_<method>.action`  →  com.maxtile.application.erp.produce.action.MdevelopprocessAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MdevelopprocessAction.java
+  - 前端 result→jsp：addList=/erp/produce/mdevelopprocess/addList.jsp
+- `/produce/mergeEmbryoCloth_<method>.action`  →  com.maxtile.application.erp.produce.action.MergeEmbryoClothAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MergeEmbryoClothAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/mergeEmbryoCloth/list.jsp · show=/erp/produce/mergeEmbryoCloth/show.jsp
+- `/produce/mergeEmbryoClothItem_<method>.action`  →  com.maxtile.application.erp.produce.action.MergeEmbryoClothItemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MergeEmbryoClothItemAction.java
+- `/produce/mergeEmbryoClothmrp_<method>.action`  →  com.maxtile.application.erp.produce.action.MergeEmbryoClothmrpAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MergeEmbryoClothmrpAction.java
+- `/produce/moback_<method>.action`  →  com.maxtile.application.erp.produce.action.MobackAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MobackAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · add=/erp/produce/moback/add.jsp · list=/erp/produce/moback/list.jsp · show=/erp/produce/moback/show.jsp
+- `/produce/mobackitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MobackitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MobackitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/produce/mobackitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.MobackitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MobackitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listForMbi=/erp/produce/mobackitemma/listForMbi.jsp
+- `/produce/mobackmrp_<method>.action`  →  com.maxtile.application.erp.produce.action.MobackmrpAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MobackmrpAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/produce/morder_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderAction.java
+  - 前端 result→jsp：list=/erp/produce/morder/list.jsp · listAnditem=/erp/produce/morder/listAnditem.jsp · queryWeaveItemList=/erp/produce/morder/queryWeaveItemList.jsp · open=/erp/produce/morder/add.jsp · worderOpen=/erp/produce/morder/worderAdd.jsp · openList=/erp/produce/morder/addList.jsp · openFmMt=/erp/produce/morder/addFmMt.jsp · show=/erp/produce/morder/show.jsp · showMorder=/erp/produce/morder/showMorder.jsp · showMorderNew=/erp/produce/morder/showMorderNew.jsp · showSorderMorder=/erp/produce/morder/showSorderMorder.jsp · showWorder=/erp/produce/morder/showWorder.jsp · showWorderNew=/erp/produce/morder/showWorderNew.jsp · showArtorder=/erp/produce/morder/showArtorder.jsp · showinfo=/erp/produce/morder/showinfo.jsp · div_list=/erp/produce/morder/div_list.jsp · addMorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addWorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addArtorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addByMorderBefore=/erp/produce/morder/addByMorderBefore.jsp · print=/erp/produce/morder/print.jsp · morderPrint=/erp/produce/morder/morderPrint.jsp · devMorderPrint=/erp/produce/morder/devMorderPrint.jsp · wPrint=/erp/produce/morder/wPrint.jsp · worderPrint=/erp/produce/morder/worderPrint.jsp · prePrintForMorder=/erp/produce/morder/prePrintForMorder.jsp · prePrintForWorder=/erp/produce/morder/prePrintForWorder.jsp · prePrintForDevWorder=/erp/produce/morder/prePrintForDevWorder.jsp · prePrintForDevWorderNew=/erp/produce/morder/prePrintForDevWorderNew.jsp · printForWorderCraft=/erp/produce/morder/printForWorderCraft.jsp · printForWorderCraftNew=/erp/produce/morder/printForWorderCraftNew.jsp · prePrintForDevMorder=/erp/produce/morder/prePrintForDevMorder.jsp · updateMsg=/erp/produce/morder/updateMsg.jsp · updateProcess=/erp/produce/morder/updateProcess.jsp · updateSpec=/erp/produce/morder/updateSpec.jsp · updateSup=/erp/produce/morder/updateSup.jsp · showDevWorder=/erp/produce/morder/showDevWorder.jsp · devWorderOpen=/erp/produce/morder/devWorderAdd.jsp · devMorderOpen=/erp/produce/morder/devMorderOpen.jsp · showDevMorder=/erp/produce/morder/showDevMorder.jsp · morderAvgProduceDaySup=/erp/produce/morder/morderAvgProduceDaySup.jsp · morderAvgProduceDaySupPro=/erp/produce/morder/morderAvgProduceDaySupPro.jsp · morderitemSupvatCount=/erp/produce/morder/morderitemSupvatCount.jsp · morderAvgProduceDayShowInfo=/erp/produce/morder/morderAvgProduceDayShowInfo.jsp · factoryTop=/erp/produce/morder/factoryTop.jsp · showdetailsinfo=/erp/produce/morder/showdetailsinfo.jsp · dyeingTracking=/erp/produce/production/dyeingTracking.jsp · dyeingTrackingRight=/erp/produce/production/dyeingTrackingRight.jsp · dyeingTrackingRight2=/erp/produce/production/dyeingTrackingRight2.jsp · delayMorderStatistics=/erp/produce/production/delayMorderStatistics.jsp · delayMorder=/erp/produce/production/delayMorder.jsp · urgentMorder=/erp/produce/production/urgentMorder.jsp · recentlyBack=/erp/produce/production/recentlyBack.jsp · recentlyBackStatistics=/erp/produce/production/recentlyBackStatistics.jsp · parentBillRelaAndSet=/erp/produce/morder/parentBillRelaAndSet.jsp · morderSorderPrint=/erp/produce/morder/morderSorderPrint.jsp · morderOrderPrint=/erp/produce/morder/morderOrderPrint.jsp · morderOrderPrintNew=/erp/produce/morder/morderOrderPrintNew.jsp · devMorderOrderPrint=/erp/produce/morder/devMorderOrderPrint.jsp · morderGoodsInStockPrint=/erp/produce/morder/morderGoodsInStockPrint.jsp · morderGoodsInStockWovenPrint=/erp/produce/morder/morderGoodsInStockWovenPrint.jsp · updateSpecsList=/erp/produce/morder/updateSpecsList.jsp · error=/public/head/error.jsp · dyeingProgressSup=/erp/produce/production/dyeingProgressSup.jsp · dyeingProgressPro=/erp/produce/production/dyeingProgressPro.jsp · dyeingProgressShow=/erp/produce/production/dyeingProgressShow.jsp · orderWeavingDetails=/erp/produce/morder/orderWeavingDetails.jsp · orderDyeingAndFinishingDetails=/erp/produce/morder/orderDyeingAndFinishingDetails.jsp · redItemQueryList=/erp/produce/morder/redItemQueryList.jsp · showWorderNew2=/erp/produce/morder/showWorderNew2.jsp · srmPurchaseDelivery=/erp/produce/morder/srmPurchaseDelivery.jsp · srmWorderPosendAdd=/erp/produce/morder/srmWorderPosendAdd.jsp · morderSelectBySorder=/erp/produce/morder/morderSelectBySorder.jsp · supListAnditem=/erp/produce/morder/supListAnditem.jsp · analysisDyeing=/erp/search/develop/analysisDyeing.jsp · devWorderWorkbenchList=/erp/search/develop/devWorderWorkbenchList.jsp · weavingWorkbench=/erp/produce/morder/weavingWorkbench.jsp · dyeingsWorkbench=/erp/produce/morder/dyeingsWorkbench.jsp · addProcessContract=/erp/produce/morder/addProcessContract.jsp · showProcessContract=/erp/produce/morder/showProcessContract.jsp · addProcessContractGDTrade=/erp/produce/morder/addProcessContractGDTrade.jsp · showProcessContractGDTrade=/erp/produce/morder/showProcessContractGDTrade.jsp · finalInfo=/erp/produce/morder/finalInfo.jsp · dyeShowMorderAvgProduceDayInfo=/erp/produce/morder/dyeShowMorderAvgProduceDayInfo.jsp · dyeShowMorderAvgInProduceDayInfo=/erp/produce/morder/dyeShowMorderAvgInProduceDayInfo.jsp
+- `/produce/morderImportProgress_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderImportProgressAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderImportProgressAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/morderImportProgress/list.jsp · relaMoi=/erp/produce/morderImportProgress/relaMoi.jsp · showMorderItemData=/erp/produce/morderImportProgress/showMorderItemData.jsp · sorderInspectList=/erp/produce/morderImportProgress/sorderInspectList.jsp · dyeingsTabProgress=/erp/produce/morderImportProgress/dyeingsTabProgress.jsp
+- `/produce/morderinout_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderinoutAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderinoutAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openByMorder=/erp/produce/morderinout/addByMorder.jsp · openFmWorder=/erp/produce/morderinout/addFmWorder.jsp · divForStoi=/erp/produce/morderinout/divForStoi.jsp · show=/erp/produce/morderinout/show.jsp · moiAndMoima=/erp/produce/morderinout/moiAndMoima.jsp
+- `/produce/morderitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderitemAction.java
+  - 前端 result→jsp：list=/erp/produce/morderitem/list.jsp · listAll=/erp/produce/morderitem/listAll.jsp · open=/erp/produce/morderitem/show.jsp · openList=/erp/produce/morderitem/addList.jsp · show=/erp/produce/morderitem/show.jsp · showinfo=/erp/produce/morderitem/showinfo.jsp · div_list=/erp/produce/morderitem/div_list.jsp · divForStii=/erp/produce/morderitem/divForStii.jsp · relaStii=/erp/produce/morderitem/relaStii.jsp · listForMbi=/erp/produce/morderitem/listForMbi.jsp · morderitemCount=/erp/produce/morderitem/morderitemCount.jsp · updateSupcolorcode=/erp/produce/morderitem/updateSupcolorcode.jsp · updateCustsupcolornotes=/erp/produce/morderitem/updateCustsupcolornotes.jsp · error=/public/head/error.jsp · updateShow=/erp/produce/morderitem/updateShow.jsp · updateProcessList=/erp/produce/morderitem/updateProcessList.jsp · returnUpdatecolorid=/erp/produce/morderitem/returnUpdatecolorid.jsp · morderitemPriceList=/erp/produce/morderitem/morderitemPriceList.jsp · worderDetailList=/erp/produce/morderitem/worderDetailList.jsp · morderItemBySorder=/erp/produce/morderitem/morderItemBySorder.jsp · morderItemByMorder=/erp/produce/morderitem/morderItemByMorder.jsp · dyeworksMoiList=/erp/produce/morderitem/dyeworksMoiList.jsp · dyeShowDevMoiList=/erp/produce/morderitem/dyeShowDevMoiList.jsp · addWeavenotes=/erp/produce/morderitem/addWeavenotes.jsp · addCapacity=/erp/produce/morderitem/addCapacity.jsp
+- `/produce/morderItemDistrib_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderItemDistribAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderItemDistribAction.java
+- `/produce/morderitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderitemmaAction.java
+  - 前端 result→jsp：list=/erp/produce/morderitemma/list.jsp · listAll=/erp/produce/morderitemma/listAll.jsp · open=/erp/produce/morderitemma/add.jsp · openList=/erp/produce/morderitemma/addList.jsp · show=/erp/produce/morderitemma/show.jsp · showinfo=/erp/produce/morderitemma/showinfo.jsp · div_list=/erp/produce/morderitemma/div_list.jsp · divForStoi=/erp/produce/morderitemma/divForStoi.jsp · div_show=/erp/produce/morderitemma/div_show.jsp · divStoiAdd=/erp/produce/morderitemma/divStoiAdd.jsp · showStock=/erp/produce/morderitemma/showStock.jsp · relaMio=/erp/produce/morderitemma/relaMio.jsp · listAnditemmaFmStock=/erp/produce/morderitemma/listAnditemmaFmStock.jsp · listAndItemma=/erp/produce/morderitemma/listAndItemma.jsp · woListAndItemma=/erp/produce/morderitemma/woListAndItemma.jsp · addMorderitemmaStockmaList=/erp/produce/morderitemma/addMorderitemmaStockmaList.jsp · updatePercentAndLossperList=/erp/produce/morderitemma/updatePercentAndLossperList.jsp · morderItemMaByMorder=/erp/produce/morderitemma/morderItemMaByMorder.jsp · openStockAdd=/erp/produce/morderitemma/addByStock.jsp · error=/public/head/error.jsp
+- `/produce/morderitemmastockma_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemmastockmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderitemmastockmaAction.java
+  - 前端 result→jsp：rightAddList=/erp/produce/morderitemmastockma/rightAddList.jsp
+- `/produce/morderitemprocess_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemprocessAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderitemprocessAction.java
+- `/produce/morderitemsoi_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemsoiAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderitemsoiAction.java
+- `/produce/morderitemstatus_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemstatusAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderitemstatusAction.java
+  - 前端 result→jsp：morderitemStatusList=/erp/produce/morderitemstatus/morderitemStatusList.jsp · error=/public/head/error.jsp
+- `/produce/morderMaterialUseRecord_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderMaterialUseRecordAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderMaterialUseRecordAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/produce/morderMrpconfirm_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderMrpconfirmAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderMrpconfirmAction.java
+  - 前端 result→jsp：show=/erp/produce/morderMrpconfirm/show.jsp · list=/erp/produce/morderMrpconfirm/list.jsp
+- `/produce/morderProcessContract_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderProcessContractAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderProcessContractAction.java
+  - 前端 result→jsp：queryContractItemList=/erp/produce/morderProcessContract/contractQueryList.jsp · openAddRelatedInfo=/erp/produce/morderProcessContract/addRelatedInfo.jsp
+- `/produce/morderProreqdate_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderProreqdateAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderProreqdateAction.java
+  - 前端 result→jsp：list=/erp/produce/morderproreqdate/list.jsp · show=/erp/produce/morderproreqdate/show.jsp
+- `/produce/morderQtyUpdateApply_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderQtyUpdateApplyAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderQtyUpdateApplyAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/morderQtyUpdateApply/list.jsp · show=/erp/produce/morderQtyUpdateApply/show.jsp · open=/erp/produce/morderQtyUpdateApply/add.jsp
+- `/produce/mordersettle_<method>.action`  →  com.maxtile.application.erp.produce.action.MordersettleAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MordersettleAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/mordersettle/list.jsp · div_list=/erp/produce/mordersettle/div_list.jsp · open=/erp/produce/mordersettle/add.jsp · show=/erp/produce/mordersettle/show.jsp
+- `/produce/mordersettleitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MordersettleitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MordersettleitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/produce/mordersettlemrp_<method>.action`  →  com.maxtile.application.erp.produce.action.MordersettlemrpAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MordersettlemrpAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/produce/mordersettlemrp/add.jsp
+- `/produce/morderShipmentInfo_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderShipmentInfoAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MorderShipmentInfoAction.java
+  - 前端 result→jsp：list=/erp/produce/morderShipmentInfo/list.jsp
+- `/produce/mreceive_<method>.action`  →  com.maxtile.application.erp.produce.action.MreceiveAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MreceiveAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/produce/mreceive/add.jsp · list=/erp/produce/mreceive/list.jsp · queryMreceiveItemList=/erp/produce/mreceive/queryMreceiveItemList.jsp · show=/erp/produce/mreceive/show.jsp · updateSup=/erp/produce/mreceive/updateSup.jsp · woQuickAdd=/erp/produce/mreceive/woQuickAdd.jsp · addLoader=/erp/produce/mreceive/addLoader.jsp · openSpecUpdate=/erp/produce/mreceive/specUpdate.jsp · mreceivePriceList=/erp/produce/mreceive/mreceivePriceList.jsp · batchDeductMrpList=/erp/produce/mreceive/batchDeductMrpList.jsp · openGenerateAutoAllocation=/erp/produce/mreceive/generateAutoAllocation.jsp · openGenerateAutoAllocationByMa=/erp/produce/mreceive/generateAutoAllocationByMa.jsp
+- `/produce/mreceiveitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MreceiveitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MreceiveitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · chooseMoi=/erp/produce/mreceiveitem/chooseMoi.jsp · updateNotes=/erp/produce/mreceiveitem/updateNotes.jsp · relaMoi=/erp/produce/mreceiveitem/relaMoi.jsp · div_listForDeduction=/erp/produce/mreceiveitem/div_listForDeduction.jsp · list=/erp/produce/mreceiveitem/list.jsp · queryMreceiveItemList=/erp/produce/mreceiveitem/queryMreceiveItemList.jsp · updateRecUnitList=/erp/produce/mreceiveitem/updateRecUnitList.jsp · showTranMreList=/erp/produce/mreceiveitem/showTranMreList.jsp · mreceiveItemSingleList=/erp/produce/mreceiveitem/mreceiveItemSingleList.jsp · showMreItemListBySorderId=/erp/produce/mreceiveitem/showMreItemListBySorderId.jsp · mreNoOutflagTipList=/erp/produce/mreceiveitem/mreNoOutflagTipList.jsp · productMreceiveList=/erp/produce/mreceiveitem/productMreceiveList.jsp · analysisDevWorder=/erp/search/develop/analysisDevWorder.jsp
+- `/produce/mreceiveitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.MreceiveitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MreceiveitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · batchAdd=/erp/produce/mreceiveitemma/batchAdd.jsp · show=/erp/produce/mreceiveitemma/show.jsp · addList=/erp/produce/mreceiveitemma/addList.jsp · addSample=/erp/produce/mreceiveitemma/addSample.jsp · showList=/erp/produce/mreceiveitemma/showList.jsp · orderUpdateUnitSelect=/erp/produce/mreceiveitemma/orderUpdateUnitSelect.jsp
+- `/produce/mreceiveitemqcorderitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MreceiveitemqcorderitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MreceiveitemqcorderitemAction.java
+- `/produce/mreceivemrp_<method>.action`  →  com.maxtile.application.erp.produce.action.MreceivemrpAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MreceivemrpAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addMrp=/erp/produce/mreceivemrp/addMrp.jsp · show=/erp/produce/mreceivemrp/show.jsp · showTranMreMrpList=/erp/produce/mreceivemrp/showTranMreMrpList.jsp · showMreMrpList=/erp/produce/mreceivemrp/showMreMrpList.jsp · showDyeingSorderUpdateMrp=/erp/produce/mreceivemrp/showDyeingSorderUpdateMrp.jsp
+- `/produce/mreceivemrpPercent_<method>.action`  →  com.maxtile.application.erp.produce.action.MreceivemrpPercentAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MreceivemrpPercentAction.java
+- `/produce/mtask_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/mtask/list.jsp · listAnditem=/erp/produce/mtask/listAnditem.jsp · listAnditem2=/erp/produce/mtask/listAnditem2.jsp · open=/erp/produce/mtask/add.jsp · showMorder=/erp/produce/mtask/showMorder.jsp · showWorder=/erp/produce/mtask/showWorder.jsp · showArtorder=/erp/produce/mtask/showArtorder.jsp · div_list=/erp/produce/mtask/div_list.jsp · woListAnditem=/erp/produce/mtask/woListAnditem.jsp · openList=/erp/produce/mtask/addList.jsp · woOpenList=/erp/produce/mtask/woAddList.jsp · woOpenListPlan=/erp/produce/mtask/woAddListPlan.jsp · woOpenListPlanForEmbryoClothPlan=/erp/produce/mtask/woAddListPlanEmbryoClothPlan.jsp · addListFromAutoSkuOrder=/erp/produce/mtask/addListFromAutoSkuOrder.jsp · itemQueryMrpCount=/erp/produce/mtask/itemQueryMrpCount.jsp · orderMtaskMrpList=/erp/produce/mtask/orderMtaskMrpList.jsp · embryoPreparationMtaskList=/erp/produce/mtask/embryoPreparationMtaskList.jsp · sorderPlanEmbryoMtaskList=/erp/produce/mtask/sorderPlanEmbryoMtaskList.jsp
+- `/produce/mtaskitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · moList=/erp/produce/mtaskitem/moList.jsp · moList2=/erp/produce/mtaskitem/moList2.jsp · itemQueryMrpCount=/erp/produce/mtaskitem/itemQueryMrpCount.jsp · mtiSrmPoplanAdd=/erp/produce/mtaskitem/mtiSrmPoplanAdd.jsp · yarnQtySupCountList=/erp/produce/mtaskitem/yarnQtySupCountList.jsp
+- `/produce/mtaskItemLog_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskItemLogAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskItemLogAction.java
+  - 前端 result→jsp：list=/erp/produce/mtaskitem/MtaskItemLogList.jsp
+- `/produce/mtaskmrp_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskmrpAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskmrpAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/produce/mtaskmrp/add.jsp · div_show=/erp/produce/mtaskmrp/div_show.jsp · div_listForPlan=/erp/produce/mtaskmrp/div_listForPlan.jsp · addFmBom=/erp/produce/mtaskmrp/addFmBom.jsp · changeMaterial=/erp/produce/mtaskmrp/changeMaterial.jsp · srmPoplanAdd=/erp/produce/mtaskmrp/srmPoplanAdd.jsp · srmWoTranAdd=/erp/produce/mtaskmrp/srmWoTranAdd.jsp · srmWoPoconfigAdd=/erp/produce/mtaskmrp/srmWoPoconfigAdd.jsp · srmWoScmPosendAdd=/erp/produce/mtaskmrp/srmWoScmPosendAdd.jsp · srmWoTransferDeliveryAdd=/erp/produce/mtaskmrp/srmWoTransferDeliveryAdd.jsp · moSrmPoplanAdd=/erp/produce/mtaskmrp/moSrmPoplanAdd.jsp · srmEmbryoCalculation=/erp/produce/mtaskmrp/srmEmbryoCalculation.jsp · bigYarnNotSendList=/erp/produce/mtaskmrp/bigYarnNotSendList.jsp · bigYarnSendNotInStoreList=/erp/produce/mtaskmrp/bigYarnSendNotInStoreList.jsp
+- `/produce/mtaskRela_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskRelaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskRelaAction.java
+  - 前端 result→jsp：candidateWeaveList=/erp/produce/mtask/relaWeaveSelectList.jsp · error=/public/head/error.jsp
+- `/produce/mtaskStopConfig_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskStopConfigAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskStopConfigAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/mtaskstopconfig/list.jsp · open=/erp/produce/mtaskstopconfig/add.jsp
+- `/produce/mtaskStopItemRecord_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskStopItemRecordAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskStopItemRecordAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/mtaskstopitemrecord/list.jsp
+- `/produce/mtaskStopRecord_<method>.action`  →  com.maxtile.application.erp.produce.action.MtaskStopRecordAction
+  - 后端：src/com/maxtile/application/erp/produce/action/MtaskStopRecordAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/mtaskstoprecord/list.jsp
+- `/produce/produceAnomalyLogs_<method>.action`  →  com.maxtile.application.erp.produce.action.ProduceAnomalyLogsAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ProduceAnomalyLogsAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/produceAnomalyLogs/list.jsp · show=/erp/produce/produceAnomalyLogs/show.jsp
+- `/produce/produceNobacklog_<method>.action`  →  com.maxtile.application.erp.produce.action.ProduceNobacklogAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ProduceNobacklogAction.java
+- `/produce/produceRepairTimeConfig_<method>.action`  →  com.maxtile.application.erp.produce.action.ProduceRepairTimeConfigAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ProduceRepairTimeConfigAction.java
+- `/produce/scmCltransfer_<method>.action`  →  com.maxtile.application.erp.produce.action.ScmCltransferAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ScmCltransferAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/scmCltransfer/list.jsp · open=/erp/produce/scmCltransfer/add.jsp · show=/erp/produce/scmCltransfer/show.jsp
+- `/produce/scmCltransferitem_<method>.action`  →  com.maxtile.application.erp.produce.action.ScmCltransferitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ScmCltransferitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/produce/scmCltransferitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.ScmCltransferitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/ScmCltransferitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listAddFmTransfer=/erp/produce/scmCltransferitemma/listAddFmTransfer.jsp · divListByItemShow=/erp/produce/scmCltransferitemma/divListByItemShow.jsp
+- `/produce/supdevice_<method>.action`  →  com.maxtile.application.erp.produce.action.SupdeviceAction
+  - 后端：src/com/maxtile/application/erp/produce/action/SupdeviceAction.java
+  - 前端 result→jsp：list=/erp/produce/supdevice/list.jsp · show=/erp/produce/supdevice/show.jsp
+- `/produce/supdeviceItem_<method>.action`  →  com.maxtile.application.erp.produce.action.SupdeviceItemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/SupdeviceItemAction.java
+- `/produce/warnmtaskLog_<method>.action`  →  com.maxtile.application.erp.produce.action.WarnmtaskLogAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WarnmtaskLogAction.java
+  - 前端 result→jsp：list=/erp/produce/warnmtaskLog/list.jsp
+- `/produce/weavingmilloutship_<method>.action`  →  com.maxtile.application.erp.produce.action.WeavingMillOutShipAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WeavingMillOutShipAction.java
+  - 前端 result→jsp：chooseInStore=/erp/produce/weavingmilloutship/chooseInStore.jsp · list=/erp/produce/weavingmilloutship/list.jsp · error=/public/head/error.jsp
+- `/produce/weavingmilloutshipdetail_<method>.action`  →  com.maxtile.application.erp.produce.action.WeavingMillOutShipDetailAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WeavingMillOutShipDetailAction.java
+  - 前端 result→jsp：list=/erp/produce/weavingmilloutship/listDetail.jsp · error=/public/head/error.jsp
+- `/produce/worder_<method>.action`  →  com.maxtile.application.erp.produce.action.WorderAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorderAction.java
+  - 前端 result→jsp：list=/erp/produce/worder/list.jsp · listAll=/erp/produce/worder/listAll.jsp · open=/erp/produce/worder/add.jsp · openList=/erp/produce/worder/addList.jsp · show=/erp/produce/worder/show.jsp · showinfo=/erp/produce/worder/showinfo.jsp · div_list=/erp/produce/worder/div_list.jsp · error=/public/head/error.jsp · porder=<param name="namespace">/purchase</param>
+		     	<param name="actionName">porder_open</param>
+- `/produce/worderBatchno_<method>.action`  →  com.maxtile.application.erp.produce.action.WorderBatchnoAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorderBatchnoAction.java
+- `/produce/worderBatchnoItem_<method>.action`  →  com.maxtile.application.erp.produce.action.WorderBatchnoItemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorderBatchnoItemAction.java
+- `/produce/worderCareinfo_<method>.action`  →  com.maxtile.application.erp.produce.action.WorderCareinfoAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorderCareinfoAction.java
+- `/produce/worderitem_<method>.action`  →  com.maxtile.application.erp.produce.action.WorderitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorderitemAction.java
+  - 前端 result→jsp：list=/erp/produce/worderitem/list.jsp · listAll=/erp/produce/worderitem/listAll.jsp · open=/erp/produce/worderitem/show.jsp · openList=/erp/produce/worderitem/addList.jsp · show=/erp/produce/worderitem/show.jsp · showinfo=/erp/produce/worderitem/showinfo.jsp · div_list=/erp/produce/worderitem/div_list.jsp · error=/public/head/error.jsp
+- `/produce/worderitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.WorderitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorderitemmaAction.java
+  - 前端 result→jsp：list=/erp/produce/worderitemma/list.jsp · listAll=/erp/produce/worderitemma/listAll.jsp · open=/erp/produce/worderitemma/show.jsp · openList=/erp/produce/worderitemma/addList.jsp · show=/erp/produce/worderitemma/show.jsp · showinfo=/erp/produce/worderitemma/showinfo.jsp · div_list=/erp/produce/worderitemma/div_list.jsp · error=/public/head/error.jsp
+- `/produce/workFlow_<method>.action`  →  com.maxtile.application.erp.produce.action.WorkFlowAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorkFlowAction.java
+  - 前端 result→jsp：list=/erp/produce/workFlow/list.jsp · open=/erp/produce/workFlow/add.jsp · show=/erp/produce/workFlow/show.jsp · error=/public/head/error.jsp
+- `/produce/workFlowNode_<method>.action`  →  com.maxtile.application.erp.produce.action.WorkFlowNodeAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorkFlowNodeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/produce/workFlowType_<method>.action`  →  com.maxtile.application.erp.produce.action.WorkFlowTypeAction
+  - 后端：src/com/maxtile/application/erp/produce/action/WorkFlowTypeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/workFlow/addType.jsp
+- `/produce/yarnArr_<method>.action`  →  com.maxtile.application.erp.produce.action.YarnArrAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YarnArrAction.java
+- `/produce/yarnquality_<method>.action`  →  com.maxtile.application.erp.produce.action.YarnQualityAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YarnQualityAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/yarnquality/list.jsp · show=/erp/produce/yarnquality/show.jsp · add=/erp/produce/yarnquality/add.jsp
+- `/produce/ytrial_<method>.action`  →  com.maxtile.application.erp.produce.action.YtrialAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YtrialAction.java
+  - 前端 result→jsp：list=/erp/produce/ytrial/list.jsp · open=/erp/produce/ytrial/add.jsp · show=/erp/produce/ytrial/show.jsp · error=/public/head/error.jsp
+- `/produce/ytrialBranch_<method>.action`  →  com.maxtile.application.erp.produce.action.YtrialBranchAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YtrialBranchAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · add=/erp/produce/ytrialbranch/add.jsp · show=/erp/produce/ytrialbranch/show.jsp
+- `/produce/ytrialitem_<method>.action`  →  com.maxtile.application.erp.produce.action.YtrialitemAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YtrialitemAction.java
+  - 前端 result→jsp：list=/erp/produce/ytrialitem/list.jsp
+- `/produce/ytrialitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.YtrialitemmaAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YtrialitemmaAction.java
+  - 前端 result→jsp：taskProgress=/erp/produce/ytrial/taskProgress.jsp · branchList=/erp/produce/ytrialitemma/branchList.jsp · error=/public/head/error.jsp
+- `/produce/ytrialitemmaimg_<method>.action`  →  com.maxtile.application.erp.produce.action.YtrialitemmaimgAction
+  - 后端：src/com/maxtile/application/erp/produce/action/YtrialitemmaimgAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openCheck=/erp/produce/ytrialitemma/addItemImg.jsp · branchTask=/erp/produce/ytrialitemma/branchTask.jsp
+
+## /product  ·  src/config/struts/struts-product.xml
+
+- `/product/abnormalProduct_<method>.action`  →  com.maxtile.application.erp.product.action.AbnormalProductAction
+  - 后端：src/com/maxtile/application/erp/product/action/AbnormalProductAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/abnormalpro/list.jsp
+- `/product/abnormalProductBatchno_<method>.action`  →  com.maxtile.application.erp.product.action.AbnormalProductBatchnoAction
+  - 后端：src/com/maxtile/application/erp/product/action/AbnormalProductBatchnoAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · itemList=/erp/product/abnormalproitem/itemList.jsp · addStockBatchno=/erp/product/abnormalproitem/addStockBatchno.jsp
+- `/product/bakyarnShop_<method>.action`  →  com.maxtile.application.erp.product.action.BakyarnShopAction
+  - 后端：src/com/maxtile/application/erp/product/action/BakyarnShopAction.java
+- `/product/careInfoLog_<method>.action`  →  com.maxtile.application.erp.product.action.CareInfoLogAction
+  - 后端：src/com/maxtile/application/erp/product/action/CareInfoLogAction.java
+- `/product/cgrankigScore_<method>.action`  →  com.maxtile.application.erp.product.action.CgrankigScoreAction
+  - 后端：src/com/maxtile/application/erp/product/action/CgrankigScoreAction.java
+- `/product/colorcard_<method>.action`  →  com.maxtile.application.erp.product.action.ColorCardAction
+  - 后端：src/com/maxtile/application/erp/product/action/ColorCardAction.java
+  - 前端 result→jsp：list=/erp/product/product/colorCard_list.jsp · print=/erp/product/product/colorcard_print.jsp
+- `/product/colorgroup_<method>.action`  →  com.maxtile.application.erp.product.action.ColorgroupAction
+  - 后端：src/com/maxtile/application/erp/product/action/ColorgroupAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/colorgroup/list.jsp · show=/erp/product/colorgroup/show.jsp
+- `/product/colorprocess_<method>.action`  →  com.maxtile.application.erp.product.action.ColorprocessAction
+  - 后端：src/com/maxtile/application/erp/product/action/ColorprocessAction.java
+  - 前端 result→jsp：open=/erp/product/colorprocess/add.jsp · openList=/erp/product/colorprocess/addList.jsp · list=/erp/product/colorprocess/list.jsp · show=/erp/product/colorprocess/show.jsp · addProcess=/erp/product/colorprocess/addProcess.jsp · addColorAddProcess=/erp/product/colorprocess/addColorAddProcess.jsp · error=/public/head/error.jsp
+- `/product/colorstore_<method>.action`  →  com.maxtile.application.erp.product.action.ColorstoreAction
+  - 后端：src/com/maxtile/application/erp/product/action/ColorstoreAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/colorstore/list.jsp · open=/erp/product/colorstore/open.jsp · show=/erp/product/colorstore/show.jsp · proColorAnalyse=/erp/product/colorstore/proColorAnalyse.jsp
+- `/product/commonpriceRelease_<method>.action`  →  com.maxtile.application.erp.product.action.CommonpriceReleaseAction
+  - 后端：src/com/maxtile/application/erp/product/action/CommonpriceReleaseAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addList=/erp/product/commonpriceRelease/addList.jsp · leftList=/erp/product/commonpriceRelease/leftList.jsp
+- `/product/commonpriceReleaseitem_<method>.action`  →  com.maxtile.application.erp.product.action.CommonpriceReleaseitemAction
+  - 后端：src/com/maxtile/application/erp/product/action/CommonpriceReleaseitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listRight=/erp/product/commonpriceReleaseitem/listRight.jsp
+- `/product/dclothinglog_<method>.action`  →  com.maxtile.application.erp.product.action.DclothinglogAction
+  - 后端：src/com/maxtile/application/erp/product/action/DclothinglogAction.java
+- `/product/democlothing_<method>.action`  →  com.maxtile.application.erp.product.action.DemoclothingAction
+  - 后端：src/com/maxtile/application/erp/product/action/DemoclothingAction.java
+  - 前端 result→jsp：list=/erp/product/democlothing/list.jsp · show=/erp/product/democlothing/show.jsp · batchPrint=/erp/product/democlothing/batchPrint.jsp · rdlist=/erp/product/democlothing/rdlist.jsp · rdshow=/erp/product/democlothing/rdshow.jsp
+- `/product/functionPro_<method>.action`  →  com.maxtile.application.erp.product.action.FunctionProAction
+  - 后端：src/com/maxtile/application/erp/product/action/FunctionProAction.java
+  - 前端 result→jsp：list=/erp/product/functionpro/list.jsp · show=/erp/product/functionpro/show.jsp
+- `/product/functionProMPro_<method>.action`  →  com.maxtile.application.erp.product.action.FunctionProMProAction
+  - 后端：src/com/maxtile/application/erp/product/action/FunctionProMProAction.java
+  - 前端 result→jsp：addMPro=/erp/product/functionpro/addMPro.jsp
+- `/product/functionProTPro_<method>.action`  →  com.maxtile.application.erp.product.action.FunctionProTProAction
+  - 后端：src/com/maxtile/application/erp/product/action/FunctionProTProAction.java
+  - 前端 result→jsp：addTPro=/erp/product/functionpro/addTPro.jsp
+- `/product/graycolormerge_<method>.action`  →  com.maxtile.application.erp.product.action.GraycolormergeAction
+  - 后端：src/com/maxtile/application/erp/product/action/GraycolormergeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/graycolormerge/list.jsp · addOrUpdate=/erp/product/graycolormerge/addOrUpdate.jsp
+- `/product/graymerge_<method>.action`  →  com.maxtile.application.erp.product.action.GraymergeAction
+  - 后端：src/com/maxtile/application/erp/product/action/GraymergeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/graymerge/list.jsp · addList=/erp/product/graymerge/addList.jsp
+- `/product/hotproduct_<method>.action`  →  com.maxtile.application.erp.product.action.HotproductAction
+  - 后端：src/com/maxtile/application/erp/product/action/HotproductAction.java
+  - 前端 result→jsp：list=/erp/product/product/hotProduct_list.jsp · show=/erp/product/product/show_hotproduct.jsp · error=/public/head/error.jsp
+- `/product/mainpro_<method>.action`  →  com.maxtile.application.erp.product.action.MainProAction
+  - 后端：src/com/maxtile/application/erp/product/action/MainProAction.java
+  - 前端 result→jsp：list=/erp/product/mainpro/list.jsp · show=/erp/product/mainpro/show.jsp · listColorMadeday=/erp/product/mainpro/listColorMadeday.jsp · update=/erp/product/mainpro/update.jsp · openMadeDay=/erp/product/mainpro/showMadeday.jsp · error=/public/head/error.jsp · openEdit=/erp/product/mainpro/add.jsp
+- `/product/mallStoreProduct_<method>.action`  →  com.maxtile.application.erp.product.action.MallStoreProductCodeAction
+  - 后端：src/com/maxtile/application/erp/product/action/MallStoreProductCodeAction.java
+  - 前端 result→jsp：print=/erp/product/mallstoreproductcode/print.jsp
+- `/product/matename_<method>.action`  →  com.maxtile.application.erp.product.action.MatenameAction
+  - 后端：src/com/maxtile/application/erp/product/action/MatenameAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/matename/list.jsp · listAndItem=/erp/product/matename/listAndItem.jsp · show=/erp/product/matename/show.jsp · showFiber=/erp/product/matename/showFiber.jsp · modelidUpdate=/erp/product/matename/modelidUpdate.jsp · errorAnalysisList=/erp/product/matename/errorAnalysisList.jsp
+- `/product/material_<method>.action`  →  com.maxtile.application.erp.product.action.MaterialAction
+  - 后端：src/com/maxtile/application/erp/product/action/MaterialAction.java
+  - 前端 result→jsp：list=/erp/product/material/list.jsp · listAll=/erp/product/material/listAll.jsp · open=/erp/product/material/show.jsp · openList=/erp/product/material/addList.jsp · show=/erp/product/material/show.jsp · showinfo=/erp/product/material/showinfo.jsp · div_list=/erp/product/material/div_list.jsp · div_material=/erp/product/material/div_material.jsp · div_forPob=/erp/product/material/div_forPob.jsp · error=/public/head/error.jsp
+- `/product/materialLog_<method>.action`  →  com.maxtile.application.erp.product.action.MaterialLogAction
+  - 后端：src/com/maxtile/application/erp/product/action/MaterialLogAction.java
+  - 前端 result→jsp：matlogList=/erp/product/product/matlogList.jsp
+- `/product/mdevelopProduct_<method>.action`  →  com.maxtile.application.erp.product.action.MdevelopProductAction
+  - 后端：src/com/maxtile/application/erp/product/action/MdevelopProductAction.java
+- `/product/mrpStandard_<method>.action`  →  com.maxtile.application.erp.product.action.MrpStandardAction
+  - 后端：src/com/maxtile/application/erp/product/action/MrpStandardAction.java
+  - 前端 result→jsp：list=/erp/product/mrpStandard/list.jsp · show=/erp/product/mrpStandard/show.jsp
+- `/product/mrpStandardSup_<method>.action`  →  com.maxtile.application.erp.product.action.MrpStandardSupAction
+  - 后端：src/com/maxtile/application/erp/product/action/MrpStandardSupAction.java
+  - 前端 result→jsp：addSupList=/erp/product/mrpStandardSup/addSupList.jsp
+- `/product/newprocode_<method>.action`  →  com.maxtile.application.erp.product.action.NewprocodeAction
+  - 后端：src/com/maxtile/application/erp/product/action/NewprocodeAction.java
+- `/product/newProductConfig_<method>.action`  →  com.maxtile.application.erp.product.action.NewProductConfigAction
+  - 后端：src/com/maxtile/application/erp/product/action/NewProductConfigAction.java
+  - 前端 result→jsp：list=/erp/product/newprocf/list.jsp · show=/erp/product/newprocf/show.jsp · open=/erp/product/newprocf/add.jsp
+- `/product/pchandleaskLog_<method>.action`  →  com.maxtile.application.erp.product.action.PchandleaskLogAction
+  - 后端：src/com/maxtile/application/erp/product/action/PchandleaskLogAction.java
+  - 前端 result→jsp：list=/erp/product/pchandleaskLog/list.jsp
+- `/product/pricelog_<method>.action`  →  com.maxtile.application.erp.product.action.PricelogAction
+  - 后端：src/com/maxtile/application/erp/product/action/PricelogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/product/priceUpdateCycle_<method>.action`  →  com.maxtile.application.erp.product.action.PriceUpdateCycleAction
+  - 后端：src/com/maxtile/application/erp/product/action/PriceUpdateCycleAction.java
+  - 前端 result→jsp：list=/erp/product/priceUpdateCycle/list.jsp · show=/erp/product/priceUpdateCycle/show.jsp · addProductBatch=/erp/product/priceUpdateCycle/addProductBatch.jsp · updateProductPrice=/erp/product/priceUpdateCycle/updateProductPrice.jsp
+- `/product/proattr_<method>.action`  →  com.maxtile.application.erp.product.action.ProattrAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProattrAction.java
+- `/product/probasepricelog_<method>.action`  →  com.maxtile.application.erp.product.action.ProbasepricelogAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProbasepricelogAction.java
+- `/product/procardMapping_<method>.action`  →  com.maxtile.application.erp.product.action.ProcardMappingAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcardMappingAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/procardMapping/list.jsp · show=/erp/product/procardMapping/show.jsp
+- `/product/procardtype_<method>.action`  →  com.maxtile.application.erp.product.action.ProcardtypeAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcardtypeAction.java
+  - 前端 result→jsp：openList=/erp/product/procardtype/editList.jsp
+- `/product/proCareinfo_<method>.action`  →  com.maxtile.application.erp.product.action.ProCareinfoAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProCareinfoAction.java
+- `/product/procheckstandard_<method>.action`  →  com.maxtile.application.erp.product.action.ProcheckstandardAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcheckstandardAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/procheckstandard/list.jsp · allShow=/erp/product/procheckstandard/allShow.jsp · proShow=/erp/product/procheckstandard/proShow.jsp
+- `/product/procheckstandardhis_<method>.action`  →  com.maxtile.application.erp.product.action.ProcheckstandardHisAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcheckstandardHisAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/procheckstandardhis/list.jsp · allShow=/erp/product/procheckstandardhis/allShow.jsp · proShow=/erp/product/procheckstandardhis/proShow.jsp
+- `/product/proclass_<method>.action`  →  com.maxtile.application.erp.product.action.ProclassAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProclassAction.java
+  - 前端 result→jsp：list=/erp/product/proclass/list.jsp · show=/erp/product/proclass/show.jsp · error=/public/head/error.jsp
+- `/product/procode_<method>.action`  →  com.maxtile.application.erp.product.action.ProcodeAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcodeAction.java
+- `/product/procolor_<method>.action`  →  com.maxtile.application.erp.product.action.ProcolorAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcolorAction.java
+  - 前端 result→jsp：list=/erp/product/procolor/list.jsp · listAll=/erp/product/procolor/listAll.jsp · open=/erp/product/procolor/show.jsp · openList=/erp/product/procolor/addList.jsp · yarnAddList=/erp/product/procolor/yarnAddList.jsp · openListBySkuKey=/erp/product/procolor/updateSkuKey.jsp · show=/erp/product/procolor/show.jsp · showinfo=/erp/product/procolor/showinfo.jsp · div_list=/erp/product/procolor/div_list.jsp · div_ColorAndPrice=/erp/product/procolor/div_ColorAndPrice.jsp · listForSupcolorcodeAdd=/erp/product/procolor/listForSupcolorcodeAdd.jsp · lossperSupCompare=/erp/product/procolor/lossperSupCompare.jsp · listProcolorForPrint=/erp/product/procolor/listProcolorForPrint.jsp · skucancel_list=/erp/product/procolor/skucancel_list.jsp · updateDasList=/erp/product/procolor/updateDasList.jsp · autoDevelopSamplePriceCheckList=/erp/product/procolor/autoDevelopSamplePriceCheckList.jsp · showPrice=/erp/product/procolor/showPrice.jsp · mainSupConfigList=/erp/product/procolor/mainSupConfigList.jsp · designAddList=/erp/product/procolor/designAddList.jsp · error=/public/head/error.jsp
+- `/product/procolortestlevel_<method>.action`  →  com.maxtile.application.erp.product.action.ProcolorTestLevelAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcolorTestLevelAction.java
+  - 前端 result→jsp：openListBySkuKey=/erp/product/procolortestlevel/updateSkuKey.jsp · importExcel=/erp/product/procolortestlevel/importExcel.jsp
+- `/product/procolorViewConfig_<method>.action`  →  com.maxtile.application.erp.product.action.ProcolorViewConfigAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProcolorViewConfigAction.java
+  - 前端 result→jsp：viewList=/erp/product/procolorViewConfig/viewList.jsp · viewTree=/erp/product/procolorViewConfig/viewTree.jsp · open=/erp/product/procolorViewConfig/show.jsp · show=/erp/product/procolorViewConfig/show.jsp
+- `/product/procusprice_<method>.action`  →  com.maxtile.application.erp.product.action.ProductcuspriceAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductcuspriceAction.java
+  - 前端 result→jsp：list=/erp/product/productcusprice/list.jsp · open=/erp/product/productcusprice/add.jsp · listColorMadeday=/erp/product/supproduceday/listColorMadeday.jsp · openEdit=/erp/product/supproduceday/show.jsp · queryProduct=/erp/product/supproduceday/show.jsp · error=/public/head/error.jsp
+- `/product/product_<method>.action`  →  com.maxtile.application.erp.product.action.ProductAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductAction.java
+  - 前端 result→jsp：mList=/erp/product/product/mList.jsp · mListNew=/erp/product/product/mListNew.jsp · mFirstGradeList=/erp/product/product/mFirstGradeList.jsp · sList=/erp/product/product/sList.jsp · list=/erp/product/product/list.jsp · yarnList=/erp/product/product/yarnList.jsp · otherlist=/erp/product/product/otherlist.jsp · mshow=/erp/product/product/mshow.jsp · mOldShow=/erp/product/product/mOldShow.jsp · mTechShow=/erp/product/product/mTechShow.jsp · show=/erp/product/product/show.jsp · yarnshow=/erp/product/product/yarnshow.jsp · othershow=/erp/product/product/othershow.jsp · fiberList=/erp/product/product/fiberList.jsp · fiberListNew=/erp/product/product/fiberListNew.jsp · openFiber=/erp/product/product/addFiber.jsp · showFiber=/erp/product/product/showFiber.jsp · open=/erp/product/product/add.jsp · openOther=/erp/product/product/othershow.jsp · openList=/erp/product/product/addList.jsp · showinfo=/erp/product/product/showinfo.jsp · show_slist=/erp/product/product/show_slist.jsp · div_list=/erp/product/product/div_list.jsp · finishPro_list=/erp/product/product/finishPro_list.jsp · div_lists=/erp/product/product/div_lists.jsp · openAddHalf=/erp/product/prohalf/show.jsp · openAddMaterial=/erp/product/material/addList.jsp · proBomAdd=/erp/product/material/proBomAdd.jsp · input=/erp/product/product/input.jsp · productlogList=/erp/product/product/productlogList.jsp · careinfologList=/erp/product/product/careinfologList.jsp · print=/erp/product/product/print.jsp · orderprint=/erp/product/product/orderPrint.jsp · newPrint=/erp/product/product/newPrint.jsp · printLabel=/erp/product/product/printLabel.jsp · wprintLabel=/erp/product/product/wprintLabel.jsp · wOrderprintLabel=/erp/product/product/wOrderprintLabel.jsp · printGB=/erp/product/product/printGB.jsp · printAddPrice=/erp/product/product/printAddPrice.jsp · mPrintList=/erp/product/product/mPrintList.jsp · sorderPrint=/erp/product/product/sorderPrint.jsp · samplePrint=/erp/product/product/samplePrint.jsp · error=/public/head/error.jsp · devList=/erp/product/product/devList.jsp · devListNew=/erp/product/product/devListNew.jsp · openDev=/erp/product/product/addDev.jsp · showDev=/erp/product/product/showDev.jsp · yarnOpen=/erp/product/product/yarnAdd.jsp · mrpList=/erp/product/product/mrpList.jsp · mrpOpen=/erp/product/product/mrpAdd.jsp · mrpShow=/erp/product/product/mrpShow.jsp · dimensionList=/erp/product/product/dimensionList.jsp · devPrint=/erp/product/product/devPrint.jsp · privateDevPrint=/erp/product/product/privateDevPrint.jsp · prePrintForEFP=/erp/product/product/prePrintForEFP.jsp · eprint=/erp/product/product/eprint.jsp · quotationList=/erp/product/product/quotationList.jsp · quotationExportPDFChinese=/erp/product/product/quotationExportPDFChinese.jsp · quotationExportPDFEnglishZ=/erp/product/product/quotationExportPDFEnglishZ.jsp · quotationExportPDFEnglishJ=/erp/product/product/quotationExportPDFEnglishJ.jsp · quotationExportPDFVatJ=/erp/product/product/quotationExportPDFVatJ.jsp · quotationExportPDFVatZ=/erp/product/product/quotationExportPDFVatZ.jsp · fobCostPriceCalcList=/erp/product/product/fobCostPriceCalcList.jsp · fobCostPriceCalcNewProList=/erp/product/product/fobCostPriceCalcNewProList.jsp · proPropConfigList=/erp/product/product/proPropConfigList.jsp · proWashinglabelList=/erp/product/product/proWashinglabelList.jsp · proRecommendTypelList=/erp/product/product/proRecommendTypelList.jsp · productDerive=/erp/product/product/productDerive.jsp · proColorCardDataList=/erp/product/product/proColorCardDataList.jsp · prowashinglabelPrint=/erp/product/product/prowashinglabelPrint.jsp · proPriceCardLabelList=/erp/product/product/proPriceCardLabelList.jsp · proPriceCardLabelEprint=/erp/product/product/proPriceCardLabelEprint.jsp · proYarnHisList=/erp/product/product/proYarnHisList.jsp · proElemEdit=/erp/product/product/proElemEdit.jsp · colorYnrgsList=/erp/product/product/colorYnrgsList.jsp · colorYnrgsShow=/erp/product/product/colorYnrgsShow.jsp · updateCode=/erp/product/product/updateCode.jsp · customCopyShow=/erp/product/product/customCopyShow.jsp · materialInfoList=/erp/product/product/materialInfoList.jsp · proMainSupConfigList=/erp/product/product/proMainSupConfigList.jsp · designMaintainList=/erp/product/product/designMaintainList.jsp · weavingMaintainList=/erp/product/product/weavingMaintainList.jsp · qualityMaintainList=/erp/product/product/qualityMaintainList.jsp · planMaintainList=/erp/product/product/planMaintainList.jsp · proErrorCheckList=/erp/product/product/proErrorCheckList.jsp · yarnErrorCheckList=/erp/product/product/yarnErrorCheckList.jsp · proquotePriceError=/erp/product/product/proquotePriceError.jsp · proMopriceErrorList=/erp/product/product/proMopriceErrorList.jsp · wovenProList=/erp/product/product/wovenProList.jsp · newCardPrint=/erp/product/product/newCardPrint.jsp · newColorcardPrint=/erp/product/product/newColorcardPrint.jsp · batchSelectProductPlanMcer=/erp/product/productPlanMcer/batchSelectProduct.jsp · proQualityAttribute=/erp/product/product/proQualityAttribute.jsp · stockAndYarnAnalyze=/erp/search/product/stockAndYarnAnalyze.jsp · yarnBatchConfig=/erp/product/product/yarnBatchConfig.jsp · proBatchConfigOther=/erp/product/product/proBatchConfigOther.jsp · yarnCompSearchList=/erp/search/product/yarnCompSearchList.jsp · yarnWorkbenches=/erp/search/product/yarnWorkbenches.jsp · yarnProcurementSettings=/erp/search/product/yarnProcurementSettings.jsp
+- `/product/productCategory_<method>.action`  →  com.maxtile.application.erp.product.action.ProductCategoryAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductCategoryAction.java
+  - 前端 result→jsp：show=/erp/product/category/show.jsp
+- `/product/productCategoryRele_<method>.action`  →  com.maxtile.application.erp.product.action.ProductCategoryReleAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductCategoryReleAction.java
+- `/product/productChangeApply_<method>.action`  →  com.maxtile.application.erp.product.action.ProductChangeApplyAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductChangeApplyAction.java
+  - 前端 result→jsp：list=/erp/product/productchangeapply/list.jsp · show=/erp/product/productchangeapply/show.jsp · productKeyApply=/erp/product/productchangeapply/productKeyApply.jsp · error=/public/head/error.jsp
+- `/product/productDesProp_<method>.action`  →  com.maxtile.application.erp.product.action.ProductDesPropAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductDesPropAction.java
+- `/product/productOtherProp_<method>.action`  →  com.maxtile.application.erp.product.action.ProductOtherPropAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductOtherPropAction.java
+- `/product/productPlanMcer_<method>.action`  →  com.maxtile.application.erp.product.action.ProductPlanMcerAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductPlanMcerAction.java
+- `/product/productWeave_<method>.action`  →  com.maxtile.application.erp.product.action.ProductWeaveAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProductWeaveAction.java
+  - 前端 result→jsp：list=/erp/product/productWeave/productWeaveList.jsp · show=/erp/product/productWeave/show.jsp
+- `/product/proelemratio_<method>.action`  →  com.maxtile.application.erp.product.action.ProelemratioAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProelemratioAction.java
+- `/product/proenattr_<method>.action`  →  com.maxtile.application.erp.product.action.ProenattrAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProenattrAction.java
+  - 前端 result→jsp：list=/erp/product/proenattr/list.jsp · orderList=/erp/product/proenattr/orderList.jsp · open=/erp/product/proenattr/add.jsp · orderOpen=/erp/product/proenattr/orderAdd.jsp · show=/erp/product/proenattr/show.jsp · orderShow=/erp/product/proenattr/orderShow.jsp · print=/erp/product/proenattr/print.jsp · orderPrint=/erp/product/proenattr/orderPrint.jsp · oldprint=/erp/product/proenattr/oldprint.jsp · error=/public/head/error.jsp
+- `/product/progbparam_<method>.action`  →  com.maxtile.application.erp.product.action.ProgbparamAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProgbparamAction.java
+  - 前端 result→jsp：list=/erp/product/progbparam/list.jsp · show=/erp/product/progbparam/show.jsp · error=/public/head/error.jsp
+- `/product/prohalf_<method>.action`  →  com.maxtile.application.erp.product.action.ProhalfAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProhalfAction.java
+  - 前端 result→jsp：list=/erp/product/prohalf/list.jsp · listAll=/erp/product/prohalf/listAll.jsp · open=/erp/product/prohalf/show.jsp · openList=/erp/product/prohalf/addList.jsp · show=/erp/product/prohalf/show.jsp · showinfo=/erp/product/prohalf/showinfo.jsp · div_list=/erp/product/prohalf/div_list.jsp · error=/public/head/error.jsp
+- `/product/proLevelAddprice_<method>.action`  →  com.maxtile.application.erp.product.action.ProLevelAddpriceAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProLevelAddpriceAction.java
+  - 前端 result→jsp：list=/erp/product/proLevelAddprice/list.jsp · add=/erp/product/proLevelAddprice/show.jsp · error=/public/head/error.jsp
+- `/product/promainmrp_<method>.action`  →  com.maxtile.application.erp.product.action.PromainmrpAction
+  - 后端：src/com/maxtile/application/erp/product/action/PromainmrpAction.java
+  - 前端 result→jsp：list=/erp/product/promainmrp/list.jsp · addOrUpdate=/erp/product/promainmrp/addOrUpdate.jsp · stockTurnOverList=/erp/product/promainmrp/stockTurnOverList.jsp · stockTurnOverList2=/erp/product/promainmrp/stockTurnOverList2.jsp · stockTurnMrpStockList=/erp/product/promainmrp/stockTurnMrpStockList.jsp · stockTurnEditStockList=/erp/product/promainmrp/stockTurnEditStockList.jsp · stockTurnWaitqtypiList=/erp/product/promainmrp/stockTurnWaitqtypiList.jsp · stockTurnSupMrpStockList=/erp/product/promainmrp/stockTurnSupMrpStockList.jsp · stockTurnWoMrpStockOtherQtypiList=/erp/product/promainmrp/stockTurnWoMrpStockOtherQtypiList.jsp · stockTurnProColorStockList=/erp/product/promainmrp/stockTurnProColorStockList.jsp · stockturnlogList=/erp/product/promainmrp/stockturnlogList.jsp · error=/public/head/error.jsp
+- `/product/promcer_<method>.action`  →  com.maxtile.application.erp.product.action.PromcerAction
+  - 后端：src/com/maxtile/application/erp/product/action/PromcerAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · promcerList=/erp/product/promcer/promcerList.jsp
+- `/product/promerge_<method>.action`  →  com.maxtile.application.erp.product.action.PromergeAction
+  - 后端：src/com/maxtile/application/erp/product/action/PromergeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/product/proOrderRules_<method>.action`  →  com.maxtile.application.erp.product.action.ProOrderRulesAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProOrderRulesAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/proorderrules/list.jsp · show=/erp/product/proorderrules/show.jsp · enableProList=/erp/product/proorderrules/enableProList.jsp · addProList=/erp/product/proorderrules/addProList.jsp
+- `/product/propriceDer_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceDerAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceDerAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/product/propriceDer/show.jsp · salerShow=/erp/product/propriceDer/salerShow.jsp · list=/erp/product/propriceDer/list.jsp · salerColorSysShow=/erp/product/propriceDer/salerColorSysShow.jsp
+- `/product/propriceDerprocess_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceDerprocessAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceDerprocessAction.java
+- `/product/propriceRelease_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceReleaseAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceReleaseAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addList=/erp/product/propriceRelease/addList.jsp · list=/erp/product/propriceRelease/list.jsp · listCount=/erp/product/propriceRelease/listCount.jsp · listCountItem=/erp/product/propriceRelease/listCountItem.jsp · logList=/erp/product/propriceRelease/logList.jsp
+- `/product/propriceReleaseitem_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceReleaseitemAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceReleaseitemAction.java
+  - 前端 result→jsp：logListItem=/erp/product/propriceReleaseitem/logListItem.jsp · updateList=/erp/product/propriceReleaseitem/updateList.jsp
+- `/product/propriceTemp_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceTempAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceTempAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addAndAddItem=/erp/product/propriceTemp/addAndAddItem.jsp · salerAddOrUpdatePropriceTemp=/erp/product/propriceTemp/salerAddOrUpdatePropriceTemp.jsp · listAndItem=/erp/product/propriceTemp/listAndItem.jsp · listLeft=/erp/product/propriceTemp/listLeft.jsp
+- `/product/propriceTempApply_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceTempApplyAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceTempApplyAction.java
+  - 前端 result→jsp：salerList=/erp/product/propriceTempApply/salerList.jsp
+- `/product/propriceTempitem_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceTempitemAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceTempitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listRight=/erp/product/propriceTempitem/listRight.jsp
+- `/product/propriceTempitemApply_<method>.action`  →  com.maxtile.application.erp.product.action.PropriceTempitemApplyAction
+  - 后端：src/com/maxtile/application/erp/product/action/PropriceTempitemApplyAction.java
+- `/product/proQueryAttr_<method>.action`  →  com.maxtile.application.erp.product.action.ProQueryAttrAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProQueryAttrAction.java
+- `/product/proquoteAcconfig_<method>.action`  →  com.maxtile.application.erp.product.action.ProquoteAcconfigAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProquoteAcconfigAction.java
+  - 前端 result→jsp：openConfig=/erp/product/proquoteAcconfig/openConfig.jsp
+- `/product/proquoteAddcost_<method>.action`  →  com.maxtile.application.erp.product.action.ProquoteAddcostAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProquoteAddcostAction.java
+  - 前端 result→jsp：openConfig=/erp/product/proquoteAddcost/openConfig.jsp
+- `/product/proquotePrice_<method>.action`  →  com.maxtile.application.erp.product.action.ProquotePriceAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProquotePriceAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/proquotePrice/list.jsp · fobAndVtaList=/erp/product/proquotePrice/fobAndVtaList.jsp · commonFixPriceList=/erp/product/proquotePrice/commonFixPriceList.jsp · insidePriceList=/erp/product/proquotePrice/insidePriceList.jsp · calcCustQtyShow=/erp/product/proquotePrice/calcCustQtyShow.jsp
+- `/product/proquotePricelog_<method>.action`  →  com.maxtile.application.erp.product.action.ProquotePricelogAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProquotePricelogAction.java
+  - 前端 result→jsp：listCount=/erp/product/proquotePricelog/listCount.jsp · listCountItem=/erp/product/proquotePricelog/listCountItem.jsp
+- `/product/proquotes_<method>.action`  →  com.maxtile.application.erp.product.action.ProquotesAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProquotesAction.java
+  - 前端 result→jsp：show=/erp/product/proquotes/show.jsp · list=/erp/product/proquotes/list.jsp
+- `/product/proquotesitem_<method>.action`  →  com.maxtile.application.erp.product.action.ProquotesitemAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProquotesitemAction.java
+- `/product/proSuggestReason_<method>.action`  →  com.maxtile.application.erp.product.action.ProSuggestReasonAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProSuggestReasonAction.java
+- `/product/protomrp_<method>.action`  →  com.maxtile.application.erp.product.action.ProtomrpAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProtomrpAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openList=/erp/product/protomrp/addList.jsp · show=/erp/product/protomrp/show.jsp · protomrpStockList=/erp/product/protomrp/protomrpStockList.jsp · skutomrpStockList=/erp/product/protomrp/skutomrpStockList.jsp · stockReturnLogList=/erp/product/protomrp/stockReturnLogList.jsp · protomrpSkuStockList=/erp/product/protomrp/protomrpSkuStockList.jsp · ProtomrpStockOtherQtypiList=/erp/product/protomrp/protomrpStockOtherQtypi.jsp · protomrpEditStockList=/erp/product/protomrp/protomrpEditStockList.jsp · protomrpStockProList=/erp/product/protomrp/protomrpStockProList.jsp · ProtomrpSupStockList=/erp/product/protomrp/ProtomrpSupStockList.jsp · totalMrpStockList=/erp/product/protomrp/totalMrpStockList.jsp
+- `/product/prowashinglabel_<method>.action`  →  com.maxtile.application.erp.product.action.ProwashinglabelAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProwashinglabelAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/product/prowashinglabel/list.jsp · show=/erp/product/prowashinglabel/show.jsp · printByPro=/erp/product/prowashinglabel/printByPro.jsp
+- `/product/proWashingRele_<method>.action`  →  com.maxtile.application.erp.product.action.ProWashingReleAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProWashingReleAction.java
+- `/product/proWeightConfig_<method>.action`  →  com.maxtile.application.erp.product.action.ProWeightConfigAction
+  - 后端：src/com/maxtile/application/erp/product/action/ProWeightConfigAction.java
+  - 前端 result→jsp：list=/erp/product/proWeightConfig/list.jsp · show=/erp/product/proWeightConfig/show.jsp · error=/public/head/error.jsp
+- `/product/SdpBallWool_<method>.action`  →  com.maxtile.application.erp.product.action.SdpBallWoolAction
+  - 后端：src/com/maxtile/application/erp/product/action/SdpBallWoolAction.java
+- `/product/sdpBallWoolProject_<method>.action`  →  com.maxtile.application.erp.product.action.SdpBallWoolProjectAction
+  - 后端：src/com/maxtile/application/erp/product/action/SdpBallWoolProjectAction.java
+  - 前端 result→jsp：list=/erp/product/sdpBallWoolProject/list.jsp · show=/erp/product/sdpBallWoolProject/show.jsp
+- `/product/sdpFinishProShaping_<method>.action`  →  com.maxtile.application.erp.product.action.SdpFinishProShapingAction
+  - 后端：src/com/maxtile/application/erp/product/action/SdpFinishProShapingAction.java
+- `/product/sdpMrpInfo_<method>.action`  →  com.maxtile.application.erp.product.action.SdpMrpInfoAction
+  - 后端：src/com/maxtile/application/erp/product/action/SdpMrpInfoAction.java
+- `/product/spotproDevProcessInfo_<method>.action`  →  com.maxtile.application.erp.product.action.SpotproDevProcessInfoAction
+  - 后端：src/com/maxtile/application/erp/product/action/SpotproDevProcessInfoAction.java
+- `/product/spotproDevProcessInfo_<method>.action`  →  com.maxtile.application.erp.product.action.SpotproDevProcessInfoAction
+  - 后端：src/com/maxtile/application/erp/product/action/SpotproDevProcessInfoAction.java
+- `/product/spotproMrpTsproject_<method>.action`  →  com.maxtile.application.erp.product.action.SpotproMrpTsprojectAction
+  - 后端：src/com/maxtile/application/erp/product/action/SpotproMrpTsprojectAction.java
+  - 前端 result→jsp：list=/erp/product/spotproMrpTsproject/list.jsp · show=/erp/product/spotproMrpTsproject/show.jsp
+- `/product/spotproMrptsval_<method>.action`  →  com.maxtile.application.erp.product.action.SpotproMrptsvalAction
+  - 后端：src/com/maxtile/application/erp/product/action/SpotproMrptsvalAction.java
+- `/product/spotproProcessInfo_<method>.action`  →  com.maxtile.application.erp.product.action.SpotproProcessInfoAction
+  - 后端：src/com/maxtile/application/erp/product/action/SpotproProcessInfoAction.java
+- `/product/spotproProcessLog_<method>.action`  →  com.maxtile.application.erp.product.action.SpotproProcessLogAction
+  - 后端：src/com/maxtile/application/erp/product/action/SpotproProcessLogAction.java
+  - 前端 result→jsp：list=/erp/product/spotproProcessLog/list.jsp · devList=/erp/product/spotproProcessLog/devList.jsp · show=/erp/product/spotproProcessLog/show.jsp · devShow=/erp/product/spotproProcessLog/devShow.jsp · dyeworkShow=/erp/product/spotproProcessLog/dyeworkShow.jsp · inspectList=/erp/product/spotproProcessLog/inspectList.jsp
+- `/product/standardcost_<method>.action`  →  com.maxtile.application.erp.product.action.StandardcostAction
+  - 后端：src/com/maxtile/application/erp/product/action/StandardcostAction.java
+  - 前端 result→jsp：list=/erp/product/standardcost/list.jsp · show=/erp/product/standardcost/show.jsp · add=/erp/product/standardcost/add.jsp
+- `/product/standardcostMrp_<method>.action`  →  com.maxtile.application.erp.product.action.StandardcostMrpAction
+  - 后端：src/com/maxtile/application/erp/product/action/StandardcostMrpAction.java
+- `/product/standardcostProcess_<method>.action`  →  com.maxtile.application.erp.product.action.StandardcostProcessAction
+  - 后端：src/com/maxtile/application/erp/product/action/StandardcostProcessAction.java
+  - 前端 result→jsp：showList=/erp/product/standardcostProcess/showList.jsp
+- `/product/standardcostYarn_<method>.action`  →  com.maxtile.application.erp.product.action.StandardcostYarnAction
+  - 后端：src/com/maxtile/application/erp/product/action/StandardcostYarnAction.java
+- `/product/stockreturnlog_<method>.action`  →  com.maxtile.application.erp.product.action.StockreturnlogAction
+  - 后端：src/com/maxtile/application/erp/product/action/StockreturnlogAction.java
+- `/product/supcolorcode_<method>.action`  →  com.maxtile.application.erp.product.action.SupcolorcodeAction
+  - 后端：src/com/maxtile/application/erp/product/action/SupcolorcodeAction.java
+  - 前端 result→jsp：list=/erp/product/supcolorcode/list.jsp · openList=/erp/product/supcolorcode/addList.jsp · show=/erp/product/supcolorcode/show.jsp · error=/public/head/error.jsp
+- `/product/supproduceday_<method>.action`  →  com.maxtile.application.erp.product.action.SupproducedayAction
+  - 后端：src/com/maxtile/application/erp/product/action/SupproducedayAction.java
+  - 前端 result→jsp：list=/erp/product/supproduceday/list.jsp · listColorMadeday=/erp/product/supproduceday/listColorMadeday.jsp · openEdit=/erp/product/supproduceday/add.jsp · show=/erp/product/supproduceday/show.jsp · openMadeDay=/erp/product/supproduceday/showMadeday.jsp · error=/public/head/error.jsp
+- `/product/yarnagetype_<method>.action`  →  com.maxtile.application.erp.product.action.YarnageTypeAction
+  - 后端：src/com/maxtile/application/erp/product/action/YarnageTypeAction.java
+  - 前端 result→jsp：list=/erp/product/product/yarnageTypeList.jsp · show=/erp/product/product/yarnageTypeShow.jsp · batchSetListShow=/erp/product/product/yarnageTypeBatchSetList.jsp
+- `/product/yarnprocode_<method>.action`  →  com.maxtile.application.erp.product.action.YarnprocodeAction
+  - 后端：src/com/maxtile/application/erp/product/action/YarnprocodeAction.java
+- `/product/yarnRatingStandard_<method>.action`  →  com.maxtile.application.erp.product.action.YarnRatingStandardAction
+  - 后端：src/com/maxtile/application/erp/product/action/YarnRatingStandardAction.java
+  - 前端 result→jsp：ynrgsAddOrShow=/erp/product/product/ynrgsAddOrShow.jsp · ynrgsList=/erp/product/product/ynrgsList.jsp · error=/public/head/error.jsp
+
+## /project  ·  src/config/struts/struts-project.xml
+
+- `/project/class_<method>.action`  →  (bean: classAction 未解析)
+  - 前端 result→jsp：list=/project/class/list.jsp · search=/project/class/search.jsp · open=/project/class/add.jsp · show=/project/class/show.jsp · showFlow=/project/class/progress.jsp · divList=/project/class/divList.jsp · divSearch=/project/class/divSearch.jsp · addClassWork=/project/class/addClassWork.jsp · showClassWork=/project/class/showClassWork.jsp
+- `/project/classwork_<method>.action`  →  (bean: classworkAction 未解析)
+- `/project/flow_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlowAction.java
+  - 前端 result→jsp：list=/project/flow/list.jsp · search=/project/flow/search.jsp · open=/project/flow/add.jsp · show=/project/flow/show.jsp
+- `/project/flowlog_<method>.action`  →  (bean: flowlogAction 未解析)
+  - 前端 result→jsp：list=/project/flowlog/list.jsp · search=/project/flowlog/search.jsp · open=/project/flowlog/add.jsp · show=/project/flowlog/show.jsp
+- `/project/flownode_<method>.action`  →  com.maxtile.application.erp.flow.action.FlownodeAction
+  - 后端：src/com/maxtile/application/erp/flow/action/FlownodeAction.java
+  - 前端 result→jsp：list=/project/flownode/list.jsp · search=/project/flownode/search.jsp · open=/project/flownode/add.jsp · show=/project/flownode/show.jsp
+- `/project/model_<method>.action`  →  (bean: modelAction 未解析)
+  - 前端 result→jsp：list=/project/model/list.jsp · search=/project/model/search.jsp · open=/project/model/add.jsp · show=/project/model/show.jsp
+- `/project/project_<method>.action`  →  (bean: projectAction 未解析)
+  - 前端 result→jsp：list=/project/project/list.jsp · search=/project/project/search.jsp · open=/project/project/add.jsp · show=/project/project/show.jsp · showProgress=/project/project/progress.jsp · configPro=/project/project/configPro.jsp · configWork=/project/project/configWork.jsp · showWorkinfo=/project/project/showWorkinfo.jsp · setWorkinfo=/project/project/setWorkinfo.jsp · openUpdateNextStep=/project/project/openUpdateNextStep.jsp · openUpdateSelectStep=/project/project/openUpdateSelectStep.jsp
+- `/project/work_<method>.action`  →  (bean: workAction 未解析)
+  - 前端 result→jsp：list=/project/work/list.jsp · search=/project/work/search.jsp · open=/project/work/add.jsp · show=/project/work/show.jsp
+- `/project/workinfo_<method>.action`  →  (bean: workinfoAction 未解析)
+  - 前端 result→jsp：list=/project/workinfo/list.jsp · search=/project/workinfo/search.jsp · open=/project/workinfo/add.jsp · show=/project/workinfo/show.jsp
+
+## /purchase  ·  src/config/struts/struts-purchase.xml
+
+- `/purchase/inquirePrice_<method>.action`  →  com.maxtile.application.erp.purchase.action.InquirePriceAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/InquirePriceAction.java
+- `/purchase/newPoplanitemMorder_<method>.action`  →  com.maxtile.application.erp.purchase.action.NewPoplanitemMorderAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/NewPoplanitemMorderAction.java
+  - 前端 result→jsp：chooseMo=/erp/purchase/newPoplanitemMorder/chooseMo.jsp · list=/erp/purchase/newPoplanitemMorder/list.jsp
+- `/purchase/npoplan_<method>.action`  →  com.maxtile.application.erp.purchase.action.NewPoplanAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/NewPoplanAction.java
+  - 前端 result→jsp：list=/erp/purchase/newPoplan/list.jsp · add=/erp/purchase/newPoplan/add.jsp · show=/erp/purchase/newPoplan/show.jsp · updateMsg=/erp/purchase/newPoplan/updateMsg.jsp · srmPoplanList=/erp/purchase/newPoplan/srmPoplanList.jsp · error=/public/head/error.jsp
+- `/purchase/npoplanitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.NewPoplanitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/NewPoplanitemAction.java
+  - 前端 result→jsp：listForPoconfigitem=/erp/purchase/newPoplanitem/listForPoconfigitem.jsp · listForPoconfigitemAdd=/erp/purchase/newPoplanitem/listForPoconfigitemAdd.jsp · inquirePriceToPoconfigitemAdd=/erp/purchase/newPoplanitem/inquirePriceToPoconfigitemAdd.jsp · listForPorderitemAdd=/erp/purchase/newPoplanitem/listForPorderitemAdd.jsp · srmPurchasePlanAdd=/erp/purchase/newPoplanitem/srmPurchasePlan.jsp · error=/public/head/error.jsp
+- `/purchase/nporder_<method>.action`  →  com.maxtile.application.erp.purchase.action.NewPorderAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/NewPorderAction.java
+  - 前端 result→jsp：list=/erp/purchase/newPorder/list.jsp · open=/erp/purchase/newPorder/add.jsp · show=/erp/purchase/newPorder/show.jsp · showSelfBuy=/erp/purchase/newPorder/showSelfBuy.jsp · porderExpectTotal=/erp/purchase/newPorder/porderExpectTotal.jsp · updateIssendShow=/erp/purchase/newPorder/updateIssendShow.jsp · updateInfo=/erp/purchase/newPorder/updateInfo.jsp · addProderFromAutoSkuOrder=/erp/purchase/newPorder/addProderFromAutoSkuOrder.jsp · orderProcurementDetails=/erp/purchase/newPorder/orderProcurementDetails.jsp · addSrmProderFmAISupply=/erp/purchase/newPorder/addSrmProderFmAISupply.jsp
+- `/purchase/nporderitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.NewPorderitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/NewPorderitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_list=/erp/purchase/nporderitem/div_list.jsp · listAnditem=/erp/purchase/nporderitem/listAnditem.jsp · listAnditemPosend=/erp/purchase/nporderitem/listAnditem2.jsp · fastGenerationPosend=/erp/purchase/nporderitem/fastGenerationPosend.jsp · listForStoreinitem=/erp/purchase/nporderitem/listForStoreinitem.jsp · listAnditemQuery=/erp/purchase/nporderitem/listAnditemQuery.jsp · listAnditem2Query=/erp/purchase/nporderitem/listAnditem2Query.jsp · print=/erp/purchase/nporderitem/print.jsp · showItemWarehousingTime=/erp/purchase/nporderitem/showItemWarehousingTime.jsp · fastAddPodeliver=/erp/purchase/nporderitem/fastAddPodeliver.jsp · paycheckYarnPorderList=/erp/purchase/nporderitem/paycheckYarnPorderList.jsp
+- `/purchase/pback_<method>.action`  →  com.maxtile.application.erp.purchase.action.PbackAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PbackAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/purchase/pback/list.jsp · open=/erp/purchase/pback/add.jsp · show=/erp/purchase/pback/show.jsp · print=/erp/purchase/pback/print.jsp · listforStoi=/erp/purchase/pback/listforStoi.jsp
+- `/purchase/pbackitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.PbackitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PbackitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_listFromPoi=/erp/purchase/pbackitem/div_listFromPoi.jsp · divForStoi=/erp/purchase/pbackitem/divForStoi.jsp · listAnditem=/erp/purchase/pback/listAnditem.jsp
+- `/purchase/pbackitemma_<method>.action`  →  com.maxtile.application.erp.purchase.action.PbackitemmaAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PbackitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · add=/erp/purchase/pbackitemma/addList.jsp · div_list=/erp/purchase/pbackitemma/div_list.jsp
+- `/purchase/pbackitemmascm_<method>.action`  →  com.maxtile.application.erp.purchase.action.PbackitemmascmAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PbackitemmascmAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · add=/erp/purchase/pbackitemmascm/addList.jsp · div_list=/erp/purchase/pbackitemmascm/div_list.jsp
+- `/purchase/pbackitemscm_<method>.action`  →  com.maxtile.application.erp.purchase.action.PbackitemscmAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PbackitemscmAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_listFromPoi=/erp/purchase/pbackitemscm/div_listFromPoi.jsp · divForStoi=/erp/purchase/pbackitemscm/divForStoi.jsp · listAnditem=/erp/purchase/pbackscm/listAnditem.jsp · pbackDirectAddList=/erp/purchase/pbackitemscm/pbackDirectAddList.jsp
+- `/purchase/pbackscm_<method>.action`  →  com.maxtile.application.erp.purchase.action.PbackscmAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PbackscmAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/purchase/pbackscm/list.jsp · open=/erp/purchase/pbackscm/add.jsp · show=/erp/purchase/pbackscm/show.jsp · print=/erp/purchase/pbackscm/print.jsp · listforStoi=/erp/purchase/pbackscm/listforStoi.jsp
+- `/purchase/poconfig_<method>.action`  →  com.maxtile.application.erp.purchase.action.PoconfigAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PoconfigAction.java
+  - 前端 result→jsp：list=/erp/purchase/poconfig/list.jsp · show=/erp/purchase/poconfig/show.jsp · error=/public/head/error.jsp · srmPoconfig=/erp/purchase/poconfig/srmPoconfig.jsp
+- `/purchase/poconfigitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.PoconfigitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PoconfigitemAction.java
+  - 前端 result→jsp：listForPorderitem=/erp/purchase/poconfigitem/listForPorderitem.jsp · error=/public/head/error.jsp · listitemByPorder=/erp/purchase/poconfigitem/listitemByPorder.jsp · listForPorderitemReasonForDelay=/erp/purchase/poconfigitem/listForPorderitemReasonForDelay.jsp · poconfigAdvanceCount=/erp/purchase/poconfigitem/poconfigAdvanceCount.jsp
+- `/purchase/podeliver_<method>.action`  →  com.maxtile.application.erp.purchase.action.PodeliverAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PodeliverAction.java
+  - 前端 result→jsp：list=/erp/purchase/podeliver/list.jsp · show=/erp/purchase/podeliver/show.jsp · AddFmMtask=/erp/purchase/podeliver/AddFmMtask.jsp · print=/erp/purchase/podeliver/print.jsp · threePrint=/erp/purchase/podeliver/threePrint.jsp
+- `/purchase/podeliverma_<method>.action`  →  com.maxtile.application.erp.purchase.action.PodelivermaAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PodelivermaAction.java
+  - 前端 result→jsp：addMaFmSelectStockmaList=/erp/purchase/podeliverma/addMaFmSelectStockmaList.jsp
+- `/purchase/poplan_<method>.action`  →  com.maxtile.application.erp.purchase.action.PoplanAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PoplanAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/purchase/poplan/list.jsp · listAnditem=/erp/purchase/poplan/listAnditem.jsp · open=/erp/purchase/poplan/add.jsp · show=/erp/purchase/poplan/show.jsp · chooseSup=/erp/purchase/poplan/chooseSup.jsp
+- `/purchase/poplanitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.PoplanitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PoplanitemAction.java
+  - 前端 result→jsp：addPoplanitem=/erp/purchase/poplanitem/add.jsp · error=/public/head/error.jsp · chooseSuppliers=/erp/purchase/poplanitem/chooseSuppliers.jsp
+- `/purchase/porder_<method>.action`  →  com.maxtile.application.erp.purchase.action.PorderAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PorderAction.java
+  - 前端 result→jsp：list=/erp/purchase/porder/list.jsp · listAnditem=/erp/purchase/porder/listAnditem.jsp · open=/erp/purchase/porder/add.jsp · show=/erp/purchase/porder/show.jsp · div_list=/erp/purchase/porder/div_list.jsp · div_list2=/erp/purchase/porder/div_list2.jsp · error=/public/head/error.jsp · test=/erp/purchase/porder/test.jsp · printPre=/erp/purchase/porder/printPre.jsp · threePrint=/erp/purchase/porder/threePrint.jsp · prePrint=/erp/purchase/porder/prePrint.jsp · print=/erp/purchase/porder/print.jsp · threePrintBak=/erp/purchase/porder/threePrint_bak.jsp · history=/erp/purchase/newPorder/showHistory.jsp
+- `/purchase/porderitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.PorderitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PorderitemAction.java
+  - 前端 result→jsp：list=/erp/purchase/porderitem/list.jsp · div_list=/erp/purchase/porderitem/div_list.jsp · threePrint=/erp/purchase/porderitem/threePrint.jsp · div_list2=/erp/purchase/porderitem/div_list2.jsp
+- `/purchase/posend_<method>.action`  →  com.maxtile.application.erp.purchase.action.PosendAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PosendAction.java
+  - 前端 result→jsp：list=/erp/purchase/posend/list.jsp · show=/erp/purchase/posend/show.jsp · open=/erp/purchase/posend/add.jsp · printPre=/erp/purchase/posend/printPre.jsp · threePrint=/erp/purchase/posend/threePrint.jsp · prePrint=/erp/purchase/posend/prePrint.jsp · print=/erp/purchase/posend/print.jsp · AddFmMtask=/erp/purchase/posend/AddFmMtask.jsp · produceShow=/erp/purchase/posend/produceShow.jsp · error=/public/head/error.jsp · listForWorderAddBatchno=/erp/produce/worder/listForUpdateMaBachno.jsp
+- `/purchase/posenditem_<method>.action`  →  com.maxtile.application.erp.purchase.action.PosenditemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PosenditemAction.java
+  - 前端 result→jsp：addItemSelectStock=/erp/purchase/posenditem/addItemSelectStock.jsp · unPosenditemStockCount=/erp/purchase/posenditem/unPosenditemStockCount.jsp · error=/public/head/error.jsp
+- `/purchase/posenditemma_<method>.action`  →  com.maxtile.application.erp.purchase.action.PosenditemmaAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PosenditemmaAction.java
+  - 前端 result→jsp：listMaForPosenditemma=/erp/purchase/posenditemma/listMaForPosenditemma.jsp · div_list=/erp/purchase/posenditemma/div_list.jsp · error=/public/head/error.jsp
+- `/purchase/posupplan_<method>.action`  →  com.maxtile.application.erp.purchase.action.PosupplanAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PosupplanAction.java
+- `/purchase/posupplanitem_<method>.action`  →  com.maxtile.application.erp.purchase.action.PosupplanitemAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/PosupplanitemAction.java
+- `/purchase/supProductionRecords_<method>.action`  →  com.maxtile.application.erp.purchase.action.SupProductionRecordsAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/SupProductionRecordsAction.java
+  - 前端 result→jsp：open=/erp/purchase/supproductionrecords/add.jsp
+- `/purchase/test_<method>.action`  →  (bean: testAction 未解析)
+  - 前端 result→jsp：test=/erp/purchase/porder/test.jsp
+- `/purchase/yarnTrial_<method>.action`  →  com.maxtile.application.erp.purchase.action.YarnTrialAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/YarnTrialAction.java
+  - 前端 result→jsp：tqcYarnTestList=/erp/purchase/yarnTrial/tqcYarnTestList.jsp
+- `/purchase/yarnTrialTask_<method>.action`  →  com.maxtile.application.erp.purchase.action.YarnTrialTaskAction
+  - 后端：src/com/maxtile/application/erp/purchase/action/YarnTrialTaskAction.java
+  - 前端 result→jsp：tqcYarnTestList=/erp/purchase/yarnTrialTask/tqcYarnTestList.jsp
+
+## /qc  ·  src/config/struts/struts-qc.xml
+
+- `/qc/detectionProject_<method>.action`  →  com.maxtile.application.erp.qc.action.DetectionProjectAction
+  - 后端：src/com/maxtile/application/erp/qc/action/DetectionProjectAction.java
+  - 前端 result→jsp：list=/erp/qc/detectionproject/list.jsp · show=/erp/qc/detectionproject/show.jsp · targetData=/erp/qc/detectionproject/targetData.jsp · add=/erp/qc/detectionproject/add.jsp · copy=/erp/qc/detectionproject/copy.jsp · importExcel=/erp/qc/detectionproject/importExcel.jsp · update=/erp/qc/detectionproject/update.jsp · printPreview=/erp/qc/detectionproject/printPreview.jsp
+- `/qc/detindex_<method>.action`  →  com.maxtile.application.erp.qc.action.DetindexAction
+  - 后端：src/com/maxtile/application/erp/qc/action/DetindexAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/qc/detindex/list.jsp · show=/erp/qc/detindex/show.jsp · addBatch=/erp/qc/detindex/addBatch.jsp · addSorderDetindexList=/erp/qc/detindex/addSorderDetindexList.jsp
+- `/qc/detproject_<method>.action`  →  com.maxtile.application.erp.qc.action.DetprojectAction
+  - 后端：src/com/maxtile/application/erp/qc/action/DetprojectAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/qc/detproject/list.jsp · show=/erp/qc/detproject/show.jsp
+- `/qc/detstandard_<method>.action`  →  com.maxtile.application.erp.qc.action.DetstandardAction
+  - 后端：src/com/maxtile/application/erp/qc/action/DetstandardAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/qc/detstandard/list.jsp · show=/erp/qc/detstandard/show.jsp
+- `/qc/factorysell_<method>.action`  →  com.maxtile.application.erp.qc.action.FactorysellAction
+  - 后端：src/com/maxtile/application/erp/qc/action/FactorysellAction.java
+  - 前端 result→jsp：factorysellBillboardList=/erp/qc/factorysell/factorysellBillboardList.jsp
+- `/qc/fSqcreportitem_<method>.action`  →  com.maxtile.application.erp.qc.action.FSqcreportitemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/FSqcreportitemAction.java
+- `/qc/outersendsample_<method>.action`  →  com.maxtile.application.erp.qc.action.OutersendsampleAction
+  - 后端：src/com/maxtile/application/erp/qc/action/OutersendsampleAction.java
+  - 前端 result→jsp：add=/erp/qc/outersendsample/add.jsp · list=/erp/qc/outersendsample/list.jsp · show=/erp/qc/outersendsample/show.jsp
+- `/qc/outersendsampleItem_<method>.action`  →  com.maxtile.application.erp.qc.action.OutersendsampleItemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/OutersendsampleItemAction.java
+- `/qc/outsaattr_<method>.action`  →  com.maxtile.application.erp.qc.action.OutsaattrAction
+  - 后端：src/com/maxtile/application/erp/qc/action/OutsaattrAction.java
+- `/qc/phyreport_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportAction
+  - 后端：src/com/maxtile/application/erp/qc/action/PhyreportAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · updateBaseMsg=/erp/qc/phyreport/updateBaseMsg.jsp · list=/erp/qc/phyreport/list.jsp · openFmQcreport=/erp/qc/phyreport/openFmQcreport.jsp · open=/erp/qc/phyreport/open.jsp · openMeiBiao=/erp/qc/phyreport/openMeiBiao.jsp · openOuBiao=/erp/qc/phyreport/openOuBiao.jsp · openRiBiao=/erp/qc/phyreport/openRiBiao.jsp · openSorderBiao=/erp/qc/phyreport/openSorderBiao.jsp · openDemandBiao=/erp/qc/phyreport/openDemandBiao.jsp · show=/erp/qc/phyreport/show.jsp · showMeiBiao=/erp/qc/phyreport/showMeiBiao.jsp · showOuBiao=/erp/qc/phyreport/showOuBiao.jsp · showRiBiao=/erp/qc/phyreport/showRiBiao.jsp · showSorderBiao=/erp/qc/phyreport/showSorderBiao.jsp · showDemandBiao=/erp/qc/phyreport/showDemandBiao.jsp · externalReport=/erp/qc/phyreport/externalReport.jsp · externalReportCnEn=/erp/qc/phyreport/externalReportCnEn.jsp · externalReportEn=/erp/qc/phyreport/externalReportEn.jsp · interiorReport=/erp/qc/phyreport/interiorReport.jsp · externalBilingualReport=/erp/qc/phyreport/externalBilingualReport.jsp · externalEnglishReport=/erp/qc/phyreport/externalEnglishReport.jsp · inspectList=/erp/qc/phyreport/inspectList.jsp · externalSorderBilingual=/erp/qc/phyreport/externalSorderBilingual.jsp · externalSorderEnglish=/erp/qc/phyreport/externalSorderEnglish.jsp · externalDemandBilingual=/erp/qc/phyreport/externalDemandBilingual.jsp · externalDemandEnglish=/erp/qc/phyreport/externalDemandEnglish.jsp · openLinkMorderInfo=/erp/qc/phyreport/openLinkMorderInfo.jsp · openCheckLabelReshape=/erp/qc/phyreport/openCheckLabelReshape.jsp
+- `/qc/phyreportComposition_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportCompositionAction
+  - 后端：src/com/maxtile/application/erp/qc/action/PhyreportCompositionAction.java
+- `/qc/phyreportScanLog_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportScanLogAction
+  - 后端：src/com/maxtile/application/erp/qc/action/PhyreportScanLogAction.java
+  - 前端 result→jsp：list=/erp/qc/phyreportscanlog/list.jsp
+- `/qc/phyreportSorder_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportSorderAction
+  - 后端：src/com/maxtile/application/erp/qc/action/PhyreportSorderAction.java
+- `/qc/production_<method>.action`  →  com.maxtile.application.erp.qc.action.ProductionAction
+  - 后端：src/com/maxtile/application/erp/qc/action/ProductionAction.java
+  - 前端 result→jsp：list=/erp/qc/production/list.jsp
+- `/qc/qcbacktype_<method>.action`  →  com.maxtile.application.erp.qc.action.QcbacktypeAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcbacktypeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/qc/qcbacktype/list.jsp · show=/erp/qc/qcbacktype/show.jsp · add=/erp/qc/qcbacktype/add.jsp · div_list=/erp/qc/qcbacktype/div_list.jsp
+- `/qc/qccheck_<method>.action`  →  com.maxtile.application.erp.qc.action.QccheckAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QccheckAction.java
+  - 前端 result→jsp：list=/erp/qc/qccheck/list.jsp · scoreShow=/erp/qc/qccheck/scoreShow.jsp · noScoreShow=/erp/qc/qccheck/noScoreShow.jsp · error=/public/head/error.jsp
+- `/qc/qccheckvalue_<method>.action`  →  com.maxtile.application.erp.qc.action.QccheckvalueAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QccheckvalueAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/qc/qcdeduct_<method>.action`  →  com.maxtile.application.erp.qc.action.QcdeductAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcdeductAction.java
+  - 前端 result→jsp：list=/erp/qc/qcdeduct/list.jsp · show=/erp/qc/qcdeduct/show.jsp · manualShow=/erp/qc/qcdeduct/manualShow.jsp · print=/erp/qc/qcdeduct/print.jsp · patchPrint=/erp/qc/qcdeduct/patchPrint.jsp · custBackPrint=/erp/qc/qcdeduct/custBackPrint.jsp · allPrint=/erp/qc/qcdeduct/allPrint.jsp · error=/public/head/error.jsp · tqcQualLossRateList=/erp/qc/qcdeduct/tqcQualLossRateList.jsp · batchAllPrint=/erp/qc/qcdeduct/batchAllPrint.jsp · batchPatchPrint=/erp/qc/qcdeduct/batchPatchPrint.jsp · batchPrint=/erp/qc/qcdeduct/batchPrint.jsp · discardShow=/erp/qc/qcdeduct/discardShow.jsp · discardPrint=/erp/qc/qcdeduct/discardPrint.jsp · batchDiscardPrint=/erp/qc/qcdeduct/batchDiscardPrint.jsp
+- `/qc/qcdeductitem_<method>.action`  →  com.maxtile.application.erp.qc.action.QcdeductitemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcdeductitemAction.java
+  - 前端 result→jsp：update=/erp/qc/qcdeductitem/updateMsg.jsp · manualUpdate=/erp/qc/qcdeductitem/manualUpdate.jsp · openList=/erp/qc/qcdeductitem/addList.jsp · error=/public/head/error.jsp
+- `/qc/qcdeductitemma_<method>.action`  →  com.maxtile.application.erp.qc.action.QcdeductitemmaAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcdeductitemmaAction.java
+  - 前端 result→jsp：listQcdeductMa=/erp/qc/qcdeductitemma/listQcdeductMa.jsp · error=/public/head/error.jsp
+- `/qc/qcfactoryout_<method>.action`  →  com.maxtile.application.erp.qc.action.QcfactoryoutAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcfactoryoutAction.java
+- `/qc/qcmainfo_<method>.action`  →  com.maxtile.application.erp.qc.action.QcmainfoAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcmainfoAction.java
+  - 前端 result→jsp：list=/erp/qc/qcreport/list.jsp · error=/public/head/error.jsp
+- `/qc/qcmap_<method>.action`  →  com.maxtile.application.erp.qc.action.QcmapAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcmapAction.java
+  - 前端 result→jsp：list=/erp/qc/qcmapsupplier/list.jsp · show=/erp/qc/qcmapsupplier/show.jsp
+- `/qc/qcorder_<method>.action`  →  com.maxtile.application.erp.qc.action.QcorderAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcorderAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/qc/qcorder/list.jsp · open=/erp/qc/qcorder/add.jsp · show=/erp/qc/qcorder/show.jsp · updateMsg=/erp/qc/qcorder/updateMsg.jsp · checkShow=/erp/qc/qcorder/checkShow.jsp · listAndItem=/erp/qc/qcorder/listAndItem.jsp · showSdeduct=/erp/qc/qcorder/showSdeduct.jsp · openUpdateCurrency=/erp/qc/qcorder/openUpdateCurrency.jsp · showDiscard=/erp/qc/qcorder/showDiscard.jsp · discardPrint=/erp/qc/qcorder/discardPrint.jsp · inspectList=/erp/qc/qcorder/inspectList.jsp
+- `/qc/qcorderitem_<method>.action`  →  com.maxtile.application.erp.qc.action.QcorderitemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcorderitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addItemFromStock=/erp/qc/qcorderitem/addItemFromStock.jsp · openList=/erp/qc/qcorderitem/addList.jsp · list=/erp/qc/qcorderitem/list.jsp · addMorderitem=/erp/qc/qcorderitem/addMorderitem.jsp · openUpdate=/erp/qc/qcorderitem/update.jsp · openUpdateSum=/erp/qc/qcorderitem/updateSum.jsp · openUpdateBatchno=/erp/qc/qcorderitem/updateBatchno.jsp · factoryReturnCountBySup=/erp/qc/qcorderitem/factoryReturnCountBySup.jsp · factoryReturnCountByPro=/erp/qc/qcorderitem/factoryReturnCountByPro.jsp · updateDiscardData=/erp/qc/qcorderitem/updateDiscardData.jsp · listFactoryReturnPro=/erp/qc/qcorderitem/listFactoryReturnPro.jsp · listFactoryReturnSup=/erp/qc/qcorderitem/listFactoryReturnSup.jsp · listBacktypeForSup=/erp/qc/qcorderitem/listBacktypeForSup.jsp · listBacktypeForSupPro=/erp/qc/qcorderitem/listBacktypeForSupPro.jsp · qcbackTypeCount=/erp/qc/qcorderitem/qcbackTypeCount.jsp · qcbackTypeCountBySup=/erp/qc/qcorderitem/qcbackTypeCountBySup.jsp · qcbackTypeCountByPro=/erp/qc/qcorderitem/qcbackTypeCountByPro.jsp · listToFactory=/erp/qc/qcorderitem/listToFactory.jsp · returnCountToFactoryByPro=/erp/qc/qcorderitem/returnCountToFactoryByPro.jsp · factoryReturnCountNew=/erp/qc/qcorderitem/factoryReturnCountNew.jsp · listBacktypeForSupNew=/erp/qc/qcorderitem/listBacktypeForSupNew.jsp · listFactoryReturnSupNew=/erp/qc/qcorderitem/listFactoryReturnSupNew.jsp · listBacktypeForSupProNew=/erp/qc/qcorderitem/listBacktypeForSupProNew.jsp · qcbackTypeCountBySupNew=/erp/qc/qcorderitem/qcbackTypeCountBySupNew.jsp · qcbackTypeCountByProNew=/erp/qc/qcorderitem/qcbackTypeCountByProNew.jsp · financeqcorderitemReturnTrackList=/erp/qc/qcorderitem/financeqcorderitemReturnTrackList.jsp · inspectList=/erp/qc/qcorderitem/inspectList.jsp · tqcCustReturnList=/erp/qc/qcorderitem/tqcCustReturnList.jsp · tqcWoDefectList=/erp/qc/qcorderitem/tqcWoDefectList.jsp · wfactoryReturnCount=/erp/qc/qcorderitem/wfactoryReturnCount.jsp · listBacktypeForWsup=/erp/qc/qcorderitem/listBacktypeForWsup.jsp · listWfactoryReturnSup=/erp/qc/qcorderitem/listWfactoryReturnSup.jsp · qcbackTypeCountByWSup=/erp/qc/qcorderitem/qcbackTypeCountByWSup.jsp · wQcbackTypeCountByPro=/erp/qc/qcorderitem/wQcbackTypeCountByPro.jsp · yarnList=/erp/qc/qcorderitem/yarnList.jsp · woList=/erp/qc/qcorderitem/woList.jsp · moList=/erp/qc/qcorderitem/moList.jsp · externalProcurementList=/erp/qc/qcorderitem/externalProcurementList.jsp · uploadCompletion=/erp/qc/qcorderitem/uploadCompletion.jsp
+- `/qc/qcorderitemma_<method>.action`  →  com.maxtile.application.erp.qc.action.QcorderitemmaAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcorderitemmaAction.java
+  - 前端 result→jsp：div_list=/erp/qc/qcorderitemma/div_list.jsp · error=/public/head/error.jsp
+- `/qc/qcorderitemtype_<method>.action`  →  com.maxtile.application.erp.qc.action.QcorderitemtypeAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcorderitemtypeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openList=/erp/qc/qcorderitemtype/addList.jsp · list=/erp/qc/qcorderitemtype/list.jsp
+- `/qc/qcperson_<method>.action`  →  com.maxtile.application.erp.qc.action.QcpersonAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcpersonAction.java
+  - 前端 result→jsp：openList=/erp/qc/qcperson/addList.jsp · div_list=/erp/qc/qcperson/div_list.jsp · list=/erp/qc/qcperson/list.jsp · checkShow=/erp/qc/qcperson/checkShow.jsp · priceShow=/erp/qc/qcperson/priceShow.jsp · mergeShow=/erp/qc/qcperson/mergeShow.jsp · checkList=/erp/qc/qcperson/checkList.jsp · qcdeductAddList=/erp/qc/qcperson/qcdeductAddList.jsp · show=/erp/qc/qcperson/show.jsp · error=/public/head/error.jsp · productionQcItemList=/erp/qc/qcperson/productionQcItemList.jsp
+- `/qc/qcreport_<method>.action`  →  com.maxtile.application.erp.qc.action.QcreportAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcreportAction.java
+  - 前端 result→jsp：list=/erp/qc/qcreport/list.jsp · div_listForQcreport=/erp/qc/qcreport/div_listForQcreport.jsp · div_listForQcorder=/erp/qc/qcreport/div_listForQcorder.jsp · show=/erp/qc/qcreport/show.jsp · showFS=/erp/qc/qcreport/showFS.jsp · phyAndQCList=/erp/qc/qcreport/phyAndQCList.jsp · qualityProblem=/erp/qc/qcreport/qualityProblem.jsp · qualityProblemByProduct=/erp/qc/qcreport/qualityProblemByProduct.jsp · qualityProblemStatistics=/erp/qc/qcreport/qualityProblemStatistics.jsp · qcQueryAchievements=/erp/qc/achievements/list.jsp · qcQueryAchievementsTeam=/erp/qc/achievements/teamList.jsp · error=/public/head/error.jsp · mreUnCheckCount=/erp/qc/qcreport/mreUnCheckCount.jsp · qcreportCountList=/erp/qc/qcreport/qcreportCountList.jsp · qcreportCountItemList=/erp/qc/qcreport/qcreportCountItemList.jsp · qcreportCountItemList2=/erp/qc/qcreport/qcreportCountItemList2.jsp · qcreportCountItemList2Print=/erp/qc/qcreport/qcreportCountItemList2Print.jsp · qcreportQcturncardResultCount=/erp/qc/qcreport/qcreportQcturncardResultCount.jsp · inspectList=/erp/qc/qcreport/inspectList.jsp · reportInputList=/erp/qc/qcreport/reportInputList.jsp
+- `/qc/qcreportimage_<method>.action`  →  com.maxtile.application.erp.qc.action.QcreportimageAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcreportimageAction.java
+- `/qc/qcreportitem_<method>.action`  →  com.maxtile.application.erp.qc.action.QcreportitemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcreportitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/qc/qcSignFor_<method>.action`  →  com.maxtile.application.erp.qc.action.QcSignForAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcSignForAction.java
+- `/qc/qctasks_<method>.action`  →  com.maxtile.application.erp.qc.action.QctasksAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QctasksAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/qc/qctasks/show.jsp
+- `/qc/qctasksitem_<method>.action`  →  com.maxtile.application.erp.qc.action.QctasksitemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QctasksitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · workbenchQctasksBoardList=/erp/qc/qctasksitem/workbenchQctasksBoardList.jsp
+- `/qc/qctasksitemma_<method>.action`  →  com.maxtile.application.erp.qc.action.QctasksitemmaAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QctasksitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_list=/erp/qc/qctasksitemma/div_list.jsp
+- `/qc/qcturncard_<method>.action`  →  com.maxtile.application.erp.qc.action.QcturncardAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcturncardAction.java
+  - 前端 result→jsp：qcResultList=/erp/qc/qcturncard/qcResultList.jsp · qcResultListTwo=/erp/qc/qcturncard/qcResultListTwo.jsp · qaResultList=/erp/qc/qcturncard/qaResultList.jsp · qcQaResultCount=/erp/qc/qcturncard/qcQaResultCount.jsp · inspectList=/erp/qc/qcturncard/inspectList.jsp · spotCheckErrorList=/erp/qc/qcturncard/spotCheckErrorList.jsp
+- `/qc/qcturncardimage_<method>.action`  →  com.maxtile.application.erp.qc.action.QcturncardimageAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcturncardimageAction.java
+- `/qc/qcturncarditem_<method>.action`  →  com.maxtile.application.erp.qc.action.QcturncarditemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcturncarditemAction.java
+- `/qc/qcturncardphyreport_<method>.action`  →  com.maxtile.application.erp.qc.action.QcturncardphyreportAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcturncardphyreportAction.java
+- `/qc/qcturncardqcreport_<method>.action`  →  com.maxtile.application.erp.qc.action.QcturncardqcreportAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QcturncardqcreportAction.java
+- `/qc/qctype_<method>.action`  →  com.maxtile.application.erp.qc.action.QctypeAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QctypeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/qc/qctype/list.jsp · show=/erp/qc/qctype/show.jsp
+- `/qc/qualityCoord_<method>.action`  →  com.maxtile.application.erp.qc.action.QualityCoordAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QualityCoordAction.java
+  - 前端 result→jsp：dyeingsTabQuality=/erp/qc/qualityCoord/dyeingsTabQuality.jsp · dyeingsTabQualityPrint=/erp/qc/qualityCoord/dyeingsTabQualityPrint.jsp · show=/erp/qc/qualityCoord/show.jsp · open=/erp/qc/qualityCoord/add.jsp
+- `/qc/qualitySynQueryApp_<method>.action`  →  (bean: qualitySynQueryAppAction 未解析)
+- `/qc/qualityTask_<method>.action`  →  com.maxtile.application.erp.qc.action.QualityTaskAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QualityTaskAction.java
+  - 前端 result→jsp：list=/erp/qc/qualityTask/list.jsp · add=/erp/qc/qualityTask/add.jsp · show=/erp/qc/qualityTask/show.jsp · followUpList=/erp/qc/qualityTask/followUpList.jsp
+- `/qc/qualityType_<method>.action`  →  com.maxtile.application.erp.qc.action.QualityTypeAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QualityTypeAction.java
+  - 前端 result→jsp：list=/erp/qc/qualityType/list.jsp · show=/erp/qc/qualityType/show.jsp
+- `/qc/qualityTypeResp_<method>.action`  →  com.maxtile.application.erp.qc.action.QualityTypeRespAction
+  - 后端：src/com/maxtile/application/erp/qc/action/QualityTypeRespAction.java
+- `/qc/wqcreporitem_<method>.action`  →  com.maxtile.application.erp.qc.action.WqcreporitemAction
+  - 后端：src/com/maxtile/application/erp/qc/action/WqcreporitemAction.java
+- `/qc/wqcreporitemma_<method>.action`  →  com.maxtile.application.erp.qc.action.WqcreporitemmaAction
+  - 后端：src/com/maxtile/application/erp/qc/action/WqcreporitemmaAction.java
+- `/qc/wqcreport_<method>.action`  →  com.maxtile.application.erp.qc.action.WqcreportAction
+  - 后端：src/com/maxtile/application/erp/qc/action/WqcreportAction.java
+  - 前端 result→jsp：inspectList=/erp/qc/wqcreport/inspectList.jsp · list=/erp/qc/wqcreport/list.jsp · totalList=/erp/qc/wqcreport/totalList.jsp
+- `/qc/wqcreportimage_<method>.action`  →  com.maxtile.application.erp.qc.action.WqcreportimageAction
+  - 后端：src/com/maxtile/application/erp/qc/action/WqcreportimageAction.java
+
+## /sale  ·  src/config/struts/struts-sale.xml
+
+- `/sale/aiOrder_<method>.action`  →  com.maxtile.application.erp.sale.action.AiOrderAction
+  - 后端：src/com/maxtile/application/erp/sale/action/AiOrderAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/aiorder/list.jsp · show=/erp/sale/aiorder/show.jsp
+- `/sale/assistantRemind_<method>.action`  →  com.maxtile.application.erp.sale.action.AssistantRemindAction
+  - 后端：src/com/maxtile/application/erp/sale/action/AssistantRemindAction.java
+  - 前端 result→jsp：list=/erp/sale/SaleCommission/assistantremind/list.jsp · listHis=/erp/sale/SaleCommission/assistantremind/listHis.jsp · show=/erp/sale/SaleCommission/assistantremind/show.jsp · open=/erp/sale/SaleCommission/assistantremind/add.jsp
+- `/sale/baseprice_<method>.action`  →  com.maxtile.application.erp.sale.action.BasepriceAction
+  - 后端：src/com/maxtile/application/erp/sale/action/BasepriceAction.java
+  - 前端 result→jsp：show=/erp/sale/baseprice/show.jsp
+- `/sale/basepriceitem_<method>.action`  →  com.maxtile.application.erp.sale.action.BasepriceitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/BasepriceitemAction.java
+- `/sale/bpricauth_<method>.action`  →  com.maxtile.application.erp.sale.action.BpricauthAction
+  - 后端：src/com/maxtile/application/erp/sale/action/BpricauthAction.java
+- `/sale/bpricecfg_<method>.action`  →  com.maxtile.application.erp.sale.action.BpricecfgAction
+  - 后端：src/com/maxtile/application/erp/sale/action/BpricecfgAction.java
+- `/sale/coloring_<method>.action`  →  com.maxtile.application.erp.sale.action.ColoringAction
+  - 后端：src/com/maxtile/application/erp/sale/action/ColoringAction.java
+  - 前端 result→jsp：list=/erp/sale/coloring/list.jsp · open=/erp/sale/coloring/open.jsp · show=/erp/sale/coloring/show.jsp · print=/erp/sale/coloring/print.jsp · listBySorderitem=/erp/sale/coloring/listBySorderitem.jsp · orderColoringProgressDashboard=/erp/sale/coloring/orderColoringProgressDashboard.jsp
+- `/sale/crockcost_<method>.action`  →  com.maxtile.application.erp.sale.action.CrockcostAction
+  - 后端：src/com/maxtile/application/erp/sale/action/CrockcostAction.java
+  - 前端 result→jsp：list=/erp/sale/crockcost/list.jsp · show=/erp/sale/crockcost/show.jsp
+- `/sale/cusScaleLog_<method>.action`  →  com.maxtile.application.erp.sale.action.CusScaleLogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/CusScaleLogAction.java
+  - 前端 result→jsp：list=/erp/sale/SaleCommission/commissionlifting/halfYearLifting.jsp
+- `/sale/custDiscount_<method>.action`  →  com.maxtile.application.erp.sale.action.CustDiscountAction
+  - 后端：src/com/maxtile/application/erp/sale/action/CustDiscountAction.java
+  - 前端 result→jsp：list=/erp/sale/custDiscount/list.jsp · show=/erp/sale/custDiscount/show.jsp · error=/public/head/error.jsp
+- `/sale/cusVciBlacklist_<method>.action`  →  com.maxtile.application.erp.sale.action.CusVciBlacklistAction
+  - 后端：src/com/maxtile/application/erp/sale/action/CusVciBlacklistAction.java
+- `/sale/cusVciWhitelist_<method>.action`  →  com.maxtile.application.erp.sale.action.CusVciWhitelistAction
+  - 后端：src/com/maxtile/application/erp/sale/action/CusVciWhitelistAction.java
+- `/sale/discountRemind_<method>.action`  →  com.maxtile.application.erp.sale.action.DiscountRemindAction
+  - 后端：src/com/maxtile/application/erp/sale/action/DiscountRemindAction.java
+  - 前端 result→jsp：list=/erp/sale/SaleCommission/discountremind/list.jsp · show=/erp/sale/SaleCommission/discountremind/show.jsp · open=/erp/sale/SaleCommission/discountremind/add.jsp · itemList=/erp/sale/SaleCommission/discountremind/itemList.jsp · itemColorList=/erp/sale/SaleCommission/discountremind/itemColorList.jsp
+- `/sale/exceptionEvent_<method>.action`  →  com.maxtile.application.erp.sale.action.ExceptionEventAction
+  - 后端：src/com/maxtile/application/erp/sale/action/ExceptionEventAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/exceptionevent/list.jsp
+- `/sale/fbatchconf_<method>.action`  →  com.maxtile.application.erp.sale.action.FbatchconfAction
+  - 后端：src/com/maxtile/application/erp/sale/action/FbatchconfAction.java
+  - 前端 result→jsp：list=/erp/sale/custorder/fbatchconfList.jsp
+- `/sale/foreignOrder_<method>.action`  →  com.maxtile.application.erp.finance.action.ForeignOrderDashboardAction
+  - 后端：src/com/maxtile/application/erp/finance/action/ForeignOrderDashboardAction.java
+  - 前端 result→jsp：list=/erp/sale/foreignOrder/list.jsp
+- `/sale/ldconflog_<method>.action`  →  com.maxtile.application.erp.sale.action.LdconflogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/LdconflogAction.java
+  - 前端 result→jsp：listBySorderitem=/erp/sale/ldconflog/listBySorderitem.jsp
+- `/sale/ldProgressLog_<method>.action`  →  com.maxtile.application.erp.sale.action.LdProgressLogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/LdProgressLogAction.java
+- `/sale/nbasepriceitem_<method>.action`  →  com.maxtile.application.erp.sale.action.NbasepriceitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/NbasepriceitemAction.java
+  - 前端 result→jsp：addItemForDevp=/erp/sale/basepriceitem/addItemForDevp.jsp
+- `/sale/norder_<method>.action`  →  com.maxtile.application.erp.sale.action.NorderAction
+  - 后端：src/com/maxtile/application/erp/sale/action/NorderAction.java
+- `/sale/norderitem_<method>.action`  →  com.maxtile.application.erp.sale.action.NorderitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/NorderitemAction.java
+- `/sale/notpasssku_<method>.action`  →  com.maxtile.application.erp.sale.action.NotpassskuAction
+  - 后端：src/com/maxtile/application/erp/sale/action/NotpassskuAction.java
+- `/sale/notpassskuitem_<method>.action`  →  com.maxtile.application.erp.sale.action.NotpassskuitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/NotpassskuitemAction.java
+- `/sale/oqmakerprice_<method>.action`  →  com.maxtile.application.erp.sale.action.OqmakerpriceAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OqmakerpriceAction.java
+  - 前端 result→jsp：show=/erp/sale/oqmakerprice/show.jsp
+- `/sale/oqmakerpriceitem_<method>.action`  →  com.maxtile.application.erp.sale.action.OqmakerpriceitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OqmakerpriceitemAction.java
+- `/sale/orderApprove_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderApproveAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderApproveAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/sale/orderapprove/show.jsp · dyeingsTabApprove=/erp/sale/orderapprove/dyeingsTabApprove.jsp
+- `/sale/ordercontract_<method>.action`  →  com.maxtile.application.erp.sale.action.OrdercontractAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrdercontractAction.java
+  - 前端 result→jsp：list=/erp/sale/ordercontract/list.jsp · show=/erp/sale/ordercontract/show.jsp · addOneCustSorderShow=/erp/sale/ordercontract/addOneCustSorderShow.jsp · openReturnDeposits=/erp/sale/ordercontract/openReturnDeposits.jsp · orcDepositsList=/erp/sale/ordercontract/orcDepositsList.jsp
+- `/sale/ordercontractattr_<method>.action`  →  com.maxtile.application.erp.sale.action.OrdercontractattrAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrdercontractattrAction.java
+- `/sale/ordercontractitem_<method>.action`  →  com.maxtile.application.erp.sale.action.OrdercontractitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrdercontractitemAction.java
+  - 前端 result→jsp：itemList=/erp/sale/ordercontract/itemList.jsp
+- `/sale/ordercontracttest_<method>.action`  →  com.maxtile.application.erp.sale.action.OrdercontracttestAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrdercontracttestAction.java
+  - 前端 result→jsp：addSorderDetindexList=/erp/sale/ordercontract/addSorderDetindexList.jsp
+- `/sale/orderother_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderotherAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderotherAction.java
+- `/sale/orderquote_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderquoteAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderquoteAction.java
+  - 前端 result→jsp：list=/erp/sale/orderquote/list.jsp · open=/erp/sale/orderquote/open.jsp · show=/erp/sale/orderquote/show.jsp · printItem=/erp/sale/orderquote/printItem.jsp · Print=/erp/sale/orderquote/Print.jsp
+- `/sale/orderquotecfg_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderquotecfgAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderquotecfgAction.java
+- `/sale/orderquoteNotice_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderquoteNoticeAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderquoteNoticeAction.java
+- `/sale/orderScheduling_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderSchedulingAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderSchedulingAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/sale/orderScheduling/show.jsp · conditionShow=/erp/sale/orderScheduling/conditionShow.jsp · addSorderDetindexList=/erp/sale/orderScheduling/addSorderDetindexList.jsp
+- `/sale/orderSchedulingItem_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderSchedulingItemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderSchedulingItemAction.java
+  - 前端 result→jsp：updateProcessList=/erp/sale/orderSchedulingitem/updateProcessList.jsp · updateProductList=/erp/sale/orderSchedulingitem/updateProductList.jsp
+- `/sale/orderSchedulingItemProcess_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderSchedulingItemProcessAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderSchedulingItemProcessAction.java
+- `/sale/orderSchedulingItemProduct_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderSchedulingItemProductAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderSchedulingItemProductAction.java
+- `/sale/orderstage_<method>.action`  →  com.maxtile.application.erp.sale.action.OrderstageAction
+  - 后端：src/com/maxtile/application/erp/sale/action/OrderstageAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/sale/Orderstage/show.jsp · readonlyShow=/erp/sale/Orderstage/readonlyShow.jsp · selectEmp=/erp/sale/Orderstage/selectEmp.jsp
+- `/sale/rateUpdownRule_<method>.action`  →  com.maxtile.application.erp.sale.action.RateUpdownRuleAction
+  - 后端：src/com/maxtile/application/erp/sale/action/RateUpdownRuleAction.java
+  - 前端 result→jsp：list=/erp/sale/SaleCommission/commissionlifting/list.jsp · show=/erp/sale/SaleCommission/commissionlifting/show.jsp
+- `/sale/salebate_<method>.action`  →  com.maxtile.application.erp.sale.action.SalebateAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalebateAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/salebate/list.jsp · show=/erp/sale/salebate/show.jsp · applyList=/erp/sale/salebate/applyList.jsp · applyPick=/erp/sale/salebate/applyPick.jsp · applyOrderDetail=/erp/sale/salebate/applyOrderDetail.jsp
+- `/sale/salebateitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SalebateitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalebateitemAction.java
+- `/sale/salecommission_<method>.action`  →  com.maxtile.application.erp.sale.action.SalederCommissionAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalederCommissionAction.java
+  - 前端 result→jsp：CommissionCusActRecItem=/erp/sale/SaleCommission/CommissionCusActRecItem.jsp · SalerCommissionRecCusPecShow=/erp/sale/SaleCommission/commissionreccuspec/show.jsp · SalerCommissionRewardProdShow=/erp/sale/SaleCommission/commissionrewardprod/show.jsp · SalerCommissionRewardProdUpdate=/erp/sale/SaleCommission/commissionrewardprod/add.jsp · SalerCommissionOutCusSalerList=/erp/sale/SaleCommission/commissionoutcussaler/list.jsp · SalerCommissionOutCusSalerShow=/erp/sale/SaleCommission/commissionoutcussaler/show.jsp
+- `/sale/salepaytask_<method>.action`  →  com.maxtile.application.erp.sale.action.SalepaytaskAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalepaytaskAction.java
+- `/sale/saleproblacklist_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.SaleproblacklistAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/SaleproblacklistAction.java
+  - 前端 result→jsp：list=/erp/sale/baseConfig/salesBlacklist/list.jsp · show=/erp/sale/baseConfig/salesBlacklist/show.jsp · error=/public/head/error.jsp
+- `/sale/saleReceipt_<method>.action`  →  com.maxtile.application.erp.sale.action.SaleReceiptAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SaleReceiptAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/saleReceipt/list.jsp · show=/erp/sale/saleReceipt/show.jsp · print=/erp/sale/saleReceipt/print.jsp · addListFmSissue=saleReceipt_show.action?obj.id=${obj.id}
+- `/sale/saleReceiptItem_<method>.action`  →  com.maxtile.application.erp.sale.action.SaleReceiptItemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SaleReceiptItemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/sale/salerTarget_<method>.action`  →  com.maxtile.application.erp.sale.action.SalerTargetAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalerTargetAction.java
+- `/sale/salesCorrelation_<method>.action`  →  com.maxtile.application.erp.sale.action.SalesCorrelationAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalesCorrelationAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · salesCorrelationList=/erp/sale/correlation/salesCorrelationList.jsp
+- `/sale/salesplan_<method>.action`  →  com.maxtile.application.erp.sale.action.SalesplanAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalesplanAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/salesplan/list.jsp · open=/erp/sale/salesplan/show.jsp · show=/erp/sale/salesplan/show.jsp · salerShow=/erp/sale/salesplan/salerShow.jsp · comOpen=/erp/sale/salesplan/comShow.jsp · deptAllOpen=/erp/sale/salesplan/deptAllShow.jsp · salerAllOpen=/erp/sale/salesplan/salerAllShow.jsp · deptMonthOpen=/erp/sale/salesplan/deptMonthShow.jsp · salerMonthOpen=/erp/sale/salesplan/salerMonthShow.jsp · deptOpen=/erp/sale/salesplan/deptShow.jsp · salerOpen=/erp/sale/salesplan/salerShow.jsp
+- `/sale/sback_<method>.action`  →  com.maxtile.application.erp.sale.action.SbackAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SbackAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sback/list.jsp · show=/erp/sale/sback/show.jsp · open=/erp/sale/sback/add.jsp · print=/erp/sale/sback/print.jsp · updateQcOption=/erp/sale/sback/updateQcoption.jsp · updateMaker=/erp/sale/sback/updateMaker.jsp
+- `/sale/sbackImage_<method>.action`  →  com.maxtile.application.erp.sale.action.SbackImageAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SbackImageAction.java
+- `/sale/sbackitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SbackitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SbackitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_sbiAdd=/erp/sale/sbackitem/div_sbackItemAdd.jsp · div_storeinSbackList=/erp/sale/sbackitem/div_storeinSbackList.jsp · div_listForStii=/erp/sale/sbackitem/div_listForStii.jsp
+- `/sale/sbackitemdeduct_<method>.action`  →  com.maxtile.application.erp.sale.action.SbackitemdeductAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SbackitemdeductAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addDeductTypeList=/erp/sale/sbackitemdeduct/addDeductTypeList.jsp · sdeductAddList=/erp/sale/sbackitemdeduct/sdeductAddList.jsp
+- `/sale/sbackitemma_<method>.action`  →  com.maxtile.application.erp.sale.action.SbackitemmaAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SbackitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/sale/sbackItemResper_<method>.action`  →  com.maxtile.application.erp.sale.action.SbackItemResperAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SbackItemResperAction.java
+- `/sale/sdeduct_<method>.action`  →  com.maxtile.application.erp.sale.action.SdeductAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SdeductAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sdeduct/list.jsp · open=/erp/sale/sdeduct/add.jsp · show=/erp/sale/sdeduct/show.jsp · openDeduct=/erp/sale/sdeduct/deductAdd.jsp · deductShow=/erp/sale/sdeduct/deductShow.jsp · div_list=/erp/sale/sdeduct/div_list.jsp · print=/erp/sale/sdeduct/print.jsp
+- `/sale/sdeductitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SdeductitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SdeductitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_sdiAdd=/erp/sale/sdeductitem/div_sdiAdd.jsp · div_sdeductItemAdd=/erp/sale/sdeductitem/div_sdeductitemAdd.jsp · div_sdeductitemAddList=/erp/sale/sdeductitem/div_sdeductitemAddList.jsp
+- `/sale/sideposits_<method>.action`  →  com.maxtile.application.erp.sale.action.SidepositsAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SidepositsAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_list=/erp/sale/sideposits/div_list.jsp
+- `/sale/sipricelog_<method>.action`  →  com.maxtile.application.erp.sale.action.SipricelogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SipricelogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/sale/sipricelog/add.jsp · list=/erp/sale/sipricelog/list.jsp · show=/erp/sale/sipricelog/show.jsp · showList=/erp/sale/sipricelog/showList.jsp · addFromSissue=sipricelog_show.action?obj.id=${obj.id}
+- `/sale/sipricelogfile_<method>.action`  →  com.maxtile.application.erp.sale.action.SipricelogfileAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SipricelogfileAction.java
+  - 前端 result→jsp：showList=/erp/sale/sipricelogfile/showList.jsp
+- `/sale/sipricelogitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SipricelogitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SipricelogitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listRightSipricelog=/erp/sale/sipricelogitem/listRightSipricelog.jsp · sipriceLogStatistics=/erp/sale/sipricelogitem/sipriceLogStatistics.jsp
+- `/sale/sipricelogma_<method>.action`  →  com.maxtile.application.erp.sale.action.SipricelogmaAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SipricelogmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openUpdateSipriceMaQty=/erp/sale/sipricelogma/openUpdateSipriceMaQty.jsp
+- `/sale/sissue_<method>.action`  →  com.maxtile.application.erp.sale.action.SissueAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SissueAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sissue/list.jsp · printList=/erp/sale/sissue/printList.jsp · eList=/erp/sale/sissue/eList.jsp · listMall=/erp/sale/sissue/list_mall.jsp · listRight=/erp/sale/sissue/listRight.jsp · listRightForSample=/erp/sale/sissue/listRightForSample.jsp · listRightForTemp=/erp/sale/sissue/listRightForTemp.jsp · listforStoi=/erp/sale/sissue/listforStoi.jsp · div_list=/erp/sale/sissue/div_list.jsp · show=/erp/sale/sissue/show.jsp · sampleShow=/erp/sale/sissue/sampleShow.jsp · open=/erp/sale/sissue/add.jsp · addFromTaskList=sissue_show.action?obj.id=${obj.id} · addSample=/erp/sale/sissue/addSample.jsp · prePrint=/erp/sale/sissue/prePrint.jsp · newSissue=/erp/sale/sissue/newSissue.jsp · newClearSissue=/erp/sale/sissue/newClearSissue.jsp · tempAdd=/erp/sale/sissue/tempAdd.jsp · tempShow=/erp/sale/sissue/tempShow.jsp · saleMonitor=/erp/sale/sissue/saleMonitor.jsp · takegoods=/erp/sale/sissue/takeGoods.jsp · newtakegoods=/erp/sale/sissue/newTakeGoods.jsp · taxtakegoods=/erp/sale/sissue/taxTakeGoods.jsp · sampleTaxtakegoods=/erp/sale/sissue/sampleTaxtakegoods.jsp · orderTaxTakegoods=/erp/sale/sissue/orderTaxTakegoods.jsp · newtakegoodsMerge=/erp/sale/sissue/newTakeGoodsMerge.jsp · taxtakegoodsMerge=/erp/sale/sissue/taxTakeGoodsMerge.jsp · sampleTaxtakegoodsMerge=/erp/sale/sissue/sampleTaxtakegoodsMerge.jsp · factoryShipPrint=/erp/sale/sissue/factoryShipPrint.jsp · print=/erp/sale/sissue/print.jsp · printMerge=/erp/sale/sissue/printMerge.jsp · batchPrint=/erp/sale/sissue/batchPrint.jsp · fareTaxPrint=/erp/sale/sissue/fareTaxPrint.jsp · fareTaxBatchPrint=/erp/sale/sissue/fareTaxBatchPrint.jsp · samplePrefareTaxPrint=/erp/sale/sissue/samplePrefareTaxPrint.jsp · samplefareTaxPrint=/erp/sale/sissue/samplefareTaxPrint.jsp · openUpdateSampeRec=/erp/sale/sissue/openUpdateSampeRec.jsp · openUpdateMaker=/erp/sale/sissue/openUpdateMaker.jsp · openUpdateCusid=/erp/sale/sissue/openUpdateCusid.jsp · addSissueItemList=/erp/sale/sissue/addSissueItemList.jsp · addSissueItemByStock=/erp/sale/sissue/addSissueItemByStock.jsp · addSissueItemByOrderStock=/erp/sale/sissue/addSissueItemByOrderStock.jsp · orderAddSissue=/erp/sale/sissue/orderAddSissue.jsp · orderMaAddSissue=/erp/sale/sissue/orderMaAddSissue.jsp · openWaste=/erp/sale/sissue/openWaste.jsp · openSissueDate=/erp/sale/sissue/updateSissueDate.jsp · openDlvway=/erp/sale/sissue/updateDlvway.jsp · openUpdateCurrencyScale=/erp/sale/sissue/openUpdateCurrencyScale.jsp · openFinanceCheckedUpdate=/erp/sale/sissue/openFinanceCheckedUpdate.jsp · sampleItemCheckedUpdate=/erp/sale/sissue/sampleItemCheckedUpdate.jsp · openSelectCustomers=/erp/sale/sissue/openSelectCustomers.jsp · getSissueById=/erp/sale/sissue/getSissueById.jsp
+- `/sale/sissueitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SissueitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SissueitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · divForStoi=/erp/sale/sissueitem/divForStoi.jsp · statsList=/erp/sale/sissueitem/statsList.jsp · priceUpdateList=/erp/sale/sissueitem/priceUpdateList.jsp · proSaleCount=/erp/sale/sissueitem/proSaleCount.jsp · countSaleProduct=/erp/search/product/productList.jsp · countSaleProductColor=/erp/search/product/productColorList.jsp · skuProductCount=/erp/search/product/skuProductCount.jsp · skuProductColorCount=/erp/search/product/skuProductColorCount.jsp · salesStatistics=/erp/search/product/salesStatistics.jsp · countSaleProductCustomer=/erp/search/product/productCustomerCount.jsp · countSaleProductColorCustomer=/erp/search/product/productColorCustomerCount.jsp · countSaleSampleProductCustomer=/erp/search/product/sampleProductCustomerCount.jsp · countCustomerProduct=/erp/search/Sale/customerProductList.jsp · countCustomerProductColor=/erp/search/Sale/customerProductColorList.jsp · countCustomerSalesTop=/erp/search/Sale/countCustomerSalesTop.jsp · sampleSaleProductCount=/erp/search/product/sampleSaleProductCount.jsp · sampleSaleProductColorCount=/erp/search/product/sampleSaleProductColorCount.jsp · sampleEmployeeCount=/erp/search/sample/sampleEmployeeCount.jsp · sampleDepartmentCount=/erp/search/sample/sampleDepartmentCount.jsp · countSampleSaleCustomer=/erp/search/sample/countSampleSaleCustomer.jsp · sampleSalerViewProduct=/erp/search/sample/sampleSalerViewProduct.jsp · sampleCustomerCount=/erp/search/sample/sampleCustomerCount.jsp · sampleProductColorCount=/erp/search/sample/sampleProductColorCount.jsp · sampleDailyCount=/erp/search/sample/sampleDailyCount.jsp · sampleMonthCount=/erp/search/sample/sampleMonthCount.jsp · sampleTopCount=/erp/search/sample/sampleTopCount.jsp · customerCheckList=/erp/sale/sissueitem/customerCheckList.jsp · productTopList=/erp/search/product/productTopList.jsp · productColorTopList=/erp/search/product/productColorTopList.jsp · productTopAnalyzeList=/erp/search/product/productTopAnalyzeList.jsp · productTopAnalyzeOnlyQtyList=/erp/search/product/productTopAnalyzeOnlyQtyList.jsp · productColorTopAnalyzeList=/erp/search/product/productColorTopAnalyzeList.jsp · productColorTopAnalyzeOnlyQtyList=/erp/search/product/productColorTopAnalyzeOnlyQtyList.jsp · skuAutoMorderCount=/erp/search/product/skuAutoMorderCount.jsp · newSkuAutoMorderCount=/erp/search/product/newSkuAutoMorderCount.jsp · newSkuAutoMorderCountExtend=/erp/search/product/newSkuAutoMorderCountExtend.jsp · showCapacityAnalysis=/erp/search/product/showCapacityAnalysis.jsp · showCapacityAnalysisItem=/erp/search/product/showCapacityAnalysisItem.jsp · newSkuAutoMorderCountExtendTest=/erp/search/product/newSkuAutoMorderCountExtendTest.jsp · newSkuAutoMorderCountExtendTestData=/erp/search/product/newSkuAutoMorderCountExtendTestData.jsp · skuAutoOutQtypiMainLeft=/erp/search/product/skuAutoOutQtypiMainLeft.jsp · skuAutoOutQtypiMainRight=/erp/search/product/skuAutoOutQtypiMainRight.jsp · skuAutoOutQtypiMain=/erp/search/product/skuAutoOutQtypiMain.jsp · skuAutoLog=/erp/search/product/skuAutoMorderLog.jsp · showSKUStoreTurnOverRate=/erp/search/product/showSKUStoreTurnOverRate.jsp · showSkuAutoMorderAgree=/erp/search/product/skuAutoMorderAgree.jsp · showSkuAutoMorderColorAgree=/erp/search/product/skuAutoMorderColorAgree.jsp · skuDailyCount=/erp/search/product/skuDailyCount.jsp · skuAutoSaleCustomer=/erp/search/product/skuAutoSaleCustomer.jsp · newSkuAutoMorderCountExtendV3=/erp/search/product/newSkuAutoMorderCountExtendV3.jsp · newSkuAutoMorderCountExtendDataV3=/erp/search/product/newSkuAutoMorderCountExtendDataV3.jsp · showRecommendSet=/erp/baseinfo/recommend/showRecommendSet.jsp · addOrUpdateRecommendSet=/erp/baseinfo/recommend/addOrUpdateRecommendSet.jsp · openUpdateBatetotal=/erp/sale/sissueitem/batchUpdateBatetotal.jsp · openUpdateFareprice=/erp/sale/sissueitem/openUpdateFareprice.jsp · statusAnalysis=/erp/sale/sissueitem/statusAnalysis.jsp · statusAnalysis_item=/erp/sale/sissueitem/statusAnalysis_item.jsp · cuttingList=/erp/sale/sissueitem/cuttingList.jsp · chemicalPrint=/erp/sale/sissueitem/chemicalPrint.jsp · chemicalPrintSelect=/erp/sale/sissueitem/chemicalPrintSelect.jsp · procolorAnalyzeList=/erp/search/product/procolorAnalyzeList.jsp · saleChartAnalyze=/erp/search/product/saleChartAnalyze.jsp · procolorDyePriceList=/erp/search/product/procolorDyePriceList.jsp · updateBatchtotalList=/erp/sale/sissueitem/updateBatchtotalList.jsp · procolorSissueAndStoreList=/erp/search/product/procolorSissueAndStoreList.jsp · SaleScheduleShow2=/erp/search/Sale/SaleScheduleShow2.jsp · SaleScheduleShow4=/erp/search/Sale/SaleScheduleShow4.jsp · newSkuAutoMorderCountExtendTestV4=/erp/search/product/newSkuAutoMorderCountExtendTestV4.jsp · newSkuAutoMorderCountExtendTestDataV4=/erp/search/product/newSkuAutoMorderCountExtendTestDataV4.jsp · newSkuAutoMorderCountExtendDataV4=/erp/search/product/newSkuAutoMorderCountExtendDataV4.jsp
+- `/sale/sissueitemma_<method>.action`  →  com.maxtile.application.erp.sale.action.SissueitemmaAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SissueitemmaAction.java
+  - 前端 result→jsp：div_list=/erp/sale/sissueitemma/div_list.jsp · divForStoma=/erp/sale/sissueitemma/divForStoma.jsp · tempListMa=/erp/sale/sissueitemma/tempListMa.jsp · div_tempMa=/erp/sale/sissueitemma/div_tempMa.jsp · openUpdateMaQty=/erp/sale/sissueitemma/openUpdateMaQty.jsp · error=/public/head/error.jsp
+- `/sale/sissuetag_<method>.action`  →  com.maxtile.application.erp.sale.action.SissuetagAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SissuetagAction.java
+- `/sale/sitaxlog_<method>.action`  →  com.maxtile.application.erp.sale.action.SitaxlogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SitaxlogAction.java
+  - 前端 result→jsp：list=/erp/sale/sitaxlog/list.jsp · open=/erp/sale/sitaxlog/add.jsp · show=/erp/sale/sitaxlog/show.jsp
+- `/sale/sitaxlogitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SitaxlogitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SitaxlogitemAction.java
+- `/sale/skuautoBlackcus_<method>.action`  →  com.maxtile.application.erp.sale.action.SkuautoBlackcusAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SkuautoBlackcusAction.java
+- `/sale/skuautoConfig_<method>.action`  →  com.maxtile.application.erp.sale.action.SkuautoConfigAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SkuautoConfigAction.java
+  - 前端 result→jsp：show=/erp/sale/SkuautoConfig/show.jsp
+- `/sale/sodaycount_<method>.action`  →  com.maxtile.application.erp.sale.action.SodaycountAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SodaycountAction.java
+- `/sale/sodaycountitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SodaycountitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SodaycountitemAction.java
+- `/sale/sorder_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderAction.java
+  - 前端 result→jsp：test=/erp/sale/sorder/test.jsp · list=/erp/sale/sorder/list.jsp · taskList=/erp/sale/sorder/taskList.jsp · taskListForConfig=/erp/sale/sorder/taskListForConfig.jsp · sampleTaskListForConfig=/erp/sale/sorder/sampleTaskListForConfig.jsp · sortList=/erp/sale/sorder/sortList.jsp · open=/erp/sale/sorder/add.jsp · show=/erp/sale/sorder/show.jsp · show2=/erp/sale/sorder/show2.jsp · addSorder2=/erp/sale/sorder/addSorder2.jsp · taskList2=/erp/sale/sorder/taskList2.jsp · showIndent=/erp/sale/sorder/showIndent.jsp · addSorder=/erp/sale/sorder/addSorder.jsp · addSorderNew=/erp/sale/sorder/addSorderNew.jsp · addIndent=/erp/sale/sorder/addIndent.jsp · addSorderSma=<param name="namespace">/sale</param>
+				<param name="actionName">sorder_addSorderSmall?obj.typeid=${obj.typeid}</param> · addSorderSmall=/erp/sale/sorder/addSorderSmall.jsp · showTest=/erp/sale/sorder/showtest.jsp · showSmall=/erp/sale/sorder/showSmall.jsp · div_list=/erp/sale/sorder/div_list.jsp · detailList=/erp/sale/sorder/detailList.jsp · listForRepository=/erp/sale/sorder/listForRepository.jsp · listForConfiged=/erp/sale/sorder/listForConfiged.jsp · div_selectList=/erp/sale/sorder/div_selectList.jsp · div_deposits=/erp/sale/sorder/div_deposits.jsp · addSorderDept=/erp/sale/sorder/addSorderDept.jsp · querySorderReport=/erp/sale/sorder/querySorderReport.jsp · querySampleSorderReport=/erp/sale/sorder/querySampleSorderReport.jsp · openReturnDeposits=/erp/sale/sorder/openReturnDeposits.jsp · didNotPaySearch=/erp/sale/sorder/didNotPaySearch.jsp · makeUpDeposits=/erp/sale/sorder/makeUpDeposits.jsp · custlist=/erp/sale/custorder/list.jsp · addCustorder=/erp/sale/custorder/add.jsp · addCustorderitem=/erp/sale/custorder/addItem.jsp · showToCustorder=/erp/sale/custorder/addToShow.jsp · showCustorderAndAttr=/erp/sale/custorder/show.jsp · handFeelTaskListForConfig=/erp/sale/sorder/handFeelTaskListForConfig.jsp · handFeelTaskBatchPrint=/erp/sale/sorder/handFeelTaskBatchPrint.jsp · handFeelTaskLabelPrint=/erp/sale/sorder/handFeelTaskLabelPrint.jsp · showByStore=/erp/sale/sorder/updateSorderByStore.jsp · stock_list=/erp/sale/stock/stock_list.jsp · sku_list=/erp/sale/stock/sku_list.jsp · cust_list=/erp/sale/stock/cust_list.jsp · custCount_list=/erp/sale/stock/custCount_list.jsp · proAndColor_list=/erp/sale/stock/proAndColor_list.jsp · onePrint=/erp/sale/sorder/onePrint.jsp · openBatchPrint=/erp/sale/sorder/taskAutoBatchPrint.jsp · newOpenBatchPrint=/erp/sale/sorder/newTaskAutoBatchPrint.jsp · batchPrint=/erp/sale/sorder/batchPrint.jsp · autoOnePrint=/erp/sale/sorder/autoOnePrint.jsp · taskAutoPrint=/erp/sale/sorder/taskAutoBatchPrint.jsp · newTaskAutoPrint=/erp/sale/sorder/newTaskAutoBatchPrint.jsp · print=/erp/sale/sorder/print.jsp · printForRepository=/erp/sale/sorder/printForRepository.jsp · printAddQtyTag=/erp/sale/sorder/printAddQtyTag.jsp · printSorder=/erp/sale/sorder/printSorder.jsp · printSorderData=/erp/sale/sorder/printSorderData.jsp · printNewFormatQtyTag=/erp/sale/sorder/printNewFormatQtyTag.jsp · cusOrderPrint=/erp/sale/sorder/cusOrderPrint.jsp · newbatchPrint=/erp/sale/sorder/newbatchPrint.jsp · batchPrintCustname=/erp/sale/sorder/batchPrintCustname.jsp · batchPrintSissueCustname=/erp/sale/sorder/batchPrintSissueCustname.jsp · batchPrintSampleCusname=/erp/sale/sorder/batchPrintSampleCusname.jsp · printOneSampleCustomer=/erp/sale/sorder/printOneSampleCustomer.jsp · onePrintCustname=/erp/sale/sorder/onePrintCustname.jsp · samplePrint=/erp/sale/sorder/samplePrint.jsp · prePrintAddQtyTag=/erp/sale/sorder/prePrintAddQtyTag.jsp · error=/public/head/error.jsp · devOrderList=/erp/sale/devOrder/list.jsp · addDevOrder=/erp/sale/devOrder/add.jsp · devOrderShow=/erp/sale/devOrder/show.jsp · oldDevOrderShow=/erp/sale/devOrder/old_show.jsp · orderBusinessDetails=/erp/sale/sorder/orderBusinessDetails.jsp · devOrderDetails=/erp/sale/devOrder/devOrderDetails.jsp · cusDevOrderAdd=/erp/sale/devOrder/cusDevOrderAdd.jsp · cusDevOrderShow=/erp/sale/devOrder/cusDevOrderShow.jsp · bigSorderShow=/erp/sale/custBusinessOrder/show.jsp · custBusinessOrderList=/erp/sale/custBusinessOrder/list.jsp · appAddShow=/erp/sale/sorder/appAddShow.jsp · startCutTaskListForConfig=/erp/sale/sorder/startCutTaskListForConfig.jsp · startCutTaskBatchPrint=/erp/sale/sorder/startCutTaskBatchPrint.jsp · startCutTaskList=/erp/sale/sorder/startCutTaskList.jsp · startCutTaskAdd=/erp/sale/sorder/startCutTaskAdd.jsp · startCutTaskShow=/erp/sale/sorder/startCutTaskShow.jsp · changeOurprocode=/erp/sale/devOrder/changeOurprocode.jsp · sorderBillboardList=/erp/sale/sorder/sorderBillboardList.jsp · sorderBillboardListData=/erp/sale/sorder/sorderBillboardListData.jsp · soProductionBillboardList=/erp/sale/sorder/soProductionBillboardList.jsp · soProductionBillboardListData=/erp/sale/sorder/soProductionBillboardListData.jsp · sorderInteriorBillboardList=/erp/sale/sorder/sorderInteriorBillboardList.jsp · sorderBymorderMakerList=/erp/sale/sorder/sorderBymorderMakerList.jsp · sorderPlanBillboardList=/erp/sale/sorder/sorderPlanBillboardList.jsp · cusSorderInfoUpdate=/erp/sale/sorder/cusSorderInfoUpdate.jsp · applyForPermissionList=/erp/sale/sorder/applyForPermissionList.jsp · bigFeelSampleCustomerPrint=/erp/sale/sorder/bigFeelSampleCustomerPrint.jsp · addSorderFmCustOrder=/erp/sale/sorder/addSorderFmCustOrder.jsp · orderAddAPS=/erp/sale/sorder/orderAddAPS.jsp · custOrderDepositPrint=/erp/sale/custBusinessOrder/custOrderDepositPrint.jsp · custOrderShow=/erp/sale/custBusinessOrder/show/show.jsp · addCustOrderitemList=/erp/sale/custBusinessOrder/show/addCustOrderitemList.jsp · yodyLabel=/erp/sale/sorder/label/yodyLabel.jsp · canifaLabel=/erp/sale/sorder/label/canifaLabel.jsp · nauticaLabel=/erp/sale/sorder/label/nauticaLabel.jsp · domesticLabel=/erp/sale/sorder/label/domesticLabel.jsp · coolmateLabel=/erp/sale/sorder/label/coolmateLabel.jsp · 5sfashionLabel=/erp/sale/sorder/label/5sfashionLabel.jsp · hoangdungLabel=/erp/sale/sorder/label/hoangdungLabel.jsp · tokyolifeLabel=/erp/sale/sorder/label/tokyolifeLabel.jsp · addressLabel=/erp/sale/sorder/label/addressLabel.jsp · nhatphatLabel=/erp/sale/sorder/label/nhatphatLabel.jsp · wenjiaLabel=/erp/sale/sorder/label/wenjiaLabel.jsp · wenjia2Label=/erp/sale/sorder/label/wenjia2Label.jsp · peratoLabel=/erp/sale/sorder/label/peratoLabel.jsp · jaspalLabel=/erp/sale/sorder/label/jaspalLabel.jsp · jaspal_macLabel=/erp/sale/sorder/label/jaspal_macLabel.jsp · vchmLabel=/erp/sale/sorder/label/vchmLabel.jsp · vclcLabel=/erp/sale/sorder/label/vclcLabel.jsp · lufianLabel=/erp/sale/sorder/label/lufianLabel.jsp · lchzLabel=/erp/sale/sorder/label/lchzLabel.jsp · yyLabel=/erp/sale/sorder/label/yyLabel.jsp · tpnLabel=/erp/sale/sorder/label/tpnLabel.jsp · thygesen=/erp/sale/sorder/label/thygesen.jsp · thygesenHeight120=/erp/sale/sorder/label/thygesenHeight120.jsp · starLabel=/erp/sale/sorder/label/starLabel.jsp · yflLabel=/erp/sale/sorder/label/yflLabel.jsp · cottexllpLabel=/erp/sale/sorder/label/cottexllpLabel.jsp · canifabasiconLabel=/erp/sale/sorder/label/canifabasiconLabel.jsp · yuruiLabel=/erp/sale/sorder/label/yuruiLabel.jsp · neutralLabel=/erp/sale/sorder/label/neutralLabel.jsp · yueboLabel=/erp/sale/sorder/label/yueboLabel.jsp · halltextilesLabel=/erp/sale/sorder/label/halltextilesLabel.jsp · canifa2Label=/erp/sale/sorder/label/canifa2Label.jsp · silverspoonLabel=/erp/sale/sorder/label/silverspoonLabel.jsp · canifaducduyLabel=/erp/sale/sorder/label/canifaducduyLabel.jsp · yihuakajingLabel=/erp/sale/sorder/label/yihuakajingLabel.jsp · szhtLabel=/erp/sale/sorder/label/szhtLabel.jsp · tpnada_vncLabel=/erp/sale/sorder/label/tpnada_vncLabel.jsp · semirLabel=/erp/sale/sorder/label/semirLabel.jsp · wxjmLabel=/erp/sale/sorder/label/wxjmLabel.jsp · hallLabel=/erp/sale/sorder/label/hallLabel.jsp · cottexl_an_loi_Label=/erp/sale/sorder/label/cottexl_an_loi_Label.jsp · theblueshirtLabel=/erp/sale/sorder/label/theblueshirtLabel.jsp · simpleDevOrderShow=/erp/sale/simpleDevOrder/show.jsp · openSimpleDevOrderProcfee=/erp/sale/simpleDevOrder/openSimpleDevOrderProcfee.jsp · procfeeOrderPrint=/erp/sale/simpleDevOrder/procfeeOrderPrint.jsp · sorderAttachment=/erp/sale/sorder/sorderAttachment.jsp · sorderSelectByMergeembryocloth=/erp/sale/sorder/sorderSelectByMergeembryocloth.jsp · supTaskListConfigList=/erp/sale/sorder/supTaskListConfigList.jsp · relaOrder=/erp/sale/sorder/relaOrder.jsp · toRelaOrderByReceiptbill=/erp/finance/receiptbill/receiptbillRelaOrder.jsp · citeTemplateAnalysis=/erp/sale/devOrder/citeTemplateAnalysis.jsp · showTemplatePrint=/erp/sale/devOrder/showTemplatePrint.jsp · weavingWorkbench=/erp/sale/sorder/weavingWorkbench.jsp · dyeingsWorkbench=/erp/sale/sorder/dyeingsWorkbench.jsp · updateDevOrderMsg=/erp/sale/devOrder/updateDevOrderMsg.jsp
+- `/sale/sorderAssess_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderAssessAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderAssessAction.java
+- `/sale/sorderattr_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderAttrAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderAttrAction.java
+  - 前端 result→jsp：show=/erp/sale/sorder/showSorderAttr.jsp · error=/public/head/error.jsp
+- `/sale/sorderCancel_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderCancelAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderCancelAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/sale/sordercancel/show.jsp
+- `/sale/sordercancelImage_<method>.action`  →  com.maxtile.application.erp.sale.action.SordercancelImageAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SordercancelImageAction.java
+- `/sale/sorderCompleteConfig_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderCompleteConfigAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderCompleteConfigAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sorderCompleteConfig/list.jsp · open=/erp/sale/sorderCompleteConfig/add.jsp · show=/erp/sale/sorderCompleteConfig/show.jsp
+- `/sale/sordercost_<method>.action`  →  com.maxtile.application.erp.sale.action.SordercostAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SordercostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/sale/sordercost/show.jsp · list=/erp/sale/sordercost/list.jsp
+- `/sale/sordercostitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SordercostitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SordercostitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/sale/sorderitem_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openList=/erp/sale/sorderitem/addList.jsp · list=/erp/sale/sorderitem/list.jsp · listForSor=/erp/sale/sorderitem/listForSor.jsp · div_forsii=/erp/sale/sorderitem/div_forsii.jsp · listForSample=/erp/sale/sorderitem/listForSample.jsp · listForSorSample=/erp/sale/sorderitem/listForSorSample.jsp · itemList=/erp/sale/sorderitem/itemList.jsp · sampleItemList=/erp/sale/sorderitem/sampleItemList.jsp · itemListForConfig=/erp/sale/sorderitem/itemListForConfig.jsp · sampleItemListForConfig=/erp/sale/sorderitem/sampleItemListForConfig.jsp · supItemListForConfig=/erp/sale/sorderitem/supItemListForConfig.jsp · sorderitemTrack=/erp/sale/sorderitem/sorderitemTrack.jsp · showItemList=/erp/sale/sorderitem/showItemList.jsp · sorderOrderCount=/erp/sale/sorderitem/sorderOrderCount.jsp · sorderOrderCountNew=/erp/sale/sorderitem/sorderOrderCountNew.jsp · soOrderProCustRight=/erp/sale/sorderitem/soOrderProCustRight.jsp · soOrderProByNewSKUAutoMorder=/erp/sale/sorderitem/soOrderProByNewSKUAutoMorder.jsp · sorderIsconfigReport=/erp/sale/sorderitem/sorderIsconfigReport.jsp · sampleSorderIsconfigReport=/erp/sale/sorderitem/sampleSorderIsconfigReport.jsp · sorderProcessSearch=/erp/sale/sorderitem/sorderProcessSearch.jsp · unConfigSkuCountList=/erp/sale/sorderitem/unConfigSkuCountList.jsp · handFeelItemListForConfig=/erp/sale/sorderitem/handFeelItemList.jsp · showCustItem=/erp/sale/custorder/showItem.jsp · showItemAfter=/erp/sale/custorder/showItemAfter.jsp · showItemAfterDetail=/erp/sale/custorder/showItemAfterDetail.jsp · custSorderTrackList=/erp/sale/sorderitem/custSorderTrackList.jsp · custSorderReqdateUpdate=/erp/sale/custorder/custSorderReqdateUpdate.jsp · updateItemNode=/erp/sale/custorder/updateItemNode.jsp · custSorderTrackListNew=/erp/search/sorder/custSorderTrackListNew.jsp · custSorderProgressUpdate=/erp/sale/custorder/custSorderProgressUpdate.jsp · div_relaOrderitem=/erp/sale/sorderitem/div_relaOrderitem.jsp · startCutTaskItemListForConfig=/erp/sale/sorderitem/startCutTaskItemListForConfig.jsp · custOrderitemShow=/erp/sale/custBusinessOrder/show/custOrderitemShow.jsp · financeOrderItemUpdate=/erp/sale/custBusinessOrder/show/financeOrderItemUpdate.jsp · supUpdateSoiUnit=/erp/sale/sorderitem/supUpdateSoiUnit.jsp · SrmAccPurchaseHandle=/erp/sale/custBusinessOrder/show/SrmAccPurchaseHandle.jsp · dyeingsTabfiling=/erp/sale/sorderitem/dyeingsTabfiling.jsp
+- `/sale/sorderitemDetail_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemDetailAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderitemDetailAction.java
+- `/sale/sorderitemdyetrack_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemdyetrackAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderitemdyetrackAction.java
+- `/sale/sorderitemimg_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemimgAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderitemimgAction.java
+- `/sale/sorderitemma_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemmaAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · openList=/erp/sale/sorderitemma/addList.jsp · div_list=/erp/sale/sorderitemma/div_list.jsp · div_listConfig=/erp/sale/sorderitemma/div_listConfig.jsp · div_listConfigForSor=/erp/sale/sorderitemma/div_listConfigForSor.jsp · div_ForSima=/erp/sale/sorderitemma/div_ForSima.jsp · cancelMa=/erp/sale/sorderitemma/cancelMa.jsp · listSorderMaForSissue=/erp/sale/sorderitemma/listSorderMaForSissue.jsp
+- `/sale/sorderItemMaLog_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderItemMaLogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderItemMaLogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sorderitemmalog/list.jsp
+- `/sale/sorderlackcargo_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderLackCargoAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderLackCargoAction.java
+- `/sale/sordermalog_<method>.action`  →  com.maxtile.application.erp.sale.action.SordermalogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SordermalogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sordermalog/list.jsp · sordermaLogCount=/erp/search/somalog/sordermaLogCount.jsp
+- `/sale/sorderProPrice_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderProPriceAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderProPriceAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sorderProPrice/list.jsp · open=/erp/sale/sorderProPrice/add.jsp · show=/erp/sale/sorderProPrice/show.jsp
+- `/sale/sorderProPriceApply_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderProPriceApplyAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderProPriceApplyAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sorderProPriceApply/list.jsp · open=/erp/sale/sorderProPriceApply/add.jsp · openFromOrderItem=/erp/sale/sorderProPriceApply/addFromOrderItem.jsp · show=/erp/sale/sorderProPriceApply/show.jsp
+- `/sale/sorderProPriceAvgApply_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderProPriceAvgApplyAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderProPriceAvgApplyAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sorderProPriceApply/list.jsp · open=/erp/sale/sorderProPriceApply/add.jsp · openFromSorder=/erp/sale/sorderProPriceAvgApply/addFromSorder.jsp · show=/erp/sale/sorderProPriceApply/show.jsp
+- `/sale/sorderProPriceLog_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderProPriceLogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderProPriceLogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/sale/sorderProPriceLog/list.jsp · history=/erp/sale/sorderProPriceLog/history.jsp · open=/erp/sale/sorderProPriceLog/add.jsp · show=/erp/sale/sorderProPriceLog/show.jsp
+- `/sale/sorderqcval_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderqcvalAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderqcvalAction.java
+- `/sale/sorderSignLog_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderSignLogAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderSignLogAction.java
+- `/sale/soritemimg_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemimgAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderitemimgAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addItemImg=/erp/sale/custorder/addItemImg.jsp
+- `/sale/sputurnover_<method>.action`  →  com.maxtile.application.erp.sale.action.SputurnoverAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SputurnoverAction.java
+  - 前端 result→jsp：turnover_level=/erp/sale/sputurnover/turnover_level.jsp · turnover_list=/erp/sale/sputurnover/turnover_list.jsp · open=/erp/sale/sputurnover/add.jsp · error=/public/head/error.jsp
+- `/sale/uservoucher_<method>.action`  →  com.maxtile.application.erp.sale.action.UservoucherAction
+  - 后端：src/com/maxtile/application/erp/sale/action/UservoucherAction.java
+  - 前端 result→jsp：list=/erp/sale/voucher/uservoucher/list.jsp · listInOutTotal=/erp/sale/voucher/uvouchinout/listInOutTotal.jsp
+- `/sale/uvouchinout_<method>.action`  →  com.maxtile.application.erp.sale.action.UvouchinoutAction
+  - 后端：src/com/maxtile/application/erp/sale/action/UvouchinoutAction.java
+  - 前端 result→jsp：itemList=/erp/sale/voucher/uvouchinout/itemList.jsp
+- `/sale/vappendcfg_<method>.action`  →  com.maxtile.application.erp.sale.action.VappendcfgAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VappendcfgAction.java
+- `/sale/vcadvance_<method>.action`  →  com.maxtile.application.erp.sale.action.VcadvanceAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VcadvanceAction.java
+- `/sale/vcissue_<method>.action`  →  com.maxtile.application.erp.sale.action.VcissueAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VcissueAction.java
+  - 前端 result→jsp：list=/erp/sale/voucher/vcissue/list.jsp · add=/erp/sale/voucher/vcissue/add.jsp · show=/erp/sale/voucher/vcissue/show.jsp
+- `/sale/vcissueitem_<method>.action`  →  com.maxtile.application.erp.sale.action.VcissueitemAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VcissueitemAction.java
+  - 前端 result→jsp：listVcissueItem=/erp/sale/voucher/vcissueitem/listVcissueItem.jsp · addExtra=/erp/sale/voucher/vcissueitem/addExtra.jsp · countList=/erp/sale/voucher/vcissueitem/countList.jsp
+- `/sale/vcmigrate_<method>.action`  →  com.maxtile.application.erp.sale.action.VcmigrateAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VcmigrateAction.java
+- `/sale/vctransfer_<method>.action`  →  com.maxtile.application.erp.sale.action.VctransferAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VctransferAction.java
+- `/sale/vempappend_<method>.action`  →  com.maxtile.application.erp.sale.action.VempappendAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VempappendAction.java
+- `/sale/voucherdeptcfg_<method>.action`  →  com.maxtile.application.erp.sale.action.VoucherdeptcfgAction
+  - 后端：src/com/maxtile/application/erp/sale/action/VoucherdeptcfgAction.java
+
+## /scm  ·  src/config/struts/struts-scm.xml
+
+- `/scm/scmDingSend_<method>.action`  →  com.maxtile.application.scm.ding.action.ScmDingSendAction
+  - 后端：src/com/maxtile/application/scm/ding/action/ScmDingSendAction.java
+- `/scm/scmMreceive_<method>.action`  →  com.maxtile.application.scm.produce.action.ScmMreceiveAction
+  - 后端：src/com/maxtile/application/scm/produce/action/ScmMreceiveAction.java
+- `/scm/scmPback_<method>.action`  →  com.maxtile.application.scm.purchase.action.ScmPbackAction
+  - 后端：src/com/maxtile/application/scm/purchase/action/ScmPbackAction.java
+- `/scm/scmPosend_<method>.action`  →  com.maxtile.application.scm.posend.action.ScmPosendAction
+  - 后端：src/com/maxtile/application/scm/posend/action/ScmPosendAction.java
+- `/scm/scmStorein_<method>.action`  →  com.maxtile.application.scm.warehouse.action.ScmStoreinAction
+  - 后端：src/com/maxtile/application/scm/warehouse/action/ScmStoreinAction.java
+- `/scm/scmTransfer_<method>.action`  →  com.maxtile.application.scm.warehouse.action.ScmTransferAction
+  - 后端：src/com/maxtile/application/scm/warehouse/action/ScmTransferAction.java
+- `/scm/scmUpdateqty_<method>.action`  →  com.maxtile.application.scm.warehouse.action.ScmUpdateqtyAction
+  - 后端：src/com/maxtile/application/scm/warehouse/action/ScmUpdateqtyAction.java
+- `/scm/scmWorder_<method>.action`  →  com.maxtile.application.scm.produce.action.ScmWorderAction
+  - 后端：src/com/maxtile/application/scm/produce/action/ScmWorderAction.java
+
+## /search  ·  src/config/struts/struts-search.xml
+
+- `/search/autoProToMrp_<method>.action`  →  com.maxtile.application.erp.search.action.AutoProToMrpAction
+  - 后端：src/com/maxtile/application/erp/search/action/AutoProToMrpAction.java
+  - 前端 result→jsp：list=/erp/search/EmbryoClothPlan/mrpTopro/list.jsp · show=/erp/search/EmbryoClothPlan/mrpTopro/show.jsp
+- `/search/bplanReplen_<method>.action`  →  com.maxtile.application.erp.search.action.BplanReplenAction
+  - 后端：src/com/maxtile/application/erp/search/action/BplanReplenAction.java
+  - 前端 result→jsp：list=/erp/search/skuAutoRePlan/replanList.jsp · show=/erp/search/skuAutoRePlan/replanAddOrUpdate.jsp
+- `/search/bplanStockReplen_<method>.action`  →  com.maxtile.application.erp.search.action.BplanStockReplenAction
+  - 后端：src/com/maxtile/application/erp/search/action/BplanStockReplenAction.java
+- `/search/cancelStoreOutCount_<method>.action`  →  com.maxtile.application.erp.search.action.CancelStoreOutCountAction
+  - 后端：src/com/maxtile/application/erp/search/action/CancelStoreOutCountAction.java
+  - 前端 result→jsp：main=/erp/search/Sale/CancelStoreOutCount/main.jsp · left=/erp/search/Sale/CancelStoreOutCount/left.jsp · right=/erp/search/Sale/CancelStoreOutCount/right.jsp · error=/public/head/error.jsp
+- `/search/cusDayRebate_<method>.action`  →  com.maxtile.application.erp.search.action.CusDayRebateAction
+  - 后端：src/com/maxtile/application/erp/search/action/CusDayRebateAction.java
+- `/search/embryoClothPlan_<method>.action`  →  com.maxtile.application.erp.search.action.EmbryoClothPlanAction
+  - 后端：src/com/maxtile/application/erp/search/action/EmbryoClothPlanAction.java
+  - 前端 result→jsp：list=/erp/search/EmbryoClothPlan/list.jsp · newList=/erp/search/EmbryoClothPlan/newList.jsp · PeiToYarnList=/erp/search/EmbryoClothPlan/peiToYarnList.jsp · PeiToYarnListByOne=/erp/search/EmbryoClothPlan/peiToYarnListByOne.jsp
+- `/search/governCostRatio_<method>.action`  →  com.maxtile.application.erp.search.action.GovernCostRatioAction
+  - 后端：src/com/maxtile/application/erp/search/action/GovernCostRatioAction.java
+- `/search/planopenmachineLog_<method>.action`  →  com.maxtile.application.erp.search.action.PlanopenmachineLogAction
+  - 后端：src/com/maxtile/application/erp/search/action/PlanopenmachineLogAction.java
+- `/search/produceVatAnalysis_<method>.action`  →  com.maxtile.application.erp.search.action.ProduceVatAnalysisAction
+  - 后端：src/com/maxtile/application/erp/search/action/ProduceVatAnalysisAction.java
+  - 前端 result→jsp：list=/erp/search/produceVatAnalysis/list.jsp · listSample=/erp/search/produceVatAnalysis/listSample.jsp
+- `/search/qcAnalysis_<method>.action`  →  com.maxtile.application.erp.search.action.QcAnalysisAction
+  - 后端：src/com/maxtile/application/erp/search/action/QcAnalysisAction.java
+  - 前端 result→jsp：defectiveList=/erp/search/qcanalysis/defectiveList.jsp · defectiveYarnList=/erp/search/qcanalysis/defectiveYarnList.jsp
+- `/search/saleAnalysis_<method>.action`  →  com.maxtile.application.erp.search.action.SaleAnalysisAction
+  - 后端：src/com/maxtile/application/erp/search/action/SaleAnalysisAction.java
+  - 前端 result→jsp：custSorderTrackList=/erp/search/saleAnalysis/custSorderTrackList.jsp · custSorderCollectList=/erp/search/saleAnalysis/custSorderCollectList.jsp · error=/public/head/error.jsp
+- `/search/saleCosting_<method>.action`  →  com.maxtile.application.erp.search.action.SaleCostingAction
+  - 后端：src/com/maxtile/application/erp/search/action/SaleCostingAction.java
+  - 前端 result→jsp：costingOne=/erp/search/consting/costingOne.jsp · costingOneShow=/erp/search/consting/costingOneShow.jsp · costingSection=/erp/search/consting/costingSection.jsp · orderInsideCost1=/erp/search/consting/dataTable/orderInsideCost1.jsp · orderInsideCost2=/erp/search/consting/dataTable/orderInsideCost2.jsp · orderInsideCost3=/erp/search/consting/dataTable/orderInsideCost3.jsp · orderInsideCost4=/erp/search/consting/dataTable/orderInsideCost4.jsp · orderOutsideCost1=/erp/search/consting/dataTable/orderOutsideCost1.jsp · orderOutsideCost2=/erp/search/consting/dataTable/orderOutsideCost2.jsp · orderOutsideCost3=/erp/search/consting/dataTable/orderOutsideCost3.jsp · orderOutsideCost4=/erp/search/consting/dataTable/orderOutsideCost4.jsp · orderMian=/erp/search/consting/orderMian.jsp
+- `/search/saleDailySettle_<method>.action`  →  com.maxtile.application.erp.search.action.SaleDailySettleAction
+  - 后端：src/com/maxtile/application/erp/search/action/SaleDailySettleAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · statsList=/erp/search/saleDailySettle/statsList.jsp · countCustomerSales=/erp/search/Sale/customerCount.jsp · countSalerSales=/erp/search/Sale/salerCount.jsp · countSalerSalesTop=/erp/search/Sale/salerCountTop.jsp · countAllSalerSales=/erp/search/Sale/allSalerCount.jsp · countSalersItemForPro=/erp/search/saleDailySettle/countSalersItemForPro.jsp · customerTBCountForSales=/erp/search/saleDailySettle/customerTBCountForSales.jsp · saleProTBCountForSales=/erp/search/saleDailySettle/customerTBProductList.jsp · productTBCountForSales=/erp/search/saleDailySettle/productTBCountForSales.jsp · productTBCustomerList=/erp/search/saleDailySettle/productTBCustomerList.jsp · countSalersItemForColor=/erp/search/saleDailySettle/countSalersItemForColor.jsp · salersItemInfoList=/erp/search/saleDailySettle/salersItemInfoList.jsp · countSalersItemForColorApc=/erp/search/saleDailySettle/countSalersItemForColorApc.jsp · countSalersItemForColorNoPrice=/erp/search/saleDailySettle/countSalersItemForColorNoPrice.jsp · countSalersItemForColorNoRight=/erp/search/saleDailySettle/countSalersItemForColorNoRight.jsp · countSalersItemForColorBasedSprice=/erp/search/saleDailySettle/countSalersItemForColorBasedSprice.jsp · countSalersItemForbatchno=/erp/search/saleDailySettle/countSalersItemForBatchno.jsp · countSalersItemForMa=/erp/search/saleDailySettle/countSalersItemForMa.jsp · manageDailySettle=/erp/search/saleDailySettle/manageDailySettle.jsp · groupSaleRank=/erp/search/Sale/groupSaleRank.jsp · groupSaleRankTop=/erp/search/Sale/groupSaleRankTop.jsp · groupSaleRankForGroup=/erp/search/Sale/groupSaleRankForGroup.jsp · saleCountCustRight=/erp/search/Sale/saleCountCustRight.jsp · countSbackScale=/erp/search/Sale/countSbackScale.jsp · saleDailyCount=/erp/search/Sale/saleDailyCount.jsp · saleMonthCount=/erp/search/Sale/saleMonthCount.jsp · saleProTBCount=/erp/search/Sale/saleProTBCount.jsp · saleTBCount=/erp/search/Sale/saleTBCount.jsp · saleTBCustomerCount=/erp/search/Sale/saleTBCount.jsp · customerTBCount=/erp/search/Sale/customerTBCount.jsp · salesPanelEasy=/erp/search/Sale/salesPanelEasy.jsp · salesPanel=/erp/search/Sale/salesPanel.jsp · salesCompAnalyze=/erp/search/Sale/salesCompAnalyze.jsp · customerCompAnalyze=/erp/search/Sale/customerCompAnalyze.jsp · oneCustomerCompAnalyze=/erp/search/Sale/oneCustomerCompAnalyze.jsp · productCompAnalyze=/erp/search/Sale/productCompAnalyze.jsp · salesCompare=/erp/search/Sale/salesCompare.jsp · SaleSchedule=/erp/search/Sale/SaleSchedule.jsp · invoiceSalersItemInfoList=/erp/search/saleDailySettle/invoiceSalersItemInfoList.jsp · invoiceSalersItemInfoAllList=/erp/search/saleDailySettle/invoiceSalersItemInfoAllList.jsp · invoiceSalersItemInfoAllShow=/erp/search/saleDailySettle/invoiceSalersItemInfoAllShow.jsp · countSalersItemForSale=/erp/search/saleDailySettle/countSalersItemForSale.jsp
+- `/search/salesForecast_<method>.action`  →  com.maxtile.application.erp.search.action.SalesForecastAction
+  - 后端：src/com/maxtile/application/erp/search/action/SalesForecastAction.java
+- `/search/saleStatistics_<method>.action`  →  com.maxtile.application.erp.search.action.SaleStatisticsAction
+  - 后端：src/com/maxtile/application/erp/search/action/SaleStatisticsAction.java
+  - 前端 result→jsp：saleQuery=/erp/search/saleQuery.jsp · comprehensive=/erp/search/comprehensive.jsp · error=/public/head/error.jsp
+- `/search/salesum_<method>.action`  →  com.maxtile.application.erp.search.action.SalesumAction
+  - 后端：src/com/maxtile/application/erp/search/action/SalesumAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · proCustDayLine=/erp/search/Sale/proCustDayLine.jsp · custBuyMonthRank=/erp/search/Sale/custBuyMonthRank.jsp · custBuyDayPrecent=/erp/search/Sale/custBuyDayPrecent.jsp · sorderAndStoreBatchnoCount=/erp/search/somalog/sordermaLogCount.jsp · stockAgeCount=/erp/search/stockage/stockAgeCount.jsp · listStockageForSPU=/erp/search/stockage/listStockageForSPU.jsp · listStockageForSKU=/erp/search/stockage/listStockageForSKU.jsp · listStockageForBatchno=/erp/search/stockage/listStockageForBatchno.jsp · sorderCountItem=/erp/search/somalog/sorderCountItem.jsp · productSkuCount=/erp/search/skucount/productSkuCount.jsp · productSkuItemCount=/erp/search/skucount/productSkuItemCount.jsp
+- `/search/skuAnalysis_<method>.action`  →  com.maxtile.application.erp.search.action.SkuAnalysisAction
+  - 后端：src/com/maxtile/application/erp/search/action/SkuAnalysisAction.java
+- `/search/skuAutoRePlan_<method>.action`  →  com.maxtile.application.erp.search.action.SkuAutoRePlanAction
+  - 后端：src/com/maxtile/application/erp/search/action/SkuAutoRePlanAction.java
+  - 前端 result→jsp：list=/erp/search/skuAutoRePlan/list.jsp
+- `/search/sorderAnalysis_<method>.action`  →  com.maxtile.application.erp.search.action.SorderAnalysisAction
+  - 后端：src/com/maxtile/application/erp/search/action/SorderAnalysisAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · devOrderList=/erp/search/sorder/devOrderList.jsp · devOrderListNew=/erp/search/sorder/devOrderListNew.jsp · devSorderTimeCostList=/erp/search/sorder/devSorderTimeCostList.jsp · devSorderMdAnalyze=/erp/search/sorder/devSorderMdAnalyze.jsp · devSorderOqAnalyze=/erp/search/sorder/devSorderOqAnalyze.jsp · devSorderAnalyze=/erp/search/sorder/devSorderAnalyze.jsp · devSorderAnalyzeGroupByMc=/erp/search/sorder/devSorderAnalyzeGroupByMc.jsp · devAnalyzeSizeGroupByMc=/erp/search/sorder/devAnalyzeSizeGroupByMc.jsp · devSorderAnalyzeItem=/erp/search/sorder/devSorderAnalyzeItem.jsp · devSorderEffect=/erp/search/sorder/devSorderEffect.jsp · devSorderEffectItem=/erp/search/sorder/devSorderEffectItem.jsp
+- `/search/stockinout_<method>.action`  →  com.maxtile.application.erp.search.action.StockinoutAction
+  - 后端：src/com/maxtile/application/erp/search/action/StockinoutAction.java
+  - 前端 result→jsp：inoutSearch=/erp/search/inoutSearch.jsp · stockInOutSummaryPro=/erp/search/stockinout/stockInOutSummaryPro.jsp · stockInOutSummaryProColor=/erp/search/stockinout/stockInOutSummaryProColor.jsp · stockInOutSummaryProBatchno=/erp/search/stockinout/stockInOutSummaryProBatchno.jsp · supInOutAndSalesCount=/erp/search/stockinout/supInOutAndSalesCount.jsp · showSupInOutQtypi=/erp/search/stockinout/showSupInOutQtypi.jsp · newSupInOutAndSalesCount=/erp/search/stockinout/newSupInOutAndSalesCount.jsp · supFactoryInOutAndSalesCount=/erp/search/stockinout/supFactoryInOutAndSalesCount.jsp · stockInoutCountPro=/erp/search/stockinout/stockInoutCountPro.jsp · stockInoutCountColor=/erp/search/stockinout/stockInoutCountColor.jsp · stockInoutCountBatchno=/erp/search/stockinout/stockInoutCountBatchno.jsp · showSupPlanProduceQtypiForProColor=/erp/search/stockinout/showSupPlanProduceQtypiForProColor.jsp · showSupProduceQtypiForProColor=/erp/search/stockinout/showSupProduceQtypiForProColor.jsp · showSupInPeiQtypiForProColor=/erp/search/stockinout/showSupInPeiQtypiForProColor.jsp · supThroughput=/erp/search/stockinout/supThroughput.jsp · supThroughputReachRate=/erp/search/stockinout/supThroughputReachRate.jsp · paycheckMrpStockInOutCount=/erp/search/stockinout/paycheckMrpStockInOutCount.jsp · stockInoutCountProAffectedByShop=/erp/search/stockinout/stockInoutCountProAffectedByShop.jsp · stockInoutCountColorAffectedByShop=/erp/search/stockinout/stockInoutCountColorAffectedByShop.jsp · stockInoutCountBatchnoAffectedByShop=/erp/search/stockinout/stockInoutCountBatchnoAffectedByShop.jsp · stockInoutCountShop=/erp/search/stockinout/stockInoutCountBatchno.jsp · supInOutAndMtaskCount=/erp/search/stockinout/supInOutAndMtaskCount.jsp · woPanelContentList=/erp/search/stockinout/woPanelContentList.jsp · woPanelContentListData=/erp/search/stockinout/woPanelContentListData.jsp · loomTrackingList=/erp/search/stockinout/loomTrackingList.jsp · wsupMachiningAnalysis=/erp/search/stockinout/wsupMachiningAnalysis.jsp · woYarnStockInoutCountColor=/erp/search/stockinout/woStockinout/woYarnStockInoutCountColor.jsp · woGrayStockInoutCountColor=/erp/search/stockinout/woStockinout/woGrayStockInoutCountColor.jsp · woYarnStockInoutCountColorPrint=/erp/search/stockinout/woStockinout/woYarnStockInoutCountColorPrint.jsp · woGrayStockInoutCountColorPrint=/erp/search/stockinout/woStockinout/woGrayStockInoutCountColorPrint.jsp · error=/public/head/error.jsp
+- `/search/stockmaCount_<method>.action`  →  com.maxtile.application.erp.search.action.StockmaCountAction
+  - 后端：src/com/maxtile/application/erp/search/action/StockmaCountAction.java
+  - 前端 result→jsp：StockmaCountPro=/erp/search/StockmaCount/StockmaCountPro.jsp · StockmaCountProColor=/erp/search/StockmaCount/StockmaCountProColor.jsp · StockmaCountProColorBatchno=/erp/search/StockmaCount/StockmaCountProColorBatchno.jsp · StockmaCountProColorBatchnoMa=/erp/search/StockmaCount/StockmaCountProColorBatchnoMa.jsp · StockmaCountProColorBatchnoMachinnum=/erp/search/StockmaCount/StockmaCountProColorBatchnoMachinnum.jsp · StockmaCountOccupyDetail=/erp/search/StockmaCount/StockmaCountOccupyDetail.jsp · error=/public/head/error.jsp
+- `/search/stockmaTemp_<method>.action`  →  com.maxtile.application.erp.search.action.StockmaTempAction
+  - 后端：src/com/maxtile/application/erp/search/action/StockmaTempAction.java
+- `/search/versionDetail_<method>.action`  →  com.maxtile.application.erp.search.action.VersionDetailAction
+  - 后端：src/com/maxtile/application/erp/search/action/VersionDetailAction.java
+- `/search/versionMain_<method>.action`  →  com.maxtile.application.erp.search.action.VersionMainAction
+  - 后端：src/com/maxtile/application/erp/search/action/VersionMainAction.java
+  - 前端 result→jsp：versionMainList=/erp/search/versionMain/versionMainList.jsp · versionYarnStockInoutCountPrint=/erp/search/versionMain/versionYarnStockInoutCountPrint.jsp · versionGrayStockInoutCountPrint=/erp/search/versionMain/versionGrayStockInoutCountPrint.jsp
+- `/search/yarnAnalysis_<method>.action`  →  com.maxtile.application.erp.search.action.YarnAnalysisAction
+  - 后端：src/com/maxtile/application/erp/search/action/YarnAnalysisAction.java
+  - 前端 result→jsp：YarnStockList=/erp/search/yarnanalysis/YarnStockList.jsp · OutsStockItemList=/erp/search/yarnanalysis/OutsStockItemList.jsp · NoinStockItemList=/erp/search/yarnanalysis/NoinStockItemList.jsp · FabricToYarnStockList=/erp/search/yarnanalysis/FabricToYarnStockList.jsp · FabricToYarnStockListBySup=/erp/search/yarnanalysis/FabricToYarnStockListBySup.jsp · FabricYarnActStockList=/erp/search/yarnanalysis/FabricYarnActStockList.jsp · FabricYarnActStockListBySup=/erp/search/yarnanalysis/FabricYarnActStockListBySup.jsp · WeaveStockItemList=/erp/search/yarnanalysis/WeaveStockItemList.jsp · YarnStockListBySup=/erp/search/yarnanalysis/YarnStockListBySup.jsp · NoInYarnStockListBySup=/erp/search/yarnanalysis/NoInYarnStockListBySup.jsp · YarnStockListByPro=/erp/search/yarnanalysis/YarnStockListByPro.jsp · YarnPorderFollowList=/erp/search/yarnanalysis/YarnPorderFollowList.jsp · NoInYarnStockListBySupPro=/erp/search/yarnanalysis/NoInYarnStockListBySupPro.jsp · WeaveYarnStockList=/erp/search/yarnanalysis/WeaveYarnStockList.jsp · YarnToProCode=/erp/search/yarnanalysis/YarnToProCode.jsp · FStcokAgeItemList=/erp/search/yarnanalysis/FStcokAgeItemList.jsp · PorderAgeItemList=/erp/search/yarnanalysis/PorderAgeItemList.jsp · yarnBigWorkbench=/erp/search/yarnanalysis/yarnBigWorkbench.jsp · error=/public/head/error.jsp
+- `/search/yarnCountPlan_<method>.action`  →  com.maxtile.application.erp.search.action.YarnCountPlanAction
+  - 后端：src/com/maxtile/application/erp/search/action/YarnCountPlanAction.java
+  - 前端 result→jsp：list=/erp/search/yarnCountPlan/list.jsp · stockItem=/erp/search/yarnCountPlan/stockItem.jsp
+
+## /shein  ·  src/config/struts/struts-shein.xml
+
+- `/shein/sheincolorkey_<method>.action`  →  com.maxtile.application.erp.shein.action.SheincolorkeyAction
+  - 后端：src/com/maxtile/application/erp/shein/action/SheincolorkeyAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/shein/sheincolorkey/list.jsp
+- `/shein/sheincustomer_<method>.action`  →  com.maxtile.application.erp.shein.action.SheincustomerAction
+  - 后端：src/com/maxtile/application/erp/shein/action/SheincustomerAction.java
+  - 前端 result→jsp：list=/erp/shein/sheincustomer/list.jsp · show=/erp/shein/sheincustomer/show.jsp · error=/public/head/error.jsp
+- `/shein/sheindeliver_<method>.action`  →  com.maxtile.application.erp.shein.action.SheindeliverAction
+  - 后端：src/com/maxtile/application/erp/shein/action/SheindeliverAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/shein/sheingetproductlog_<method>.action`  →  com.maxtile.application.erp.shein.action.SheingetproductlogAction
+  - 后端：src/com/maxtile/application/erp/shein/action/SheingetproductlogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/shein/sheingetproductlog/list.jsp
+- `/shein/sheinsorder_<method>.action`  →  com.maxtile.application.erp.shein.action.SheinsorderAction
+  - 后端：src/com/maxtile/application/erp/shein/action/SheinsorderAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/shein/sheinsorder/list.jsp · show=/erp/shein/sheinsorder/show.jsp · addSorderList=/erp/shein/sheinsorder/addSorderList.jsp
+- `/shein/sheinsorderupdate_<method>.action`  →  com.maxtile.application.erp.shein.action.SheinsorderupdateAction
+  - 后端：src/com/maxtile/application/erp/shein/action/SheinsorderupdateAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+
+## /sys  ·  src/config/struts/struts-sys.xml
+
+- `/sys/announcement_<method>.action`  →  com.maxtile.application.sys.action.AnnouncementAction
+  - 后端：src/com/maxtile/application/sys/action/AnnouncementAction.java
+  - 前端 result→jsp：showliat=/sys/announcement/announcementlist.jsp · query=/sys/announcement/searchAnnouncementlist.jsp · List=/sys/announcement/maillist.jsp · searchList=/sys/announcement/searchmaillist.jsp · show=/sys/announcement/announcementshow.jsp · open=/sys/announcement/announcementadd.jsp · openMailPw=/sys/announcement/mailpwadd.jsp · openMailRec=/sys/announcement/mailrecadd.jsp · error=/public/head/error.jsp
+- `/sys/apihtml_<method>.action`  →  com.maxtile.application.sys.action.ApiHtmlAction
+  - 后端：src/com/maxtile/application/sys/action/ApiHtmlAction.java
+  - 前端 result→jsp：api=/aiphtml/api.jsp
+- `/sys/apilinkedconfig_<method>.action`  →  com.maxtile.application.sys.action.ApilinkedconfigAction
+  - 后端：src/com/maxtile/application/sys/action/ApilinkedconfigAction.java
+  - 前端 result→jsp：list=/sys/apilinkedconfig/list.jsp · show=/sys/apilinkedconfig/show.jsp · open=/sys/apilinkedconfig/add.jsp
+- `/sys/apiRegistry_<method>.action`  →  com.maxtile.application.sys.action.ApiRegistryAction
+  - 后端：src/com/maxtile/application/sys/action/ApiRegistryAction.java
+  - 前端 result→jsp：list=/sys/apiRegistry/list.jsp · show=/sys/apiRegistry/show.jsp · open=/sys/apiRegistry/add.jsp
+- `/sys/apiRegistrylog_<method>.action`  →  com.maxtile.application.sys.action.ApiRegistryLogAction
+  - 后端：src/com/maxtile/application/sys/action/ApiRegistryLogAction.java
+  - 前端 result→jsp：list=/sys/apiregistrylog/list.jsp · show=/sys/apiregistrylog/show.jsp
+- `/sys/area_<method>.action`  →  com.maxtile.application.sys.action.AreaAction
+  - 后端：src/com/maxtile/application/sys/action/AreaAction.java
+  - 前端 result→jsp：showliat=/sys/area/arealist.jsp · query=/sys/area/searchArealist.jsp · open=/sys/area/areaadd.jsp · add=/sys/area/areaadd.jsp · show=/sys/area/areashow.jsp · divarealist=/sys/area/json_area.jsp · openAreaPage=/sys/area/area.jsp · queryByPId=/sys/area/parea.jsp · successtree=/sys/area/json_area.jsp · success=/sys/area/success.jsp · select=/sys/area/arealist.jsp · select2=/sys/area/arealist2.jsp · add=/sys/area/areaadd.jsp · show=/sys/area/areashow.jsp · input=/index.jsp · error=/public/head/error.jsp
+- `/sys/autocode_<method>.action`  →  com.maxtile.application.sys.action.AutoCodeAction
+  - 后端：src/com/maxtile/application/sys/action/AutoCodeAction.java
+- `/sys/billByCost_<method>.action`  →  (bean: billCostAction 未解析)
+  - 前端 result→jsp：selecByBillcost=/sys/cost/costSingleShow.jsp
+- `/sys/billnorule_<method>.action`  →  com.maxtile.application.sys.action.BillnoruleAction
+  - 后端：src/com/maxtile/application/sys/action/BillnoruleAction.java
+  - 前端 result→jsp：success=/sys/billrule/billnorule/billnorulelist.jsp · add=/sys/billrule/billnorule/billnoruleadd.jsp · update=/sys/billrule/billnorule/billnoruleedit.jsp · search=/sys/billrule/billnorule/searchbillnorulelist.jsp
+- `/sys/billtype_<method>.action`  →  com.maxtile.application.sys.action.BilltypeAction
+  - 后端：src/com/maxtile/application/sys/action/BilltypeAction.java
+  - 前端 result→jsp：success=/sys/billrule/billtypelist.jsp · add=/sys/billrule/billtypeadd.jsp · update=/sys/billrule/billtypeedit.jsp · billnorule=/sys/billrule/billnorulelist.jsp · search=/sys/billrule/searchbilltypelist.jsp · querybilltype=/sys/billrule/billnorule/div_billtypelist.jsp
+- `/sys/cadlog_<method>.action`  →  (bean: cadlogAction 未解析)
+  - 前端 result→jsp：showlist=/sys/cadlog/cadloglist.jsp · addcadlogresult=/sys/cadlog/addresult.jsp
+- `/sys/cadreg_<method>.action`  →  (bean: cadregAction 未解析)
+  - 前端 result→jsp：showlist=/sys/shop/shoplist.jsp · query=/sys/shop/searchShoplist.jsp · show=/sys/shop/shopshow.jsp · addresult=/sys/cadreg/addresult.jsp · getInfo=/sys/cadreg/getresult.jsp · getServtime=/sys/cadreg/gettime.jsp · getAreaName=/sys/cadreg/getAreaname.jsp · div_shopList=/sys/shop/div_shoplist.jsp
+- `/sys/cate_<method>.action`  →  com.maxtile.application.sys.action.CategoryAction
+  - 后端：src/com/maxtile/application/sys/action/CategoryAction.java
+  - 前端 result→jsp：select=/sys/cate/catelist.jsp · showlist=/sys/cate/div_catelist.jsp · add=/sys/cate/cateadd.jsp · show=/sys/cate/cateshow.jsp · findcate=/sys/cate/div_selectcatebycomid.jsp · div_select=/sys/cate/div_catelist.jsp · div_fail=/sys/cate/div_deletefail.jsp · listCateRegister=/sys/cate/listCateRegister.jsp · listCateProcess=/sys/cate/listCateProcess.jsp · listchild=/sys/cate/json_cate.jsp · success=/sys/cate/success.jsp
+- `/sys/company_<method>.action`  →  com.maxtile.application.sys.action.CompanyAction
+  - 后端：src/com/maxtile/application/sys/action/CompanyAction.java
+  - 前端 result→jsp：showlist=/sys/company/companylist.jsp · query=/sys/company/searchCompanylist.jsp · show=/sys/company/companyeshow.jsp · open=/sys/company/companyadd.jsp · div_comList=/sys/company/div_comlist.jsp
+- `/sys/controlsystem_<method>.action`  →  com.maxtile.application.sys.action.ControlsystemAction
+  - 后端：src/com/maxtile/application/sys/action/ControlsystemAction.java
+  - 前端 result→jsp：open=/sys/controlsystem/controlsystemadd.jsp · show=/sys/controlsystem/controlsystemshow.jsp · showlist=/sys/controlsystem/controlsystemlist.jsp · query=/sys/controlsystem/searchControlsystemlist.jsp · error=/public/head/error.jsp
+- `/sys/dept_<method>.action`  →  com.maxtile.application.sys.action.DeptAction
+  - 后端：src/com/maxtile/application/sys/action/DeptAction.java
+  - 前端 result→jsp：select=/sys/dept/deptlist.jsp · showlist=/sys/dept/div_deptlist.jsp · add=/sys/dept/deptadd.jsp · show=/sys/dept/deptshow.jsp · finddept=/sys/dept/div_selectdeptbycomid.jsp · div_select=/sys/dept/div_deptlist.jsp · div_fail=/sys/dept/div_deletefail.jsp · listDeptRegister=/sys/dept/listDeptRegister.jsp · listDeptProcess=/sys/dept/listDeptProcess.jsp · listchild=/sys/dept/json_dept.jsp · success=/sys/dept/success.jsp
+- `/sys/dingLog_<method>.action`  →  com.maxtile.application.sys.action.DingLogAction
+  - 后端：src/com/maxtile/application/sys/action/DingLogAction.java
+- `/sys/dlvway_<method>.action`  →  com.maxtile.application.sys.action.DlvwayAction
+  - 后端：src/com/maxtile/application/sys/action/DlvwayAction.java
+  - 前端 result→jsp：showlist=/sys/dlvway/dlvwaylist.jsp · query=/sys/dlvway/searchDlvway.jsp · open=/sys/dlvway/dlvwayAdd.jsp · show=/sys/dlvway/dlvwayshow.jsp
+- `/sys/emp_<method>.action`  →  com.maxtile.application.sys.action.EmpAction
+  - 后端：src/com/maxtile/application/sys/action/EmpAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · showlist=/sys/emp/emplist.jsp · div_list=/sys/emp/div_list.jsp · query=/sys/emp/searchEmplist.jsp · open=/sys/emp/empadd.jsp · updateFullStatus=/sys/emp/updateFullStatus.jsp · updateLeaveStatus=/sys/emp/updateLeaveStatus.jsp · show=/sys/emp/empshow.jsp · findemp=/sys/emp/div_findemplist.jsp · pubgetDeptEmpValue=/sys/emp/pubgetDeptEmpValue.jsp · download=<param name="contentType">application/msword</param>
+	            <param name="inputName">inputStream</param>
+	            <!-- ä½¿ç¨ç»è¿è½¬ç çæä»¶åä½ä¸ºä¸è½½æä»¶åï¼downloadFileNameå±æ§
+					å¯¹åºactionç±»ä¸­çæ¹æ³ getDownloadFileName() -->
+	            <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+	            <param name="bufferSize">8172</param> · div_query=/sys/emp/div_searchEmpList.jsp · openUpLoad=/sys/emp/upLoadFile.jsp
+- `/sys/emphistory_<method>.action`  →  com.maxtile.application.sys.action.EmpHistoryAction
+  - 后端：src/com/maxtile/application/sys/action/EmpHistoryAction.java
+  - 前端 result→jsp：showlist=/sys/emp/empHistorylist.jsp
+- `/sys/group_<method>.action`  →  com.maxtile.application.sys.action.GroupAction
+  - 后端：src/com/maxtile/application/sys/action/GroupAction.java
+  - 前端 result→jsp：successtree=/sys/permissions/group/json_group.jsp · div_list=/sys/permissions/group/tree_grouplist.jsp · success=/sys/permissions/group/success.jsp · select=/sys/permissions/group/grouplist.jsp · select2=/sys/permissions/group/grouplist2.jsp · add=/sys/permissions/group/groupadd.jsp · show=/sys/permissions/group/groupshow.jsp · input=/index.jsp · error=/public/head/error.jsp
+- `/sys/groupRole_<method>.action`  →  com.maxtile.application.sys.action.GroupRoleAction
+  - 后端：src/com/maxtile/application/sys/action/GroupRoleAction.java
+  - 前端 result→jsp：list=/sys/permissions/grouprole/grouprolelist.jsp · success=/sys/permissions/grouprole/grouprolelist.jsp · open=/sys/permissions/grouprole/addgrouprole.jsp · show=/sys/permissions/grouprole/showgrouprole.jsp · reshow=/sys/groupRole_open.action?groupRole.groupid=${groupRole.groupid}
+- `/sys/hotReloadSqlXml_<method>.action`  →  com.maxtile.application.sys.action.HotReloadSqlXmlAction
+  - 后端：src/com/maxtile/application/sys/action/HotReloadSqlXmlAction.java
+  - 前端 result→jsp：printLoad=printLoad.jsp
+- `/sys/iPWhiteList_<method>.action`  →  com.maxtile.application.sys.action.IPWhiteListAction
+  - 后端：src/com/maxtile/application/sys/action/IPWhiteListAction.java
+  - 前端 result→jsp：list=/sys/ipwhite/list.jsp · show=/sys/ipwhite/show.jsp · open=/sys/ipwhite/add.jsp
+- `/sys/larkBiFolder_<method>.action`  →  com.maxtile.application.sys.action.LarkBiFolderAction
+  - 后端：src/com/maxtile/application/sys/action/LarkBiFolderAction.java
+  - 前端 result→jsp：list=/sys/lark/folder/list.jsp · show=/sys/lark/folder/show.jsp · open=/sys/lark/folder/add.jsp
+- `/sys/larkBiTable_<method>.action`  →  com.maxtile.application.sys.action.LarkBiTableAction
+  - 后端：src/com/maxtile/application/sys/action/LarkBiTableAction.java
+  - 前端 result→jsp：list=/sys/lark/table/list.jsp · show=/sys/lark/table/show.jsp · open=/sys/lark/table/add.jsp
+- `/sys/larkMessageSend_<method>.action`  →  com.maxtile.application.sys.action.LarkMessageSendAction
+  - 后端：src/com/maxtile/application/sys/action/LarkMessageSendAction.java
+  - 前端 result→jsp：list=/sys/lark/messagesend/list.jsp · show=/sys/lark/messagesend/show.jsp · open=/sys/lark/messagesend/add.jsp
+- `/sys/logincheck_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.LogincheckAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/LogincheckAction.java
+  - 前端 result→jsp：list=/sys/logincheck/list.jsp · show=/sys/logincheck/show.jsp · open=/sys/logincheck/add.jsp
+- `/sys/methodRetry_<method>.action`  →  com.maxtile.application.sys.action.MethodRetryAction
+  - 后端：src/com/maxtile/application/sys/action/MethodRetryAction.java
+  - 前端 result→jsp：list=/sys/methodretry/list.jsp
+- `/sys/nation_<method>.action`  →  com.maxtile.application.sys.action.NationAction
+  - 后端：src/com/maxtile/application/sys/action/NationAction.java
+  - 前端 result→jsp：showlist=/sys/nation/nationlist.jsp · query=/sys/nation/searchNationlist.jsp · open=/sys/nation/nationadd.jsp · show=/sys/nation/nationshow.jsp
+- `/sys/notify_<method>.action`  →  com.maxtile.application.sys.action.NotifyAction
+  - 后端：src/com/maxtile/application/sys/action/NotifyAction.java
+  - 前端 result→jsp：showList=/sys/notify/notifyList.jsp · countMsg=/public/head/countMsg.jsp · noMsg=/public/head/noMsg.jsp · error=/public/head/error.jsp
+- `/sys/param_<method>.action`  →  com.maxtile.application.sys.action.ParamAction
+  - 后端：src/com/maxtile/application/sys/action/ParamAction.java
+  - 前端 result→jsp：showlist=/sys/param/paramlist.jsp · query=/sys/param/searchParamlist.jsp · show=/sys/param/paramshow.jsp · open=/sys/param/paramadd.jsp · div_shopList=/sys/param/div_paramlist.jsp
+- `/sys/position_<method>.action`  →  com.maxtile.application.sys.action.PositionAction
+  - 后端：src/com/maxtile/application/sys/action/PositionAction.java
+  - 前端 result→jsp：success=/sys/pst/positionlist.jsp · showlist=/sys/pst/positionlist.jsp · query=/sys/pst/searchPositionlist.jsp · div_select=/sys/pst/div_pstlist.jsp · open=/sys/pst/positionadd.jsp · show=/sys/pst/positionshow.jsp · input=/index.jsp
+- `/sys/right_<method>.action`  →  com.maxtile.application.sys.action.RightAction
+  - 后端：src/com/maxtile/application/sys/action/RightAction.java
+  - 前端 result→jsp：rightDataList=/sys/permissions/right/rightDataList.jsp · rightDataShow=/sys/permissions/right/rightDataShow.jsp · rightDataEditShow=/sys/permissions/right/rightDataEditShow.jsp · listAll=/sys/permissions/right/listAll.jsp · select=/sys/permissions/right/rightlist.jsp · selecttree=/sys/permissions/right/json_right.jsp · search=/sys/permissions/right/searchrightlist.jsp · add=/sys/permissions/right/rightadd.jsp · addlist=/sys/permissions/right/addrightlist.jsp · show=/sys/permissions/right/rightshow.jsp · success=/sys/dept/success.jsp · treeList=/sys/permissions/right/treeList.jsp
+- `/sys/rightrule_<method>.action`  →  com.maxtile.application.sys.action.RightruleAction
+  - 后端：src/com/maxtile/application/sys/action/RightruleAction.java
+  - 前端 result→jsp：success=/sys/rightrule/rightrulelist.jsp · add=/sys/rightrule/rightruleadd.jsp · see=/sys/rightrule/rightruleedit.jsp · update=/sys/rightrule/rightruleedit.jsp · search=/sys/billrule/searchrightrulelist.jsp
+- `/sys/rightruleitem_<method>.action`  →  com.maxtile.application.sys.action.RightruleItemAction
+  - 后端：src/com/maxtile/application/sys/action/RightruleItemAction.java
+  - 前端 result→jsp：success=<param name="actionName">rightrule_*</param>
+				<param name="method">findbyId</param> · add=/sys/rightrule/rightruleitemadd.jsp · update=/sys/rightrule/rightruleitemedit.jsp · error=/public/head/error.jsp
+- `/sys/role_<method>.action`  →  com.maxtile.application.sys.action.RoleAction
+  - 后端：src/com/maxtile/application/sys/action/RoleAction.java
+  - 前端 result→jsp：search=/sys/permissions/role/searchrolelist.jsp · list=/sys/permissions/role/rolelist.jsp · select=/sys/permissions/role/rolelist.jsp · addlist=/sys/permissions/role/addrolelist.jsp · add=/sys/permissions/role/roleadd.jsp · addAuth=/sys/permissions/role/roleauthadd.jsp · show=/sys/permissions/role/roleshow.jsp · div=/sys/permissions/role/div_rolelist.jsp · showRight=/sys/permissions/role/showRight.jsp · showRole=/sys/permissions/group/openRole.jsp · pubgetRoleValue=/sys/permissions/role/pubgetRoleValue.jsp · performanceList=/sys/permissions/role/performanceList.jsp · assignByDeptUser=/sys/permissions/role/roleAssignDeptUser.jsp
+- `/sys/rolePerfp_<method>.action`  →  com.maxtile.application.sys.action.RolePerfpAction
+  - 后端：src/com/maxtile/application/sys/action/RolePerfpAction.java
+  - 前端 result→jsp：list=/sys/permissions/rolePerfp/list.jsp · addPerfProjectList=/sys/permissions/rolePerfp/addPerfProjectList.jsp · error=/public/head/error.jsp
+- `/sys/roleRight_<method>.action`  →  com.maxtile.application.sys.action.RoleRightAction
+  - 后端：src/com/maxtile/application/sys/action/RoleRightAction.java
+  - 前端 result→jsp：list=/sys/permissions/roleright/rolerightlist.jsp · search=/sys/permissions/roleright/searchrolerightlist.jsp · open=/sys/permissions/roleright/addroleright.jsp · show=/sys/permissions/roleright/showrightlist.jsp · success=/sys/permissions/roleright/rolerightlist.jsp · error=/public/head/error.jsp
+- `/sys/shop_<method>.action`  →  com.maxtile.application.sys.action.ShopAction
+  - 后端：src/com/maxtile/application/sys/action/ShopAction.java
+  - 前端 result→jsp：showlist=/sys/shop/shoplist.jsp · query=/sys/shop/searchShoplist.jsp · show=/sys/shop/shopshow.jsp · treeShow=/sys/shop/show.jsp · treeList=/sys/shop/list.jsp · open=/sys/shop/shopadd.jsp · div_shopList=/sys/shop/div_shoplist.jsp · appGetPayMa=/sys/shop/appGetPayMa.jsp
+- `/sys/shopimage_<method>.action`  →  com.maxtile.application.sys.action.ShopimageAction
+  - 后端：src/com/maxtile/application/sys/action/ShopimageAction.java
+  - 前端 result→jsp：show=/sys/shopimage/show.jsp
+- `/sys/signinlog_<method>.action`  →  com.maxtile.application.sys.action.SigninlogAction
+  - 后端：src/com/maxtile/application/sys/action/SigninlogAction.java
+  - 前端 result→jsp：showliat=/sys/signinlog/signinloglist.jsp · query=/sys/signinlog/searchSigninloglist.jsp · error=/public/head/error.jsp
+- `/sys/transport_<method>.action`  →  (bean: transportAction 未解析)
+  - 前端 result→jsp：showlist=/sys/transport/transportlist.jsp · query=/sys/transport/searchTransportlist.jsp · open=/sys/transport/transportAdd.jsp · show=/sys/transport/transportshow.jsp
+- `/sys/transportway_<method>.action`  →  (bean: transportwayAction 未解析)
+  - 前端 result→jsp：showlist=/sys/transportway/transportwaylist.jsp · query=/sys/transportway/searchTransportway.jsp · open=/sys/transportway/transportwayAdd.jsp · show=/sys/transportway/transportwayshow.jsp
+- `/sys/unit_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.UnitAction
+  - 后端：src/com/maxtile/application/erp/baseinfo/action/UnitAction.java
+  - 前端 result→jsp：list=/sys/unit/list.jsp · searchList=/sys/unit/searchList.jsp · add=/sys/unit/add.jsp · update=/sys/unit/update.jsp
+- `/sys/user_<method>.action`  →  com.maxtile.application.sys.action.UserAction
+  - 后端：src/com/maxtile/application/sys/action/UserAction.java
+  - 前端 result→jsp：select=/sys/permissions/user/userlist.jsp · div_list=/sys/permissions/user/div_list.jsp · search=/sys/permissions/user/searchuserlist.jsp · listSubDeptUser=/sys/permissions/user/subDeptUserList.jsp · searchSubDeptUser=/sys/permissions/user/searchSubDeptUserList.jsp · divUserList=/sys/permissions/user/divUserList.jsp · searchDivUserList=/sys/permissions/user/searchDivUserList.jsp · selectforadd=/sys/permissions/user/userlistforadd.jsp · add=/sys/permissions/user/useradd.jsp · openGroup=/sys/permissions/user/opengroup.jsp · show=/sys/permissions/user/usershow.jsp · openUpdatePW=/sys/permissions/user/changePassword.jsp · div_fail=/sys/permissions/user/div_deletefail.jsp · success=/public/head/error.jsp · pubgetUserValue=/sys/permissions/user/pubgetUserValue.jsp
+- `/sys/userGroup_<method>.action`  →  com.maxtile.application.sys.action.UserGroupAction
+  - 后端：src/com/maxtile/application/sys/action/UserGroupAction.java
+  - 前端 result→jsp：list=/sys/permissions/usergroup/usergrouplist.jsp · listAccredit=/sys/permissions/usergroup/listAccredit.jsp · open=/sys/permissions/usergroup/addusergroup.jsp · openuserRole=/sys/permissions/usergroup/adduserrole.jsp · show=/sys/permissions/usergroup/showgrouplist.jsp · success=/sys/permissions/usergroup/usergrouplist.jsp · search=/sys/permissions/usergroup/searchusergrouplist.jsp
+- `/sys/userRole_<method>.action`  →  com.maxtile.application.sys.action.UserRoleAction
+  - 后端：src/com/maxtile/application/sys/action/UserRoleAction.java
+  - 前端 result→jsp：success=/sys/permissions/usergroup/usergrouplist.jsp · error=/public/head/error.jsp · roleUserList=/sys/permissions/role/roleUserList.jsp · addRoleUserList=/sys/permissions/role/addRoleUserList.jsp
+- `/sys/usershop_<method>.action`  →  com.maxtile.application.sys.action.UserShopAction
+  - 后端：src/com/maxtile/application/sys/action/UserShopAction.java
+
+## /sys  ·  src/config/struts/struts-sys.xml
+
+- `/sys/login_<method>.action`  →  com.maxtile.application.sys.action.LoginAction
+  - 后端：src/com/maxtile/application/sys/action/LoginAction.java
+  - 前端 result→jsp：sessionList=/public/head/session.jsp · login=/login/login.jsp · success=/public/head/error.jsp · error=/public/head/error.jsp · wapsessionList=/wap/public/head/session.jsp · applogin=/login/loginresult.jsp
+
+## /sys  ·  src/config/struts/struts-sys.xml
+
+- `/sys/oauth2Config_<method>.action`  →  com.maxtile.application.sys.action.OAuth2ConfigAction
+  - 后端：src/com/maxtile/application/sys/action/OAuth2ConfigAction.java
+  - 前端 result→jsp：list=/sys/oauth2config/list.jsp · show=/sys/oauth2config/show.jsp
+- `/sys/orderBulletinBoardConfig_<method>.action`  →  com.maxtile.application.sys.action.OrderBulletinBoardConfigAction
+  - 后端：src/com/maxtile/application/sys/action/OrderBulletinBoardConfigAction.java
+- `/sys/orderNumberGenerator_<method>.action`  →  com.maxtile.application.sys.action.OrderNumberGeneratorAction
+  - 后端：src/com/maxtile/application/sys/action/OrderNumberGeneratorAction.java
+- `/sys/shopArea_<method>.action`  →  com.maxtile.application.sys.action.ShopAreaAction
+  - 后端：src/com/maxtile/application/sys/action/ShopAreaAction.java
+  - 前端 result→jsp：list=/sys/shoparea/list.jsp
+- `/sys/sissueSelectConfig_<method>.action`  →  com.maxtile.application.sys.action.SissueSelectConfigAction
+  - 后端：src/com/maxtile/application/sys/action/SissueSelectConfigAction.java
+- `/sys/sorderProductionConfig_<method>.action`  →  com.maxtile.application.sys.action.SorderProductionConfigAction
+  - 后端：src/com/maxtile/application/sys/action/SorderProductionConfigAction.java
+
+## /sys/billcost  ·  src/config/struts/struts-sys.xml
+
+- `/sys/billcost/billcost_<method>.action`  →  (bean: billCostAction 未解析)
+  - 前端 result→jsp：showlist=/sys/billcost/billcostlist.jsp · show=/sys/billcost/billcostShow.jsp · openitem=/sys/billcost/billcostItemAdd.jsp · showitem=/sys/billcost/billcostItemShow.jsp · error=/public/head/error.jsp
+
+## /sys/billeditlog  ·  src/config/struts/struts-sys.xml
+
+- `/sys/billeditlog/billeditlog_<method>.action`  →  com.maxtile.application.sys.action.BilleditlogAction
+  - 后端：src/com/maxtile/application/sys/action/BilleditlogAction.java
+  - 前端 result→jsp：showliat=/sys/billeditlog/billeditloglist.jsp · query=/sys/billeditlog/searchBilleditloglist.jsp · error=/public/head/error.jsp · wapshowliat=/wap/billeditlog/billeditloglist.jsp · wapquery=/wap/billeditlog/searchBilleditloglist.jsp
+
+## /sys/cost  ·  src/config/struts/struts-sys.xml
+
+- `/sys/cost/billcost_<method>.action`  →  (bean: billCostAction 未解析)
+  - 前端 result→jsp：editBillCost=/sys/cost/editBillCost.jsp
+- `/sys/cost/cost_<method>.action`  →  com.maxtile.application.erp.finance.action.CostAction
+  - 后端：src/com/maxtile/application/erp/finance/action/CostAction.java
+  - 前端 result→jsp：costSingleList=/sys/cost/costSingleList.jsp · costOrderEdit=/sys/cost/costOrderEdit.jsp · openJsp=/sys/cost/openJsp.jsp · selectByBillcost=/sys/cost/selectByBillcost.jsp · list3=/sys/cost/costList.jsp · list2=/sys/cost/costList2.jsp · billcostopen=/sys/cost/billcostAdd.jsp · billcostlist=/sys/cost/billcostlist.jsp · billcostshow=/sys/cost/billcostshow.jsp · openbillcostitem=/sys/cost/openbillcostitem.jsp · billcostlist=/sys/cost/billcostlist.jsp · add=/sys/cost/baseCost/addcost.jsp · update=/sys/cost/baseCost/editcost.jsp · list=/sys/cost/baseCost/costlist.jsp · searchlist=/sys/cost/baseCost/costlist.jsp · error=/public/head/error.jsp
+
+## /sys/custmbuuser  ·  src/config/struts/struts-sys.xml
+
+- `/sys/custmbuuser/custmbuuser_<method>.action`  →  (bean: custmbuuserAction 未解析)
+  - 前端 result→jsp：showlist=/sys/custmbuuser/custmbuuserlist.jsp · query=/sys/custmbuuser/searchCustmbuuser.jsp · clubuserList=/sys/custmbuuser/clubuserList.jsp · queryClubuser=/sys/custmbuuser/queryClubuser.jsp · open=/sys/custmbuuser/custmbuuserAdd.jsp · error=/public/head/error.jsp
+
+## /sys/extendcost  ·  src/config/struts/struts-sys.xml
+
+- `/sys/extendcost/extendcost_<method>.action`  →  com.maxtile.application.sys.action.ExtendCostAction
+  - 后端：src/com/maxtile/application/sys/action/ExtendCostAction.java
+  - 前端 result→jsp：open=/sys/extendcost/extendcostOpen.jsp · show=/sys/extendcost/extendcostShow.jsp · showList=/sys/extendcost/extendcostList.jsp · searchList=/sys/extendcost/extendcostSearch.jsp · error=/public/head/error.jsp
+
+## /sys/planrate  ·  src/config/struts/struts-sys.xml
+
+- `/sys/planrate/planrate_<method>.action`  →  (bean: planrateAction 未解析)
+  - 前端 result→jsp：show=/sys/planrate/planrateShow.jsp · showlist=/sys/planrate/planrateList.jsp · query=/sys/planrate/searchPlanrate.jsp · open=/sys/planrate/planrateAdd.jsp · error=/public/head/error.jsp
+
+## /sys/qcphrase  ·  src/config/struts/struts-sys.xml
+
+- `/sys/qcphrase/qcphrase_<method>.action`  →  com.maxtile.application.sys.action.QcphraseAction
+  - 后端：src/com/maxtile/application/sys/action/QcphraseAction.java
+  - 前端 result→jsp：showlist=/sys/qcphrase/qcphraselist.jsp · query=/sys/qcphrase/findOne.jsp · open=/sys/qcphrase/qcphraseAdd.jsp · error=/public/head/error.jsp
+
+## /sys/scheckdatahand  ·  src/config/struts/struts-sys.xml
+
+- `/sys/scheckdatahand/scheckdatahand_<method>.action`  →  (bean: scheckDataHandAction 未解析)
+  - 前端 result→jsp：open=/sys/scheckdatahand/scheckdatahandOpen.jsp · show=/sys/scheckdatahand/scheckdatahandShow.jsp · showList=/sys/scheckdatahand/scheckdatahandList.jsp · searchList=/sys/scheckdatahand/scheckdatahandSearch.jsp · error=/public/head/error.jsp
+
+## /warehouse  ·  src/config/struts/struts-warehouse.xml
+
+- `/warehouse/backdatareg_<method>.action`  →  com.maxtile.application.erp.warehouse.action.BackdataregAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/BackdataregAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/backdataregitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.BackdataregitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/BackdataregitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/bookstockage_<method>.action`  →  com.maxtile.application.erp.warehouse.action.BookstockageAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/BookstockageAction.java
+  - 前端 result→jsp：list=/erp/warehouse/bookstockage/list.jsp · show=/erp/warehouse/bookstockage/show.jsp · error=/public/head/error.jsp
+- `/warehouse/bookstockageitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.BookstockageitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/BookstockageitemAction.java
+  - 前端 result→jsp：list=/erp/warehouse/bookstockageitem/list.jsp · subList=/erp/warehouse/bookstockageitem/subList.jsp · error=/public/head/error.jsp
+- `/warehouse/cardorder_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardorderAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardorderAction.java
+- `/warehouse/cardorderitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardorderitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardorderitemAction.java
+  - 前端 result→jsp：analysisList=/erp/warehouse/cardorderitem/analysisList.jsp · SaleScheduleShow1=/erp/search/Sale/SaleScheduleShow1.jsp
+- `/warehouse/cardorderitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardorderitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardorderitemmaAction.java
+- `/warehouse/cardoutin_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardoutinAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardoutinAction.java
+  - 前端 result→jsp：list=/erp/warehouse/cardoutin/list.jsp
+- `/warehouse/cardsend_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardsendAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardsendAction.java
+- `/warehouse/cardsenditem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardsenditemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardsenditemAction.java
+- `/warehouse/cardstock_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CardstockAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CardstockAction.java
+  - 前端 result→jsp：cardstockCount=/erp/warehouse/cardstock/cardstockCount.jsp · proCardList=/erp/warehouse/cardstock/proCardList.jsp
+- `/warehouse/colorCardCanSam_<method>.action`  →  com.maxtile.application.erp.warehouse.action.ColorCardCanSamAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/ColorCardCanSamAction.java
+- `/warehouse/custsordercancel_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CustsordercancelAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CustsordercancelAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/custsordercancel/list.jsp · show=/erp/warehouse/custsordercancel/show.jsp
+- `/warehouse/custsordercancelitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CustsordercancelitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CustsordercancelitemAction.java
+- `/warehouse/custsordercancelma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.CustsordercancelmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/CustsordercancelmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listForItem=/erp/warehouse/custsordercancelma/listForItem.jsp
+- `/warehouse/deliveryInspection_<method>.action`  →  com.maxtile.application.erp.warehouse.action.DeliveryInspectionAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/DeliveryInspectionAction.java
+- `/warehouse/drawpound_<method>.action`  →  com.maxtile.application.erp.warehouse.action.DrawpoundAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/DrawpoundAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/drawpound/list.jsp · show=/erp/warehouse/drawpound/show.jsp
+- `/warehouse/drawpoundma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.DrawpoundmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/DrawpoundmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/fewbatchnoaddlog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.FewbatchnoaddlogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/FewbatchnoaddlogAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listCount=/erp/warehouse/fewbatchnoaddlog/listCount.jsp · listModelidCount=/erp/warehouse/fewbatchnoaddlog/listModelidCount.jsp · listDetailList=/erp/warehouse/fewbatchnoaddlog/listDetailList.jsp
+- `/warehouse/fewbatchnoconfig_<method>.action`  →  com.maxtile.application.erp.warehouse.action.FewbatchnoconfigAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/FewbatchnoconfigAction.java
+  - 前端 result→jsp：show=/erp/warehouse/fewbatchnoconfig/show.jsp
+- `/warehouse/initstock_<method>.action`  →  com.maxtile.application.erp.warehouse.action.InitstockAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/InitstockAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/initstock/list.jsp · show=/erp/warehouse/initstock/show.jsp · div_list=/erp/warehouse/initstock/div_list.jsp
+- `/warehouse/machine_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MachineAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MachineAction.java
+  - 前端 result→jsp：list=/erp/warehouse/machine/list.jsp · addList=/erp/warehouse/machine/addList.jsp · updateList=/erp/warehouse/machine/updateList.jsp · updateListForModelOne=/erp/warehouse/machine/updateListForModelOne.jsp · listForModelOne=/erp/warehouse/machine/listForModelOne.jsp · machineItemList=/erp/warehouse/machine/machineItemList.jsp · proColorSupMachine=/erp/warehouse/machine/proColorSupMachine.jsp
+- `/warehouse/macutsew_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MacutsewAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MacutsewAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/macutsew/list.jsp · show=/erp/warehouse/macutsew/show.jsp
+- `/warehouse/macutsewnew_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MacutsewnewAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MacutsewnewAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · addList=/erp/warehouse/macutsewnew/addList.jsp · printUpdateQtyMa=/erp/warehouse/mainfo/batchPrint.jsp · printUpdateQtyMaNew=/erp/warehouse/mainfo/batchPrintNew.jsp
+- `/warehouse/macutsewold_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MacutsewoldAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MacutsewoldAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/mainfo_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MainfoAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MainfoAction.java
+  - 前端 result→jsp：list=/erp/warehouse/mainfo/list.jsp · openQtyma=/erp/warehouse/mainfo/addQtyma.jsp · listforStima=/erp/warehouse/mainfo/listforStima.jsp · listforStimaByPorder=/erp/warehouse/mainfo/listforPorderStima.jsp · listforMrecima=/erp/warehouse/mainfo/listforMrecima.jsp · batchPrint=/erp/warehouse/mainfo/batchPrint.jsp · batchPrintNew=/erp/warehouse/mainfo/batchPrintNew.jsp · printAllNot=/erp/warehouse/mainfo/batchPrintNew.jsp · addList=/erp/warehouse/mainfo/addList.jsp · openOutsourcingList=/erp/warehouse/mainfo/openOutsourcingList.jsp · listForMrema=/erp/warehouse/mainfo/listForMrema.jsp · changeOpenList=/erp/warehouse/mainfo/changeAddList.jsp · listForPlma=/erp/warehouse/mainfo/listForPlma.jsp · changeSup=/erp/warehouse/mainfo/changeSup.jsp · showMainfo=/erp/warehouse/mainfo/batchPrint.jsp · listAge=/erp/warehouse/mainfo/listAge.jsp · autoAddQtyOpenList=/erp/warehouse/mainfo/autoAddQtyAddList.jsp · ageAnalyse=/erp/warehouse/mainfo/listAgeAnalyse.jsp · error=/public/head/error.jsp · testPrint=/erp/warehouse/mainfo/testPrint.jsp · testRFIDPrint=/erp/warehouse/mainfo/testRFIDPrint.jsp · openWovenList=/erp/warehouse/mainfo/openWovenList.jsp
+- `/warehouse/mrpreport_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpreportAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpreportAction.java
+- `/warehouse/mrpstockcheck_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpstockcheckAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpstockcheckAction.java
+  - 前端 result→jsp：diifList=/erp/warehouse/mrpstockcheck/diifList.jsp
+- `/warehouse/mrpstockcheckbill_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpstockcheckbillAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpstockcheckbillAction.java
+  - 前端 result→jsp：list=/erp/warehouse/mrpstockcheckbill/list.jsp · compareCountList=/erp/warehouse/mrpstockcheckbill/compareCountList.jsp
+- `/warehouse/mrpstockchecktask_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpstockchecktaskAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpstockchecktaskAction.java
+  - 前端 result→jsp：list=/erp/warehouse/mrpstockchecktask/list.jsp · listRight=/erp/warehouse/mrpstockchecktask/listRight.jsp · yarnPedingList=/erp/warehouse/mrpstockchecktask/yarnPedingList.jsp · compareCountListRight=/erp/warehouse/mrpstockchecktask/compareCountListRight.jsp
+- `/warehouse/mrpstockchecktasklog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpstockchecktasklogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpstockchecktasklogAction.java
+- `/warehouse/mrpuse_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpuseAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpuseAction.java
+  - 前端 result→jsp：mtaskMrpUpdateSelectList=/erp/warehouse/mrpuse/mtaskMrpUpdateSelectList.jsp · mrpuseCountList=/erp/warehouse/mrpuse/mrpuseCountList.jsp · poTranMrpuseList=/erp/warehouse/mrpuse/poTranMrpuseList.jsp
+- `/warehouse/mrpuseitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.MrpuseitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/MrpuseitemAction.java
+  - 前端 result→jsp：mrpuseitemLogList=/erp/warehouse/mrpuseitem/mrpuseitemLogList.jsp
+- `/warehouse/planmachine_<method>.action`  →  com.maxtile.application.erp.warehouse.action.PlanMachineAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/PlanMachineAction.java
+  - 前端 result→jsp：open=/erp/warehouse/planmachine/add.jsp · show=/erp/warehouse/planmachine/show.jsp · panelListPro=/erp/warehouse/planmachine/panelListPro.jsp · panelListSup=/erp/warehouse/planmachine/panelListSup.jsp · machinshow=/erp/warehouse/planmachine/machinshow.jsp · noplanshow=/erp/warehouse/planmachine/noplanshow.jsp · turnonSalesAnalyse=/erp/warehouse/planmachine/turnonSalesAnalyse.jsp · turnonSalesAnalyseShow=/erp/warehouse/planmachine/turnonSalesAnalyseShow.jsp
+- `/warehouse/planmachineitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.PlanMachineitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/PlanMachineitemAction.java
+  - 前端 result→jsp：open=/erp/warehouse/planmachine/add.jsp · show=/erp/warehouse/planmachine/show.jsp
+- `/warehouse/profitloss_<method>.action`  →  com.maxtile.application.erp.warehouse.action.ProfitlossAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/ProfitlossAction.java
+  - 前端 result→jsp：list=/erp/warehouse/profitloss/list.jsp · add=/erp/warehouse/profitloss/add.jsp · show=/erp/warehouse/profitloss/show.jsp · error=/public/head/error.jsp
+- `/warehouse/profitlossitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.ProfitlossitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/ProfitlossitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/profitlossitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.ProfitlossitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/ProfitlossitemmaAction.java
+  - 前端 result→jsp：div_list=/erp/warehouse/profitlossitemma/div_list.jsp · fitAddMa=/erp/warehouse/profitlossitemma/fitAddMa.jsp · openFitAddList=/erp/warehouse/profitlossitemma/fitAddList.jsp · openFitAddListTwo=/erp/warehouse/profitlossitemma/fitAddList2.jsp · lossAddList=/erp/warehouse/profitlossitemma/lossAddList.jsp · error=/public/head/error.jsp
+- `/warehouse/stock_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/stock/list.jsp · listCanuseQty=/erp/warehouse/stock/listCanuseQty.jsp · listForSo=/erp/warehouse/stock/listForSo.jsp · show=/erp/warehouse/stock/show.jsp · listByStore=/erp/warehouse/stock/listByStore.jsp · div_list=/erp/warehouse/stock/div_list.jsp · listForUpQty=/erp/warehouse/stock/listForUpQty.jsp · produceStockList=/erp/warehouse/stock/produceStockList.jsp · listForStockchangeitem=/erp/warehouse/stock/listForStockchangeitem.jsp · supProStockList=/erp/warehouse/stock/supProStockList.jsp · salerAddTagProductToTransfer=/erp/warehouse/stock/salerAddTagProductToTransfer.jsp · stockMainfoAgeCount=/erp/warehouse/stock/stockMainfoAgeCount.jsp · stockMainfoAgeList=/erp/warehouse/stock/stockMainfoAgeList.jsp
+- `/warehouse/stockadjustable_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockadjustableAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockadjustableAction.java
+  - 前端 result→jsp：AdjustableList=/erp/warehouse/stockadjustable/adjustableList.jsp · yarnCanUseCountList=/erp/warehouse/stockadjustable/yarnCanUseCountList.jsp
+- `/warehouse/stockchange_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockchangeAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockchangeAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/stockchange/list.jsp · show=/erp/warehouse/stockchange/show.jsp
+- `/warehouse/stockchangeitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockchangeitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockchangeitemAction.java
+  - 前端 result→jsp：listForStockchange=/erp/warehouse/stockchangeitem/listForStockchange.jsp · error=/public/head/error.jsp
+- `/warehouse/stockchangeitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockchangeitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockchangeitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listForItem=/erp/warehouse/stockchangeitemma/listForItem.jsp · printChangeMa=/erp/warehouse/mainfo/batchPrint.jsp · printChangeMaNew=/erp/warehouse/mainfo/batchPrintNew.jsp
+- `/warehouse/stockcheck_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockcheckAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockcheckAction.java
+  - 前端 result→jsp：list=/erp/warehouse/stockcheck/list.jsp · add=/erp/warehouse/stockcheck/add.jsp · show=/erp/warehouse/stockcheck/show.jsp · listForProfitloss=/erp/warehouse/stockcheck/listForProfitloss.jsp · div_listByPl=/erp/warehouse/stockcheck/div_listByPl.jsp · weaveShow=/erp/warehouse/stockcheck/weaveShow.jsp · error=/public/head/error.jsp
+- `/warehouse/stockcheckitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockcheckitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockcheckitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_listForLossFitMa=/erp/warehouse/stockcheckitem/div_listForLossFitMa.jsp · grayReduceRestoreYarn=/erp/warehouse/stockcheckitem/grayReduceRestoreYarn.jsp
+- `/warehouse/stockcheckitemcost_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockcheckitemcostAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockcheckitemcostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_listByStockcheck=/erp/warehouse/stockcheckitemcost/div_listByStockcheck.jsp · weaveStoreDeductReport=/erp/warehouse/stockcheckitemcost/weaveStoreDeductReport.jsp
+- `/warehouse/stockcheckitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockcheckitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockcheckitemmaAction.java
+  - 前端 result→jsp：div_list=/erp/warehouse/stockcheckitemma/div_list.jsp · add=/erp/warehouse/stockcheckitemma/add.jsp · error=/public/head/error.jsp · listForLossMa=/erp/warehouse/stockcheckitemma/listForLossMa.jsp · listForFitMa=/erp/warehouse/stockcheckitemma/listForFitMa.jsp · openFitAddList=/erp/warehouse/stockcheckitemma/fitAddList.jsp · selectStockProList=/erp/warehouse/stockcheckitemma/selectStockProList.jsp
+- `/warehouse/stockcheckscan_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockcheckscanAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockcheckscanAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/stockcheckscanma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockcheckscanmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockcheckscanmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/stockdata_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockdataAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockdataAction.java
+  - 前端 result→jsp：addList=/erp/warehouse/stockdata/addList.jsp · list=/erp/warehouse/stockdata/list.jsp · error=/public/head/error.jsp
+- `/warehouse/stockitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/warehouse/stockitem/show.jsp
+- `/warehouse/stockitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · show=/erp/warehouse/stockitemma/show.jsp
+- `/warehouse/stockma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/stockma/list.jsp · listForIscut=/erp/warehouse/stockma/listForIscut.jsp · div_list=/erp/warehouse/stockma/div_list.jsp · supMaList=/erp/warehouse/stockma/supMaList.jsp · div_listForSample=/erp/warehouse/stockma/div_listForSample.jsp · divForMoima=/erp/warehouse/stockma/divForMoima.jsp · divForWoima=/erp/warehouse/stockma/divForWoima.jsp · divForStoma=/erp/warehouse/stockma/divForStoma.jsp · listByProAndCol=/erp/warehouse/stockma/listByProAndCol.jsp · StockmaDetailShow=/erp/warehouse/stockma/StockmaDetailShow.jsp · openQtyma=/erp/warehouse/stockma/addQtyma.jsp · divByPb=/erp/warehouse/stockma/divByPb.jsp · divByStomaWo=/erp/warehouse/stockma/divByStomaWo.jsp · divForMbma=/erp/warehouse/stockma/divForMbma.jsp · div_batchnoAndStore=/erp/warehouse/stockma/div_batchnoAndStore.jsp · listForUqma=/erp/warehouse/stockma/listForUqma.jsp · listForMso=/erp/warehouse/stockma/listForMso.jsp · div_listForDrawPound=/erp/warehouse/stockma/div_listForDrawPound.jsp · listMaForTransferitemma=/erp/warehouse/stockma/listMaForTransferitemma.jsp · listMaForProfitlossitemma=/erp/warehouse/stockma/listMaForProfitlossitemma.jsp · maListForQcorderitemma=/erp/warehouse/stockma/maListForQcorderitemma.jsp · listStockmaForSissue=/erp/warehouse/stockma/listMaForSisuema.jsp · listStockmaForOrderSissue=/erp/warehouse/stockma/listMaForOrderSisuema.jsp · listMaForQcorderitemma=/erp/warehouse/stockma/listMaForQcorderitemma.jsp · listForScma=/erp/warehouse/stockma/listForScma.jsp · pbackDirectAddList=/erp/warehouse/stockma/pbackDirectAddList.jsp · logStockmaList=/erp/warehouse/stockma/logStockmaList.jsp · StockmaCountPro=/erp/search/stockma/StockmaCountPro.jsp · StockmaCountProColor=/erp/search/stockma/StockmaCountProColor.jsp · StockmaCountProColorBatchno=/erp/search/stockma/StockmaCountProColorBatchno.jsp · StockmaCountProColorBatchnoMachinnum=/erp/search/stockma/StockmaCountProColorBatchnoMachinnum.jsp · StockmaCountProColorBatchnoMa=/erp/search/stockma/StockmaCountProColorBatchnoMa.jsp · stockmaPlacenoList=/erp/search/stockma/stockmaPlacenoList.jsp · supStockmaCountPro=/erp/search/stockma/supStockmaCountPro.jsp · supStockmaCountProColor=/erp/search/stockma/supStockmaCountProColor.jsp · supStockmaCountProColorBatchno=/erp/search/stockma/supStockmaCountProColorBatchno.jsp · supStockmaCountProColorBatchnoMa=/erp/search/stockma/supStockmaCountProColorBatchnoMa.jsp · listStockagePro=/erp/search/stockage/listStockagePro.jsp · listStockageProColor=/erp/search/stockage/listStockageProColor.jsp · listStockageProColorBatchno=/erp/search/stockage/listStockageProColorBatchno.jsp · listStockageProColorBatchnoMa=/erp/search/stockage/listStockageProColorBatchnoMa.jsp · sheinstockmaSummary=/erp/search/stockma/sheinstockmaSummary.jsp · colorCardStockma=/erp/search/stockma/colorCardStockma.jsp · listForCustsordercancelma=/erp/warehouse/stockma/listForCustsordercancelma.jsp · fewBatchnoList=/erp/warehouse/stockma/fewBatchnoList.jsp · fewBatchnoPrint=/erp/warehouse/stockma/fewBatchnoPrint.jsp · StockmaInventoryPro=/erp/search/stockma/StockmaInventoryPro.jsp · StockmaInventoryProColor=/erp/search/stockma/StockmaInventoryProColor.jsp · StockmaInventoryProColorBatchno=/erp/search/stockma/StockmaInventoryProColorBatchno.jsp · listForGiveTagTranferitem=/erp/warehouse/stockma/listForGiveTagTranferitem.jsp · sorderInspectList=/erp/warehouse/stockma/sorderInspectList.jsp · noCutOffProduct=/erp/search/stockma/noCutOffProduct.jsp · stockmaSumGropuByBatchno=/erp/search/stockma/stockmaSumGropuByBatchno.jsp · inspectList=/erp/warehouse/stockma/inspectList.jsp · mrpconfirmSelectList=/erp/produce/morderMrpconfirm/mrpconfirmSelectList.jsp · listMaForTfima=/erp/warehouse/stockma/listMaForTfima.jsp · greyClothStockQuery=/erp/search/stockma/greyClothStockQueryList.jsp · greyClothStockItemQuery=/erp/search/stockma/greyClothStockItemQuery.jsp · queryStockGroupbyStore=/erp/search/stockma/queryStockGroupbyStore.jsp
+- `/warehouse/stockmaAge_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockmaAgeAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockmaAgeAction.java
+- `/warehouse/stockmaAgeLog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockmaAgeLogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockmaAgeLogAction.java
+- `/warehouse/stockmaeventlog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockmaeventlogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockmaeventlogAction.java
+  - 前端 result→jsp：list=/erp/warehouse/stockmaeventlog/list.jsp
+- `/warehouse/stockmonth_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockmonthAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockmonthAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/stockmonth/list.jsp · show=/erp/warehouse/stockmonth/show.jsp · open=/erp/warehouse/stockmonth/add.jsp
+- `/warehouse/stockmonthitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockmonthitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockmonthitemAction.java
+  - 前端 result→jsp：add=/erp/warehouse/stockmonthitem/add.jsp · div_list=/erp/warehouse/stockmonthitem/div_list.jsp · error=/public/head/error.jsp
+- `/warehouse/stockplace_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockplaceAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockplaceAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/stockTransferPlan_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockTransferPlanAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockTransferPlanAction.java
+  - 前端 result→jsp：listAndItem=/erp/warehouse/stocktransferplan/listAndItem.jsp · addListFromAutoSkuOrder=/erp/warehouse/stocktransferplan/addListFromAutoSkuOrder.jsp
+- `/warehouse/stockTransferPlanItem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockTransferPlanItemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockTransferPlanItemAction.java
+- `/warehouse/stockTransferPlanItemLog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockTransferPlanItemLogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockTransferPlanItemLogAction.java
+- `/warehouse/stockuse_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockuseAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockuseAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · woMtaskStockUseList=/erp/warehouse/stockuse/woMtaskStockUseList.jsp · listLeft=/erp/warehouse/stockuse/listLeft.jsp
+- `/warehouse/stockuseitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StockuseitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StockuseitemAction.java
+  - 前端 result→jsp：listRight=/erp/warehouse/stockuseitem/listRight.jsp
+- `/warehouse/storagelog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoragelogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoragelogAction.java
+- `/warehouse/storebookage_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StorebookageAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StorebookageAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/storebookage/list.jsp · show=/erp/warehouse/storebookage/show.jsp
+- `/warehouse/storebookageitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StorebookageitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StorebookageitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/storebookageitem/list.jsp · listCount=/erp/warehouse/storebookageitem/listCount.jsp · listCountItem=/erp/warehouse/storebookageitem/listCountItem.jsp
+- `/warehouse/storecanccfglog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StorecanccfglogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StorecanccfglogAction.java
+- `/warehouse/storeCancelLog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreCancelLogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreCancelLogAction.java
+  - 前端 result→jsp：list=/erp/warehouse/storecancallog/list.jsp · listItem=/erp/warehouse/storecancallog/listItem.jsp · listItemMa=/erp/warehouse/storecancallog/listItemMa.jsp
+- `/warehouse/storein_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreinAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreinAction.java
+  - 前端 result→jsp：list=/erp/warehouse/storein/list.jsp · transferList=/erp/warehouse/storein/transferList.jsp · open=/erp/warehouse/storein/add.jsp · openBySback=/erp/warehouse/storein/addBySback.jsp · show=/erp/warehouse/storein/show.jsp · produceInShow=/erp/warehouse/storein/produceInShow.jsp · purchaseInShow=/erp/warehouse/storein/purchaseInShow.jsp · transferInShow=/erp/warehouse/storein/transferInShow.jsp · sbackInShow=/erp/warehouse/storein/sbackInShow.jsp · showMorder=/erp/warehouse/storein/showMorder.jsp · openByMorder=/erp/warehouse/storein/addByMorder.jsp · print=/erp/warehouse/storein/print.jsp · error=/public/head/error.jsp · produceShow=/erp/warehouse/storein/produceShow.jsp · macutsewShow=/erp/warehouse/storein/macutsewShow.jsp · stockchangeShow=/erp/warehouse/storein/stockchangeShow.jsp · profitlossShow=/erp/warehouse/storein/profitlossShow.jsp · showOther=/erp/warehouse/storein/showOther.jsp · addLoader=/erp/warehouse/storein/addLoader.jsp · addCBLoader=/erp/warehouse/storein/addCBLoader.jsp · updateMsg=/erp/warehouse/storein/updateMsg.jsp · saleBackUpdateCust=/erp/warehouse/storein/saleBackUpdateCust.jsp
+- `/warehouse/storeinboxcontrol_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreinboxcontrolAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreinboxcontrolAction.java
+  - 前端 result→jsp：updateList=/erp/warehouse/storeinboxcontrol/updateList.jsp · error=/public/head/error.jsp
+- `/warehouse/storeinitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreinitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreinitemAction.java
+  - 前端 result→jsp：open=/erp/warehouse/storeinitem/add.jsp · openList=/erp/warehouse/storeinitem/addList.jsp · divByMsti=/erp/warehouse/storeinitem/divByMsti.jsp · updateMsg=/erp/warehouse/storeinitem/updateMsg.jsp · div_listForDrawPound=/erp/warehouse/storeinitem/div_listForDrawPound.jsp · div_tranListForDrawPound=/erp/warehouse/storeinitem/div_tranListForDrawPound.jsp · div_listForDeduction=/erp/warehouse/storeinitem/div_listForDeduction.jsp · listForMreceive=/erp/warehouse/storeinitem/listForMreceive.jsp · cancelTranItemList=/erp/warehouse/storeinitem/cancelTranItemList.jsp · updateBox=/erp/warehouse/storeinitem/updateBox.jsp · error=/public/head/error.jsp
+- `/warehouse/storeinitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreinitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreinitemmaAction.java
+  - 前端 result→jsp：open=/erp/warehouse/storeinitemma/add.jsp · openList=/erp/warehouse/storeinitemma/addList.jsp · div_listByStii=/erp/warehouse/storeinitemma/div_listByStii.jsp · div_listByStiiRefund=/erp/warehouse/storeinitemma/div_listByStiiRefund.jsp · openQtyma=/erp/warehouse/storeinitemma/addQtyMa.jsp · addListMa=/erp/warehouse/storeinitemma/addListMa.jsp · cancelTranMaList=/erp/warehouse/storeinitemma/cancelTranMaList.jsp · printMainfo=/erp/warehouse/mainfo/batchPrint.jsp · error=/public/head/error.jsp · cancelListByStii=/erp/warehouse/storeinitemma/cancelListByStii.jsp
+- `/warehouse/storeinoutchecklog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreinoutchecklogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreinoutchecklogAction.java
+  - 前端 result→jsp：list=/erp/warehouse/storeinoutchecklog/list.jsp
+- `/warehouse/storelock_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StorelockAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StorelockAction.java
+  - 前端 result→jsp：list=/erp/warehouse/storelock/list.jsp · addList=/erp/warehouse/storelock/addList.jsp · updateList=/erp/warehouse/storelock/updateList.jsp
+- `/warehouse/storeout_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreoutAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreoutAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · test=/erp/warehouse/storeout/test.jsp · list=/erp/warehouse/storeout/list.jsp · open=/erp/warehouse/storeout/add.jsp · show=/erp/warehouse/storeout/show.jsp · mrpOutShow=/erp/warehouse/storeout/mrpOutShow.jsp · pbackOutShow=/erp/warehouse/storeout/pbackOutShow.jsp · transferOutShow=/erp/warehouse/storeout/transferOutShow.jsp · sissueOutShow=/erp/warehouse/storeout/sissueOutShow.jsp · print=/erp/warehouse/storeout/print.jsp · printOne=/erp/warehouse/storeout/printOne.jsp · batchPrint=/erp/warehouse/storeout/batchPrint.jsp · newBatchPrint=/erp/warehouse/storeout/newBatchPrint.jsp · openAutoBatchPrint=/erp/warehouse/storeout/autoBatchPrint.jsp · onTimePrint=/erp/warehouse/storeout/onTimePrint.jsp · autoBatchPrint=/erp/warehouse/storeout/autoBatchPrint.jsp · warehouseMonitor=/erp/warehouse/storeout/warehouseMonitor.jsp · macutsewShow=/erp/warehouse/storeout/macutsewShow.jsp · stockchangeShow=/erp/warehouse/storeout/stockchangeShow.jsp · profitlossShow=/erp/warehouse/storeout/profitlossShow.jsp · showOther=/erp/warehouse/storeout/showOther.jsp · returnProdeucePrints=/erp/warehouse/storeout/returnProdeucePrints.jsp · orderWarehouseOutDetails=/erp/warehouse/storeout/orderWarehouseOutDetails.jsp · sampleYarnMidStoList=/erp/warehouse/storeout/sampleYarnMidStoList.jsp
+- `/warehouse/storeoutCusGoodsleve_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreoutCusGoodsleveAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreoutCusGoodsleveAction.java
+  - 前端 result→jsp：list=/erp/warehouse/storeoutcusgoodsleve/list.jsp · show=/erp/warehouse/storeoutcusgoodsleve/show.jsp
+- `/warehouse/storeoutitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreoutitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreoutitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/storeoutitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreoutitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreoutitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · open=/erp/warehouse/storeoutitemma/add.jsp · div_listByStoi=/erp/warehouse/storeoutitemma/div_listByStoi.jsp
+- `/warehouse/storeUseCar_<method>.action`  →  com.maxtile.application.erp.warehouse.action.StoreUseCarAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/StoreUseCarAction.java
+  - 前端 result→jsp：list=/erp/warehouse/useCar/list.jsp · print=/erp/warehouse/useCar/print.jsp · toYarnCarApplyList=/erp/warehouse/useCar/toYarnCarApplyList.jsp
+- `/warehouse/superrortrue_<method>.action`  →  com.maxtile.application.erp.warehouse.action.SuperrortrueAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/SuperrortrueAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/superrortrue/list.jsp · show=/erp/warehouse/superrortrue/show.jsp
+- `/warehouse/superrortrueitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.SuperrortrueitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/SuperrortrueitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/supstockchecktag_<method>.action`  →  com.maxtile.application.erp.warehouse.action.SupstockchecktagAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/SupstockchecktagAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · stockcheckLogList=/erp/warehouse/supstockchecktag/stockcheckLogList.jsp · weaveStockCkPcAddGray=/erp/warehouse/supstockchecktag/weaveStockCkPcAddGray.jsp
+- `/warehouse/transfer_<method>.action`  →  com.maxtile.application.erp.warehouse.action.TransferAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/TransferAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/transfer/list.jsp · listforStoi=/erp/warehouse/transfer/listforStoi.jsp · add=/erp/warehouse/transfer/add.jsp · show=/erp/warehouse/transfer/show.jsp · saleShow=/erp/warehouse/transfer/saleShow.jsp · produceShow=/erp/warehouse/transfer/produceShow.jsp · print=/erp/warehouse/transfer/print.jsp · batchPrint=/erp/warehouse/transfer/batchPrint.jsp · addItemForStock=/erp/warehouse/transfer/addItemForStock.jsp · addLoader=/erp/warehouse/transfer/addLoader.jsp · updateMsg=/erp/warehouse/transfer/updateMsg.jsp · addCutItemForStock=/erp/warehouse/transfer/addCutItemForStock.jsp · scmTransferPrint=/erp/warehouse/transfer/scmTransferPrint.jsp · salerGiveTagProductAdd=/erp/warehouse/transfer/salerGiveTagProductAdd.jsp · salerGiveTagProductShow=/erp/warehouse/transfer/salerGiveTagProductShow.jsp · giveTagShow=/erp/warehouse/transfer/giveTagShow.jsp · analysisDyeingTransfer=/erp/search/develop/analysisDyeingTransfer.jsp · analysisDyeingWsupTransfer=/erp/search/develop/analysisDyeingWsupTransfer.jsp · showTagTransferTotal=/erp/warehouse/transfer/showTagTransferTotal.jsp · analysisDevWorderTransfer=/erp/search/develop/analysisDevWorderTransfer.jsp
+- `/warehouse/transferitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.TransferitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/TransferitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · divForStoi=/erp/warehouse/transferitem/divForStoi.jsp · divForStii=/erp/warehouse/transferitem/divForStii.jsp · normalAdd=/erp/warehouse/transferitem/normalAdd.jsp · saleAdd=/erp/warehouse/transferitem/saleAdd.jsp · produceAdd=/erp/warehouse/transferitem/produceAdd.jsp · transferToSup=/erp/warehouse/transferitem/transferToSup.jsp · addReqStockmaList=/erp/warehouse/transferitem/addReqStockmaList.jsp · showMreTranList=/erp/warehouse/transferitem/showMreTranList.jsp · greyClothTransferItemQuery=/erp/warehouse/transferitem/greyClothTransferItemQuery.jsp · analysisDyeingRelOpen=/erp/warehouse/transferitem/analysisDyeingRelOpen.jsp
+- `/warehouse/transferitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.TransferitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/TransferitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · div_list=/erp/warehouse/transferitemma/div_list.jsp · divForStoma=/erp/warehouse/transferitemma/divForStoma.jsp · list=/erp/warehouse/transferitemma/list.jsp · listForSiima=/erp/warehouse/transferitemma/listForSiima.jsp · stockmaSelectByRfid=/erp/warehouse/transferitemma/stockmaSelectByRfid.jsp
+- `/warehouse/transfermiddle_<method>.action`  →  com.maxtile.application.warehouse.transfermiddle.action.TransfermiddleAction
+  - 后端：src/com/maxtile/application/warehouse/transfermiddle/action/TransfermiddleAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · showMiddelStore=/erp/warehouse/transfermiddle/showMiddelStore.jsp
+- `/warehouse/updateqty_<method>.action`  →  com.maxtile.application.erp.warehouse.action.UpdateqtyAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/UpdateqtyAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/warehouse/updateqty/list.jsp · show=/erp/warehouse/updateqty/show.jsp
+- `/warehouse/updateqtyitem_<method>.action`  →  com.maxtile.application.erp.warehouse.action.UpdateqtyitemAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/UpdateqtyitemAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
+- `/warehouse/updateqtyitemma_<method>.action`  →  com.maxtile.application.erp.warehouse.action.UpdateqtyitemmaAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/UpdateqtyitemmaAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp · listForItem=/erp/warehouse/updateqtyitemma/listForItem.jsp · printUpdateQtyMa=/erp/warehouse/mainfo/batchPrint.jsp · printUpdateQtyMaNew=/erp/warehouse/mainfo/batchPrintNew.jsp
+- `/warehouse/warehouseworklog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.WarehouseworklogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/WarehouseworklogAction.java
+  - 前端 result→jsp：delList=/erp/warehouse/warehouseworklog/delList.jsp · workStatistics=/erp/warehouse/warehouseworklog/workStatistics.jsp · error=/public/head/error.jsp
+- `/warehouse/weavingmillstoredata_<method>.action`  →  com.maxtile.application.erp.warehouse.action.WeavingMillStoreAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/WeavingMillStoreAction.java
+  - 前端 result→jsp：list=/erp/warehouse/weavingmillstoredata/list.jsp · error=/public/head/error.jsp
+- `/warehouse/wostoremrplog_<method>.action`  →  com.maxtile.application.erp.warehouse.action.WostoremrplogAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/WostoremrplogAction.java
+- `/warehouse/yarnreport_<method>.action`  →  com.maxtile.application.erp.warehouse.action.YarnreportAction
+  - 后端：src/com/maxtile/application/erp/warehouse/action/YarnreportAction.java
+
+## /wx  ·  src/config/struts/struts-wechat.xml
+
+- `/wx/weChat_<method>.action`  →  com.maxtile.application.external.wx.action.WeChatAction
+  - 后端：src/com/maxtile/application/external/wx/action/WeChatAction.java
+  - 前端 result→jsp：auth=/external/wx/auth.html · WxLogin=/sys/ding/login.jsp
+

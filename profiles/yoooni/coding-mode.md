@@ -96,3 +96,30 @@ function deleteImage(id){
 ## 6. 范本与脚手架
 
 最佳实践范本模块 = `erp/allcost`。「新增一个模块」的完整文件清单 + 占位符骨架 + 生成步骤见 [scaffold/new-module.md](scaffold/new-module.md)。
+
+## 7. URL ↔ 模块快速定位（拿到 URL 反查前后端代码）
+
+线上 / 菜单 URL 形如 `/{namespace}/{action}_{method}.action?...`。
+
+**第一步永远先查映射表，别现扫项目**：
+
+```
+grep "<action名 / \"/namespace\" / jsp名>" profiles/yoooni/url-route-map.md
+```
+
+一次拿到「后端类 + 前端 result→jsp」。该表由 `hooks/generate-url-route-map.js` 预解析 `config/struts/*.xml` + `config/spring/**/applicationContext-action.xml` 生成（40 namespace / 1000+ action），路由变更后重跑刷新。拿到类后：打开后端类读 `{method}()` 看 `return` 哪个 result 名 → 对应表里那条 jsp；业务往下 Action → `{action}Manage` → `{action}Dao`（见 §2 / §3）。
+
+**解码规则**（表没命中或想手推时的兜底，Struts 是路由权威源）：
+
+| URL 片段 | 映射到 | 定位 |
+|---|---|---|
+| `/{namespace}/` | Struts 包 | `config/struts/struts-{namespace}.xml` 的 `<package namespace="/{namespace}">` |
+| `{action}_{method}` | `<action name="{action}_*" class="{bean}" method="{1}">` | method = 下划线后那段 |
+| `{bean}` | Spring action bean → Java 类 | `config/spring/**/applicationContext-action.xml` 里 `<bean name="{bean}" class="FQN">`（class 不能靠 namespace 猜领域，必经 spring） |
+| 方法 `return "X"` | `<result name="X">/erp/.../xxx.jsp</result>` | 前端 JSP |
+
+**实例**：`/develop/newMdevelop_developWorkbenches.action`
+→ `NewMdevelopAction`（`src/com/maxtile/application/erp/develop/action/NewMdevelopAction.java`）的 `developWorkbenches()`
+→ result `developWorkbenches` → `/erp/search/develop/workbenches.jsp`（表直接给出，省去逐层猜——注意 jsp 在 `search/develop/` 而非 `newmdevelop/`）。
+
+> 映射表是**实现级、随路由变**的派生索引，**存在本 profile（编码画像 = 代码结构导航），不进 domain-knowledge（业务认知）**。少量 action 的 bean 未登记在 action xml（表中标「未解析」）→ 按上面规则手 grep 兜底。重跑生成器即刷新。

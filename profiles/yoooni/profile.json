@@ -35,7 +35,8 @@
     "redlines": ["com/maxtile/common 只调用不改", "com/maxtile/framework 只继承不改", "WebRoot/public 只引用不改"],
     "wiring": ["config/spring/<领域>/<模块>/applicationContext-{action,business,dao}.xml", "config/struts/struts-<模块>.xml", "...model/maps/<E>.xml"],
     "frontend": "WebRoot/<领域>/<模块>/<e>/ listLeft.jsp + add/show.jsp；复用 /public 公共组件；禁原生 alert/confirm/prompt",
-    "menu": "CRM_RIGHT + CRM_ROLERIGHT（数据库脚本/01系统权限与客户管理脚本.sql）"
+    "menu": "CRM_RIGHT + CRM_ROLERIGHT（数据库脚本/01系统权限与客户管理脚本.sql）",
+    "urlLocator": "拿到 URL 先 grep profiles/yoooni/url-route-map.md（预生成映射表，hooks/generate-url-route-map.js 解析 struts+spring 而来，1000+ action）直达后端类+jsp；表没命中再按 coding-mode.md §7 解码规则手 grep。路由变更重跑生成器刷新。"
   },
 
   "frontendControls": {

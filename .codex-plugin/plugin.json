@@ -1,6 +1,6 @@
 {
   "name": "project-coding-profiles",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Per-project coding profiles: declare a single project's encoding policy (GBK/UTF-8), overall coding mode, and interface scaffolding, enforced via skills + hooks scoped to that project. Complements team-standards (the team-wide standard). First profile: Yoooni (src=GBK / WebRoot=UTF-8 mixed encoding).",
   "author": {
     "name": "Zhang Kai",

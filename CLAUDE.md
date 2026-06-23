@@ -14,7 +14,7 @@
 | `yoooni-daily-plugin` | Yoooni **日常作业**（入职/SMB/IDEA/启动），与编码无关 |
 | **本仓库 `project-coding-profiles`** | **项目级编码画像**：某项目用 GBK 还是 UTF-8、整体编码模式、接口脚手架，按项目触发 |
 
-能力（profile.json 字段）：**encoding** 编码守护（首例 Yoooni，src=GBK / WebRoot=UTF-8）、**codingMode** 分层编码规范（`profiles/yoooni/coding-mode.md`）、**scaffold** 新增模块脚手架（`profiles/yoooni/scaffold/new-module.md`，范本 `erp/allcost`）。
+能力（profile.json 字段）：**encoding** 编码守护（首例 Yoooni，src=GBK / WebRoot=UTF-8）、**codingMode** 分层编码规范（`profiles/yoooni/coding-mode.md`，含 §7 URL→模块定位）、**frontendControls** 前端公共控件红线、**scaffold** 新增模块脚手架（范本 `erp/allcost`）、**URL 定位** 预生成 `url-route-map.md`（贴 URL 直达前后端代码，skill `url-locate`）。
 
 ## 三工具适配（核心前提）
 
@@ -45,14 +45,20 @@ project-coding-profiles/
 │   ├── pre-commit-encoding.js                        # git 提交前钩子：核对暂存区编码（给 Cursor 等补确定性兜底）
 │   ├── install-git-hooks.ps1                         # 把 pre-commit 钩子种入目标项目 .git/hooks/（ASCII-only）
 │   ├── import-encoding-map.js                        # 从项目 .idea/encodings.xml 导入权威编码表
+│   ├── generate-url-route-map.js                     # 解析 struts+spring 生成 URL→模块映射表
 │   └── package.json
 ├── profiles/
 │   └── yoooni/
-│       ├── profile.json                              # 首例：Yoooni 编码画像（encoding/codingMode/scaffold）
-│       ├── coding-mode.md                            # 分层编码规范知识点（codingMode）
-│       └── scaffold/new-module.md                    # 新增模块脚手架 playbook（scaffold，范本 erp/allcost）
+│       ├── profile.json                              # 首例：Yoooni 编码画像（encoding/codingMode/frontendControls/scaffold）
+│       ├── encoding-map.json                         # 逐文件权威编码表（authorityMap）
+│       ├── coding-mode.md                            # 分层编码规范 + §7 URL→模块定位（codingMode）
+│       ├── common-capabilities.md                    # 前后端公共能力清单（优先复用）
+│       ├── url-route-map.md                          # URL→模块映射表（generate-url-route-map.js 生成）
+│       └── scaffold/new-module.md                    # 新增模块脚手架 playbook（范本 erp/allcost）
 ├── skills/
-│   └── encoding-guard/{SKILL.md, detect-encoding.ps1}
+│   ├── encoding-guard/{SKILL.md, detect-encoding.ps1}
+│   ├── module-scaffold/SKILL.md                      # 新增模块脚手架（按范本生成纵向切片）
+│   └── url-locate/SKILL.md                           # 贴 URL → 查 url-route-map → 直达前后端
 ├── docs/design/encoding-guard-plugin.md              # 设计文档
 ├── AGENTS.md                                          # Codex / Cursor 入口（与 CLAUDE.md 同步）
 ├── CLAUDE.md

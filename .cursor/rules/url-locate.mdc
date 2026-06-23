@@ -1,0 +1,21 @@
+---
+description: URL 快速定位——在已登记编码画像且有 url-route-map 的项目里，用户给出 URL / *.action / 菜单链接（常配截图）要定位、分析、修改对应模块时，先查预生成映射表直达前后端代码，别全项目重扫。Cursor 无 skill 机制，靠本规则自觉走流程。
+alwaysApply: false
+---
+
+# URL → 模块快速定位（Cursor 规则）
+
+> 本规则是 `skills/url-locate/SKILL.md` 在 Cursor 下的投影。首例 Yoooni。
+
+用户给出 URL / `*.action` / 菜单链接（常配截图）要定位或分析模块时，**第一步先查表，别从头扫项目**：
+
+1. 解析 `/{namespace}/{action}_{method}.action` 取 `action` 名（下划线前段）。
+2. `grep "{action}" profiles/<project>/url-route-map.md` → 一次拿到 后端类 FQN + src 文件 + 该 action 所有 `result→jsp`。
+3. 打开后端类读 `{method}()` 看 `return` 哪个 result → 对应表里那条 jsp（本 URL 实际渲染页面）。
+4. 按需向下追 Action → `{action}Manage` → `{action}Dao`（分层见 `coding-mode.md §2/§3`），只读这条链。
+
+## 红线
+
+- **先查 `url-route-map.md`，不全扫 `WebRoot`/`src`**。表由 `hooks/generate-url-route-map.js` 解析 struts+spring 预生成。
+- 表没命中 / 疑似过期 → 按 `coding-mode.md §7` 解码规则手 grep `config/struts/*.xml` + `config/spring/**/applicationContext-action.xml` 兜底，必要时重跑生成器。
+- 改代码仍守前端红线（禁原生 alert/confirm/prompt）与编码守护。
