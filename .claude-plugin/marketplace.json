@@ -9,7 +9,7 @@
     {
       "name": "project-coding-profiles",
       "description": "项目级编码画像插件：为单个项目声明专属编码约定（编码策略 GBK/UTF-8、整体编码模式、接口脚手架），通过 skill + hook 在该项目内触发。与 team-standards（团队通用标准）分工。首例 Yoooni（src=GBK / WebRoot=UTF-8 混合编码）。",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "source": "./",
       "author": {
         "name": "张凯",

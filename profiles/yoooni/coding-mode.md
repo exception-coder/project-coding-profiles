@@ -87,6 +87,26 @@ function deleteImage(id){
 
 > 本红线由 PreToolUse hook `check-frontend-controls.js` 在写 `WebRoot/**.{jsp,js}` 时机械拦截（profile `frontendControls.banNativeDialogs`）。
 
+### 4.2 红线：调整表格/表单/各类控件，用组件自身能力，别直接动原生 JS/CSS
+
+调整**已有组件**（easyui DataGrid / layui form·laypage / ComboBox / jedate 等）的外观或行为时，**一律走组件自身的 API 与配置项**；**禁止用原生 jQuery/JS 直接操作其 DOM、或覆盖其内部 CSS class 来"硬掰"**。
+
+| 调整对象 | 用组件自身能力 | 禁止（原生硬改） |
+|---|---|---|
+| easyui DataGrid（列/宽度/隐藏/排序/冻结/刷新/工具栏） | `columns` 配置 + `$(dg).datagrid('reload'/'hideColumn'/'fixColumnSize'/'loadData'/...)` | 直接 `$('.datagrid-* / td').hide()/css()`、改 DataGrid 生成的 DOM、覆盖 `.datagrid-*` 样式 |
+| layui 表单/分页/弹窗 | `form`/`laypage`/`layer` 的 API 与参数（改完字段调 `form.render()`） | 改 layui 生成的 DOM/样式、绕过 `form.render()` 直接塞 DOM |
+| 下拉 / 联动（ComboBox / select.js） | 组件 options + `combobox('setValue'/'loadData')` / select.js 提供的方法 | 手拼 `<option>`、原生操作 `<select>` DOM |
+| 日期（jedate） | jedate 初始化参数 / 其 API | 原生 input + 自撸日历/格式化 |
+| 表单提交/校验 | `pub.js` `btnCommit(this)` + 组件校验规则 | 原生 `onsubmit` + 手写 DOM 取值 / 原生校验 |
+| 布局/样式微调 | 组件配置项 / `WebRoot/public` 公共样式类 | 给组件元素加 inline style、为微调覆盖组件内部 class 的 CSS |
+
+**为什么**：① 组件会重渲染/重排（reload、resize、翻页），你直接改的 DOM 与 inline 样式会被**覆盖失效**；② 升级组件版本时原生 hack **悄悄失效**、难排查；③ 绕过 API 易**破坏组件内部状态**（选中/分页/数据绑定错乱）；④ 与全站样式**不统一**。
+
+**范例**（easyui 隐藏列并刷新）——正确：`$('#dg').datagrid('hideColumn','col'); $('#dg').datagrid('reload');`；禁止：`$('#dg td[field=col]').hide(); $('.datagrid-body').css(...)`。
+
+> 确需组件没有的能力：先查 [common-capabilities.md](common-capabilities.md) 是否已封装；仍没有则按 §1 红线走公共层维护（`WebRoot/public` 只引用不改），**不要在业务页用原生硬改**。
+> 本条偏语义、形态多，不做机械 hook 拦截——由 coding-mode skill 与代码评审把关。
+
 ## 5. 新增菜单/权限（DB 驱动）
 
 菜单由 `application/sys` 的 `Right` 管，表 `CRM_RIGHT`（菜单项）+ `CRM_ROLERIGHT`（角色授权）。DDL 在 `数据库脚本/01系统权限与客户管理脚本.sql`。
