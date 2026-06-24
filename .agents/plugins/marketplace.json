@@ -8,7 +8,7 @@
       "name": "project-coding-profiles",
       "source": {
         "source": "local",
-        "path": "./"
+        "path": "./plugins/project-coding-profiles"
       },
       "category": "Productivity"
     }
