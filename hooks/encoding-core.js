@@ -61,20 +61,50 @@ function isLegacy(enc) {
   return e === 'gbk' || e === 'utf-16le' || e === 'utf-16be' || e === 'big5' || e === 'shift-jis' || e === 'euc-kr';
 }
 
-// ---- 期望编码（按 profile 规则推断） -------------------------
+// ---- 期望编码（权威表优先，再退回 profile 规则） -------------
+//   单一可信源 = encoding.authorityMap 指向的逐文件权威编码表（encoding-map.json）。
+//   取与目标相对路径「最长前缀匹配」的 entry；都不命中再走 exceptions / rules / default。
+//   权威表把 src 下数百个合法 UTF-8 例外逐文件登记，故不会把它们误判成 GBK。
 
 function expectedEncoding(profile, rel) {
   const enc = (profile && profile.encoding) || {};
+  const r = toPosix(rel);
+
+  // 1) 权威表（已按 path 长度降序，首个匹配即最长前缀）
+  const auth = enc._authority;
+  if (auth && Array.isArray(auth.entries)) {
+    for (const e of auth.entries) {
+      if (e.path === '' || r === e.path || r.startsWith(e.path + '/')) return e.charset;
+    }
+    if (auth.default) return auth.default;
+  }
+
+  // 2) 退回 profile.encoding 的 exceptions / rules / default
   const exceptions = Array.isArray(enc.exceptions) ? enc.exceptions : [];
   for (const ex of exceptions) {
     const pat = ex.path || ex.glob;
-    if (pat && globToRe(pat).test(rel)) return normalizeEnc(ex.encoding);
+    if (pat && globToRe(pat).test(r)) return normalizeEnc(ex.encoding);
   }
   const rules = Array.isArray(enc.rules) ? enc.rules : [];
-  for (const r of rules) {
-    if (r.glob && globToRe(r.glob).test(rel)) return normalizeEnc(r.encoding);
+  for (const rule of rules) {
+    if (rule.glob && globToRe(rule.glob).test(r)) return normalizeEnc(rule.encoding);
   }
   return normalizeEnc(enc.default || 'utf-8');
+}
+
+// 加载 profile 同目录的权威编码表（encoding.authorityMap），挂到 enc._authority。
+//   没有 / 坏文件 → 静默忽略，expectedEncoding 自动退回 rules。
+function attachAuthority(profile, profileDir) {
+  try {
+    const enc = profile && profile.encoding;
+    if (!enc || !enc.authorityMap) return profile;
+    const map = JSON.parse(fs.readFileSync(path.join(profileDir, enc.authorityMap), 'utf8'));
+    const entries = (Array.isArray(map.entries) ? map.entries : [])
+      .map((e) => ({ path: toPosix(e.path || '').replace(/\/+$/, ''), charset: normalizeEnc(e.charset) }))
+      .sort((a, b) => b.path.length - a.path.length); // 最长前缀优先
+    enc._authority = { default: map.default ? normalizeEnc(map.default) : null, entries };
+  } catch (e) { /* 退回 rules */ }
+  return profile;
 }
 
 function globToRe(glob) {
@@ -111,15 +141,16 @@ function loadBundledProfiles() {
   try { dirs = fs.readdirSync(PROFILES_DIR, { withFileTypes: true }); } catch (e) { return out; }
   for (const d of dirs) {
     if (!d.isDirectory()) continue;
-    const p = path.join(PROFILES_DIR, d.name, 'profile.json');
-    try { out.push(JSON.parse(fs.readFileSync(p, 'utf8'))); } catch (e) {}
+    const pdir = path.join(PROFILES_DIR, d.name);
+    try { out.push(attachAuthority(JSON.parse(fs.readFileSync(path.join(pdir, 'profile.json'), 'utf8')), pdir)); } catch (e) {}
   }
   return out;
 }
 
 function loadBundledByName(name) {
   try {
-    return JSON.parse(fs.readFileSync(path.join(PROFILES_DIR, name, 'profile.json'), 'utf8'));
+    const pdir = path.join(PROFILES_DIR, name);
+    return attachAuthority(JSON.parse(fs.readFileSync(path.join(pdir, 'profile.json'), 'utf8')), pdir);
   } catch (e) { return null; }
 }
 

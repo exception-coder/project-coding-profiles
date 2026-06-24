@@ -46,6 +46,7 @@ project-coding-profiles/
 │   ├── install-git-hooks.ps1                         # 把 pre-commit 钩子种入目标项目 .git/hooks/（ASCII-only）
 │   ├── import-encoding-map.js                        # 从项目 .idea/encodings.xml 导入权威编码表
 │   ├── generate-url-route-map.js                     # 解析 struts+spring 生成 URL→模块映射表
+│   ├── encoding-doctor.js                            # 全项目编码体检/修复（磁盘 vs 权威表，--fix 复原）
 │   └── package.json
 ├── profiles/
 │   └── yoooni/
@@ -70,7 +71,10 @@ project-coding-profiles/
 - 触发：PreToolUse `Write|Edit|MultiEdit`，目标是文本扩展名。
 - 仅在「已登记 profile 的项目内」生效（按 `profiles/*/profile.json` 的 `rootMarkers` 或项目本地 `.coding-profile.json` 向上查找）；其它项目放行。
 - 纯 ASCII 内容直接放行（写 UTF-8/GBK 字节一致，零风险）。
-- 存量文件：以**磁盘实际编码**为准（探测字节）。实际 GBK + 新增含非 ASCII → 提示（写 UTF-8 必乱码）。这样混合编码项目里的 UTF-8 例外文件不会误报。
+- **期望编码 = 权威表优先**：`expectedEncoding` 先查 `encoding.authorityMap`（`encoding-map.json`，逐文件最长前缀匹配），再退回 `rules`。src 下数百个合法 UTF-8 例外逐文件登记，故不误报。
+- 存量文件：磁盘实际 GBK + 新增含非 ASCII → 提示（写 UTF-8 必乱码）。
+- **被外部转坏检测**：权威=GBK 但磁盘已是 UTF-8（被 iconv/编辑器在 Claude 外转码）→ 提示先复原（encoding-doctor / detect-encoding.ps1）再改，勿固化坏状态。
+- 全项目兜底：`node hooks/encoding-doctor.js <项目根> [--fix]` 扫描磁盘 vs 权威、复原可修复项（utf-8→gbk 有损则安全跳过）。`pre-commit-encoding.js` 提交处按权威再卡一道。
 - 新建文件：用 profile 规则推期望编码；期望 GBK/遗留编码 + 含非 ASCII → 提示创建后转码。
 - 默认 `warn`（exit 0 + stderr）。`PCP_ENCODING_HOOK=block` 升级硬阻断（exit 2）、`=off` 关闭。
 

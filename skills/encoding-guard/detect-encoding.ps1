@@ -65,9 +65,15 @@ function Get-Decoder([string]$name) {
 }
 
 # Encoding object for WRITING (preamble/BOM written when the encoding carries one).
+# GBK writer uses EncoderExceptionFallback: it THROWS on any char GBK cannot represent,
+# rather than silently replacing with '?' (lossy). So utf-8 -> gbk is lossless-or-fail.
 function Get-Encoder([string]$name) {
   switch ($name) {
-    'gbk' { return [System.Text.Encoding]::GetEncoding(936) }
+    'gbk' {
+      $ef = New-Object System.Text.EncoderExceptionFallback
+      $df = New-Object System.Text.DecoderExceptionFallback
+      return [System.Text.Encoding]::GetEncoding(936, $ef, $df)
+    }
     'utf-8' { return (New-Object System.Text.UTF8Encoding($false)) }
     'utf-8-bom' { return (New-Object System.Text.UTF8Encoding($true)) }
     default { throw "Unsupported target encoding: $name (use gbk | utf-8 | utf-8-bom)" }

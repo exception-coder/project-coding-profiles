@@ -83,12 +83,20 @@ process.stdin.on('end', () => {
 // ---- 写前风险判定（PreToolUse 专属） --------------------------
 
 function assess(absLikePath, rel, profile) {
+  const expected = expectedEncoding(profile, rel); // 权威期望编码（已接 encoding-map.json）
   const exists = safeExists(absLikePath);
   if (exists) {
     const actual = detectEncoding(safeRead(absLikePath));
     if (isLegacy(actual)) {
       return {
         msg: `存量文件磁盘实际编码为 ${actual.toUpperCase()}，但 Write/Edit 会以 UTF-8 重存——含中文将变乱码。`,
+      };
+    }
+    if (actual === 'utf-8' && isLegacy(expected)) {
+      // 磁盘已是 UTF-8 但权威期望 GBK → 文件被 iconv/编辑器在 Claude 之外转码改坏，不是登记在案的 UTF-8 例外
+      return {
+        msg: `该文件权威编码应为 ${expected.toUpperCase()}，但磁盘上已是 UTF-8——疑似被 iconv/编辑器在 Claude 之外转码改坏（不是登记在案的 UTF-8 例外）。`,
+        detail: '先复原再改：encoding-doctor --fix（或 detect-encoding.ps1 -From utf-8 -To gbk）；勿在坏状态上直接 Write/Edit（会把它固化进库）。该文件若确应为 UTF-8，请登记进 encoding-map.json 后重跑 import-encoding-map.js。',
       };
     }
     if (actual === 'utf-8-bom') {
@@ -100,8 +108,7 @@ function assess(absLikePath, rel, profile) {
     return null; // 实际已是 UTF-8 / ASCII，工具写 UTF-8 不破坏
   }
 
-  // 新建文件：用 profile 规则推期望编码
-  const expected = expectedEncoding(profile, rel);
+  // 新建文件：用权威期望编码判定
   if (isLegacy(expected)) {
     return {
       msg: `新建文件按项目 profile 期望编码为 ${expected.toUpperCase()}，但工具会写 UTF-8。`,

@@ -39,22 +39,31 @@ powershell -ExecutionPolicy Bypass -File detect-encoding.ps1 -Action detect -Pat
 - 结果 `utf-8` / `utf-8-bom` → 正常改（工具写 UTF-8 不破坏）。
 - 结果 `gbk` → **走第 3 节的安全回环**，不要直接写中文进去。
 
-## 3. 改 GBK 文件的安全写入：转 UTF-8 → 编辑 → 转回 GBK
+## 3. 改 GBK 文件：优先 ASCII 锚点；要转码就**必须转回来**
 
-直接 Edit 一个 GBK 文件有两个问题：① 读取时中文可能已经是乱码，old_string 难匹配；② 写回时变 UTF-8。安全做法是临时转码回环：
+> ⚠️ **头号事故**：把 GBK 文件 `iconv -f GBK -t UTF-8`（或编辑器"以 UTF-8 重新打开/保存"）转成 UTF-8 去编辑，然后**没转回 GBK**——文件就以错误编码留在磁盘/进了库。**"用户用 UTF-8 视图打开" ≠ "这文件该是 UTF-8"**；编码以本插件权威表为准，不以编辑器视图为准。
+
+**首选：ASCII 锚点编辑，根本不转码。** GBK 文件里的 ASCII（Java 代码骨架、标签、英文）读出来是好的，乱的只有中文。所以：
+
+- Edit 时让 `old_string` 落在**纯 ASCII 的代码行**上（方法签名、`<result name=...>`、英文标识符），中文只放进 `new_string`。
+- 这样 `old_string` 不含乱码、匹配稳；`new_string` 的中文先写成 UTF-8，**之后必须把该文件转回 GBK**（见下）。
+- 纯 ASCII 改动（不含中文）随便改，UTF-8/GBK 字节一致，零风险。
+
+**必须匹配中文 old_string 时**，才走临时转码回环——但**转回来不是可选项**：
 
 ```powershell
-# 1) 转成 UTF-8（此后 Read/Edit 看到的中文是正确的）
+# 1) 转成 UTF-8（此后 Read/Edit 看到的中文正确、old_string 可匹配）
 powershell -ExecutionPolicy Bypass -File detect-encoding.ps1 -Action convert -Path "src\...\Foo.java" -From gbk -To utf-8
-
-# 2) 用 Claude/Codex/Cursor 正常编辑该文件（工具写 UTF-8，此时正确）
-
-# 3) 改完转回 GBK（未改的行字节会原样还原）
+# 2) 用 Claude/Codex/Cursor 编辑
+# 3) 【强制】转回 GBK——这一步漏了 = 把源码改坏。未触碰的行往返字节不变，git diff 只剩真实改动
 powershell -ExecutionPolicy Bypass -File detect-encoding.ps1 -Action convert -Path "src\...\Foo.java" -From utf-8 -To gbk
+# 4) 【强制】复核：detect 应回到 gbk
+powershell -ExecutionPolicy Bypass -File detect-encoding.ps1 -Action detect -Path "src\...\Foo.java"
 ```
 
-- **为什么 git diff 干净**：未触碰的行 GBK→UTF-8→GBK 往返得到完全相同的 GBK 字节，只有你真正改动的行是新字节。所以这个回环**不会**把整文件标成改动。
-- 改完务必 `-Action detect` 复核一次编码已回到 `gbk`，并 `git diff` 确认只剩真实改动。
+- **绝不允许停在第 2 步**（文件 UTF-8 态）就去做别的、结束会话、或提交。第 3 步是回环的一部分，不是收尾的可选动作。
+- 不确定有没有漏转 / 改了一批文件，跑全项目体检兜底：`node hooks/encoding-doctor.js <项目根>`（`--fix` 复原可修复项；utf-8→gbk 遇不可表示字符会安全跳过不丢数据）。
+- 机械兜底：写时 PreToolUse `check-file-encoding.js` 现已**接权威表**——既拦"往 GBK 写 UTF-8"，也拦"该文件权威=GBK 但磁盘已是 UTF-8（被外部转坏）"；提交时 `pre-commit-encoding.js` 按权威编码再卡一道。但**别依赖兜底**，转回来是你的责任。
 
 ## 4. 新建文件：按 profile 期望编码落地
 
@@ -68,9 +77,10 @@ powershell -ExecutionPolicy Bypass -File detect-encoding.ps1 -Action convert -Pa
 
 ## 5. 红线（务必遵守）
 
+- **禁止把 GBK 文件转成 UTF-8 后不复原**（`iconv -f GBK -t UTF-8`、编辑器"以 UTF-8 重新打开/保存"都算）——这是把源码改坏的**头号事故**。要转就按 §3 转回来 + `detect` 复核；不确定就跑 `encoding-doctor`。**编辑器视图编码 ≠ 文件应有的编码**。
 - **不要为了"统一编码"批量转换文件**：会丢数据（GBK 无法表示的字符）、并把 git diff 搞成全量变更，淹没真实改动。**改哪个文件，只保证哪个文件改完仍是它原本的编码。**
 - 仓库整体统一编码是**团队决策**，不在 vibe coding 里顺手做。
-- 存量逐文件编码真值以项目自己的 IDEA `.idea/encodings.xml` 为权威（Yoooni 由 `yoooni-daily-plugin` 的 `setup-idea-config.ps1` 生成）。
+- 逐文件权威编码真值 = 本插件 `profiles/<project>/encoding-map.json`（集中维护、可 PR 评审；由 `hooks/import-encoding-map.js` 从项目 `.idea/encodings.xml` 一次性导入，之后在本仓库维护、运行时不再依赖各人机器的 `.idea`）。hook 与 `encoding-doctor` 都以它为准；新增合法 UTF-8 例外要登记进它并重跑导入。
 
 ## 6. profile 怎么登记新项目
 
@@ -95,12 +105,14 @@ powershell -ExecutionPolicy Bypass -File detect-encoding.ps1 -Action convert -Pa
 
 - `rootMarkers`：选该项目**独有**的文件（如 Yoooni 用 `WebRoot/WEB-INF/web.xml` + `src/jdbc.properties`），hook 从被改文件向上找到同时满足这些标记的目录，即认定为项目根并启用该 profile。
 - 也可在目标项目根放 `.coding-profile.json`（可 `"extends": "<name>"`）做本地覆盖。
-- `codingMode` / `scaffold` 为后续迭代预留（项目整体编码模式、接口脚手架），当前留空。
+- `encoding.authorityMap` 指向同目录逐文件权威表（如 `encoding-map.json`）；hook/doctor 取它做最长前缀匹配，优先级高于 `rules`。`rules` 只作未覆盖路径的兜底。
+- `codingMode`（分层编码规范 + URL→模块定位）、`scaffold`（新增模块脚手架）已在 Yoooni 落地（见 `coding-mode.md` / `scaffold/new-module.md`），不再是预留。
 
 ## 7. 自检清单
 
-- [ ] 改文件前探测过编码了吗？（`-Action detect`）
-- [ ] 改的是 GBK 文件且涉及中文吗？走转 UTF-8→编辑→转回 GBK 回环了吗？
-- [ ] 改完复核编码回到原编码、`git diff` 只剩真实改动了吗？
-- [ ] 没有顺手批量转码、没有污染未涉及的文件吗？
+- [ ] 优先用 **ASCII 锚点编辑**（old_string 落 ASCII 行、中文只进 new_string），尽量不转码？
+- [ ] 若为匹配中文转了 UTF-8——**转回 GBK 了吗？**（§3 第 3 步,头号事故就是漏这步）并 `detect` 复核回到原编码？
+- [ ] 没有用 `iconv` / 编辑器另存把 GBK 转成 UTF-8 后留着不复原？
+- [ ] `git diff` 只剩真实改动、没顺手批量转码污染未涉及文件？
+- [ ] 拿不准是否有文件被改坏 → 跑了 `node hooks/encoding-doctor.js <项目根>` 体检？
 - [ ] Cursor 下（没有 hook）有没有靠本 skill 的流程手动守护？

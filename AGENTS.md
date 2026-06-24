@@ -57,6 +57,7 @@
 
 ## 红线
 
+- **禁止把 GBK 文件转成 UTF-8 后不复原**（`iconv -f GBK -t UTF-8` / 编辑器"以 UTF-8 另存"都算）——头号事故。编辑器视图编码 ≠ 文件应有编码;要转就按 SKILL §3 转回来 + detect 复核,不确定跑 `node hooks/encoding-doctor.js <项目根>`。优先 ASCII 锚点编辑(中文只进 new_string)少转码。
 - **不要为统一而批量转码**（丢数据 + 污染 git diff）。改哪个文件只保证哪个文件改完仍是原编码。
 - 整库统一编码是团队决策，不在日常编辑里顺手做。
 - **前端公共能力必须用公共控件**：禁止原生 `alert()/confirm()/prompt()`，一律用公共封装（Yoooni：确认 `layer.confirm`、提示 `layer.msg`/`winAlert`、输入 `layer.prompt`）。Claude/Codex 有 PreToolUse hook（`check-frontend-controls.js`）拦，**Cursor 没有 hook，靠你自觉**——写 `WebRoot/**.{jsp,js}` 时务必检查。映射与范例见 `profiles/<project>/coding-mode.md §4.1`。
