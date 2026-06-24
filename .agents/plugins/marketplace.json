@@ -1,0 +1,16 @@
+{
+  "name": "project-coding-profiles",
+  "interface": {
+    "displayName": "Project Coding Profiles"
+  },
+  "plugins": [
+    {
+      "name": "project-coding-profiles",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
