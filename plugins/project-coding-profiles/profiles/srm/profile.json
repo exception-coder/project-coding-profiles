@@ -1,0 +1,52 @@
+{
+  "name": "srm",
+  "displayName": "SRM 供应商关系管理/采购系统",
+  "description": "基于芋道(yudao)框架的 Spring Cloud 微服务 SRM 系统。后端 com.ruicheng.scm.srm(JDK1.8 / Spring Boot + Spring Cloud / MyBatis-Plus / Flowable / 多租户 / OAuth2),Maven 多模块(scm-gateway / scm-infra-service / scm-srm-service,每个 api+biz 分层);前端 srm-admin-front-end 为 yudao-ui-admin(Vue 2.7 + Element-UI 2.15 + Vuex,@vue/cli)。全仓 UTF-8,无 GBK 编码风险——profile 重点是芋道分层与框架约定,不是编码守护。",
+
+  "rootMarkers": [
+    "lombok.config",
+    "scm-srm-service/scm-srm-biz/pom.xml"
+  ],
+
+  "encoding": {
+    "default": "utf-8",
+    "rules": [
+      { "glob": "**/*.java", "encoding": "utf-8" },
+      { "glob": "**/*.vue", "encoding": "utf-8" }
+    ],
+    "exceptions": [],
+    "notes": [
+      "SRM 全仓 UTF-8(含中文的 .java/.vue/.xml/.sql 均 UTF-8),与 yoooni(GBK)相反。",
+      "编码守护对本项目基本是 no-op:写 UTF-8 不会破坏 UTF-8 文件,纯 ASCII 更无风险。",
+      "本 profile 的价值在 codingMode(芋道分层与约定),不在编码。"
+    ]
+  },
+
+  "codingMode": {
+    "doc": "coding-mode.md",
+    "rule": "编码前先认清这是芋道(yudao)框架项目:遵循其分层、命名、租户与权限约定,优先复用框架能力,禁止绕过框架自造。",
+    "stack": "Spring Boot + Spring Cloud + MyBatis-Plus + Flowable + Redis + 多租户 + OAuth2 (yudao 框架), JDK1.8;前端 Vue2.7 + Element-UI",
+    "layers": [
+      "Controller: module/system/controller/admin/srm/<E>Controller(@RestController, 返回 CommonResult)",
+      "Service: service/.../<E>Service + <E>ServiceImpl",
+      "DAL: dal/dataobject/<E>DO(@TableName) + dal/mysql/<E>Mapper(extends BaseMapperX)",
+      "Convert: convert/<E>Convert(MapStruct, DO<->VO)",
+      "VO: controller/admin/srm/vo/<E>SaveReqVO / <E>RespVO / <E>PageReqVO"
+    ],
+    "packageRoot": "com.ruicheng.scm.srm.module.system (SRM 业务挂在 system module 的 controller/admin/srm 下)",
+    "redlines": [
+      "框架层(yudao-spring-boot-starter-* / framework 包)只用不改",
+      "多租户:DO 默认带 tenant_id,查询走框架自动注入,勿手写租户过滤绕过",
+      "权限:@PreAuthorize + 权限标识,勿自造鉴权",
+      "统一返回 CommonResult、统一异常 ServiceException + 错误码(errorcode),勿裸抛/裸返回",
+      "分页用 PageResult/PageParam,勿自造分页"
+    ],
+    "conventions": [
+      "新增业务对象:DO + Mapper + Service + ServiceImpl + Convert + Controller + VO 一套(芋道代码生成器 codegen 可生成骨架)",
+      "字典:状态等枚举走数据字典(srm_*_status 等),DO 存码值,前端用字典翻译",
+      "工作流:涉及审批的单据接 Flowable(approval_status + bpm_process_instance_result),见对应 state 知识点"
+    ],
+    "frontend": "srm-admin-front-end/src/views/<业务域>/;复用 Element-UI 与框架组件;API 在 src/api/;字典用 dict 组件;禁止自造与框架重复的弹窗/表格封装",
+    "businessKnowledge": "SRM 业务真理(供应商生命周期/采购流程/各单据状态机/批价/试样/称重)见 domain-knowledge MCP 的 project=srm,编码前先查"
+  }
+}
