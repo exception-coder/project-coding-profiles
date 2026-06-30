@@ -27,7 +27,7 @@
 | `StringUtil` | `isNil()`·`isChinaPhoneLegal()` | 空判/校验 |
 | `MapUtil` | `copyObjectValue()`·`removeNullValue()` | 对象/Map 字段处理 |
 | `SpringBeanUtil` | `getBean(name)`·`getSqlMapClient()` | 取 Spring Bean |
-| `ExportExcel<T>` | `exportToFile()` | POI 导出 Excel |
+| `ExportExcel<T>` | `exportToFile()` | POI 导出 Excel；列表/看板字段变更时必须同步核对导出 SQL / 转换层 / EP 模型 / `headers[]`（见 [coding-mode.md](coding-mode.md) §4.3） |
 
 > 还有 FileUtils / IPHelper / ImageUtils / MD5 / DES / AESTools / ListUtil 等，需要时先翻 utils 包再自撸。
 
