@@ -3,7 +3,8 @@
 > 由 `project-coding-profiles/hooks/generate-url-route-map.js` 解析 `config/struts/*.xml` + `config/spring/**/applicationContext-action.xml` 生成。路由变更后重跑刷新。
 > **用法**：`grep <action名 / "/namespace" / jsp名>` 本文件即定位后端类 + 前端 jsp。
 > URL 形如 `/{ns}/{action}_{method}.action` → 打开「后端类」读 `{method}()` 看 `return` 的 result 名 → 对应下面的 jsp。
-> 统计：40 个 namespace / 1049 个 action（60 个未解析到 Spring bean 类）。
+> 统计：40 个 namespace / 1052 个 action（996 已定位 / 56 疑似废弃·无源码）。
+> 「疑似废弃·无源码」= struts 有路由，但 Spring 未注册 bean、按约定也找不到对应 `*Action.java`（多为历史遗留/未随本套源码发布的模块），无代码可定位。
 
 ## /allcost  ·  src/config/struts/struts-allcost.xml
 
@@ -331,19 +332,19 @@
 
 ## /company  ·  src/config/struts/struts-cominfo.xml
 
-- `/company/combrand_<method>.action`  →  (bean: combrandAction 未解析)
+- `/company/combrand_<method>.action`  →  （bean: combrandAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/combrand/list.jsp · query=/company/combrand/search.jsp · show=/company/combrand/show.jsp · open=/company/combrand/add.jsp
-- `/company/comcustoms_<method>.action`  →  (bean: comcustomsAction 未解析)
+- `/company/comcustoms_<method>.action`  →  （bean: comcustomsAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/comcustoms/list.jsp · query=/company/comcustoms/search.jsp · show=/company/comcustoms/show.jsp · open=/company/comcustoms/add.jsp
-- `/company/cominfo_<method>.action`  →  (bean: cominfoAction 未解析)
+- `/company/cominfo_<method>.action`  →  （bean: cominfoAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/cominfo/listcominfo.jsp · query=/company/cominfo/searchcominfo.jsp · show=/company/cominfo/showcominfo.jsp · open=/company/cominfo/cominfoAdd.jsp
-- `/company/cominout_<method>.action`  →  (bean: cusinoutAction 未解析)
+- `/company/cominout_<method>.action`  →  （bean: cusinoutAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/cominout/list.jsp · query=/company/cominout/search.jsp · show=/company/cominout/show.jsp · open=/company/cominout/add.jsp
-- `/company/commark_<method>.action`  →  (bean: commarkAction 未解析)
+- `/company/commark_<method>.action`  →  （bean: commarkAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/commark/list.jsp · query=/company/commark/search.jsp · show=/company/commark/show.jsp · open=/company/commark/add.jsp
-- `/company/compatent_<method>.action`  →  (bean: compatentAction 未解析)
+- `/company/compatent_<method>.action`  →  （bean: compatentAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/compatent/list.jsp · query=/company/compatent/search.jsp · show=/company/compatent/show.jsp · open=/company/compatent/add.jsp
-- `/company/comproduct_<method>.action`  →  (bean: comproductAction 未解析)
+- `/company/comproduct_<method>.action`  →  （bean: comproductAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/company/comproduct/list.jsp · query=/company/comproduct/search.jsp · show=/company/comproduct/show.jsp · open=/company/comproduct/add.jsp
 
 ## /crm  ·  src/config/struts/struts-crm.xml
@@ -363,7 +364,7 @@
   - 前端 result→jsp：list=/crm/exhibitstaff/list.jsp
 - `/crm/lead_<method>.action`  →  com.maxtile.application.crm.lead.action.LeadAction
   - 后端：src/com/maxtile/application/crm/lead/action/LeadAction.java
-  - 前端 result→jsp：custleadinspect=/crm/lead/custleadinspect.jsp · list=/crm/lead/list.jsp · open=/crm/lead/add.jsp · show=/crm/lead/show.jsp · convert=/crm/lead/convert.jsp · visit=/crm/lead/visit.jsp · giveback=/crm/lead/giveback.jsp · visitList=/cust/cust/leadvisitlist.jsp · targetData1=/crm/lead/showData/targetData1.jsp · targetData2=/crm/lead/showData/targetData2.jsp · targetData4=/crm/lead/showData/targetData4.jsp
+  - 前端 result→jsp：custleadinspect=/crm/lead/custleadinspect.jsp · list=/crm/lead/list.jsp · open=/crm/lead/add.jsp · show=/crm/lead/show.jsp · convert=/crm/lead/convert.jsp · enterpriseBase=/crm/lead/enterpriseBase.jsp · enterpriseBaseShow=/crm/lead/enterpriseBaseShow.jsp · visit=/crm/lead/visit.jsp · giveback=/crm/lead/giveback.jsp · visitList=/cust/cust/leadvisitlist.jsp · targetData1=/crm/lead/showData/targetData1.jsp · targetData2=/crm/lead/showData/targetData2.jsp · targetData4=/crm/lead/showData/targetData4.jsp
 - `/crm/leadprivate_<method>.action`  →  com.maxtile.application.crm.lead.action.LeadPrivateAction
   - 后端：src/com/maxtile/application/crm/lead/action/LeadPrivateAction.java
   - 前端 result→jsp：list=/crm/leadprivate/list.jsp · show=/crm/leadprivate/show.jsp
@@ -378,6 +379,8 @@
 - `/crm/weComMate_<method>.action`  →  com.maxtile.application.crm.wecom.action.WeComMateAction
   - 后端：src/com/maxtile/application/crm/wecom/action/WeComMateAction.java
   - 前端 result→jsp：list=/crm/wecommate/list.jsp · open=/crm/wecommate/add.jsp · show=/crm/wecommate/show.jsp
+- `/crm/weComMessageCallback_<method>.action`  →  com.maxtile.application.crm.wecom.action.WeComMessageCallbackAction
+  - 后端：src/com/maxtile/application/crm/wecom/action/WeComMessageCallbackAction.java
 - `/crm/weComOAuth2_<method>.action`  →  com.maxtile.application.crm.wecom.action.WeComOAuth2Action
   - 后端：src/com/maxtile/application/crm/wecom/action/WeComOAuth2Action.java
 
@@ -417,10 +420,10 @@
 - `/cust/crmfn_<method>.action`  →  com.maxtile.application.crm.customer.action.CrmFlowNodeAction
   - 后端：src/com/maxtile/application/crm/customer/action/CrmFlowNodeAction.java
   - 前端 result→jsp：list=/cust/flownode/list.jsp · show=/cust/flownode/show.jsp · error=/public/head/error.jsp
-- `/cust/cusa_<method>.action`  →  (bean: cusaddressAction 未解析)
+- `/cust/cusa_<method>.action`  →  （bean: cusaddressAction · 疑似废弃·无源码）
   - 前端 result→jsp：cusaList=/cust/div_cusaddress/cusalist.jsp · cusaSearchList=/cust/div_cusaddress/cusaSearchList.jsp · add=/cust/div_cusaddress/cusaadd.jsp · success=<param name="actionName">cusa_*</param>
 				<param name="method">list</param> · show=/cust/div_cusaddress/cusaShow.jsp · error=/public/head/error.jsp
-- `/cust/cusb_<method>.action`  →  (bean: cusbankAction 未解析)
+- `/cust/cusb_<method>.action`  →  （bean: cusbankAction · 疑似废弃·无源码）
   - 前端 result→jsp：cusbList=/cust/div_cusbank/cusblist.jsp · open=/cust/div_cusbank/cusbadd.jsp · success=<param name="actionName">cusb_*</param>
 				<param name="method">list</param> · show=/cust/div_cusbank/cusbShow.jsp · error=/public/head/error.jsp
 - `/cust/cusComplaint_<method>.action`  →  com.maxtile.application.crm.customer.action.CusComplaintAction
@@ -430,11 +433,11 @@
   - 后端：src/com/maxtile/application/crm/customer/action/CusComplaintBacktypeAction.java
 - `/cust/cusComplaintImage_<method>.action`  →  com.maxtile.application.crm.customer.action.CusComplaintImageAction
   - 后端：src/com/maxtile/application/crm/customer/action/CusComplaintImageAction.java
-- `/cust/cuscredit_<method>.action`  →  (bean: cuscreditAction 未解析)
+- `/cust/cuscredit_<method>.action`  →  （bean: cuscreditAction · 疑似废弃·无源码）
   - 前端 result→jsp：showList=/cust/cuscredit/cuscreditlist.jsp · searchcreditList=/cust/cuscredit/searchcuscreditlist.jsp · showfinditem=/cust/cuscredititem/cuscredititemlist.jsp · showdata=/cust/cuscredit/cuscreditdata.jsp · error=/public/head/error.jsp
-- `/cust/cuscreditchg_<method>.action`  →  (bean: cuscreditchgAction 未解析)
+- `/cust/cuscreditchg_<method>.action`  →  （bean: cuscreditchgAction · 疑似废弃·无源码）
   - 前端 result→jsp：success=/cust/cuscredititem/success.jsp · showList=/cust/cuscreditchg/cuscreditchglist.jsp · searchList=/cust/cuscreditchg/searchcuscreditchglist.jsp · open=/cust/cuscreditchg/cuscreditchgadd.jsp · showCuscredit=/cust/cuscreditchg/showcuscredit.jsp · show=/cust/cuscreditchg/cuscreditchgedit.jsp · error=/public/head/error.jsp
-- `/cust/cuscredititem_<method>.action`  →  (bean: cuscredititemAction 未解析)
+- `/cust/cuscredititem_<method>.action`  →  （bean: cuscredititemAction · 疑似废弃·无源码）
   - 前端 result→jsp：success=/cust/cuscredititem/success.jsp · showList=/cust/cuscredititem/cuscredititemlist.jsp · show=/cust/cuscredititem/cuscredititemshow.jsp · showadd=/cust/cuscredititem/cuscredititemadd.jsp · showCuscredit=/cust/cuscredititem/showcuscredit.jsp · showSorder=/cust/cuscredititem/showsorder.jsp · error=/public/head/error.jsp
 - `/cust/cuscyclerebateApply_<method>.action`  →  com.maxtile.application.crm.customer.action.CuscyclerebateApplyAction
   - 后端：src/com/maxtile/application/crm/customer/action/CuscyclerebateApplyAction.java
@@ -444,21 +447,21 @@
 - `/cust/cusFatherSonLinkApply_<method>.action`  →  com.maxtile.application.crm.customer.action.CusFatherSonLinkApplyAction
   - 后端：src/com/maxtile/application/crm/customer/action/CusFatherSonLinkApplyAction.java
   - 前端 result→jsp：list=/cust/cust/updateRecord.jsp
-- `/cust/cusgrade_<method>.action`  →  (bean: cusgradeAction 未解析)
+- `/cust/cusgrade_<method>.action`  →  （bean: cusgradeAction · 疑似废弃·无源码）
   - 前端 result→jsp：success=/cust/cusgrade/success.jsp · showcusgradeList=/cust/cusgrade/cusgradelist.jsp · searchusgradeList=/cust/cusgrade/searchcusgradelist.jsp · showCustList=/cust/cusregist/showcustomer.jsp · showAdd=/cust/cusgrade/cusgradeadd.jsp · showcusgradename=/cust/cusgrade/showcusgradename.jsp · cusgradeitem=/cust/cusgrade/cusgradeitemadd.jsp · showedit=/cust/cusgrade/cusgradedit.jsp · showitemedit=/cust/cusgrade/cusgradeitemedit.jsp · check=<param name="actionName">cusgrade_*</param>
 				<param name="method">edit</param> · error=/public/head/error.jsp
-- `/cust/cusgradeLevel_<method>.action`  →  (bean: cusgradeLevelAction 未解析)
+- `/cust/cusgradeLevel_<method>.action`  →  （bean: cusgradeLevelAction · 疑似废弃·无源码）
   - 前端 result→jsp：showList=/cust/cusgradelevel/cusgradelevelList.jsp · div_showList=/cust/cusgradelevel/div_cusgradeLevelList.jsp · open=/cust/cusgradelevel/addCusgradeLevel.jsp · showUpdate=/cust/cusgradelevel/showCusgradeLevel.jsp · searchCusgradeLevel=/cust/cusgradelevel/searchCusgradeLevel.jsp · success=/cust/cusgradelevel/cusgradelevelList.jsp
-- `/cust/cusinfolog_<method>.action`  →  (bean: cusinfologAction 未解析)
+- `/cust/cusinfolog_<method>.action`  →  （bean: cusinfologAction · 疑似废弃·无源码）
   - 前端 result→jsp：cusinfologlist=/cust/div_cusinfolog/cusinfologlist.jsp · open=/cust/div_cusinfolog/cusinfologadd.jsp · success=<param name="actionName">cusinfolog_*</param>
 				<param name="method">list</param> · show=/cust/div_cusinfolog/cusinfologShow.jsp · error=/public/head/error.jsp
 - `/cust/cusl_<method>.action`  →  com.maxtile.application.crm.customer.action.CuslinkerAction
   - 后端：src/com/maxtile/application/crm/customer/action/CuslinkerAction.java
   - 前端 result→jsp：cuslList=/cust/div_cuslink/cusllist.jsp · open=/cust/div_cuslink/cusladd.jsp · success=<param name="actionName">cusl_*</param>
 				<param name="method">list</param> · show=/cust/div_cuslink/cuslShow.jsp · error=/public/head/error.jsp
-- `/cust/cuslevel_<method>.action`  →  (bean: cuslevelAction 未解析)
+- `/cust/cuslevel_<method>.action`  →  （bean: cuslevelAction · 疑似废弃·无源码）
   - 前端 result→jsp：showList=/cust/cuslevel/cuslevelList.jsp · div_list=/cust/cuslevel/div_cuslevelList.jsp · open=/cust/cuslevel/addCuslevel.jsp · showUpdate=/cust/cuslevel/showCuslevel.jsp · searchCuslevel=/cust/cuslevel/searchCuslevel.jsp · success=/cust/cuslevel/cuslevelList.jsp
-- `/cust/cusregist_<method>.action`  →  (bean: cusregistAction 未解析)
+- `/cust/cusregist_<method>.action`  →  （bean: cusregistAction · 疑似废弃·无源码）
   - 前端 result→jsp：showcustadd=/cust/cusregist/makeregister.jsp · success=/cust/cusregist/success.jsp · showList=/cust/cusregist/cusregistlist.jsp · openregister=/cust/cusregist/registershow.jsp · div_cusregisList=/cust/cusregist/divcusregistlist.jsp · div_searchcusregisList=/cust/cusregist/searchdivcusregistlist.jsp · showdelregister=/cust/cusregist/delregister.jsp · searchCusregistList=/cust/cusregist/searchCusregistList.jsp · showCheck=/cust/cusregist/showCheck.jsp · error=/public/head/error.jsp
 - `/cust/cust_<method>.action`  →  com.maxtile.application.crm.customer.action.CustomerAction
   - 后端：src/com/maxtile/application/crm/customer/action/CustomerAction.java
@@ -487,15 +490,15 @@
 - `/cust/custoplog_<method>.action`  →  com.maxtile.application.crm.customer.action.CustoplogAction
   - 后端：src/com/maxtile/application/crm/customer/action/CustoplogAction.java
   - 前端 result→jsp：showList=/cust/custoplog/list.jsp · open=/cust/div_cusinfolog/cusinfologadd.jsp
-- `/cust/custoVip_<method>.action`  →  (bean: custoVipAction 未解析)
+- `/cust/custoVip_<method>.action`  →  （bean: custoVipAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/cust/custoVip/custoVipList.jsp · searchlist=/cust/custoVip/searchcustoVipList.jsp · open=/cust/custoVip/addCustoVip.jsp · success=/cust/custoVip/success.jsp · show=/cust/custoVip/showCustoVip.jsp
-- `/cust/custoweb_<method>.action`  →  (bean: custowebAction 未解析)
+- `/cust/custoweb_<method>.action`  →  （bean: custowebAction · 疑似废弃·无源码）
   - 前端 result→jsp：custoweblist=/cust/div_custoweb/custoweblist.jsp · open=/cust/div_custoweb/custowebadd.jsp · success=<param name="actionName">custoweb_*</param>
 				<param name="method">list</param> · show=/cust/div_custoweb/custowebShow.jsp · error=/public/head/error.jsp
 - `/cust/custrans_<method>.action`  →  com.maxtile.application.crm.customer.action.CustransAction
   - 后端：src/com/maxtile/application/crm/customer/action/CustransAction.java
   - 前端 result→jsp：success=/cust/custrans/success.jsp · showList=/cust/custrans/custranslist.jsp · searchcustrans=/cust/custrans/searchcustranslist.jsp · showEmp=/cust/custrans/showemp.jsp · open=/cust/custrans/custransferadd.jsp · showcustomer=/cust/custrans/showcustomer.jsp · error=/public/head/error.jsp · wapshowList=/wap/custrans/custranslist.jsp · wapsearchcustrans=/wap/custrans/searchcustranslist.jsp
-- `/cust/cusVip_<method>.action`  →  (bean: cusVipAction 未解析)
+- `/cust/cusVip_<method>.action`  →  （bean: cusVipAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/cust/cusVip/cusVipList.jsp · searchlist=/cust/cusVip/searchcusVipList.jsp · div_list=/cust/cusVip/div_CusVipList.jsp · open=/cust/cusVip/addCusVip.jsp · success=/cust/cusVip/success.jsp · show=/cust/cusVip/showCusVip.jsp · personalVipByCusid=/cust/cusVip/personalVipByCusid.jsp · listCustomer=/cust/cusVip/listCustomer.jsp · error=/public/head/error.jsp
 - `/cust/data_<method>.action`  →  com.maxtile.application.crm.customer.action.CustDataTypeAction
   - 后端：src/com/maxtile/application/crm/customer/action/CustDataTypeAction.java
@@ -566,13 +569,13 @@
 - `/cust/uploadfiles_<method>.action`  →  com.maxtile.application.crm.customer.action.UploadfilesAction
   - 后端：src/com/maxtile/application/crm/customer/action/UploadfilesAction.java
   - 前端 result→jsp：showList=/cust/product/listProduct.jsp · open=/cust/product/productAdd.jsp · add=product_showList.action · error=/public/head/error.jsp
-- `/cust/vipconsume_<method>.action`  →  (bean: vipconsumeAction 未解析)
+- `/cust/vipconsume_<method>.action`  →  （bean: vipconsumeAction · 疑似废弃·无源码）
   - 前端 result→jsp：success=/cust/cuscredititem/success.jsp · showList=/cust/vipconsume/vipconsumelist.jsp · searchList=/cust/vipconsume/searchvipconsumelist.jsp · shwoAdd=/cust/vipconsume/vipconsumeadd.jsp · vipprojectList=/cust/vipconsume/showvipprojectlist.jsp · cusvipList=/cust/vipconsume/showcusviplist.jsp · vipconsumeItemAdd=/cust/vipconsume/vipconsumeitemadd.jsp · vipconsumedit=/cust/vipconsume/vipconsumedit.jsp · showedititem=/cust/vipconsume/vipconsumeitemedit.jsp · showApply=/cust/vipconsume/vipconsumApply.jsp · vipconsumApplyEdit=/cust/vipconsume/vipconsumApplyEdit.jsp · error=/public/head/error.jsp
-- `/cust/vipproject_<method>.action`  →  (bean: vipprojectAction 未解析)
+- `/cust/vipproject_<method>.action`  →  （bean: vipprojectAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/cust/vipproject/vipprojectlist.jsp · searchlist=/cust/vipproject/searchvipprojectlist.jsp · add=/cust/vipproject/addVipproject.jsp · success=/cust/vipproject/vipprojectlist.jsp · show=/cust/vipproject/showVipproject.jsp
-- `/cust/vipScore_<method>.action`  →  (bean: vipScoreAction 未解析)
+- `/cust/vipScore_<method>.action`  →  （bean: vipScoreAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/cust/vipscore/vipscorelist.jsp · searchlist=/cust/vipscore/searchvipscorelist.jsp · add=/cust/vipscore/addVipscore.jsp · show=/cust/vipscore/showVipscore.jsp · success=/cust/vipscore/vipscorelist.jsp · itemDetail=/cust/vipscore/itemDetail.jsp
-- `/cust/vipScoreRule_<method>.action`  →  (bean: vipScoreRuleAction 未解析)
+- `/cust/vipScoreRule_<method>.action`  →  （bean: vipScoreRuleAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/cust/vipscorerule/vipscorerulelist.jsp · searchlist=/cust/vipscorerule/searchvipscorerulelist.jsp · add=/cust/vipscorerule/addVipscorerule.jsp · show=/cust/vipscorerule/showVipscorerule.jsp · success=/cust/vipscorerule/vipscorerulelist.jsp
 - `/cust/visit_<method>.action`  →  com.maxtile.application.crm.customer.action.CustvisitAction
   - 后端：src/com/maxtile/application/crm/customer/action/CustvisitAction.java
@@ -1021,14 +1024,19 @@
 
 ## /gallery  ·  src/config/struts/struts-gallery.xml
 
-- `/gallery/checkprocess_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.CheckprocessAction 未解析)
+- `/gallery/checkprocess_<method>.action`  →  com.maxtile.application.erp.gallery.action.CheckprocessAction
+  - 后端：src/com/maxtile/application/erp/gallery/action/CheckprocessAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · success=/erp/gallery/rdimgterm/success.jsp · processlist=/erp/gallery/checkprocess/layer_checkprocess.jsp · rightadd=/erp/gallery/checkprocess/rightadd.jsp · add=/erp/gallery/rdimgterm/rightadd.jsp · selecttree=/erp/gallery/checkprocess/json_right.jsp · list=/erp/gallery/checkprocess/tablelist.jsp
-- `/gallery/checkprocessimage_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.CheckprocessimageAction 未解析)
-- `/gallery/checkprocesstermnum_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.CheckprocesstermnumAction 未解析)
+- `/gallery/checkprocessimage_<method>.action`  →  com.maxtile.application.erp.gallery.action.CheckprocessimageAction
+  - 后端：src/com/maxtile/application/erp/gallery/action/CheckprocessimageAction.java
+- `/gallery/checkprocesstermnum_<method>.action`  →  com.maxtile.application.erp.gallery.action.CheckprocesstermnumAction
+  - 后端：src/com/maxtile/application/erp/gallery/action/CheckprocesstermnumAction.java
   - 前端 result→jsp：details=/erp/gallery/checkprocess/rightdetails.jsp
-- `/gallery/rdimages_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.RdimagesAction 未解析)
+- `/gallery/rdimages_<method>.action`  →  com.maxtile.application.erp.gallery.action.RdimagesAction
+  - 后端：src/com/maxtile/application/erp/gallery/action/RdimagesAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · success=/erp/gallery/rdimgterm/success.jsp · open=/erp/gallery/rdimages/editor.jsp · list=/erp/gallery/rdimages/rightshow.jsp
-- `/gallery/rdimgterm_<method>.action`  →  (bean: com.maxtile.application.erp.gallery.action.RdimgtermAction 未解析)
+- `/gallery/rdimgterm_<method>.action`  →  com.maxtile.application.erp.gallery.action.RdimgtermAction
+  - 后端：src/com/maxtile/application/erp/gallery/action/RdimgtermAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · success=/erp/gallery/rdimgterm/success.jsp · selecttree=/erp/gallery/rdimgterm/json_right.jsp · add=/erp/gallery/rdimgterm/rightadd.jsp · tab=/erp/gallery/rdimgterm/imgterm.jsp
 
 ## /mall  ·  src/config/struts/struts-mall.xml
@@ -1265,29 +1273,29 @@
 
 ## /patent  ·  src/config/struts/struts-patent.xml
 
-- `/patent/aidlog_<method>.action`  →  (bean: aidlogAction 未解析)
+- `/patent/aidlog_<method>.action`  →  （bean: aidlogAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/aidlog/list.jsp · search=/project/aidlog/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · error=/public/head/error.jsp
-- `/patent/engerlog_<method>.action`  →  (bean: engerlogAction 未解析)
+- `/patent/engerlog_<method>.action`  →  （bean: engerlogAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/aidlog/list.jsp · search=/project/aidlog/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · error=/public/head/error.jsp
-- `/patent/fee_<method>.action`  →  (bean: feeAction 未解析)
+- `/patent/fee_<method>.action`  →  （bean: feeAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/fee/list.jsp · search=/project/fee/search.jsp · open=/project/fee/add.jsp · show=/project/fee/show.jsp · openSetFeedate=/project/fee/setFeeDate.jsp · error=/public/head/error.jsp
-- `/patent/feeitem_<method>.action`  →  (bean: feeitemAction 未解析)
+- `/patent/feeitem_<method>.action`  →  （bean: feeitemAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/feeitem/list.jsp · search=/project/feeitem/search.jsp · open=/project/feeitem/add.jsp
-- `/patent/feename_<method>.action`  →  (bean: feenameAction 未解析)
+- `/patent/feename_<method>.action`  →  （bean: feenameAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/feename/list.jsp · search=/project/feename/search.jsp · open=/project/feename/add.jsp · show=/project/feename/show.jsp · div_list=/project/feename/div_list.jsp · div_query=/project/feename/div_search.jsp · error=/public/head/error.jsp
-- `/patent/flowactive_<method>.action`  →  (bean: paflowactiveAction 未解析)
+- `/patent/flowactive_<method>.action`  →  （bean: paflowactiveAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/aidlog/list.jsp · search=/project/aidlog/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · showFlow=/project/paflowactive/progress.jsp
-- `/patent/org_<method>.action`  →  (bean: orgAction 未解析)
+- `/patent/org_<method>.action`  →  （bean: orgAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/org/list.jsp · search=/project/org/search.jsp · open=/project/org/add.jsp · show=/project/org/show.jsp · error=/public/head/error.jsp
-- `/patent/pat_<method>.action`  →  (bean: patAction 未解析)
+- `/patent/pat_<method>.action`  →  （bean: patAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/pat/list.jsp · search=/project/pat/search.jsp · open=/project/pat/add.jsp · show=/project/pat/show.jsp · openAddPatent=/project/pat/addPatent.jsp · error=/public/head/error.jsp
-- `/patent/patdoc_<method>.action`  →  (bean: patdocAction 未解析)
+- `/patent/patdoc_<method>.action`  →  （bean: patdocAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/patent/list.jsp · search=/project/patent/search.jsp · open=/project/patent/add.jsp · show=/project/patent/show.jsp
-- `/patent/patent_<method>.action`  →  (bean: patentAction 未解析)
+- `/patent/patent_<method>.action`  →  （bean: patentAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/patent/list.jsp · search=/project/patent/search.jsp · open=/project/patent/add.jsp · show=/project/patent/show.jsp · configEnger=/project/patent/configEnger.jsp · openUpdateNextStep=/project/patent/openUpdateNextStep.jsp · openUpdateSelectStep=/project/patent/openUpdateSelectStep.jsp · openUpdatePatent=/project/patent/updatePatent.jsp · divPatentList=/project/patent/div_list.jsp · divPatentSearch=/project/patent/div_search.jsp · aidPatentList=/project/patent/aid_divlist.jsp · aidPatentSearch=/project/patent/aid_divsearch.jsp · openUpload=/project/patent/uploadfiles.jsp · openAddYearFee=/project/patent/addYearFee.jsp · openKeyDate=/project/patent/openKeyDate.jsp · openApplyDate=/project/patent/updateApplydate.jsp · listYearFeePatent=/project/patent/div_listYearFee.jsp · error=/public/head/error.jsp
-- `/patent/patime_<method>.action`  →  (bean: patimeAction 未解析)
+- `/patent/patime_<method>.action`  →  （bean: patimeAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/patime/list.jsp · search=/project/patime/search.jsp · open=/project/aidlog/addItem.jsp · show=/project/aidlog/showItem.jsp · patimeProgress=/project/patent/patimeProgress.jsp · error=/public/head/error.jsp
-- `/patent/yearfee_<method>.action`  →  (bean: yearfeeAction 未解析)
+- `/patent/yearfee_<method>.action`  →  （bean: yearfeeAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/yearfee/list.jsp · search=/project/yearfee/search.jsp · open=/project/yearfee/add.jsp · show=/project/yearfee/show.jsp · div_list=/project/yearfee/div_list.jsp · error=/public/head/error.jsp
 
 ## /produce  ·  src/config/struts/struts-produce.xml
@@ -1373,7 +1381,7 @@
   - 前端 result→jsp：error=/public/head/error.jsp
 - `/produce/morder_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderAction
   - 后端：src/com/maxtile/application/erp/produce/action/MorderAction.java
-  - 前端 result→jsp：list=/erp/produce/morder/list.jsp · listAnditem=/erp/produce/morder/listAnditem.jsp · queryWeaveItemList=/erp/produce/morder/queryWeaveItemList.jsp · open=/erp/produce/morder/add.jsp · worderOpen=/erp/produce/morder/worderAdd.jsp · openList=/erp/produce/morder/addList.jsp · openFmMt=/erp/produce/morder/addFmMt.jsp · show=/erp/produce/morder/show.jsp · showMorder=/erp/produce/morder/showMorder.jsp · showMorderNew=/erp/produce/morder/showMorderNew.jsp · showSorderMorder=/erp/produce/morder/showSorderMorder.jsp · showWorder=/erp/produce/morder/showWorder.jsp · showWorderNew=/erp/produce/morder/showWorderNew.jsp · showArtorder=/erp/produce/morder/showArtorder.jsp · showinfo=/erp/produce/morder/showinfo.jsp · div_list=/erp/produce/morder/div_list.jsp · addMorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addWorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addArtorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addByMorderBefore=/erp/produce/morder/addByMorderBefore.jsp · print=/erp/produce/morder/print.jsp · morderPrint=/erp/produce/morder/morderPrint.jsp · devMorderPrint=/erp/produce/morder/devMorderPrint.jsp · wPrint=/erp/produce/morder/wPrint.jsp · worderPrint=/erp/produce/morder/worderPrint.jsp · prePrintForMorder=/erp/produce/morder/prePrintForMorder.jsp · prePrintForWorder=/erp/produce/morder/prePrintForWorder.jsp · prePrintForDevWorder=/erp/produce/morder/prePrintForDevWorder.jsp · prePrintForDevWorderNew=/erp/produce/morder/prePrintForDevWorderNew.jsp · printForWorderCraft=/erp/produce/morder/printForWorderCraft.jsp · printForWorderCraftNew=/erp/produce/morder/printForWorderCraftNew.jsp · prePrintForDevMorder=/erp/produce/morder/prePrintForDevMorder.jsp · updateMsg=/erp/produce/morder/updateMsg.jsp · updateProcess=/erp/produce/morder/updateProcess.jsp · updateSpec=/erp/produce/morder/updateSpec.jsp · updateSup=/erp/produce/morder/updateSup.jsp · showDevWorder=/erp/produce/morder/showDevWorder.jsp · devWorderOpen=/erp/produce/morder/devWorderAdd.jsp · devMorderOpen=/erp/produce/morder/devMorderOpen.jsp · showDevMorder=/erp/produce/morder/showDevMorder.jsp · morderAvgProduceDaySup=/erp/produce/morder/morderAvgProduceDaySup.jsp · morderAvgProduceDaySupPro=/erp/produce/morder/morderAvgProduceDaySupPro.jsp · morderitemSupvatCount=/erp/produce/morder/morderitemSupvatCount.jsp · morderAvgProduceDayShowInfo=/erp/produce/morder/morderAvgProduceDayShowInfo.jsp · factoryTop=/erp/produce/morder/factoryTop.jsp · showdetailsinfo=/erp/produce/morder/showdetailsinfo.jsp · dyeingTracking=/erp/produce/production/dyeingTracking.jsp · dyeingTrackingRight=/erp/produce/production/dyeingTrackingRight.jsp · dyeingTrackingRight2=/erp/produce/production/dyeingTrackingRight2.jsp · delayMorderStatistics=/erp/produce/production/delayMorderStatistics.jsp · delayMorder=/erp/produce/production/delayMorder.jsp · urgentMorder=/erp/produce/production/urgentMorder.jsp · recentlyBack=/erp/produce/production/recentlyBack.jsp · recentlyBackStatistics=/erp/produce/production/recentlyBackStatistics.jsp · parentBillRelaAndSet=/erp/produce/morder/parentBillRelaAndSet.jsp · morderSorderPrint=/erp/produce/morder/morderSorderPrint.jsp · morderOrderPrint=/erp/produce/morder/morderOrderPrint.jsp · morderOrderPrintNew=/erp/produce/morder/morderOrderPrintNew.jsp · devMorderOrderPrint=/erp/produce/morder/devMorderOrderPrint.jsp · morderGoodsInStockPrint=/erp/produce/morder/morderGoodsInStockPrint.jsp · morderGoodsInStockWovenPrint=/erp/produce/morder/morderGoodsInStockWovenPrint.jsp · updateSpecsList=/erp/produce/morder/updateSpecsList.jsp · error=/public/head/error.jsp · dyeingProgressSup=/erp/produce/production/dyeingProgressSup.jsp · dyeingProgressPro=/erp/produce/production/dyeingProgressPro.jsp · dyeingProgressShow=/erp/produce/production/dyeingProgressShow.jsp · orderWeavingDetails=/erp/produce/morder/orderWeavingDetails.jsp · orderDyeingAndFinishingDetails=/erp/produce/morder/orderDyeingAndFinishingDetails.jsp · redItemQueryList=/erp/produce/morder/redItemQueryList.jsp · showWorderNew2=/erp/produce/morder/showWorderNew2.jsp · srmPurchaseDelivery=/erp/produce/morder/srmPurchaseDelivery.jsp · srmWorderPosendAdd=/erp/produce/morder/srmWorderPosendAdd.jsp · morderSelectBySorder=/erp/produce/morder/morderSelectBySorder.jsp · supListAnditem=/erp/produce/morder/supListAnditem.jsp · analysisDyeing=/erp/search/develop/analysisDyeing.jsp · devWorderWorkbenchList=/erp/search/develop/devWorderWorkbenchList.jsp · weavingWorkbench=/erp/produce/morder/weavingWorkbench.jsp · dyeingsWorkbench=/erp/produce/morder/dyeingsWorkbench.jsp · addProcessContract=/erp/produce/morder/addProcessContract.jsp · showProcessContract=/erp/produce/morder/showProcessContract.jsp · addProcessContractGDTrade=/erp/produce/morder/addProcessContractGDTrade.jsp · showProcessContractGDTrade=/erp/produce/morder/showProcessContractGDTrade.jsp · finalInfo=/erp/produce/morder/finalInfo.jsp · dyeShowMorderAvgProduceDayInfo=/erp/produce/morder/dyeShowMorderAvgProduceDayInfo.jsp · dyeShowMorderAvgInProduceDayInfo=/erp/produce/morder/dyeShowMorderAvgInProduceDayInfo.jsp
+  - 前端 result→jsp：list=/erp/produce/morder/list.jsp · listAnditem=/erp/produce/morder/listAnditem.jsp · queryWeaveItemList=/erp/produce/morder/queryWeaveItemList.jsp · open=/erp/produce/morder/add.jsp · worderOpen=/erp/produce/morder/worderAdd.jsp · openList=/erp/produce/morder/addList.jsp · openFmMt=/erp/produce/morder/addFmMt.jsp · show=/erp/produce/morder/show.jsp · showMorder=/erp/produce/morder/showMorder.jsp · showMorderNew=/erp/produce/morder/showMorderNew.jsp · showSorderMorder=/erp/produce/morder/showSorderMorder.jsp · showWorder=/erp/produce/morder/showWorder.jsp · showWorderNew=/erp/produce/morder/showWorderNew.jsp · showArtorder=/erp/produce/morder/showArtorder.jsp · showinfo=/erp/produce/morder/showinfo.jsp · div_list=/erp/produce/morder/div_list.jsp · addMorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addWorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addArtorderByMtask=/erp/produce/morder/addMorderByMtask.jsp · addByMorderBefore=/erp/produce/morder/addByMorderBefore.jsp · print=/erp/produce/morder/print.jsp · morderPrint=/erp/produce/morder/morderPrint.jsp · devMorderPrint=/erp/produce/morder/devMorderPrint.jsp · wPrint=/erp/produce/morder/wPrint.jsp · worderPrint=/erp/produce/morder/worderPrint.jsp · prePrintForMorder=/erp/produce/morder/prePrintForMorder.jsp · prePrintForWorder=/erp/produce/morder/prePrintForWorder.jsp · prePrintForDevWorder=/erp/produce/morder/prePrintForDevWorder.jsp · prePrintForDevWorderNew=/erp/produce/morder/prePrintForDevWorderNew.jsp · printForWorderCraft=/erp/produce/morder/printForWorderCraft.jsp · printForWorderCraftNew=/erp/produce/morder/printForWorderCraftNew.jsp · prePrintForDevMorder=/erp/produce/morder/prePrintForDevMorder.jsp · updateMsg=/erp/produce/morder/updateMsg.jsp · updateNotesAndMark=/erp/produce/morder/updateNotesAndMark.jsp · updateProcess=/erp/produce/morder/updateProcess.jsp · updateSpec=/erp/produce/morder/updateSpec.jsp · updateSup=/erp/produce/morder/updateSup.jsp · showDevWorder=/erp/produce/morder/showDevWorder.jsp · devWorderOpen=/erp/produce/morder/devWorderAdd.jsp · devMorderOpen=/erp/produce/morder/devMorderOpen.jsp · showDevMorder=/erp/produce/morder/showDevMorder.jsp · morderAvgProduceDaySup=/erp/produce/morder/morderAvgProduceDaySup.jsp · morderAvgProduceDaySupPro=/erp/produce/morder/morderAvgProduceDaySupPro.jsp · morderitemSupvatCount=/erp/produce/morder/morderitemSupvatCount.jsp · morderAvgProduceDayShowInfo=/erp/produce/morder/morderAvgProduceDayShowInfo.jsp · factoryTop=/erp/produce/morder/factoryTop.jsp · showdetailsinfo=/erp/produce/morder/showdetailsinfo.jsp · dyeingTracking=/erp/produce/production/dyeingTracking.jsp · dyeingTrackingRight=/erp/produce/production/dyeingTrackingRight.jsp · dyeingTrackingRight2=/erp/produce/production/dyeingTrackingRight2.jsp · delayMorderStatistics=/erp/produce/production/delayMorderStatistics.jsp · delayMorder=/erp/produce/production/delayMorder.jsp · urgentMorder=/erp/produce/production/urgentMorder.jsp · recentlyBack=/erp/produce/production/recentlyBack.jsp · recentlyBackStatistics=/erp/produce/production/recentlyBackStatistics.jsp · parentBillRelaAndSet=/erp/produce/morder/parentBillRelaAndSet.jsp · morderSorderPrint=/erp/produce/morder/morderSorderPrint.jsp · morderOrderPrint=/erp/produce/morder/morderOrderPrint.jsp · morderOrderPrintNew=/erp/produce/morder/morderOrderPrintNew.jsp · devMorderOrderPrint=/erp/produce/morder/devMorderOrderPrint.jsp · morderGoodsInStockPrint=/erp/produce/morder/morderGoodsInStockPrint.jsp · morderGoodsInStockWovenPrint=/erp/produce/morder/morderGoodsInStockWovenPrint.jsp · updateSpecsList=/erp/produce/morder/updateSpecsList.jsp · error=/public/head/error.jsp · dyeingProgressSup=/erp/produce/production/dyeingProgressSup.jsp · dyeingProgressPro=/erp/produce/production/dyeingProgressPro.jsp · dyeingProgressShow=/erp/produce/production/dyeingProgressShow.jsp · orderWeavingDetails=/erp/produce/morder/orderWeavingDetails.jsp · orderDyeingAndFinishingDetails=/erp/produce/morder/orderDyeingAndFinishingDetails.jsp · redItemQueryList=/erp/produce/morder/redItemQueryList.jsp · showWorderNew2=/erp/produce/morder/showWorderNew2.jsp · srmPurchaseDelivery=/erp/produce/morder/srmPurchaseDelivery.jsp · srmWorderPosendAdd=/erp/produce/morder/srmWorderPosendAdd.jsp · morderSelectBySorder=/erp/produce/morder/morderSelectBySorder.jsp · supListAnditem=/erp/produce/morder/supListAnditem.jsp · analysisDyeing=/erp/search/develop/analysisDyeing.jsp · devWorderWorkbenchList=/erp/search/develop/devWorderWorkbenchList.jsp · weavingWorkbench=/erp/produce/morder/weavingWorkbench.jsp · dyeingsWorkbench=/erp/produce/morder/dyeingsWorkbench.jsp · addProcessContract=/erp/produce/morder/addProcessContract.jsp · showProcessContract=/erp/produce/morder/showProcessContract.jsp · addProcessContractGDTrade=/erp/produce/morder/addProcessContractGDTrade.jsp · showProcessContractGDTrade=/erp/produce/morder/showProcessContractGDTrade.jsp · finalInfo=/erp/produce/morder/finalInfo.jsp · dyeShowMorderAvgProduceDayInfo=/erp/produce/morder/dyeShowMorderAvgProduceDayInfo.jsp · dyeShowMorderAvgInProduceDayInfo=/erp/produce/morder/dyeShowMorderAvgInProduceDayInfo.jsp
 - `/produce/morderImportProgress_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderImportProgressAction
   - 后端：src/com/maxtile/application/erp/produce/action/MorderImportProgressAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · list=/erp/produce/morderImportProgress/list.jsp · relaMoi=/erp/produce/morderImportProgress/relaMoi.jsp · showMorderItemData=/erp/produce/morderImportProgress/showMorderItemData.jsp · sorderInspectList=/erp/produce/morderImportProgress/sorderInspectList.jsp · dyeingsTabProgress=/erp/produce/morderImportProgress/dyeingsTabProgress.jsp
@@ -1382,7 +1390,7 @@
   - 前端 result→jsp：error=/public/head/error.jsp · openByMorder=/erp/produce/morderinout/addByMorder.jsp · openFmWorder=/erp/produce/morderinout/addFmWorder.jsp · divForStoi=/erp/produce/morderinout/divForStoi.jsp · show=/erp/produce/morderinout/show.jsp · moiAndMoima=/erp/produce/morderinout/moiAndMoima.jsp
 - `/produce/morderitem_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemAction
   - 后端：src/com/maxtile/application/erp/produce/action/MorderitemAction.java
-  - 前端 result→jsp：list=/erp/produce/morderitem/list.jsp · listAll=/erp/produce/morderitem/listAll.jsp · open=/erp/produce/morderitem/show.jsp · openList=/erp/produce/morderitem/addList.jsp · show=/erp/produce/morderitem/show.jsp · showinfo=/erp/produce/morderitem/showinfo.jsp · div_list=/erp/produce/morderitem/div_list.jsp · divForStii=/erp/produce/morderitem/divForStii.jsp · relaStii=/erp/produce/morderitem/relaStii.jsp · listForMbi=/erp/produce/morderitem/listForMbi.jsp · morderitemCount=/erp/produce/morderitem/morderitemCount.jsp · updateSupcolorcode=/erp/produce/morderitem/updateSupcolorcode.jsp · updateCustsupcolornotes=/erp/produce/morderitem/updateCustsupcolornotes.jsp · error=/public/head/error.jsp · updateShow=/erp/produce/morderitem/updateShow.jsp · updateProcessList=/erp/produce/morderitem/updateProcessList.jsp · returnUpdatecolorid=/erp/produce/morderitem/returnUpdatecolorid.jsp · morderitemPriceList=/erp/produce/morderitem/morderitemPriceList.jsp · worderDetailList=/erp/produce/morderitem/worderDetailList.jsp · morderItemBySorder=/erp/produce/morderitem/morderItemBySorder.jsp · morderItemByMorder=/erp/produce/morderitem/morderItemByMorder.jsp · dyeworksMoiList=/erp/produce/morderitem/dyeworksMoiList.jsp · dyeShowDevMoiList=/erp/produce/morderitem/dyeShowDevMoiList.jsp · addWeavenotes=/erp/produce/morderitem/addWeavenotes.jsp · addCapacity=/erp/produce/morderitem/addCapacity.jsp
+  - 前端 result→jsp：list=/erp/produce/morderitem/list.jsp · listAll=/erp/produce/morderitem/listAll.jsp · open=/erp/produce/morderitem/show.jsp · openList=/erp/produce/morderitem/addList.jsp · show=/erp/produce/morderitem/show.jsp · showinfo=/erp/produce/morderitem/showinfo.jsp · div_list=/erp/produce/morderitem/div_list.jsp · divForStii=/erp/produce/morderitem/divForStii.jsp · relaStii=/erp/produce/morderitem/relaStii.jsp · listForMbi=/erp/produce/morderitem/listForMbi.jsp · morderitemCount=/erp/produce/morderitem/morderitemCount.jsp · updateSupcolorcode=/erp/produce/morderitem/updateSupcolorcode.jsp · updateCustsupcolornotes=/erp/produce/morderitem/updateCustsupcolornotes.jsp · error=/public/head/error.jsp · updateShow=/erp/produce/morderitem/updateShow.jsp · updateProcessList=/erp/produce/morderitem/updateProcessList.jsp · returnUpdatecolorid=/erp/produce/morderitem/returnUpdatecolorid.jsp · morderitemPriceList=/erp/produce/morderitem/morderitemPriceList.jsp · worderDetailList=/erp/produce/morderitem/worderDetailList.jsp · morderItemBySorder=/erp/produce/morderitem/morderItemBySorder.jsp · morderItemByMorder=/erp/produce/morderitem/morderItemByMorder.jsp · updateQtypiMaList=/erp/produce/morderitem/updateQtypiMaList.jsp · dyeworksMoiList=/erp/produce/morderitem/dyeworksMoiList.jsp · dyeShowDevMoiList=/erp/produce/morderitem/dyeShowDevMoiList.jsp · addWeavenotes=/erp/produce/morderitem/addWeavenotes.jsp · addCapacity=/erp/produce/morderitem/addCapacity.jsp
 - `/produce/morderItemDistrib_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderItemDistribAction
   - 后端：src/com/maxtile/application/erp/produce/action/MorderItemDistribAction.java
 - `/produce/morderitemma_<method>.action`  →  com.maxtile.application.erp.produce.action.MorderitemmaAction
@@ -1820,24 +1828,24 @@
 
 ## /project  ·  src/config/struts/struts-project.xml
 
-- `/project/class_<method>.action`  →  (bean: classAction 未解析)
+- `/project/class_<method>.action`  →  （bean: classAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/class/list.jsp · search=/project/class/search.jsp · open=/project/class/add.jsp · show=/project/class/show.jsp · showFlow=/project/class/progress.jsp · divList=/project/class/divList.jsp · divSearch=/project/class/divSearch.jsp · addClassWork=/project/class/addClassWork.jsp · showClassWork=/project/class/showClassWork.jsp
-- `/project/classwork_<method>.action`  →  (bean: classworkAction 未解析)
+- `/project/classwork_<method>.action`  →  （bean: classworkAction · 疑似废弃·无源码）
 - `/project/flow_<method>.action`  →  com.maxtile.application.erp.flow.action.FlowAction
   - 后端：src/com/maxtile/application/erp/flow/action/FlowAction.java
   - 前端 result→jsp：list=/project/flow/list.jsp · search=/project/flow/search.jsp · open=/project/flow/add.jsp · show=/project/flow/show.jsp
-- `/project/flowlog_<method>.action`  →  (bean: flowlogAction 未解析)
+- `/project/flowlog_<method>.action`  →  （bean: flowlogAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/flowlog/list.jsp · search=/project/flowlog/search.jsp · open=/project/flowlog/add.jsp · show=/project/flowlog/show.jsp
 - `/project/flownode_<method>.action`  →  com.maxtile.application.erp.flow.action.FlownodeAction
   - 后端：src/com/maxtile/application/erp/flow/action/FlownodeAction.java
   - 前端 result→jsp：list=/project/flownode/list.jsp · search=/project/flownode/search.jsp · open=/project/flownode/add.jsp · show=/project/flownode/show.jsp
-- `/project/model_<method>.action`  →  (bean: modelAction 未解析)
+- `/project/model_<method>.action`  →  （bean: modelAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/model/list.jsp · search=/project/model/search.jsp · open=/project/model/add.jsp · show=/project/model/show.jsp
-- `/project/project_<method>.action`  →  (bean: projectAction 未解析)
+- `/project/project_<method>.action`  →  （bean: projectAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/project/list.jsp · search=/project/project/search.jsp · open=/project/project/add.jsp · show=/project/project/show.jsp · showProgress=/project/project/progress.jsp · configPro=/project/project/configPro.jsp · configWork=/project/project/configWork.jsp · showWorkinfo=/project/project/showWorkinfo.jsp · setWorkinfo=/project/project/setWorkinfo.jsp · openUpdateNextStep=/project/project/openUpdateNextStep.jsp · openUpdateSelectStep=/project/project/openUpdateSelectStep.jsp
-- `/project/work_<method>.action`  →  (bean: workAction 未解析)
+- `/project/work_<method>.action`  →  （bean: workAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/work/list.jsp · search=/project/work/search.jsp · open=/project/work/add.jsp · show=/project/work/show.jsp
-- `/project/workinfo_<method>.action`  →  (bean: workinfoAction 未解析)
+- `/project/workinfo_<method>.action`  →  （bean: workinfoAction · 疑似废弃·无源码）
   - 前端 result→jsp：list=/project/workinfo/list.jsp · search=/project/workinfo/search.jsp · open=/project/workinfo/add.jsp · show=/project/workinfo/show.jsp
 
 ## /purchase  ·  src/config/struts/struts-purchase.xml
@@ -1917,7 +1925,7 @@
 - `/purchase/supProductionRecords_<method>.action`  →  com.maxtile.application.erp.purchase.action.SupProductionRecordsAction
   - 后端：src/com/maxtile/application/erp/purchase/action/SupProductionRecordsAction.java
   - 前端 result→jsp：open=/erp/purchase/supproductionrecords/add.jsp
-- `/purchase/test_<method>.action`  →  (bean: testAction 未解析)
+- `/purchase/test_<method>.action`  →  （bean: testAction · 疑似废弃·无源码）
   - 前端 result→jsp：test=/erp/purchase/porder/test.jsp
 - `/purchase/yarnTrial_<method>.action`  →  com.maxtile.application.erp.purchase.action.YarnTrialAction
   - 后端：src/com/maxtile/application/erp/purchase/action/YarnTrialAction.java
@@ -1955,8 +1963,7 @@
 - `/qc/phyreport_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportAction
   - 后端：src/com/maxtile/application/erp/qc/action/PhyreportAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · updateBaseMsg=/erp/qc/phyreport/updateBaseMsg.jsp · list=/erp/qc/phyreport/list.jsp · openFmQcreport=/erp/qc/phyreport/openFmQcreport.jsp · open=/erp/qc/phyreport/open.jsp · openMeiBiao=/erp/qc/phyreport/openMeiBiao.jsp · openOuBiao=/erp/qc/phyreport/openOuBiao.jsp · openRiBiao=/erp/qc/phyreport/openRiBiao.jsp · openSorderBiao=/erp/qc/phyreport/openSorderBiao.jsp · openDemandBiao=/erp/qc/phyreport/openDemandBiao.jsp · show=/erp/qc/phyreport/show.jsp · showMeiBiao=/erp/qc/phyreport/showMeiBiao.jsp · showOuBiao=/erp/qc/phyreport/showOuBiao.jsp · showRiBiao=/erp/qc/phyreport/showRiBiao.jsp · showSorderBiao=/erp/qc/phyreport/showSorderBiao.jsp · showDemandBiao=/erp/qc/phyreport/showDemandBiao.jsp · externalReport=/erp/qc/phyreport/externalReport.jsp · externalReportCnEn=/erp/qc/phyreport/externalReportCnEn.jsp · externalReportEn=/erp/qc/phyreport/externalReportEn.jsp · interiorReport=/erp/qc/phyreport/interiorReport.jsp · externalBilingualReport=/erp/qc/phyreport/externalBilingualReport.jsp · externalEnglishReport=/erp/qc/phyreport/externalEnglishReport.jsp · inspectList=/erp/qc/phyreport/inspectList.jsp · externalSorderBilingual=/erp/qc/phyreport/externalSorderBilingual.jsp · externalSorderEnglish=/erp/qc/phyreport/externalSorderEnglish.jsp · externalDemandBilingual=/erp/qc/phyreport/externalDemandBilingual.jsp · externalDemandEnglish=/erp/qc/phyreport/externalDemandEnglish.jsp · openLinkMorderInfo=/erp/qc/phyreport/openLinkMorderInfo.jsp · openCheckLabelReshape=/erp/qc/phyreport/openCheckLabelReshape.jsp
-- `/qc/phyreportComposition_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportCompositionAction
-  - 后端：src/com/maxtile/application/erp/qc/action/PhyreportCompositionAction.java
+- `/qc/phyreportComposition_<method>.action`  →  （bean: phyreportCompositionAction · 疑似废弃·无源码）
 - `/qc/phyreportScanLog_<method>.action`  →  com.maxtile.application.erp.qc.action.PhyreportScanLogAction
   - 后端：src/com/maxtile/application/erp/qc/action/PhyreportScanLogAction.java
   - 前端 result→jsp：list=/erp/qc/phyreportscanlog/list.jsp
@@ -2042,7 +2049,7 @@
 - `/qc/qualityCoord_<method>.action`  →  com.maxtile.application.erp.qc.action.QualityCoordAction
   - 后端：src/com/maxtile/application/erp/qc/action/QualityCoordAction.java
   - 前端 result→jsp：dyeingsTabQuality=/erp/qc/qualityCoord/dyeingsTabQuality.jsp · dyeingsTabQualityPrint=/erp/qc/qualityCoord/dyeingsTabQualityPrint.jsp · show=/erp/qc/qualityCoord/show.jsp · open=/erp/qc/qualityCoord/add.jsp
-- `/qc/qualitySynQueryApp_<method>.action`  →  (bean: qualitySynQueryAppAction 未解析)
+- `/qc/qualitySynQueryApp_<method>.action`  →  （bean: qualitySynQueryAppAction · 疑似废弃·无源码）
 - `/qc/qualityTask_<method>.action`  →  com.maxtile.application.erp.qc.action.QualityTaskAction
   - 后端：src/com/maxtile/application/erp/qc/action/QualityTaskAction.java
   - 前端 result→jsp：list=/erp/qc/qualityTask/list.jsp · add=/erp/qc/qualityTask/add.jsp · show=/erp/qc/qualityTask/show.jsp · followUpList=/erp/qc/qualityTask/followUpList.jsp
@@ -2187,6 +2194,9 @@
   - 前端 result→jsp：error=/public/head/error.jsp
 - `/sale/salerTarget_<method>.action`  →  com.maxtile.application.erp.sale.action.SalerTargetAction
   - 后端：src/com/maxtile/application/erp/sale/action/SalerTargetAction.java
+- `/sale/salesAnalysis_<method>.action`  →  com.maxtile.application.erp.sale.action.SalesAnalysisAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SalesAnalysisAction.java
+  - 前端 result→jsp：list=/erp/sale/analysis/salesByShop.jsp · error=/public/head/error.jsp
 - `/sale/salesCorrelation_<method>.action`  →  com.maxtile.application.erp.sale.action.SalesCorrelationAction
   - 后端：src/com/maxtile/application/erp/sale/action/SalesCorrelationAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · salesCorrelationList=/erp/sale/correlation/salesCorrelationList.jsp
@@ -2314,6 +2324,9 @@
   - 后端：src/com/maxtile/application/erp/sale/action/SorderqcvalAction.java
 - `/sale/sorderSignLog_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderSignLogAction
   - 后端：src/com/maxtile/application/erp/sale/action/SorderSignLogAction.java
+- `/sale/sorderTransportCost_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderTransportCostAction
+  - 后端：src/com/maxtile/application/erp/sale/action/SorderTransportCostAction.java
+  - 前端 result→jsp：error=/public/head/error.jsp
 - `/sale/soritemimg_<method>.action`  →  com.maxtile.application.erp.sale.action.SorderitemimgAction
   - 后端：src/com/maxtile/application/erp/sale/action/SorderitemimgAction.java
   - 前端 result→jsp：error=/public/head/error.jsp · addItemImg=/erp/sale/custorder/addItemImg.jsp
@@ -2480,7 +2493,7 @@
   - 前端 result→jsp：showliat=/sys/area/arealist.jsp · query=/sys/area/searchArealist.jsp · open=/sys/area/areaadd.jsp · add=/sys/area/areaadd.jsp · show=/sys/area/areashow.jsp · divarealist=/sys/area/json_area.jsp · openAreaPage=/sys/area/area.jsp · queryByPId=/sys/area/parea.jsp · successtree=/sys/area/json_area.jsp · success=/sys/area/success.jsp · select=/sys/area/arealist.jsp · select2=/sys/area/arealist2.jsp · add=/sys/area/areaadd.jsp · show=/sys/area/areashow.jsp · input=/index.jsp · error=/public/head/error.jsp
 - `/sys/autocode_<method>.action`  →  com.maxtile.application.sys.action.AutoCodeAction
   - 后端：src/com/maxtile/application/sys/action/AutoCodeAction.java
-- `/sys/billByCost_<method>.action`  →  (bean: billCostAction 未解析)
+- `/sys/billByCost_<method>.action`  →  （bean: billCostAction · 疑似废弃·无源码）
   - 前端 result→jsp：selecByBillcost=/sys/cost/costSingleShow.jsp
 - `/sys/billnorule_<method>.action`  →  com.maxtile.application.sys.action.BillnoruleAction
   - 后端：src/com/maxtile/application/sys/action/BillnoruleAction.java
@@ -2488,9 +2501,9 @@
 - `/sys/billtype_<method>.action`  →  com.maxtile.application.sys.action.BilltypeAction
   - 后端：src/com/maxtile/application/sys/action/BilltypeAction.java
   - 前端 result→jsp：success=/sys/billrule/billtypelist.jsp · add=/sys/billrule/billtypeadd.jsp · update=/sys/billrule/billtypeedit.jsp · billnorule=/sys/billrule/billnorulelist.jsp · search=/sys/billrule/searchbilltypelist.jsp · querybilltype=/sys/billrule/billnorule/div_billtypelist.jsp
-- `/sys/cadlog_<method>.action`  →  (bean: cadlogAction 未解析)
+- `/sys/cadlog_<method>.action`  →  （bean: cadlogAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/sys/cadlog/cadloglist.jsp · addcadlogresult=/sys/cadlog/addresult.jsp
-- `/sys/cadreg_<method>.action`  →  (bean: cadregAction 未解析)
+- `/sys/cadreg_<method>.action`  →  （bean: cadregAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/sys/shop/shoplist.jsp · query=/sys/shop/searchShoplist.jsp · show=/sys/shop/shopshow.jsp · addresult=/sys/cadreg/addresult.jsp · getInfo=/sys/cadreg/getresult.jsp · getServtime=/sys/cadreg/gettime.jsp · getAreaName=/sys/cadreg/getAreaname.jsp · div_shopList=/sys/shop/div_shoplist.jsp
 - `/sys/cate_<method>.action`  →  com.maxtile.application.sys.action.CategoryAction
   - 后端：src/com/maxtile/application/sys/action/CategoryAction.java
@@ -2587,9 +2600,9 @@
 - `/sys/signinlog_<method>.action`  →  com.maxtile.application.sys.action.SigninlogAction
   - 后端：src/com/maxtile/application/sys/action/SigninlogAction.java
   - 前端 result→jsp：showliat=/sys/signinlog/signinloglist.jsp · query=/sys/signinlog/searchSigninloglist.jsp · error=/public/head/error.jsp
-- `/sys/transport_<method>.action`  →  (bean: transportAction 未解析)
+- `/sys/transport_<method>.action`  →  （bean: transportAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/sys/transport/transportlist.jsp · query=/sys/transport/searchTransportlist.jsp · open=/sys/transport/transportAdd.jsp · show=/sys/transport/transportshow.jsp
-- `/sys/transportway_<method>.action`  →  (bean: transportwayAction 未解析)
+- `/sys/transportway_<method>.action`  →  （bean: transportwayAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/sys/transportway/transportwaylist.jsp · query=/sys/transportway/searchTransportway.jsp · open=/sys/transportway/transportwayAdd.jsp · show=/sys/transportway/transportwayshow.jsp
 - `/sys/unit_<method>.action`  →  com.maxtile.application.erp.baseinfo.action.UnitAction
   - 后端：src/com/maxtile/application/erp/baseinfo/action/UnitAction.java
@@ -2631,7 +2644,7 @@
 
 ## /sys/billcost  ·  src/config/struts/struts-sys.xml
 
-- `/sys/billcost/billcost_<method>.action`  →  (bean: billCostAction 未解析)
+- `/sys/billcost/billcost_<method>.action`  →  （bean: billCostAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/sys/billcost/billcostlist.jsp · show=/sys/billcost/billcostShow.jsp · openitem=/sys/billcost/billcostItemAdd.jsp · showitem=/sys/billcost/billcostItemShow.jsp · error=/public/head/error.jsp
 
 ## /sys/billeditlog  ·  src/config/struts/struts-sys.xml
@@ -2642,7 +2655,7 @@
 
 ## /sys/cost  ·  src/config/struts/struts-sys.xml
 
-- `/sys/cost/billcost_<method>.action`  →  (bean: billCostAction 未解析)
+- `/sys/cost/billcost_<method>.action`  →  （bean: billCostAction · 疑似废弃·无源码）
   - 前端 result→jsp：editBillCost=/sys/cost/editBillCost.jsp
 - `/sys/cost/cost_<method>.action`  →  com.maxtile.application.erp.finance.action.CostAction
   - 后端：src/com/maxtile/application/erp/finance/action/CostAction.java
@@ -2650,7 +2663,7 @@
 
 ## /sys/custmbuuser  ·  src/config/struts/struts-sys.xml
 
-- `/sys/custmbuuser/custmbuuser_<method>.action`  →  (bean: custmbuuserAction 未解析)
+- `/sys/custmbuuser/custmbuuser_<method>.action`  →  （bean: custmbuuserAction · 疑似废弃·无源码）
   - 前端 result→jsp：showlist=/sys/custmbuuser/custmbuuserlist.jsp · query=/sys/custmbuuser/searchCustmbuuser.jsp · clubuserList=/sys/custmbuuser/clubuserList.jsp · queryClubuser=/sys/custmbuuser/queryClubuser.jsp · open=/sys/custmbuuser/custmbuuserAdd.jsp · error=/public/head/error.jsp
 
 ## /sys/extendcost  ·  src/config/struts/struts-sys.xml
@@ -2661,7 +2674,7 @@
 
 ## /sys/planrate  ·  src/config/struts/struts-sys.xml
 
-- `/sys/planrate/planrate_<method>.action`  →  (bean: planrateAction 未解析)
+- `/sys/planrate/planrate_<method>.action`  →  （bean: planrateAction · 疑似废弃·无源码）
   - 前端 result→jsp：show=/sys/planrate/planrateShow.jsp · showlist=/sys/planrate/planrateList.jsp · query=/sys/planrate/searchPlanrate.jsp · open=/sys/planrate/planrateAdd.jsp · error=/public/head/error.jsp
 
 ## /sys/qcphrase  ·  src/config/struts/struts-sys.xml
@@ -2672,7 +2685,7 @@
 
 ## /sys/scheckdatahand  ·  src/config/struts/struts-sys.xml
 
-- `/sys/scheckdatahand/scheckdatahand_<method>.action`  →  (bean: scheckDataHandAction 未解析)
+- `/sys/scheckdatahand/scheckdatahand_<method>.action`  →  （bean: scheckDataHandAction · 疑似废弃·无源码）
   - 前端 result→jsp：open=/sys/scheckdatahand/scheckdatahandOpen.jsp · show=/sys/scheckdatahand/scheckdatahandShow.jsp · showList=/sys/scheckdatahand/scheckdatahandList.jsp · searchList=/sys/scheckdatahand/scheckdatahandSearch.jsp · error=/public/head/error.jsp
 
 ## /warehouse  ·  src/config/struts/struts-warehouse.xml
