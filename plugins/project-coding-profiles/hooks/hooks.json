@@ -1,5 +1,5 @@
 {
-  "_comment": "PreToolUse hooks（跨平台 Node 脚本，无第三方依赖）。两道：(1) check-file-encoding——写文本文件前按编码画像检查是否会破坏文件编码（GBK 存量被 UTF-8 重存致乱码），env PCP_ENCODING_HOOK=warn|block|off；(2) check-frontend-controls——写 WebRoot/**.{jsp,js} 前拦截原生 alert/confirm/prompt，要求用公共控件（profile.frontendControls.banNativeDialogs），env PCP_FRONTEND_HOOK=warn|block|off。两者均仅在 rootMarkers 命中的已登记 profile 项目内触发、只查本次新增内容；其它一律放行。多个 PreToolUse hook 顺序执行、各管各的。Claude Code 直接读本文件；Codex 通过 .codex-plugin/plugin.json 引用；Cursor 无 PreToolUse，靠 AGENTS.md / .cursor/rules 指引（见 skills/encoding-guard、coding-mode.md §4.1）。另有一道 UserPromptSubmit hook：check-plugin-version-stale——每条 prompt 提交时比对本插件「当前会话已加载版本」与「磁盘最新版本」，磁盘更高即 stderr 提醒重启会话（三个团队插件各自检测、用会话级共享 flag ~/.kai-toolbox/.restart-reminded-<session> 原子去重不刷屏）；best-effort、绝不写 stdout、绝不阻断，PCP_VERSION_REMINDER=off 关闭。",
+  "_comment": "PreToolUse hooks（跨平台 Node 脚本，无第三方依赖）。三道：(1) check-file-encoding——写文本文件前按编码画像检查是否会破坏文件编码（GBK 存量被 UTF-8 重存致乱码），env PCP_ENCODING_HOOK=warn|block|off；(2) check-frontend-controls——写 WebRoot/**.{jsp,js} 前拦截原生 alert/confirm/prompt，要求用公共控件（profile.frontendControls.banNativeDialogs），env PCP_FRONTEND_HOOK=warn|block|off；(3) check-cross-module-coupling——写 WebRoot 前端文件前拦截「本模块页面直接 src=/include/url= 指向另一个业务模块的私有 js/jsp/action」的跨模块耦合（coding-mode.md §1.1，profile.crossModuleCoupling.enabled），env PCP_CROSSMODULE_HOOK=warn|block|off。三者均仅在 rootMarkers 命中的已登记 profile 项目内触发、只查本次新增内容；其它一律放行。多个 PreToolUse hook 顺序执行、各管各的。Claude Code 直接读本文件；Codex 通过 .codex-plugin/plugin.json 引用；Cursor 无 PreToolUse，靠 AGENTS.md / .cursor/rules 指引（见 skills/encoding-guard、coding-mode.md §4.1）。另有一道 UserPromptSubmit hook：check-plugin-version-stale——每条 prompt 提交时比对本插件「当前会话已加载版本」与「磁盘最新版本」，磁盘更高即 stderr 提醒重启会话（三个团队插件各自检测、用会话级共享 flag ~/.kai-toolbox/.restart-reminded-<session> 原子去重不刷屏）；best-effort、绝不写 stdout、绝不阻断，PCP_VERSION_REMINDER=off 关闭。",
   "hooks": {
     "PreToolUse": [
       {
@@ -13,6 +13,11 @@
           {
             "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/check-frontend-controls.js\"",
+            "async": false
+          },
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/check-cross-module-coupling.js\"",
             "async": false
           }
         ]

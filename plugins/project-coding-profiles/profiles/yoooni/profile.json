@@ -12,6 +12,7 @@
     "default": "gbk",
     "authorityMap": "encoding-map.json",
     "rules": [
+      { "glob": "src/**/model/maps/*.xml", "encoding": "utf-8" },
       { "glob": "src/**", "encoding": "gbk" },
       { "glob": "WebRoot/**", "encoding": "utf-8" },
       { "glob": "**/*.properties", "encoding": "gbk" }
@@ -21,7 +22,8 @@
       "仓库是混合编码：src 以 GBK 为主、WebRoot 以 UTF-8 为主，且有数百例外（同事曾用 UTF-8 存过一批文件）。",
       "逐文件权威编码真值 = 同目录 encoding-map.json（authorityMap），由 hooks/import-encoding-map.js 从项目 .idea/encodings.xml 一次性导入、之后在本仓库集中维护/评审，运行时不再依赖各人机器的 .idea 状态。解析取最长前缀匹配；优先级 encoding-map.json > rules > default。",
       "rules 仅作为 encoding-map.json 未覆盖路径的兜底；项目新增文件后可重跑 import-encoding-map.js 刷新权威表（PR 评审差异）。",
-      "红线：不要为了统一而批量转换文件编码——会丢数据并污染 git diff。改哪个文件就只保证哪个文件改完仍是它原本的编码。"
+      "红线：不要为了统一而批量转换文件编码——会丢数据并污染 git diff。改哪个文件就只保证哪个文件改完仍是它原本的编码。",
+      "iBATIS sqlMap（src/**/model/maps/*.xml）带 <?xml encoding=\"UTF-8\"?> 声明、实为 UTF-8（已逐个登记 encoding-map.json + rules 兜底 utf-8）；改这类文件务必按权威表当 UTF-8 处理，切勿用 detect-encoding 启发式结果（它会把这类 XML 误判成 gbk，按 gbk 回环会把整文件编码改坏导致 iBATIS 加载报 MalformedByteSequenceException）。权威以 encoding-map.json/rules 为准，detect 仅参考。"
     ]
   },
 
@@ -47,6 +49,13 @@
       "alert": "layer.msg / layer.alert / common.js winAlert",
       "prompt": "layer.prompt"
     }
+  },
+
+  "crossModuleCoupling": {
+    "doc": "coding-mode.md",
+    "enabled": true,
+    "_note": "§1.1 红线：本模块页面禁止直接 src=/include/url= 指向另一个业务模块的私有 js/jsp/action（含 /public/js/<别的模块>/ 页面私有脚本）。由 hooks/check-cross-module-coupling.js 在写 WebRoot 前端文件时按业务模块集启发式 warn。",
+    "sharedModules": []
   },
 
   "scaffold": {

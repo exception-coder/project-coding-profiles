@@ -15,6 +15,25 @@
 
 新增模块的代码一律放进 `application/<领域>/<模块>` 自己的包，不往 common/framework 塞业务。
 
+### 1.1 红线：跨业务模块不得直接复用对方「私有」组件/端点（要复用就下沉公共层）
+
+§1 管纵向分层；本条管**横向的兄弟业务模块之间**。一个业务模块（如 `crm/lead`）需要另一个模块（如 `crm/customer`、`cust`）的能力时，**只能走两条合规路径**：① 后端注入对方 `Manage`（§2 已允许 Manage 横向依赖）；② 把要共享的前端件**下沉到真正的公共层**再各自引用。**禁止本模块的页面直接引用/硬编码另一个业务模块的私有资源**。
+
+| 复用对象 | 正确做法 | 禁止（直接耦合） |
+|---|---|---|
+| 后端业务逻辑 | 注入对方 `Manage`，走接口调用 | 在本模块页面写死调对方的私有 action URL |
+| 前端脚本/组件 | 真·通用件下沉到 `/public/js/common/**` 等公共目录，各模块引用公共件 | 本模块 jsp 直接 `src=`/`include` 兄弟模块的页面脚本（如 `/public/js/cust/customer/show.js`） |
+| 取数端点（下拉/联动） | 本模块提供自己的端点，或调下沉到公共/baseinfo 的通用端点 | 下拉 `url=` 直接打兄弟模块 action 并写死对方魔数（如 `/cust/common_selectCommon.action?obj.modelid=57`） |
+| 表单/页面结构 | 可参考其布局，但要独立成本模块自己的 jsp | 整段抄对方页面、并保留对它脚本/端点的运行期引用 |
+
+**判据（写 `WebRoot/<本模块>/**` 时自检）**：页面里出现指向**另一个业务模块**的 `src=` / `<%@ include %>` / `xxx.action` 硬编码即判耦合。注意 `/public/js/<模块名>/**`（如 `/public/js/cust/...`）虽落在 `/public` 下，但属该模块的**页面私有脚本**，**不算通用件**；只有 `/public/js/common/**`、easyui、layui、jedate 等才是 §4 认可的公共件。
+
+**为什么**：被引模块的私有 js / action / 魔数是它的内部实现，对方重构（改 `show.js`、改 action 入参、改 `modelid` 语义）时**不会知道你在用**，你的页面会静默坏掉；且模块职责边界被打穿，后续难维护、难拆分。
+
+**真实反例**（提交 `2165e63b2`，`crm/lead` 工商查询/录入表单）：`WebRoot/crm/lead/enterpriseBase.jsp` 直接 `src="/public/js/cust/customer/show.js"` 引客户模块私有脚本；`add.jsp`/`show.jsp` 的下拉直接 `url:'/cust/common_selectCommon.action?obj.modelid=57'`、`url:'/cust/crg_selectDataType.action?dataType=3'`，并照抄「客户新增 custAdd」表单。结果 `crm/lead` 运行期硬依赖 `cust` 模块，客户模块一改即连带坏。**正确做法**：lead 复用客户的工商查询逻辑应在后端注入 `CustomerManage`，前端共享件下沉到 `/public/js/common/**`，下拉用 lead 自己的（或通用的）端点，而非直引 `/cust/*`。
+
+> 本条由 PreToolUse hook `check-cross-module-coupling.js` 在写 `WebRoot/**` 前端文件时机械提醒（profile `crossModuleCoupling.enabled`，默认 warn）：扫到本模块页面 `src=`/`include`/`url=` 指向另一个业务模块的私有 js/jsp/action 即告警。判据为启发式（业务模块集 = `WebRoot` 顶层 ∪ `WebRoot/erp` 子目录），公认共享模块可加进 `crossModuleCoupling.sharedModules`；`PCP_CROSSMODULE_HOOK=block` 可升级硬阻断。仍以本节语义为准，hook 只兜底提醒。
+
 ## 2. 后端四层（一个模块的纵向切片）
 
 包根：`com.maxtile.application.<领域>.<模块>`（领域如 erp/crm/cust）。`<E>` = 实体名（如 Ordercost）。
@@ -102,10 +121,30 @@ function deleteImage(id){
 
 **为什么**：① 组件会重渲染/重排（reload、resize、翻页），你直接改的 DOM 与 inline 样式会被**覆盖失效**；② 升级组件版本时原生 hack **悄悄失效**、难排查；③ 绕过 API 易**破坏组件内部状态**（选中/分页/数据绑定错乱）；④ 与全站样式**不统一**。
 
+前端页面控件较多、出现错位/不显示/宽度异常/滚动追加后错位等展示异常时，**先检查组件本身的配置缺失、列结构不一致、初始化顺序、重复渲染、父子容器冲突**，不要一上来用额外 JS/CSS 硬修。只有确认组件配置和数据结构都正确、且公共组件没有可用能力后，才考虑最小范围样式补丁。
+
 **范例**（easyui 隐藏列并刷新）——正确：`$('#dg').datagrid('hideColumn','col'); $('#dg').datagrid('reload');`；禁止：`$('#dg td[field=col]').hide(); $('.datagrid-body').css(...)`。
 
 > 确需组件没有的能力：先查 [common-capabilities.md](common-capabilities.md) 是否已封装；仍没有则按 §1 红线走公共层维护（`WebRoot/public` 只引用不改），**不要在业务页用原生硬改**。
 > 本条偏语义、形态多，不做机械 hook 拦截——由 coding-mode skill 与代码评审把关。
+
+### 4.3 红线：列表/看板字段变更必须同步核对导出链路
+
+Yoooni 大量页面带 Excel 导出，**看板/列表展示和导出不一定走同一条实现路径**。改页面列、查询字段、日期口径、状态文案、金额计算等展示逻辑时，必须同步检查导出能力。
+
+| 页面链路 | 常见实现 | 风险 |
+|---|---|---|
+| 看板/列表 | `Action/Manage` 查询 → `objList` → JSP 直接渲染 | 改了 JSP 或查询字段后，页面正确 |
+| 导出 | 可能复用同一查询，也可能走单独导出 SQL / 单独查询方法 → `convert*EP()` 转 Excel 行模型 → `*EP.java` 字段 → `headers[]` 表头 → `ExportExcel` | 转换层、EP 模型、表头数组没同步，导出缺列或取值口径不一致 |
+
+编码前自检：
+1. 定位页面按钮/方法时同时搜：`export`、`ExportExcel`、`headers`、`convert`、`EP`、`download`、`excel`。
+2. 不要默认导出复用列表 SQL；必须确认导出是同一查询、单独 SQL，还是同查询 + 转换层。
+3. 新增/调整展示列时，同步检查并更新：查询字段、`convert*EP()`、`*EP.java`、`headers[]`、Excel 列顺序。
+4. 页面有特殊展示口径（如版次日期、状态翻译、金额格式化、组合字段）时，导出转换层必须复用同一口径，禁止 JSP 和 Java 各算各的。
+5. 若看板与导出确实有意不同，必须在代码附近或提交说明中写明差异原因，避免后续误判为漏改。
+
+典型坑：页面新增「工艺师」列时，SQL 已查出 `checkname` 并进入 `objList`，但导出还会因为 `convertMainEP()` 未映射、`NewMdevelopMainEP` 无字段、`headers[]` 无表头而缺列；页面「需求单日期」按版次逻辑展示时，导出也必须在转换层同步同一逻辑。
 
 ## 5. 新增菜单/权限（DB 驱动）
 
