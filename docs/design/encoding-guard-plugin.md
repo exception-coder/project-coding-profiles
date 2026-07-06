@@ -30,7 +30,7 @@
 - **纯 ASCII 内容**：UTF-8 与 GBK 字节一致，零风险，放行。
 - **存量文件**：以**磁盘实际编码**为准（探测字节，不靠 glob 猜）。实际是 GBK + 新增含非 ASCII → 命中（写 UTF-8 必乱码）。混合编码项目里少数 UTF-8 例外文件因此不会误报。
 - **新建文件**：用 profile 规则得到期望编码；期望 GBK/遗留编码 + 含非 ASCII → 提示创建后转码。
-- 默认 `warn`（exit 0 + stderr）；`PCP_ENCODING_HOOK=block` 升级硬阻断、`=off` 关闭。
+- 默认 `block`（exit 2 硬阻断），与 pre-commit 一致；`PCP_ENCODING_HOOK=warn` 降级只提示（exit 0 + stderr）、`=off` 关闭。
 - 编码探测：BOM 嗅探 + UTF-8 合法性扫描（非法 → 判 GBK；合法且有多字节 → UTF-8；纯 ASCII → ascii）。无第三方依赖，跨平台 Node。
 
 ## 5. 人读指引：skills/encoding-guard

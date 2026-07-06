@@ -76,7 +76,7 @@ project-coding-profiles/
 - **被外部转坏检测**：权威=GBK 但磁盘已是 UTF-8（被 iconv/编辑器在 Claude 外转码）→ 提示先复原（encoding-doctor / detect-encoding.ps1）再改，勿固化坏状态。
 - 全项目兜底：`node hooks/encoding-doctor.js <项目根> [--fix]` 扫描磁盘 vs 权威、复原可修复项（utf-8→gbk 有损则安全跳过）。`pre-commit-encoding.js` 提交处按权威再卡一道。
 - 新建文件：用 profile 规则推期望编码；期望 GBK/遗留编码 + 含非 ASCII → 提示创建后转码。
-- 默认 `warn`（exit 0 + stderr）。`PCP_ENCODING_HOOK=block` 升级硬阻断（exit 2）、`=off` 关闭。
+- 默认 `block`（exit 2 硬阻断），与 `pre-commit-encoding.js` 对齐——写盘前即拦，不再让坏内容落盘等到提交。`PCP_ENCODING_HOOK=warn` 降级只提示（exit 0 + stderr）、`=off` 关闭。
 
 ## hook 行为（check-frontend-controls.js）
 

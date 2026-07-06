@@ -85,8 +85,8 @@ powershell ... detect-encoding.ps1 -Action detect -Path "src\Foo.java"   # 应�
 
 | 环境变量 | 效果 |
 |---|---|
-| `PCP_ENCODING_HOOK=warn` | 默认。提示但不阻断（exit 0 + stderr） |
-| `PCP_ENCODING_HOOK=block` | 硬阻断（exit 2），回灌提示给 AI |
+| `PCP_ENCODING_HOOK=block` | **默认**。硬阻断（exit 2），回灌提示给 AI；写盘前与提交前一致拦截 |
+| `PCP_ENCODING_HOOK=warn` | 只提示不阻断（exit 0 + stderr） |
 | `PCP_ENCODING_HOOK=off` | 完全关闭 |
 
 > **命中事件登记**：`check-file-encoding`（`rule: file-encoding`）/ `check-frontend-controls`（`rule: frontend-controls`）命中时，经 `hooks/event-log.js` best-effort 追加一行 `{ts,user,host,plugin,hook,rule,mode,tool,file}` 到 `~/.kai-toolbox/hook-events.jsonl`，供统计"规则命中频率 / 升不升 block"。**只写本地、绝不碰网络；登记失败不影响放行/拦截**。同步到 `\\IT01` 共享 + 周报统计在 `yoooni-daily-plugin`。详见 `docs/design/hook-event-logging.md`。

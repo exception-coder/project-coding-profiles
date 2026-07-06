@@ -19,9 +19,11 @@
 //       期望是 GBK/遗留编码 + 内容含非 ASCII → 提示创建后需转码。
 //   - 纯 ASCII 内容：UTF-8 与 GBK 字节一致，零风险，直接放行。
 //
-// 默认 warn 模式（exit 0 + stderr 提示），评估期降低打断。
-//   PCP_ENCODING_HOOK=block → 硬阻断（exit 2）
-//   PCP_ENCODING_HOOK=off   → 完全跳过
+// 默认 block 模式（exit 2 硬阻断）：与提交前钩子 pre-commit-encoding.js 对齐。
+//   写入闸门若只 warn，坏内容会先落盘、只能等提交时才拦（且需装 git hook），
+//   实践中导致 GBK 文件被 UTF-8 写坏反复发生，故默认即硬阻断。
+//   PCP_ENCODING_HOOK=warn → 只提示不拦（exit 0 + stderr），评估期可用
+//   PCP_ENCODING_HOOK=off  → 完全跳过
 //
 // 编码探测 / profile 解析等纯逻辑统一放在 encoding-core.js，与 git
 //   提交前钩子 pre-commit-encoding.js 共用。
@@ -34,7 +36,7 @@ const {
 } = require('./encoding-core');
 const { logHookEvent } = require('./event-log');
 
-const MODE = (process.env.PCP_ENCODING_HOOK || 'warn').toLowerCase();
+const MODE = (process.env.PCP_ENCODING_HOOK || 'block').toLowerCase();
 if (MODE === 'off') process.exit(0);
 
 let raw = '';
@@ -73,7 +75,7 @@ process.stdin.on('end', () => {
   lines.push('    1) 用 skills/encoding-guard 的 detect-encoding.ps1 先探测，再以正确编码写入；');
   lines.push('    2) GBK 文件推荐「转 UTF-8 → 编辑 → 转回 GBK」回环，未改的行字节会原样还原，git diff 只剩真实改动；');
   lines.push('    3) 切勿为统一而批量转码（丢数据 + 污染 git）。详见 encoding-guard SKILL。');
-  lines.push('  旁路：PCP_ENCODING_HOOK=off 关闭 / =block 升级硬阻断。');
+  lines.push('  旁路：PCP_ENCODING_HOOK=warn 只提示不拦 / =off 完全关闭（默认 block 硬阻断）。');
 
   logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-file-encoding', rule: 'file-encoding', mode: MODE, tool, file: filePath });
   process.stderr.write(lines.join('\n') + '\n');
