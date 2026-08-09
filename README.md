@@ -1,129 +1,198 @@
 # project-coding-profiles
 
-**项目级编码画像**插件——为单个项目承载专属编码约定，按项目触发 skill + hook。适配 **Claude Code / Codex / Cursor**。
+项目级编码画像插件。它让 Claude Code、Codex 和 Cursor 在写入源码前识别“当前是什么项目”，再加载该项目真实的编码、框架、公共能力、脚手架和路由规则。
 
-> 与 `team-standards`（团队通用标准）、`yoooni-daily-plugin`（日常作业）分工：本插件只管**项目专属的编码约定**。
+> `team-standards` 规定团队共性，`project-coding-profiles` 保存项目差异。本仓库不保存业务真理，也不把某个遗留项目的特殊约束写进团队通用规范。
 
-能力（按 `profile.json` 字段）：
-- **编码守护（encoding）**——防止 AI 把存量 **GBK** 文件以 UTF-8 写坏（中文乱码）。首例 **Yoooni**（`src`=GBK / `WebRoot`=UTF-8）。
-- **分层编码规范（codingMode）**——项目特有的分层/命名/框架约定 + `common`/`framework` 红线。Yoooni 见 [profiles/yoooni/coding-mode.md](profiles/yoooni/coding-mode.md)。
-- **前端公共控件红线（frontendControls）**——禁止原生 `alert/confirm/prompt`，强制用公共控件（Yoooni：`layer.confirm`/`layer.msg`/`winAlert`）。PreToolUse hook `check-frontend-controls.js` 写 `WebRoot/**.{jsp,js}` 时拦截。
-- **新增模块脚手架（scaffold）**——照最佳实践范本模块生成「新增模块/菜单」的纵向切片骨架。Yoooni 见 [profiles/yoooni/scaffold/new-module.md](profiles/yoooni/scaffold/new-module.md)（范本 `erp/allcost`）。
-- **URL→模块定位（url-locate）**——贴 URL / `*.action` 直达后端 Action 类 + 前端 jsp，靠预生成的 [profiles/yoooni/url-route-map.md](profiles/yoooni/url-route-map.md)（`hooks/generate-url-route-map.js` 解析 struts+spring，1000+ action）。skill `url-locate` 触发，规则见 coding-mode.md §7。
+## 快速导航
 
-## 为什么需要
+- [解决的问题](#解决的问题)
+- [能力架构](#能力架构)
+- [当前能力](#当前能力)
+- [Yoooni 画像亮点](#yoooni-画像亮点)
+- [安装与使用](#安装与使用)
+- [登记新项目](#登记新项目)
+- [维护与验证](#维护与验证)
 
-AI 编辑工具（Claude Code 的 Write/Edit、Codex、Cursor）默认以 **UTF-8（无 BOM）** 写盘。老项目大量源码是 GBK，一旦把含中文的内容写进 GBK 文件，磁盘字节变 UTF-8，被编译器/应用按 GBK 读时即乱码。这是 vibe coding 在这类项目里最常见的「改完中文全乱」根因。
+---
 
-> 纯 ASCII 内容无风险（UTF-8/GBK 字节一致）；守护只盯写入中文等非 ASCII 的情况。
+## 解决的问题
 
-## 三工具适配：一份规则，三种投递
+遗留项目的正确写法通常不是一套全局规则：编码可能是 GBK/UTF-8 混合，框架可能是 Struts2+iBATIS，公共组件、菜单接线和页面路由也各不相同。只靠模型记忆会导致乱码、重复造轮子、跨模块耦合和错误落点。
 
-| 工具 | 机械兜底（hook） | 规则指引 |
+本插件把这些差异收敛为可版本化的 `profile.json` 与配套文档，并在写盘前由 Hook 机械校验。
+
+| 负责 | 不负责 |
+|---|---|
+| 项目识别和编码真值 | 团队通用设计与编码规范 |
+| 项目特有的层次、命名和接线方式 | 业务字段和状态的真实语义 |
+| URL 到模块/Action/JSP 的定位 | 跨项目接口调用拓扑 |
+| 新模块纵向切片脚手架 | 工具链安装和自动更新 |
+
+---
+
+## 能力架构
+
+```mermaid
+flowchart LR
+    FILE["待修改文件或业务 URL"] --> DETECT["rootMarkers 识别项目"]
+    DETECT --> PROFILE["加载 profile.json 与配套文档"]
+    PROFILE --> SKILL["Skill 选择安全写法和代码落点"]
+    PROFILE --> DISPATCHER["写入守卫分发器"]
+    DISPATCHER --> ENCODING["编码守卫"]
+    DISPATCHER --> FRONTEND["前端公共控件守卫"]
+    DISPATCHER --> COUPLING["跨模块耦合守卫"]
+    SKILL --> EDIT["受控编辑"]
+    ENCODING --> EDIT
+    FRONTEND --> EDIT
+    COUPLING --> EDIT
+    EDIT --> COMMIT["可选 pre-commit 最后兜底"]
+```
+
+架构亮点：
+
+- **零侵入识别**：使用项目已有的唯一文件作为 `rootMarkers`，不要求修改业务仓库。
+- **画像即单一事实源**：编码真值、项目规则和脚手架都从 profile 读取，不在 Skill 里复制。
+- **Skill + Hook 双层保护**：Skill 处理语义和操作顺序，Hook 处理可以机械判断的写盘红线。
+- **多工具投递**：Claude Code/Codex 使用插件 Hook 与 Skill，Cursor 使用规则文件和 Git pre-commit 兜底。
+
+---
+
+## 当前能力
+
+| 能力 | 入口 | 说明 |
 |---|---|---|
-| **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js`（PreToolUse 自动） | `skills/encoding-guard/SKILL.md` |
-| **Codex** | `.codex-plugin/plugin.json` 引用同一份 hooks.json | `AGENTS.md` 入口 |
-| **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（见下） | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` |
+| 编码保护 | `encoding-guard` | 探测文件编码；GBK 文件按 UTF-8 编辑后转回原编码并复核 |
+| 项目写法 | `codingMode` | 声明层次、命名、技术栈、接线位置、公共能力和只读红线 |
+| 前端公共控件 | `frontendControls` | 阻止原生 `alert/confirm/prompt`，引导复用项目公共控件 |
+| 跨模块耦合 | `crossModuleCoupling` | 发现页面直接引用其他业务模块私有资源时提示风险 |
+| 模块脚手架 | `module-scaffold` | 按已确认范本生成后端、前端、配置和菜单纵向切片 |
+| URL 定位 | `url-locate` | 从 URL 或 `*.action` 直达后端 Action、Spring Bean 和 JSP |
 
-PreToolUse hook 是「能用时的写盘前加固」；Cursor 没有它，靠 skill / 规则的流程自洽守护。若要给 Cursor 补一道**确定性**防线，可装 git pre-commit 钩子——它由 git 执行、与编辑器无关，在**提交前**拦下乱码。
+三个 Skill 位于 [`plugins/project-coding-profiles/skills/`](plugins/project-coding-profiles/skills/)：
 
-## Cursor 的确定性兜底：git pre-commit
+- [`encoding-guard`](plugins/project-coding-profiles/skills/encoding-guard/SKILL.md)
+- [`module-scaffold`](plugins/project-coding-profiles/skills/module-scaffold/SKILL.md)
+- [`url-locate`](plugins/project-coding-profiles/skills/url-locate/SKILL.md)
 
-git 钩子只能放在**目标项目**的 `.git/hooks/`（git 唯一会执行的位置，且不进版本库）。本仓库提供检查脚本 [pre-commit-encoding.js](hooks/pre-commit-encoding.js) + 安装器 [install-git-hooks.ps1](hooks/install-git-hooks.ps1)，把一段调用本脚本的 shim 种进去：
+---
 
-```powershell
-# 在目标项目（如 Yoooni）上安装
-powershell -ExecutionPolicy Bypass -File hooks\install-git-hooks.ps1 -ProjectRoot "D:\path\to\yoooni" -Mode block
-```
+## Yoooni 画像亮点
 
-之后该项目里**任何编辑器**（含 Cursor）`git commit` 都会按 profile 核对暂存内容编码，发现「期望 GBK 却写成 UTF-8」等不符即拦下。
+当前首个完整画像是 Yoooni 纺织面料 ERP：Spring + Struts2 + DWR + iBATIS，JDK 1.8 / Resin4。
 
-- 与 PreToolUse 的区别：PreToolUse 在**写盘前**拦（文件从不被写坏）；pre-commit 在**提交前**拦（文件可能已落盘乱码，最后一道闸防止进入 git 历史）。
-- 旁路：`PCP_ENCODING_HOOK=warn` 只提示不拦 / `=off` 关闭 / 单次 `git commit --no-verify`。
+### 混合编码真值
 
-## 安装
+- `src/**` 默认 GBK，`WebRoot/**` 默认 UTF-8。
+- `src/**/model/maps/*.xml` 按 UTF-8 处理。
+- [`encoding-map.json`](plugins/project-coding-profiles/profiles/yoooni/encoding-map.json) 保存逐路径权威编码，优先级高于通用 glob 和启发式探测。
+- 只转换本次触及文件，禁止为了“统一”批量转码。
 
-### Claude Code
+### 遗留架构导航
 
-```
+- [`coding-mode.md`](plugins/project-coding-profiles/profiles/yoooni/coding-mode.md) 定义 Action、Manage、Dao、iBATIS、Spring、Struts 和页面接线方式。
+- [`common-capabilities.md`](plugins/project-coding-profiles/profiles/yoooni/common-capabilities.md) 要求优先复用公共能力。
+- [`url-route-map.md`](plugins/project-coding-profiles/profiles/yoooni/url-route-map.md) 由 Struts/Spring 配置生成，用于 URL 直达代码。
+- [`scaffold/new-module.md`](plugins/project-coding-profiles/profiles/yoooni/scaffold/new-module.md) 以成熟模块为范本生成完整纵向切片。
+
+---
+
+## 安装与使用
+
+推荐通过 `yoooni-daily-plugin` 一键安装整套工具。单独安装时，在 Claude Code 中执行：
+
+```text
 /plugin marketplace add https://gitee.com/wyoooni/project-coding-profiles.git
 /plugin install project-coding-profiles@project-coding-profiles
 /reload-plugins
 ```
 
-### Codex
+安装后，直接给出文件、模块需求或页面 URL 即可。例如：
 
-按 Codex 插件机制装入本仓库（读取 `.codex-plugin/plugin.json` + `AGENTS.md`）。
-
-### Cursor
-
-Cursor 无插件市场。两种接法：
-- 把 `.cursor/rules/encoding-guard.mdc` 复制到**目标项目**的 `.cursor/rules/`；或
-- 把 `AGENTS.md` 放到目标项目根（Cursor 会读）。
-- 编码探测/转码脚本 `skills/encoding-guard/detect-encoding.ps1` 可直接在终端调用。
-
-## 用法
-
-改一个疑似 GBK 项目里的文件时：
-
-```powershell
-# 1) 探测编码
-powershell -ExecutionPolicy Bypass -File skills/encoding-guard/detect-encoding.ps1 -Action detect -Path "src\Foo.java"
-
-# 2) 若是 gbk 且要写中文：转 UTF-8 → 编辑 → 转回 GBK
-powershell ... detect-encoding.ps1 -Action convert -Path "src\Foo.java" -From gbk -To utf-8
-#    （用 AI 工具正常编辑）
-powershell ... detect-encoding.ps1 -Action convert -Path "src\Foo.java" -From utf-8 -To gbk
-
-# 3) 复核
-powershell ... detect-encoding.ps1 -Action detect -Path "src\Foo.java"   # 应为 gbk
+```text
+这个项目有 GBK 文件，先探测编码再修改。
+按项目最佳实践新增一个成本模块。
+定位 /erp/example_list.action 对应的 Action 和 JSP。
 ```
 
-未触碰的行 GBK→UTF-8→GBK 往返字节不变，`git diff` 只剩真实改动。**切勿为统一而批量转码**（丢数据 + 污染 git）。
+在源码仓库中手工执行编码检查：
 
-## hook 开关
+```powershell
+$guard = "plugins/project-coding-profiles/skills/encoding-guard/detect-encoding.ps1"
 
-| 环境变量 | 效果 |
-|---|---|
-| `PCP_ENCODING_HOOK=block` | **默认**。硬阻断（exit 2），回灌提示给 AI；写盘前与提交前一致拦截 |
-| `PCP_ENCODING_HOOK=warn` | 只提示不阻断（exit 0 + stderr） |
-| `PCP_ENCODING_HOOK=off` | 完全关闭 |
+# 探测
+powershell -ExecutionPolicy Bypass -File $guard -Action detect -Path "D:\project\src\Foo.java"
 
-> **命中事件登记**：`check-file-encoding`（`rule: file-encoding`）/ `check-frontend-controls`（`rule: frontend-controls`）命中时，经 `hooks/event-log.js` best-effort 追加一行 `{ts,user,host,plugin,hook,rule,mode,tool,file}` 到 `~/.kai-toolbox/hook-events.jsonl`，供统计"规则命中频率 / 升不升 block"。**只写本地、绝不碰网络；登记失败不影响放行/拦截**。同步到 `\\IT01` 共享 + 周报统计在 `yoooni-daily-plugin`。详见 `docs/design/hook-event-logging.md`。
+# GBK 安全回环
+powershell -ExecutionPolicy Bypass -File $guard -Action convert -Path "D:\project\src\Foo.java" -From gbk -To utf-8
+# 编辑文件
+powershell -ExecutionPolicy Bypass -File $guard -Action convert -Path "D:\project\src\Foo.java" -From utf-8 -To gbk
+powershell -ExecutionPolicy Bypass -File $guard -Action detect -Path "D:\project\src\Foo.java"
+```
+
+Cursor 没有插件写盘前 Hook，可在目标项目安装 Git 兜底：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File plugins/project-coding-profiles/hooks/install-git-hooks.ps1 -ProjectRoot "D:\project" -Mode block
+```
+
+---
 
 ## 登记新项目
 
-在 `profiles/<name>/profile.json` 加一份画像：
+在 `plugins/project-coding-profiles/profiles/<project>/` 建立画像，最小结构如下：
 
-```jsonc
+```json
 {
-  "name": "<name>",
-  "displayName": "<可读名>",
-  "rootMarkers": ["该项目独有的相对路径文件，零侵入识别项目根"],
+  "name": "example",
+  "displayName": "Example System",
+  "rootMarkers": ["path/to/unique-marker"],
   "encoding": {
-    "default": "gbk",
+    "default": "utf-8",
     "rules": [
-      { "glob": "src/**", "encoding": "gbk" },
-      { "glob": "WebRoot/**", "encoding": "utf-8" }
-    ],
-    "exceptions": [{ "path": "src/特例/X.java", "encoding": "utf-8" }],
-    "notes": ["编码备注"]
+      { "glob": "legacy/**", "encoding": "gbk" },
+      { "glob": "web/**", "encoding": "utf-8" }
+    ]
+  },
+  "codingMode": {
+    "doc": "coding-mode.md",
+    "commonCapabilities": "common-capabilities.md"
   }
 }
 ```
 
-详见 [skills/encoding-guard/SKILL.md](skills/encoding-guard/SKILL.md)。
+登记原则：
 
-## 目录结构
+1. `rootMarkers` 必须足够唯一，避免在错误项目触发。
+2. 编码优先使用可审查的权威映射，启发式探测只作参考。
+3. 团队共性不要复制进 profile，应继续引用 `team-standards`。
+4. 脚手架必须来自项目中已经验证过的成熟范本。
+5. 路由映射应由配置或代码生成，避免人工维护大表。
 
-```
+---
+
+## 维护与验证
+
+```text
 project-coding-profiles/
-├── .claude-plugin/{plugin.json, marketplace.json}
-├── .codex-plugin/plugin.json
-├── .cursor/rules/encoding-guard.mdc
-├── hooks/{hooks.json, encoding-core.js, check-file-encoding.js, check-frontend-controls.js, event-log.js, pre-commit-encoding.js, install-git-hooks.ps1, package.json}
-├── profiles/yoooni/{profile.json, encoding-map.json, coding-mode.md, common-capabilities.md, url-route-map.md, scaffold/new-module.md}
-├── skills/encoding-guard/{SKILL.md, detect-encoding.ps1}
-├── docs/design/{encoding-guard-plugin.md, hook-event-logging.md}
-├── AGENTS.md / CLAUDE.md / README.md
+├── .agents/                                  # Codex marketplace
+├── .claude-plugin/                           # Claude marketplace
+├── plugins/project-coding-profiles/
+│   ├── .claude-plugin/                       # Claude 插件 manifest
+│   ├── .codex-plugin/                        # Codex 插件 manifest
+│   ├── profiles/                             # 每项目一份画像
+│   ├── skills/                               # encoding/scaffold/url-locate
+│   └── hooks/                                # 三条并发写入守卫与 Git 兜底
+├── docs/                                     # 设计与测试说明
+├── AGENTS.md / CLAUDE.md
+└── README.md
 ```
+
+```bash
+# Hook 测试
+cd plugins/project-coding-profiles/hooks && npm test
+```
+
+Hook 默认行为可分别通过 `PCP_ENCODING_HOOK`、`PCP_FRONTEND_HOOK`、`PCP_CROSSMODULE_HOOK` 调整；值为 `block`、`warn` 或 `off`。`PCP_HOOK_METRICS=on` 只记录本地匿名耗时，不记录 Prompt、文件内容或绝对路径。
+
+仅修改仓库 README 不需要重新安装插件；画像、Skill、Hook 或 manifest 变化后才需要递增版本并重新加载。
