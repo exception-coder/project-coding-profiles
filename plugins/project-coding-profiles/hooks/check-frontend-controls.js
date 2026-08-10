@@ -16,6 +16,7 @@
 const path = require('path');
 const { resolveProfile, toPosix } = require('./encoding-core');
 const { logHookEvent } = require('./event-log');
+const { normalizeChanges } = require('./change-input');
 
 const MODE = (process.env.PCP_FRONTEND_HOOK || 'warn').toLowerCase();
 if (MODE === 'off') process.exit(0);
@@ -33,41 +34,39 @@ process.stdin.on('end', () => {
   try { payload = JSON.parse(raw); } catch (e) { process.exit(0); }
 
   const tool = payload.tool_name;
-  if (tool !== 'Write' && tool !== 'Edit' && tool !== 'MultiEdit') process.exit(0);
+  const matches = [];
+  for (const change of normalizeChanges(payload)) {
+    const filePath = change.filePath;
+    if (change.operation === 'delete' || !FRONTEND_EXT.test(filePath) || !change.addedText) continue;
 
-  const input = payload.tool_input || {};
-  const filePath = input.file_path;
-  if (typeof filePath !== 'string' || !filePath || !FRONTEND_EXT.test(filePath)) process.exit(0);
+    const resolved = resolveProfile(path.dirname(path.resolve(filePath)));
+    if (!resolved) continue;
+    const fc = resolved.profile.frontendControls;
+    if (!fc || !fc.banNativeDialogs) continue;
 
-  const added = extractAddedText(tool, input);
-  if (!added) process.exit(0);
+    const rel = toPosix(path.relative(resolved.root, path.resolve(filePath)));
+    if (!/(^|\/)WebRoot\//.test(rel + '')) continue;
+    const hits = findNativeCalls(change.addedText);
+    if (hits.length > 0) matches.push({ filePath, rel, profile: resolved.profile, fc, hits: [...new Set(hits)] });
+  }
+  if (matches.length === 0) process.exit(0);
 
-  const resolved = resolveProfile(path.dirname(path.resolve(filePath)));
-  if (!resolved) process.exit(0);
-
-  const fc = resolved.profile.frontendControls;
-  if (!fc || !fc.banNativeDialogs) process.exit(0);
-
-  const rel = toPosix(path.relative(resolved.root, path.resolve(filePath)));
-  // 只管前端目录（默认 WebRoot/；没有 WebRoot 约定的项目此 hook 也不误伤后端同名文件）
-  if (!/(^|\/)WebRoot\//.test(rel + '')) process.exit(0);
-
-  const hits = findNativeCalls(added);
-  if (hits.length === 0) process.exit(0);
-
-  const repl = fc.replacements || {};
-  const lines = [
-    `[project-coding-profiles] 前端红线：禁用浏览器原生控件（项目：${resolved.profile.displayName || resolved.profile.name}）`,
-    `  文件：${rel}`,
-    `  本次新增用了原生：${[...new Set(hits)].map((h) => h + '()').join('、')}`,
-  ];
-  for (const h of [...new Set(hits)]) {
-    if (repl[h]) lines.push(`  改用：${h}() → ${repl[h]}`);
+  const lines = ['[project-coding-profiles] 前端红线：禁用浏览器原生控件'];
+  for (const match of matches) {
+    lines.push(`  项目：${match.profile.displayName || match.profile.name}`);
+    lines.push(`  文件：${match.rel}`);
+    lines.push(`  本次新增用了原生：${match.hits.map((hit) => hit + '()').join('、')}`);
+    const repl = match.fc.replacements || {};
+    for (const hit of match.hits) {
+      if (repl[hit]) lines.push(`  改用：${hit}() → ${repl[hit]}`);
+    }
   }
   lines.push('  规则与范例见 profiles/<project>/coding-mode.md §4.1（公共能力必须用公共控件）。');
   lines.push('  旁路：PCP_FRONTEND_HOOK=off 关闭 / =block 升级硬阻断。');
 
-  logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-frontend-controls', rule: 'frontend-controls', mode: MODE, tool, file: filePath });
+  for (const match of matches) {
+    logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-frontend-controls', rule: 'frontend-controls', mode: MODE, tool, file: match.filePath });
+  }
   process.stderr.write(lines.join('\n') + '\n');
   process.exit(MODE === 'block' ? 2 : 0);
 });
@@ -78,13 +77,4 @@ function findNativeCalls(text) {
   let m;
   while ((m = re.exec(text)) !== null) out.push(m[2]);
   return out;
-}
-
-function extractAddedText(tool, input) {
-  if (tool === 'Write') return typeof input.content === 'string' ? input.content : '';
-  if (tool === 'Edit') return typeof input.new_string === 'string' ? input.new_string : '';
-  if (tool === 'MultiEdit' && Array.isArray(input.edits)) {
-    return input.edits.map((e) => (e && typeof e.new_string === 'string' ? e.new_string : '')).join('\n');
-  }
-  return '';
 }

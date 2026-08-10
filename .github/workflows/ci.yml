@@ -1,0 +1,63 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  hooks-test:
+    name: hooks tests (${{ matrix.os }}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['18', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Check JavaScript syntax
+        shell: pwsh
+        working-directory: plugins/project-coding-profiles/hooks
+        run: |
+          Get-ChildItem -Filter *.js -File | ForEach-Object {
+            node --check $_.FullName
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+      - name: Run hook tests
+        working-directory: plugins/project-coding-profiles/hooks
+        run: npm test
+
+  hook-performance:
+    name: hook performance budget
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compare concurrent dispatcher with sequential guards
+        working-directory: plugins/project-coding-profiles/hooks
+        run: npm run test:performance
+
+  version-sync:
+    name: plugin manifest versions in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare Claude, Codex, and marketplace versions
+        shell: pwsh
+        run: |
+          $versions = @(
+            (Get-Content plugins/project-coding-profiles/.claude-plugin/plugin.json -Raw | ConvertFrom-Json).version,
+            (Get-Content plugins/project-coding-profiles/.codex-plugin/plugin.json -Raw | ConvertFrom-Json).version,
+            (Get-Content .claude-plugin/marketplace.json -Raw | ConvertFrom-Json).plugins[0].version
+          )
+          if (($versions | Select-Object -Unique).Count -ne 1) {
+            throw "version mismatch: $($versions -join ', ')"
+          }

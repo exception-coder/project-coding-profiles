@@ -35,6 +35,7 @@ const {
   resolveProfile, hasNonAscii, toPosix, safeExists, safeRead,
 } = require('./encoding-core');
 const { logHookEvent } = require('./event-log');
+const { normalizeChanges } = require('./change-input');
 
 const MODE = (process.env.PCP_ENCODING_HOOK || 'block').toLowerCase();
 if (MODE === 'off') process.exit(0);
@@ -47,37 +48,38 @@ process.stdin.on('end', () => {
   try { payload = JSON.parse(raw); } catch (e) { process.exit(0); }
 
   const tool = payload.tool_name;
-  if (tool !== 'Write' && tool !== 'Edit' && tool !== 'MultiEdit') process.exit(0);
+  const matches = [];
+  for (const change of normalizeChanges(payload)) {
+    const filePath = change.filePath;
+    if (change.operation === 'delete' || !TEXT_EXT.test(filePath)) continue;
+    if (!hasNonAscii(change.addedText)) continue; // 纯 ASCII：写 UTF-8 / GBK 字节相同，零风险
 
-  const input = payload.tool_input || {};
-  const filePath = input.file_path;
-  if (typeof filePath !== 'string' || !filePath) process.exit(0);
-  if (!TEXT_EXT.test(filePath)) process.exit(0);
+    // 只在已登记 profile 的项目内触发
+    const resolved = resolveProfile(path.dirname(path.resolve(filePath)));
+    if (!resolved) continue;
 
-  const added = extractAddedText(tool, input);
-  if (!hasNonAscii(added)) process.exit(0); // 纯 ASCII：写 UTF-8 / GBK 字节相同，零风险
+    const rel = toPosix(path.relative(resolved.root, path.resolve(filePath)));
+    const finding = assess(filePath, rel, resolved.profile);
+    if (finding) matches.push({ filePath, rel, profile: resolved.profile, finding });
+  }
+  if (matches.length === 0) process.exit(0);
 
-  // 只在已登记 profile 的项目内触发
-  const resolved = resolveProfile(path.dirname(path.resolve(filePath)));
-  if (!resolved) process.exit(0);
-
-  const rel = toPosix(path.relative(resolved.root, path.resolve(filePath)));
-  const finding = assess(filePath, rel, resolved.profile);
-  if (!finding) process.exit(0);
-
-  const lines = [
-    `[project-coding-profiles] 编码风险（项目：${resolved.profile.displayName || resolved.profile.name}）`,
-    `  文件：${rel}`,
-    `  ${finding.msg}`,
-  ];
-  if (finding.detail) lines.push(`  ${finding.detail}`);
+  const lines = ['[project-coding-profiles] 检测到文件编码风险：'];
+  for (const match of matches) {
+    lines.push(`  项目：${match.profile.displayName || match.profile.name}`);
+    lines.push(`  文件：${match.rel}`);
+    lines.push(`  ${match.finding.msg}`);
+    if (match.finding.detail) lines.push(`  ${match.finding.detail}`);
+  }
   lines.push('  处置：');
   lines.push('    1) 用 skills/encoding-guard 的 detect-encoding.ps1 先探测，再以正确编码写入；');
   lines.push('    2) GBK 文件推荐「转 UTF-8 → 编辑 → 转回 GBK」回环，未改的行字节会原样还原，git diff 只剩真实改动；');
   lines.push('    3) 切勿为统一而批量转码（丢数据 + 污染 git）。详见 encoding-guard SKILL。');
   lines.push('  旁路：PCP_ENCODING_HOOK=warn 只提示不拦 / =off 完全关闭（默认 block 硬阻断）。');
 
-  logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-file-encoding', rule: 'file-encoding', mode: MODE, tool, file: filePath });
+  for (const match of matches) {
+    logHookEvent({ plugin: 'project-coding-profiles', hook: 'check-file-encoding', rule: 'file-encoding', mode: MODE, tool, file: match.filePath });
+  }
   process.stderr.write(lines.join('\n') + '\n');
   process.exit(MODE === 'block' ? 2 : 0);
 });
@@ -124,15 +126,4 @@ function assess(absLikePath, rel, profile) {
     };
   }
   return null;
-}
-
-// ---- 工具（PreToolUse 专属：从工具入参里取本次新增文本） ------
-
-function extractAddedText(tool, input) {
-  if (tool === 'Write') return typeof input.content === 'string' ? input.content : '';
-  if (tool === 'Edit') return typeof input.new_string === 'string' ? input.new_string : '';
-  if (tool === 'MultiEdit' && Array.isArray(input.edits)) {
-    return input.edits.map((e) => (e && typeof e.new_string === 'string' ? e.new_string : '')).join('\n');
-  }
-  return '';
 }

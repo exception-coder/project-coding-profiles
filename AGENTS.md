@@ -26,7 +26,7 @@
 | 工具 | 机械兜底 | 规则指引 |
 |---|---|---|
 | Claude Code | `hooks/hooks.json` PreToolUse 自动跑 `check-file-encoding.js` | `skills/encoding-guard/SKILL.md` |
-| **Codex** | `.codex-plugin/plugin.json` 引用同一份 hooks.json | 本文件 + SKILL.md |
+| **Codex** | 自动发现标准位置 `hooks/hooks.json` | 本文件 + SKILL.md |
 | **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（见下） | 本文件 + `.cursor/rules/encoding-guard.mdc` |
 
 > **Cursor 没有 PreToolUse hook，运行时完全靠你按规则自觉守护编码。** 即使没有 hook，也要按下面的流程手动做。

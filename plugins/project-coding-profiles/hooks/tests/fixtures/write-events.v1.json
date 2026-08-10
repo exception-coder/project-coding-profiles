@@ -1,0 +1,91 @@
+{
+  "contractVersion": 1,
+  "cases": [
+    {
+      "name": "claude-write-add",
+      "payload": {
+        "tool_name": "Write",
+        "cwd": "${CWD}",
+        "tool_input": {
+          "file_path": "src/New.java",
+          "content": "class New {}"
+        }
+      },
+      "expected": [
+        {
+          "operation": "add",
+          "filePath": "${CWD}/src/New.java",
+          "addedText": "class New {}",
+          "removedText": ""
+        }
+      ]
+    },
+    {
+      "name": "claude-multi-edit",
+      "payload": {
+        "tool_name": "MultiEdit",
+        "cwd": "${CWD}",
+        "tool_input": {
+          "file_path": "src/Existing.java",
+          "edits": [
+            { "old_string": "oldA", "new_string": "newA" },
+            { "old_string": "oldB", "new_string": "newB" }
+          ]
+        }
+      },
+      "expected": [
+        {
+          "operation": "update",
+          "filePath": "${CWD}/src/Existing.java",
+          "addedText": "newA\nnewB",
+          "removedText": "oldA\noldB"
+        }
+      ]
+    },
+    {
+      "name": "codex-all-operations",
+      "payload": {
+        "tool_name": "apply_patch",
+        "cwd": "${CWD}",
+        "tool_input": {
+          "command": "*** Begin Patch\n*** Add File: src/Added.java\n+class Added {}\n*** Update File: src/Existing.java\n@@\n-old\n+new\n*** Delete File: src/Removed.java\n-class Removed {}\n*** Update File: src/Old.java\n*** Move to: src/New.java\n@@\n-class Old {}\n+class New {}\n*** End Patch"
+        }
+      },
+      "expected": [
+        {
+          "operation": "add",
+          "filePath": "${CWD}/src/Added.java",
+          "addedText": "class Added {}",
+          "removedText": ""
+        },
+        {
+          "operation": "update",
+          "filePath": "${CWD}/src/Existing.java",
+          "addedText": "new",
+          "removedText": "old"
+        },
+        {
+          "operation": "delete",
+          "filePath": "${CWD}/src/Removed.java",
+          "addedText": "",
+          "removedText": "class Removed {}"
+        },
+        {
+          "operation": "move",
+          "filePath": "${CWD}/src/New.java",
+          "previousFilePath": "${CWD}/src/Old.java",
+          "addedText": "class New {}",
+          "removedText": "class Old {}"
+        }
+      ]
+    },
+    {
+      "name": "malformed-payload",
+      "payload": {
+        "tool_name": "apply_patch",
+        "tool_input": { "command": 42 }
+      },
+      "expected": []
+    }
+  ]
+}

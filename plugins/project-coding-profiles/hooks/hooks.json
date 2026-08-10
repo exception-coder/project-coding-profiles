@@ -7,17 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/check-file-encoding.js\"",
-            "async": false
-          },
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/check-frontend-controls.js\"",
-            "async": false
-          },
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/check-cross-module-coupling.js\"",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/write-guard-dispatcher.js\"",
             "async": false
           }
         ]

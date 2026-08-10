@@ -23,7 +23,7 @@
 | 工具 | 机械兜底（hook） | 规则指引 | 安装/生效方式 |
 |---|---|---|---|
 | **Claude Code** | `hooks/hooks.json` → `check-file-encoding.js` + `check-frontend-controls.js`（PreToolUse 自动） | `skills/*/SKILL.md` | `/plugin install` |
-| **Codex** | `.codex-plugin/plugin.json` 的 `hooks` 指针引用同一份 hooks.json | `AGENTS.md` 入口 | Codex 插件机制 |
+| **Codex** | 自动发现标准位置 `hooks/hooks.json` | `AGENTS.md` 入口 | Codex 插件机制 |
 | **Cursor** | ❌ 无 PreToolUse hook；可选 **git pre-commit**（`install-git-hooks.ps1` 装入目标项目 `.git/hooks/`） | `AGENTS.md` / `.cursor/rules/encoding-guard.mdc` | 把规则放进目标项目的 `.cursor/rules/`，或项目根放 `AGENTS.md`；确定性兜底另跑安装器 |
 
 > 关键：PreToolUse hook 只是「能用时的写盘前加固」。Cursor 没有它，所以 **skill / 规则的指引必须自洽**，能在没有 hook 的前提下独立守护编码——改 skill 内容时务必保持这一点。
@@ -35,7 +35,7 @@
 ```
 project-coding-profiles/
 ├── .claude-plugin/{plugin.json, marketplace.json}   # Claude Code 清单
-├── .codex-plugin/plugin.json                         # Codex 清单（skills/hooks 指针 + interface）
+├── .codex-plugin/plugin.json                         # Codex 清单（skills + interface；hooks 使用标准目录自动发现）
 ├── .cursor/rules/encoding-guard.mdc                  # Cursor 原生规则
 ├── hooks/
 │   ├── hooks.json                                    # PreToolUse 注册（Claude + Codex 共用）
