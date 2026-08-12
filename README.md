@@ -196,3 +196,5 @@ cd plugins/project-coding-profiles/hooks && npm test
 Hook 默认行为可分别通过 `PCP_ENCODING_HOOK`、`PCP_FRONTEND_HOOK`、`PCP_CROSSMODULE_HOOK` 调整；值为 `block`、`warn` 或 `off`。`PCP_HOOK_METRICS=on` 只记录本地匿名耗时，不记录 Prompt、文件内容或绝对路径。
 
 仅修改仓库 README 不需要重新安装插件；画像、Skill、Hook 或 manifest 变化后才需要递增版本并重新加载。
+
+CI 不只检查三处 manifest 相等，还会与 Git 基线比较：`profiles/`、Skill、运行时 Hook、命令或 MCP 载荷变化而版本未递增时直接阻断；测试、benchmark、README、docs 和纯发布脚本不触发发版。
