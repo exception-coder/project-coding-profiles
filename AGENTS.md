@@ -8,7 +8,7 @@
 
 ## 这是什么
 
-为**单个项目**承载专属编码约定的插件，按项目触发。与团队通用标准 `team-standards` 分工：通用规范在 team-standards，**项目专属编码约定在本插件**。当前能力：编码守护（首例 Yoooni，src=GBK / WebRoot=UTF-8 混合编码）。
+为**单个项目**承载专属编码约定的插件，按项目触发。与团队通用标准 `team-standards` 分工：通用规范在 team-standards，**项目专属编码约定在本插件**。当前能力包括编码守护、按项目范式生成模块脚手架，以及根据 URL 快速定位前后端代码；首个画像是 Yoooni（src=GBK / WebRoot=UTF-8 混合编码）。
 
 ## Skill 主动触发规范
 

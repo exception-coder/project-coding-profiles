@@ -17,8 +17,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Project Coding Profiles",
-    "shortDescription": "Per-project encoding & coding conventions, enforced by skill + hook.",
-    "longDescription": "Carries a coding profile per project. The first capability is an encoding guard: it stops AI editors from corrupting legacy GBK files by re-saving them as UTF-8. Works across Claude Code, Codex (PreToolUse hook) and Cursor (rule guidance).",
+    "shortDescription": "Per-project encoding, code location, and module scaffolding conventions.",
+    "longDescription": "Carries coding profiles scoped to individual projects. It protects legacy file encodings, locates frontend and backend code from URLs, and scaffolds new modules from project-specific reference slices. Works across Claude Code, Codex and Cursor, with hooks providing deterministic encoding and frontend-control guards where supported.",
     "developerName": "Zhang Kai",
     "category": "Productivity",
     "capabilities": [
@@ -28,7 +28,8 @@
     "defaultPrompt": [
       "这个项目用的是 GBK，帮我改这个文件但别把中文写坏。",
       "探测一下这个文件的编码再改。",
-      "给一个新项目登记编码画像。"
+      "定位这个 URL 对应的 Action 和 JSP。",
+      "按当前项目范式新增一个 CRUD 模块。"
     ],
     "brandColor": "#0EA5E9"
   }
